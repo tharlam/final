@@ -1,6 +1,8 @@
 ---
 // This is the main layout for the entire website
+// 1. IMPORT ADDED FOR SMOOTH NAVIGATION
 import { ViewTransitions } from "astro:transitions";
+
 import Header from "../components/nav.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
@@ -23,9 +25,8 @@ const { title } = Astro.props;
 
         <ViewTransitions />
 
-        <link rel="stylesheet" href="/astro-school-site/fa/css/all.min.css" />
+        <link rel="stylesheet" href="/fa/css/all.min.css" />
     </head>
-
 
     <body>
         <Header />
