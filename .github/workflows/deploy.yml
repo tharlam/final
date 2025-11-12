@@ -1,0 +1,37 @@
+# .github/workflows/deploy.yml
+name: Deploy Astro to GitHub Pages
+
+on:
+  # This triggers the workflow when you push code to the 'main' branch
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # 1. The Build Job: Builds the site using the correct Astro Action.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # This step installs dependencies, runs 'npm run build', and saves the output.
+      - name: Install, build, and upload site
+        uses: withastro/action@v2
+        
+  # 2. The Deploy Job: Publishes the built files to GitHub Pages.
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
