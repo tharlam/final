@@ -1,0 +1,430 @@
+<section id="testo" class="testimonials-section">
+  <div class="testimonials-header" data-aos="fade-up">
+    <h2 class="testimonials-title" data-i18n="testimonials_section_title">
+      Testimonials
+    </h2>
+    <p class="testimonials-subtitle" data-i18n="testimonials_section_subtitle">
+      Hear directly from our students and faculty.
+    </p>
+  </div>
+  <div class="testimonials-container">
+    <div class="testimonial-card" data-aos="fade-left" data-aos-delay="100">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <p class="testimonial-text" data-i18n="testimonial_lobsang_text">
+        “Before joining Tharlam Academy, I could not read. Now I can recite
+        prayers, study texts, and help others.”
+      </p>
+      <div class="testimonial-author">
+        <img
+          src="house.png"
+          alt="Photo of Lobsang Nyima, student"
+          data-i18n-alt="testimonial_lobsang_alt"
+        />
+        <div class="author-info">
+          <p class="author-name" data-i18n="testimonial_lobsang_name">
+            Lobsang Nyima
+          </p>
+          <p class="author-role" data-i18n="testimonial_lobsang_role">
+            Age 12 (Class 4)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <p class="testimonial-text" data-i18n="testimonial_pema_text">
+        "Hello! My name is Chokey Wangpo. I feel very happy to study at Tharlam
+        Academy. The teachers are kind, and I have many good friends here. I
+        love learning about the Buddha’s teachings and also enjoy reading
+        English books. We play, we learn, and we help each other like a big
+        family. Tharlam Academy is my second home!"
+      </p>
+      <div class="testimonial-author">
+        <img
+          src="house.png"
+          alt="Photo of Pema Sherap, student"
+          data-i18n-alt="testimonial_pema_alt"
+        />
+        <div class="author-info">
+          <p class="author-name" data-i18n="testimonial_pema_name">
+            Chokey Wangpo
+          </p>
+          <p class="author-role" data-i18n="testimonial_pema_role">
+            Age 14 (Class 6)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <p class="testimonial-text" data-i18n="testimonial_dhundup_text">
+        "Hi! I’m Dhundup Lama. I came to Tharlam Academy when I was small. Since
+        then, I’ve learned many things — from meditation to math. The classes
+        are fun, and our teachers guide us with love. I feel proud to be part of
+        this academy. One day, I want to help others just like I’ve been helped
+        here."
+      </p>
+      <div class="testimonial-author">
+        <img
+          src="house.png"
+          alt="Photo of Dhundup, student"
+          data-i18n-alt="testimonial_dhundup_alt"
+        />
+        <div class="author-info">
+          <p class="author-name" data-i18n="testimonial_dhundup_name">
+            Dhundup
+          </p>
+          <p class="author-role" data-i18n="testimonial_dhundup_role">
+            Age 12 (Class 4)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card" data-aos="fade-left" data-aos-delay="400">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <p class="testimonial-text" data-i18n="testimonial_gyen_text">
+        “We’re grateful to all the sponsors who help us learn not only facts but
+        how to be good human beings.”
+      </p>
+      <div class="testimonial-author">
+        <img
+          src="house.png"
+          alt="Photo of Gyen Lekshay, Senior Teacher"
+          data-i18n-alt="testimonial_gyen_alt"
+        />
+        <div class="author-info">
+          <p class="author-name" data-i18n="testimonial_gyen_name">
+            Gyen Lekshay
+          </p>
+          <p class="author-role" data-i18n="testimonial_gyen_role">
+            Senior Teacher
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /*testonomial section*/
+  /* --- Testimonials Section --- */
+  .testimonials-section {
+    padding: 20px 20px;
+    /* Ample padding */
+    background-color: white;
+    /* Light white background */
+    color: #333;
+    /* Default text color */
+    overflow: hidden;
+    text-align: center;
+    /* Center aligns the header */
+  }
+
+  .testimonials-header {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    /* Centered with bottom margin */
+    padding: 0 20px;
+  }
+
+  .testimonials-title {
+    font-size: 2rem;
+    color: #001f3f;
+    /* Dark blue from your theme */
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .testimonials-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #001f3f;
+    /* Yellow accent */
+    border-radius: 2px;
+  }
+
+  .testimonials-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 15px;
+  }
+
+  .testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows cards to wrap */
+    justify-content: center;
+    /* Centers cards in the container */
+    gap: 30px;
+    /* Space between cards */
+  }
+
+  .testimonial-card {
+    background-color: #ffffff;
+    /* White background for each card */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    text-align: left;
+    /* Text content is left-aligned within the card */
+    flex: 1 1 calc(33.333% - 0px);
+    /* Three columns on large screens */
+    min-width: 280px;
+    /* Minimum width before stacking */
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically within the card */
+    justify-content: space-between;
+    /* Pushes author to bottom if text is short */
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    /* More pronounced shadow */
+  }
+
+  .quote-icon {
+    font-size: 2.5rem;
+    color: #001f3f;
+    /* Primary blue for the quote icon */
+    margin-bottom: 15px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+    /* Space before author info */
+    flex-grow: 1;
+    /* Allows text to take up available space */
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    /* Pushes author to the bottom of the card */
+  }
+
+  .testimonial-author img {
+    width: 60px;
+    /* Size of author image */
+    height: 60px;
+    border-radius: 50%;
+    /* Circular image */
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ffc107;
+    /* Yellow border for author image */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .author-info {
+    text-align: left;
+  }
+
+  .author-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #001f3f;
+    /* Dark blue for author name */
+    margin: 0;
+  }
+
+  .author-role {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0;
+  }
+
+  /* --- Responsive Adjustments for Testimonials Section --- */
+
+  /* Tablets and smaller desktops (max-width: 992px) */
+  @media (max-width: 992px) {
+    .testimonials-section {
+      padding: 60px 15px;
+    }
+
+    .testimonials-title {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+    }
+
+    .testimonials-title::after {
+      width: 70px;
+      height: 3px;
+    }
+
+    .testimonials-subtitle {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .testimonials-container {
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      flex: 1 1 calc(50% - 25px);
+      /* Two columns on tablets */
+      padding: 25px;
+      min-width: 250px;
+    }
+
+    .quote-icon {
+      font-size: 2rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      margin-right: 12px;
+    }
+
+    .author-name {
+      font-size: 1rem;
+    }
+
+    .author-role {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Mobile devices (max-width: 768px) */
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 50px 10px;
+    }
+
+    .testimonials-header {
+      margin-bottom: 40px;
+    }
+
+    .testimonials-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+    }
+
+    .testimonials-title::after {
+      width: 60px;
+      height: 2px;
+    }
+
+    .testimonials-subtitle {
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    .testimonials-container {
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      flex: 1 1 100%;
+      /* Single column on mobile */
+      max-width: 400px;
+      /* Max width for single card */
+      margin: 0 auto;
+      /* Center individual cards */
+      padding: 20px;
+    }
+
+    .quote-icon {
+      font-size: 1.8rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author img {
+      width: 45px;
+      height: 45px;
+      margin-right: 10px;
+    }
+
+    .author-name {
+      font-size: 0.9rem;
+    }
+
+    .author-role {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Very small mobile devices (max-width: 480px) */
+  @media (max-width: 480px) {
+    .testimonials-section {
+      padding: 30px 10px;
+    }
+
+    .testimonials-header {
+      margin-bottom: 30px;
+    }
+
+    .testimonials-title {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+    }
+
+    .testimonials-container {
+      gap: 15px;
+    }
+
+    .testimonial-card {
+      padding: 15px;
+    }
+
+    .quote-icon {
+      font-size: 1.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-author img {
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+    }
+
+    .author-name {
+      font-size: 0.85rem;
+    }
+
+    .author-role {
+      font-size: 0.7rem;
+    }
+  }
+</style>

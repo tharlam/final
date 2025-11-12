@@ -1,0 +1,140 @@
+---
+// src/components/WhatWeDo.astro
+---
+
+<section class="what-we-do-section">
+    <div class="container">
+        <div class="what-we-do-grid">
+            <div class="what-we-do-image" data-aos="fade-right">
+                <img src="house.png" alt="Students engaged in learning activities" class="responsive-image"
+                    data-i18n-alt="what_we_do_image_alt">
+            </div>
+            <div class="what-we-do-text" data-aos="fade-left">
+                <h3 class="section-sub-heading" data-i18n="what_we_do_heading">What We Do</h3>
+                <p data-i18n="what_we_do_paragraph_1">Tharlam Academy provides a comprehensive educational
+                    experience encompassing both traditional
+                    Buddhist studies and a modern academic curriculum. Our programs are designed to foster
+                    intellectual growth, ethical development, and practical skills.</p>
+                <p data-i18n="what_we_do_paragraph_2">We offer a rich environment for learning that encourages
+                    critical thinking, creativity, and a
+                    deep understanding of diverse subjects, preparing students for future challenges and
+                    opportunities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Ensure .container is defined globally or locally */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px; 
+    }
+
+    /* ============================================== */
+    /* 1. WHAT WE DO SECTION STYLES (Mobile First) */
+    /* ============================================== */
+
+    .what-we-do-section {
+        padding: 60px 0;
+        background-color: #f8f8f8; /* Light background to differentiate from Who We Are */
+    }
+
+    /* --- Grid Layout (Mobile First: Stacked) --- */
+    .what-we-do-grid {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 30px;
+        align-items: center; 
+        justify-content: center;
+    }
+
+    /* --- Image Container --- */
+    .what-we-do-image {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        order: 1; /* Image appears first on mobile */
+    }
+
+    .what-we-do-image .responsive-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+    }
+
+    /* --- Text Container --- */
+    .what-we-do-text {
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+        order: 2; /* Text appears second on mobile */
+    }
+
+    .section-sub-heading {
+        color: #00152a; /* Primary Blue */
+        font-size: 1em; /* Mobile size */
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .what-we-do-text p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    /* ============================================== */
+    /* 2. DESKTOP/LARGE SCREEN (Min-width: 992px) */
+    /* ============================================== */
+    @media (min-width: 992px) {
+        .what-we-do-section {
+            padding: 80px 0;
+        }
+        
+        /* Desktop Layout: Side-by-Side Flex */
+        .what-we-do-grid {
+            flex-direction: row;
+            gap: 60px;
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .what-we-do-image {
+            flex: 1; 
+            max-width: 50%; 
+            order: 1; /* Image on the left */
+        }
+
+        .what-we-do-text {
+            flex: 1; 
+            max-width: 50%;
+            order: 2; /* Text on the right */
+        }
+        
+        .section-sub-heading {
+            font-size: 1.2em; /* Desktop size */
+        }
+        
+        .what-we-do-text p {
+            font-size: 16px;
+        }
+    }
+    
+    /* ============================================== */
+    /* 3. TABLET ADJUSTMENTS (Min-width: 768px) */
+    /* ============================================== */
+    @media (min-width: 768px) and (max-width: 991px) {
+        .what-we-do-section {
+            padding: 70px 0;
+        }
+    }
+    
+    /* --- NOTE: This component does not require its own JavaScript. --- */
+</style>

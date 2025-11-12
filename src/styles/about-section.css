@@ -1,0 +1,152 @@
+/*about section*/
+/* --- General Container for Centering Content --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- About Us Section Styles --- */
+.about-us-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #001f3f; /* Changed from #333 to #001f3f */
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title .highlight-blue {
+    color: #001f3f; /* This already was #001f3f, no change needed here */
+}
+
+.about-content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-text p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.about-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* --- Call to Action Button Styles (MODIFIED) --- */
+.about-cta {
+    margin-top: 0px; /* Space above the button */
+    text-align: left; /* Aligns content inside about-cta to the left */
+    /* Remove any data-aos attributes from the HTML element for this */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Remove any AOS-related styles if they were applied directly here */
+}
+
+.primary-btn {
+    background-color: #001f3f; /* Changed from #007bff to #001f3f */
+    color: white;              /* Remains white */
+    border: 2px solid #001f3f; /* Changed from #007bff to #001f3f */
+}
+
+.primary-btn:hover {
+    background-color: black;   /* Changed from #0056b3 to black */
+    border-color: black;       /* Changed from #0056b3 to black */
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 32px;
+    }
+    .about-content-grid {
+        gap: 30px;
+    }
+    .about-text, .about-image {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-section {
+        padding: 30px 0;
+    }
+    .about-content-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-text {
+        order: 2;
+    }
+    .about-image {
+        order: 1;
+        margin-bottom: 20px;
+    }
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .about-text p {
+        font-size: 16px;
+    }
+    .btn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    .about-cta {
+        text-align: left; /* On smaller screens, centering might look better for the button */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+    .about-text p {
+        font-size: 15px;
+    }
+}

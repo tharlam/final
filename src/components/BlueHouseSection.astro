@@ -1,0 +1,169 @@
+---
+// src/components/BlueHouseSection.astro
+// Defines the section for Blue House (Ghaden House) details.
+---
+
+<section class="house-section blue-house-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="house-heading" data-i18n="blue_house_heading">Blue House (Ghaden House): Calm & Collaboration</h2>
+        
+        <div class="house-content-grid">
+            
+            <div class="house-text" data-aos="fade-right">
+                <p data-i18n="blue_house_paragraph_1">The **Blue House**, also known as **Ghaden House**, represents calm composure, strategic
+                    thinking, and unparalleled collaboration. Students in Blue House excel in team sports where
+                    communication and tactical play are key. Their ability to work seamlessly together makes
+                    them formidable opponents and supportive teammates.</p>
+                <p data-i18n="blue_house_paragraph_2">Blue House emphasizes mutual respect, understanding, and the power of collective effort. They
+                    teach that true strength lies in unity and the ability to adapt as a cohesive unit,
+                    fostering a deep sense of camaraderie among its members.</p>
+                <div class="house-motto">
+                    <strong>Motto:</strong> "Calm, Strategy, Unity."
+                </div>
+            </div>
+            
+            <div class="house-image" data-aos="fade-left">
+                <img src="/astro-school-site/house.png"
+                    alt="Blue House students demonstrating teamwork and Ghaden House spirit"
+                    class="responsive-image" data-i18n-alt="blue_house_image_alt" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- Component-Specific Styles (Color and Layout Order) --- */
+
+.blue-house-section {
+    background-color: #f0f8ff; /* Light background for blue theme */
+    padding: 80px 0;
+}
+
+/* Desktop default: Text on left, Image on right */
+.blue-house-section .house-content-grid {
+    flex-direction: row; 
+}
+
+.house-motto {
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--color-dark-blue, #001f3f); 
+    margin-top: 25px;
+}
+
+/* --- Essential Structural/General House CSS (Desktop/Base) --- */
+
+.house-heading {
+    text-align: center;
+    font-size: clamp(34px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--color-dark-blue, #2c3e50);
+    margin-bottom: 50px;
+}
+
+.house-content-grid {
+    display: flex; 
+    flex-wrap: wrap; /* Added for responsiveness */
+    gap: 70px; 
+    align-items: center; /* Changed from flex-start to center for better look */
+    justify-content: center;
+}
+
+.house-text {
+    flex: 1 1 450px; /* Set flex basis */
+    min-width: 300px; 
+    max-width: 650px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.house-image {
+    flex: 1 1 350px; /* Set flex basis */
+    min-width: 300px; 
+    max-width: 550px;
+    text-align: center;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 1. Tablet/Small Laptop Adjustments (Max 992px) --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 992px) {
+    .house-section {
+        padding: 70px 20px;
+    }
+    
+    .house-content-grid {
+        gap: 40px;
+    }
+    
+    .house-heading {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .house-text, .house-image {
+        min-width: unset; 
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 2. Mobile Landscape/Tablet Portrait (Max 768px) --- */
+/* --- CRITICAL: Stacks the content vertically --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    .house-section {
+        padding: 50px 20px; 
+    }
+    
+    /* Force columns to stack. Since desktop is 'row' (Text first), mobile is 'column' (Text first). */
+    .house-content-grid {
+        flex-direction: column; 
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .house-heading {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Set elements to full width, centering content */
+    .house-text, .house-image {
+        width: 100%;
+        max-width: 500px; 
+        text-align: center;
+    }
+
+    .house-text {
+        text-align: left; /* Keep text aligned left for readability */
+    }
+    
+    .house-text p {
+        font-size: 1rem;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 3. Small Mobile Phones (Max 480px) --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 480px) {
+    .house-section {
+        padding: 30px 15px;
+    }
+    .house-heading {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    .house-text p {
+        font-size: 0.95rem;
+    }
+}
+</style>

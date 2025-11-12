@@ -1,0 +1,144 @@
+---
+// src/components/SponsorMissionRefined.astro
+// Defines the introductory text and CTA for the Support page using a clean, refined classic layout.
+---
+
+<section id="support-mission" class="support-section">
+    <div class="container">
+        <div class="support-flex-container">
+            <div
+                class="support-text-column"
+                data-aos="fade-right"
+                data-aos-delay="100"
+            >
+                <p class="support-description" data-i18n="support_paragraph_1">
+                    At Tharlam Academy, we are deeply committed to fostering
+                    academic excellence, spiritual growth, and community values.
+                    However, maintaining our facilities, providing scholarships,
+                    and offering enriching programs requires significant
+                    resources. Your financial support, no matter the size,
+                    directly impacts the lives of our students and helps us
+                    continue our vital work.
+                </p>
+                <p class="support-description" data-i18n="support_paragraph_2">
+                    We believe in transparency and accountability. Every
+                    donation is utilized efficiently to directly benefit our
+                    students and enhance their learning experience. Your
+                    partnership is invaluable in sustaining our mission.
+                </p>
+            </div>
+
+            <div
+                class="support-cta-column"
+                data-aos="fade-left"
+                data-aos-delay="200"
+            >
+                <p class="cta-heading" data-i18n="support_cta_heading">Ready to Partner?</p>
+                <p class="support-cta-text" data-i18n="support_cta_text">
+                    If you wish to learn more about how you can contribute,
+                    discuss specific donation opportunities, or have any
+                    questions, please do not hesitate to reach out to us.
+                </p>
+                <a 
+                    href="/contact" 
+                    class="btn-support-contact"
+                    data-i18n="support_cta_button"
+                >
+                    Contact for Partnership
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- General/Shared Styles --- */
+    .container {
+        max-width: 1200px; /* Keep the site-wide max width */
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .highlight-green {
+        color: var(--color-primary-green, #28a745);
+    }
+
+    /* --- Section 1: REFINED CLASSIC Styles --- */
+    .support-section {
+        padding: 60px 0;
+        background-color: #ffffff;
+    }
+    .support-flex-container {
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+        /* CHANGE: Removed max-width: 1000px to allow it to fill the 1200px .container */
+        margin: 0 auto;
+    }
+
+    /* --- Left Column: Main Text Styling (Clean and simple) --- */
+    .support-text-column {
+        flex: 2;
+        padding: 0 15px;
+        border-right: 1px solid #e0e0e0;
+    }
+    .support-description {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* --- Right Column: Refined CTA Box Styling --- */
+    .support-cta-column {
+        flex: 1;
+        padding: 30px;
+        border-radius: 8px;
+        background-color: #f7f9fb;
+        border: 1px solid #e0e0e0;
+        border-top: 5px solid var(--color-primary-green, #28a745);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .cta-heading {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: var(--color-dark-blue, #001f3f);
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    .support-cta-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: #555;
+    }
+    .btn-support-contact {
+        display: inline-block;
+        background-color: var(--color-dark-blue, #001f3f);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+    .btn-support-contact:hover {
+        background-color: var(--color-primary-green, #28a745);
+    }
+
+    /* --- Media Queries (Responsiveness) --- */
+    @media (max-width: 992px) {
+        .support-flex-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+        .support-text-column {
+            padding: 0;
+            border-right: none;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 30px;
+        }
+    }
+</style>

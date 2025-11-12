@@ -1,0 +1,670 @@
+---
+// src/components/nav.astro
+// Frontmatter is intentionally empty. The language script is managed by BaseLayout.astro.
+---
+
+<header class="main-header">
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="contact-info">
+        <span>
+          <a href="tel:+9772345264573" class="phone-link" aria-label="Call us">
+            <i class="fas fa-phone-alt"></i> 2345264573
+          </a>
+        </span>
+
+        <span>
+          <a
+            href="https://wa.me/9773456437456746"
+            target="_blank"
+            class="whatsapp-link"
+            aria-label="Contact us on WhatsApp"
+          >
+            <i class="fab fa-whatsapp"></i> 3456437456746
+          </a>
+        </span>
+
+        <span>
+          <a
+            href="mailto:tharlamfamily@gmail.com"
+            class="email-link"
+            aria-label="Email us"
+          >
+            <i class="fas fa-envelope"></i> tharlamfamily@gmail.com
+          </a>
+        </span>
+      </div>
+
+      <div class="top-bar-tools">
+        <div class="language-selector-wrapper desktop-only">
+          <select
+            class="language-select"
+            id="lang-desktop"
+            aria-label="Select Language"
+          >
+            <option value="en" selected>English</option>
+            <option value="ne">नेपाली</option>
+          </select>
+          <span class="custom-select-arrow"
+            ><i class="fas fa-chevron-down"></i></span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="brand">
+      <a
+        href="/"
+        class="header-logo-link"
+        data-i18n-alt="brand_link_aria"
+        aria-label="Tharlam Academy Home"
+      >
+        <img
+          src="loading-logo.png"
+          alt="Tharlam Academy Logo"
+          class="logo"
+          data-i18n-alt="brand_logo_alt"
+        />
+        <div class="text-group">
+          <h2 data-i18n="brand_title">Tharlam Academy</h2>
+          <p data-i18n="brand_address">Boudha-6, Kathmandu, Nepal</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="mobile-tools">
+      <div class="language-selector-wrapper mobile-only">
+        <select
+          class="language-select"
+          id="lang-mobile"
+          aria-label="Select Language"
+        >
+          <option value="en" selected>English</option>
+          <option value="ne">नेपाली</option>
+        </select>
+        <span class="custom-select-arrow"
+          ><i class="fas fa-chevron-down"></i></span
+        >
+      </div>
+
+      <button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        id="menuToggle"
+      >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="nav-controls" id="navLinks">
+      <ul class="nav-links-list">
+        <li><a href="/" data-i18n="nav_home">Home</a></li>
+        <li><a href="about" data-i18n="nav_about">About</a></li>
+        <li><a href="sport" data-i18n="nav_sport">Sport</a></li>
+        <li><a href="sponsor" data-i18n="nav_sponsor">Sponsor</a></li>
+        <li><a href="faq" data-i18n="nav_faq">FAQ</a></li>
+        <li>
+          <a href="/contact" class="nav-contact-link" data-i18n="nav_contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  /**
+   * Initializes the Mobile Navigation Menu toggling logic.
+   * Designed to be safe and effective with Astro View Transitions (soft navigation).
+   */
+  function initializeMobileMenu() {
+    // 1. Get the main elements (MUST be inside this function)
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    // Safety check: Exit if elements aren't found
+    if (!menuToggle || !navLinks) {
+      return;
+    }
+
+    // --- Core Toggle Logic (Re-defined for handler reference) ---
+    const toggleMenu = () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+
+      // Toggle the CSS classes
+      menuToggle.classList.toggle("active");
+      navLinks.classList.toggle("open");
+
+      // Update accessibility attribute
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+    };
+
+    // --- Core Link Closing Logic (Optional, but good practice) ---
+    const closeMenu = () => {
+      if (navLinks.classList.contains("open")) {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    // --- Event Listener Management (The Astro Fix) ---
+
+    // 1. Define specific handlers for click events
+    const menuToggleHandler = () => toggleMenu();
+
+    // CRITICAL FIX: Remove previous click listener before adding a new one
+    menuToggle.removeEventListener("click", menuToggleHandler);
+
+    // Attach the new click listener to the hamburger button
+    menuToggle.addEventListener("click", menuToggleHandler);
+
+    // --- Link Cleanup on Navigation ---
+
+    // 2. Attach a click listener to all navigation links *inside* the mobile menu.
+    // This ensures the menu closes when a user clicks a link (only if the menu is open).
+    const links = navLinks.querySelectorAll("a");
+    links.forEach((link) => {
+      // Remove previous link listener (if it exists)
+      link.removeEventListener("click", closeMenu);
+      // Add new link listener
+      link.addEventListener("click", closeMenu);
+    });
+
+    // 3. Ensure the menu is closed when soft navigation completes
+    // This handles cases where the menu was left open on the previous page.
+    closeMenu();
+  }
+
+  // --- EXECUTION TRIGGERS (The Astro Fix) ---
+
+  // 1. Run on initial page load (for hard refresh)
+  document.addEventListener("DOMContentLoaded", initializeMobileMenu);
+
+  // 2. Run after a View Transition completes (for soft navigation) - THE RELOAD FIX
+  document.addEventListener("astro:page-load", initializeMobileMenu);
+</script>
+
+<style>
+  /* ------------------------------------------------------------------ */
+  /* --- Main Header Section Styles (Desktop) --- */
+  /* ------------------------------------------------------------------ */
+  .main-header {
+    padding: 0;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-primary-dark);
+  }
+
+  /* --- TOP CONTACT BAR (First Line) --- */
+  .top-bar {
+    background-color: var(--color-primary-darker);
+    color: var(--color-text-white);
+    font-size: 0.85rem;
+    padding: 6px var(--spacing-xl);
+  }
+
+  .top-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-info a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-info span {
+    margin-right: var(--spacing-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-info i {
+    color: var(--color-accent-yellow);
+    margin-right: 4px;
+  }
+
+  .contact-info a:hover {
+    color: var(--color-accent-yellow);
+  }
+
+  .whatsapp-link i {
+    color: #25d366;
+  }
+
+  /* --- LANGUAGE SELECTOR STYLING --- */
+  .language-select {
+    background-color: transparent;
+    color: var(--color-text-white);
+    padding: 4px 28px 4px 10px;
+    border: 1px solid var(--border-light-blue);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+    max-width: 100%;
+  }
+
+  .language-select option {
+    background-color: var(--color-primary-darker);
+    color: var(--color-text-white);
+  }
+
+  .language-selector-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .language-select:hover,
+  .language-select:focus {
+    border-color: var(--color-accent-blue);
+  }
+  .custom-select-arrow {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-white);
+    font-size: 0.75rem;
+    pointer-events: none;
+  }
+
+  /* Utility classes for responsive visibility */
+  .desktop-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
+
+  /* --- MAIN NAV BAR (The Second Line) --- */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 65px;
+    background-color: var(--color-primary-dark);
+    padding: 5px var(--spacing-xl);
+  }
+
+  /* Brand/Logo Styling (Unchanged) */
+  .brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  .header-logo-link:hover {
+    transform: scale(1.02);
+  }
+  .brand .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: var(--spacing-md);
+  }
+  .brand .text-group {
+    text-align: left;
+    white-space: nowrap;
+    color: var(--color-text-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px;
+  }
+  .brand .text-group h2 {
+    font-size: 1.35rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .brand .text-group p {
+    font-size: 0.75rem;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  /* Mobile Tools/Language - NOW IN SECOND LINE */
+  .mobile-tools {
+    display: none;
+  } /* Hidden by default on desktop */
+
+  /* Mobile Menu Toggle Button (Unchanged) */
+  .menu-toggle {
+    display: none;
+    width: 28px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    padding: 0;
+    outline: none;
+  }
+  .menu-toggle .icon-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-white);
+    border-radius: 1px;
+    margin-bottom: var(--spacing-xs);
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-toggle .icon-bar:last-child {
+    margin-bottom: 0;
+  }
+  .menu-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active .icon-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.active .icon-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Navigation Controls (Desktop) - HOME, ABOUT, etc. */
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+
+  .nav-controls ul.nav-links-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxl);
+  }
+
+  .nav-controls .nav-links-list li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-controls .nav-links-list li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-yellow);
+    transition: width 0.3s ease;
+  }
+
+  .nav-controls .nav-links-list li a:hover::after,
+  .nav-controls .nav-links-list li a:focus::after {
+    width: 100%;
+  }
+
+  .nav-controls .nav-links-list li a:hover,
+  .nav-controls .nav-links-list li a:focus {
+    color: var(--color-accent-yellow);
+    outline: none;
+  }
+
+  /* ENHANCED CONTACT BUTTON (in main nav) */
+  .nav-controls .nav-contact-link {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-green) 0%,
+      #1e7e34 100%
+    );
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--color-text-white);
+    margin-left: var(--spacing-lg);
+    position: static;
+    border: 2px solid var(--color-accent-green);
+  }
+
+  .nav-controls .nav-contact-link:hover {
+    background: linear-gradient(
+      135deg,
+      #1e7e34 0%,
+      var(--color-accent-green) 100%
+    );
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.6);
+    color: var(--color-text-white);
+  }
+
+  .nav-controls .nav-contact-link::after {
+    display: none;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* --- Responsive Adjustments (Mobile/Tablet) --- */
+  /* ------------------------------------------------------------------ */
+
+  @media (max-width: 992px) {
+    /* 1. TOP BAR (Darkest Blue Strip) Adjustments */
+    .top-bar {
+      padding: 6px var(--spacing-lg); /* Reduced padding for mobile space */
+      height: auto;
+      display: block;
+    }
+
+    .top-bar-container {
+      /* Aligns content centrally and allows wrapping */
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 2. CONTACT INFO (Phone, WhatsApp, Email) - Refined Layout */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap; /* Allows the links to wrap to a new line on narrow screens */
+      justify-content: center; /* Center the links within the wrapper */
+      width: 100%;
+      margin-bottom: 0;
+      font-size: 0.8rem; /* Smaller font size for mobile space saving */
+    }
+
+    .contact-info span {
+      margin-right: var(--spacing-sm);
+      margin-left: var(--spacing-sm);
+      margin-bottom: 2px; /* Small margin to separate items when they wrap */
+      white-space: nowrap; /* Prevents text from breaking mid-word/number */
+    }
+
+    /* 3. TOP-BAR TOOLS (Desktop Language Selector) - HIDE */
+    .top-bar-tools {
+      display: none;
+    }
+    .desktop-only {
+      display: none;
+    }
+
+    /* 4. SHOW MOBILE TOOLS (Hamburger and Mobile Language Switcher) on the SECOND LINE */
+    .mobile-only {
+      display: block;
+    }
+    .mobile-tools {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+    .menu-toggle {
+      display: block;
+    }
+
+    /* 5. ENSURE SECOND LINE (NAVBAR) LOOKS CORRECT */
+    .navbar {
+      padding: var(--spacing-md) var(--spacing-lg);
+      min-height: 60px;
+    }
+
+    /* 6. MOBILE SIDEBAR SETUP (Unchanged functionality) */
+    .nav-controls {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 75%;
+      max-width: 280px;
+      height: 100vh;
+      background-color: var(--color-primary-dark);
+      box-shadow: -5px 0 15px var(--shadow-medium);
+      transition: right 0.4s ease-in-out;
+      z-index: 999;
+      padding-top: 70px;
+      overflow-y: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    /* Mobile Menu Open State */
+    .nav-controls.open {
+      right: 0;
+    }
+
+    .nav-controls ul.nav-links-list {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: var(--spacing-md);
+      padding: 0;
+    }
+
+    .nav-controls .nav-links-list li {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-controls .nav-links-list li a {
+      padding: 12px 18px;
+      font-size: 1.05rem;
+      width: 100%;
+    }
+
+    /* Mobile contact button styling */
+    .nav-controls .nav-contact-link {
+      width: calc(100% - 36px);
+      text-align: center;
+      margin: 18px auto;
+      font-size: 1rem;
+      padding: 10px var(--spacing-lg);
+      display: block;
+      background: var(--color-accent-green);
+      box-shadow: none;
+      transform: none;
+      border: none;
+    }
+    .nav-controls .nav-contact-link:hover {
+      transform: none;
+      box-shadow: none;
+      background-color: var(--color-green-hover);
+    }
+  }
+
+  /* Smaller Mobile/Tablet Adjustments (Unchanged) */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      min-height: 55px;
+    }
+    .brand .logo {
+      height: 30px;
+      margin-right: var(--spacing-xs);
+    }
+    .brand .text-group h2 {
+      font-size: 1.1rem;
+    }
+    .brand .text-group p {
+      font-size: 0.65rem;
+    }
+    .top-bar {
+      padding: 6px var(--spacing-md);
+    }
+    .language-select {
+      font-size: 0.8rem;
+    }
+    .nav-controls {
+      width: 90%;
+      padding-top: 60px;
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-bar-container {
+      flex-direction: row-reverse;
+    }
+    .top-bar {
+      padding: 4px var(--spacing-sm);
+    }
+    .navbar {
+      padding: 6px var(--spacing-sm);
+      min-height: 50px;
+    }
+    .brand .logo {
+      height: 28px;
+      margin-right: 4px;
+    }
+    .brand .text-group h2 {
+      font-size: 1rem;
+    }
+    .brand .text-group p {
+      font-size: 0.6rem;
+    }
+    .nav-controls {
+      width: 100%;
+      padding-top: 50px;
+    }
+    .nav-controls .nav-links-list li a {
+      font-size: 0.95rem;
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+    .nav-controls .nav-contact-link {
+      font-size: 0.9rem;
+      padding: 7px var(--spacing-lg);
+      margin: var(--spacing-md) auto;
+    }
+  }
+</style>

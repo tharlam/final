@@ -1,0 +1,272 @@
+<section class="banner-slider">
+    <div class="slide active">
+        <img
+            src="Banner-1.JPG"
+            alt="People gathering for a spiritual event"
+            data-i18n-alt="banner_slide1_alt"
+        />
+        <div class="slide-caption">
+            <h3 data-i18n="banner_slide1_title">Tharlam Academy 2025</h3>
+        </div>
+    </div>
+    <div class="slide">
+        <img
+            src="Banner-2.png"
+            alt="Monastery building during sunset"
+            data-i18n-alt="banner_slide2_alt"
+        />
+        <div class="slide-caption">
+            <h3 data-i18n="banner_slide2_title">
+                Tharlam Academy: A Place of Learning
+            </h3>
+        </div>
+    </div>
+
+    <button
+        class="nav-btn prev-btn"
+        aria-label="Previous Slide"
+        data-i18n-aria-label="banner_prev_slide_aria">❮</button
+    >
+    <button
+        class="nav-btn next-btn"
+        aria-label="Next Slide"
+        data-i18n-aria-label="banner_next_slide_aria">❯</button
+    >
+</section>
+
+<style>
+    /* ------------------------------------------------------------------ */
+    /* --- BANNER SLIDER STYLES (Confirmed Highly Responsive CSS) --- */
+    /* ------------------------------------------------------------------ */
+
+    /* Base Styles (Desktop) */
+    .banner-slider {
+        position: relative;
+        width: 100%;
+        height: 550px;
+        overflow: hidden;
+        background-color: var(--color-bg-light-grey);
+    }
+
+    .banner-slider .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out; /* Smooth transition */
+    }
+
+    .banner-slider .slide.active {
+        opacity: 1;
+    }
+
+    .banner-slider .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures image covers area without distortion */
+        object-position: center;
+    }
+
+    /* Slide Caption Styling */
+    .slide-caption {
+        position: absolute;
+        bottom: var(--spacing-xxl);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: var(--spacing-xl) 40px;
+        background-color: var(
+            --color-bg-dark-overlay
+        ); /* Translucent dark background */
+        color: var(--color-text-white);
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 800px;
+    }
+
+    .slide-caption h3 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    /* Navigation Buttons Styling */
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--color-bg-light-overlay);
+        color: var(--color-text-white);
+        border: none;
+        padding: 15px 10px;
+        cursor: pointer;
+        z-index: 100;
+        border-radius: 4px;
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition:
+            background-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+        background-color: var(--color-bg-dark-overlay);
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .prev-btn {
+        left: var(--spacing-xl);
+        padding-left: 15px;
+    }
+
+    .next-btn {
+        right: var(--spacing-xl);
+        padding-right: 15px;
+    }
+
+    /* --- RESPONSIVENESS --- */
+
+    /* Tablet and Small Desktop */
+    @media (max-width: 992px) {
+        .banner-slider {
+            height: 450px;
+        }
+        .slide-caption {
+            padding: var(--spacing-lg) var(--spacing-xxl);
+            max-width: 600px;
+        }
+        .slide-caption h3 {
+            font-size: 1.4rem;
+        }
+        .nav-btn {
+            padding: 12px var(--spacing-sm);
+            font-size: 2rem;
+        }
+        .prev-btn {
+            left: var(--spacing-lg);
+            padding-left: 12px;
+        }
+        .next-btn {
+            right: var(--spacing-lg);
+            padding-right: 12px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .banner-slider {
+            height: 350px;
+        }
+        .slide-caption {
+            padding: 12px var(--spacing-xl);
+            max-width: 90%;
+        }
+        .slide-caption h3 {
+            font-size: 1.2rem;
+        }
+        .nav-btn {
+            padding: var(--spacing-md) 6px;
+            font-size: 1.8rem;
+        }
+        .prev-btn {
+            left: var(--spacing-md);
+            padding-left: var(--spacing-md);
+        }
+        .next-btn {
+            right: var(--spacing-md);
+            padding-right: var(--spacing-md);
+        }
+    }
+
+    /* Smallest Mobile */
+    @media (max-width: 480px) {
+        .banner-slider {
+            height: 250px;
+        }
+        .slide-caption {
+            padding: var(--spacing-md) var(--spacing-lg);
+        }
+        .slide-caption h3 {
+            font-size: 1rem;
+        }
+        .nav-btn {
+            padding: var(--spacing-sm) 4px;
+            font-size: 1.5rem;
+        }
+        .prev-btn {
+            left: var(--spacing-xs);
+            padding-left: var(--spacing-sm);
+        }
+        .next-btn {
+            right: var(--spacing-xs);
+            padding-right: var(--spacing-sm);
+        }
+    }
+</style>
+
+<script is:inline>
+    // ------------------------------------------------------------------
+    // --- BANNER SLIDER JAVASCRIPT (Manual Control Only) ---
+    // ------------------------------------------------------------------
+
+    /**
+     * Initializes the banner slider controls.
+     * Designed to be safe and effective with Astro View Transitions.
+     */
+    function initializeBannerSlider() {
+        let currentSlide = 0; // Local state for the current slide index
+
+        const slider = document.querySelector(".banner-slider");
+        if (!slider) return;
+
+        const slides = slider.querySelectorAll(".slide");
+        const prevBtn = slider.querySelector(".nav-btn.prev-btn");
+        const nextBtn = slider.querySelector(".nav-btn.next-btn");
+
+        if (slides.length === 0) return;
+
+        function showSlide(index) {
+            slides.forEach((slide) => slide.classList.remove("active"));
+
+            // Normalize index to wrap around (e.g., -1 goes to the last slide)
+            const normalizedIndex =
+                ((index % slides.length) + slides.length) % slides.length;
+
+            slides[normalizedIndex].classList.add("active");
+            currentSlide = normalizedIndex;
+        }
+
+        // Define the specific handler functions (for removal/addition)
+        const nextSlide = () => showSlide(currentSlide + 1);
+        const prevSlide = () => showSlide(currentSlide - 1);
+
+        // --- CRITICAL FIX: Clean up previous listeners ---
+        if (prevBtn) {
+            prevBtn.removeEventListener("click", prevSlide);
+            prevBtn.addEventListener("click", prevSlide);
+        }
+        if (nextBtn) {
+            nextBtn.removeEventListener("click", nextSlide);
+            nextBtn.addEventListener("click", nextSlide);
+        }
+
+        // Initialize on the first slide
+        showSlide(0);
+    }
+
+    // --- EXECUTION TRIGGERS (The Astro Fix) ---
+
+    // 1. Run on initial page load (for hard refresh)
+    document.addEventListener("DOMContentLoaded", initializeBannerSlider);
+
+    // 2. Run after a View Transition completes (for soft navigation) - THE RELOAD FIX
+    document.addEventListener("astro:page-load", initializeBannerSlider);
+</script>

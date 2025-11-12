@@ -1,0 +1,45 @@
+---
+// This is the main layout for the entire website
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/about-section.css";
+// NOTE: I removed the stray HTML <link> from the frontmatter
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title} | Tharlam Academy</title>
+
+        <ViewTransitions />
+
+        <link rel="stylesheet" href="/astro-school-site/fa/css/all.min.css" />
+    </head>
+
+
+    <body>
+        <Header />
+
+        <main>
+            <div class="site-content-container">
+                <slot />
+            </div>
+        </main>
+
+        <Footer />
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+        <script src="/scripts/i18n-switcher.js" defer></script>
+        <script src="/scripts/reinit.js" defer></script>
+    </body>
+</html>

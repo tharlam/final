@@ -1,0 +1,186 @@
+---
+// src/components/YellowHouseSection.astro
+// Defines the section for Yellow House (Deshung House) details.
+---
+
+<section class="house-section yellow-house-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="house-heading" data-i18n="yellow_house_heading">
+            Yellow House (Deshung House): Vibrant Energy & Agility
+        </h2>
+
+        <div class="house-content-grid">
+            <div class="house-text" data-aos="fade-left">
+                <p data-i18n="yellow_house_paragraph_1">
+                    **Yellow House**, also known as **Deshung House**, radiates
+                    vibrant energy, enthusiasm, and exceptional agility. Members
+                    of Yellow House are often found leading the charge in
+                    fast-paced sports, showcasing their quick reflexes and
+                    dynamic movement. They bring an infectious positivity to
+                    every game and training session.
+                </p>
+                <p data-i18n="yellow_house_paragraph_2">
+                    This house encourages creativity in play and celebrates
+                    individual flair, while also valuing fair play and
+                    sportsmanship. Yellow House is about enjoying the journey,
+                    embracing challenges with a smile, and bringing a lively
+                    spirit to the academy's sports arena.
+                </p>
+                <div class="house-motto">
+                    <strong>Motto:</strong> "Agility, Positivity, Enthusiasm."
+                </div>
+            </div>
+
+            <div class="house-image" data-aos="fade-right">
+                <img
+                    src="house.png"
+                    alt="Yellow House students showing agility and Deshung House spirit"
+                    class="responsive-image"
+                    data-i18n-alt="yellow_house_image_alt"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- Component-Specific Styles (Color and Layout Order) --- */
+
+    .yellow-house-section {
+        background-color: #fffacd; /* Light background for yellow theme */
+        padding: 80px 0;
+    }
+
+    /* CRITICAL: Ensure the order is REVERSED (Image on left, Text on right) for desktop */
+    .yellow-house-section .house-content-grid {
+        flex-direction: row-reverse;
+    }
+
+    .house-motto {
+        font-style: italic;
+        font-size: 1.05em;
+        color: var(--color-dark-blue, #001f3f);
+        margin-top: 25px;
+    }
+
+    /* --- Essential Structural/General House CSS (Desktop/Base) --- */
+
+    .house-heading {
+        text-align: center;
+        font-size: clamp(34px, 5vw, 44px);
+        font-weight: 700;
+        color: var(--color-dark-blue, #2c3e50);
+        margin-bottom: 50px;
+    }
+
+    .house-content-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 70px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .house-text {
+        flex: 1 1 450px;
+        min-width: 300px;
+        max-width: 650px;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    .house-image {
+        flex: 1 1 350px;
+        min-width: 300px;
+        max-width: 550px;
+        text-align: center;
+    }
+
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* --- 1. Tablet/Small Laptop Adjustments (Max 992px) --- */
+    /* ------------------------------------------------------------------ */
+    @media (max-width: 992px) {
+        .house-section {
+            padding: 70px 20px; /* Add horizontal padding */
+        }
+
+        .house-content-grid {
+            gap: 40px;
+        }
+
+        .house-heading {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Relax minimum width constraints */
+        .house-text,
+        .house-image {
+            min-width: unset;
+        }
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* --- 2. Mobile Landscape/Tablet Portrait (Max 768px) --- */
+    /* --- CRITICAL: Stacks the content vertically --- */
+    /* ------------------------------------------------------------------ */
+    @media (max-width: 768px) {
+        .house-section {
+            padding: 50px 20px;
+        }
+
+        /* Force columns to stack */
+        .house-content-grid {
+            /* Reverts row-reverse to a simple column stack (Text on top, Image on bottom) */
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .house-heading {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Set elements to full width, centering content */
+        .house-text,
+        .house-image {
+            width: 100%;
+            max-width: 500px; /* Cap width for comfortable reading */
+            text-align: center; /* Center the image in its container */
+        }
+
+        .house-text {
+            text-align: left; /* Keep text aligned left for readability */
+        }
+
+        .house-text p {
+            font-size: 16px;
+        }
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* --- 3. Small Mobile Phones (Max 480px) --- */
+    /* ------------------------------------------------------------------ */
+    @media (max-width: 480px) {
+        .house-section {
+            padding: 30px 15px;
+        }
+        .house-heading {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+        .house-text p {
+            font-size: 0.95rem;
+        }
+    }
+</style>

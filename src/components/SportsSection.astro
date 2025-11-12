@@ -1,0 +1,151 @@
+---
+// This is the Astro frontmatter where you would typically write
+// component props, imports, and JavaScript logic.
+// Since this component is purely presentational, this section can be empty.
+---
+
+<section class="legacy-section">
+    <div class="legacy-content">
+        <h1 data-i18n="sports_legacy_title">Tharlam Sports Association</h1>
+        <p data-i18n="sports_legacy_description">
+            A core part of the **Tharlam Monastery's** commitment to holistic
+            development, the Sports Association offers multiple programs,
+            fostering **teamwork, discipline, and healthy living** among our
+            students. Our primary goal is to nurture both academic and athletic
+            potential within the monastic community.
+        </p>
+        <a href="#" class="join-button">
+            <span data-i18n="sports_legacy_cta_text">View Our Programs</span>
+            <span class="arrow">&rarr;</span>
+        </a>
+    </div>
+</section>
+
+<style>
+    /* This is a component-scoped <style> block.
+        By default, the CSS here is "hoisted" and scoped
+        to this component, which is a good practice in Astro.
+    */
+
+    /* --- BASE STYLES (Desktop/Default) --- */
+
+    .legacy-section {
+        /*
+            Best Practice: Use 'import' or 'define:vars' for dynamic image paths.
+            For a static asset like this, ensure 'football.jpeg' is in your
+            'public/' folder for easy access or use a relative import like:
+            url(URL_TO_IMAGE);
+        */
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)
+            ),
+            url("/football.jpeg"); /* Assuming /public/football.jpeg */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .legacy-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .legacy-section h1 {
+        font-size: 2.5em; /* Default large size */
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .legacy-section p {
+        font-size: 1.1em; /* Default body size */
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    .join-button {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease; /* Added a subtle transition */
+    }
+
+    /* Hover effect for better UX */
+    .join-button:hover {
+        background-color: white;
+        color: #1a1a1a; /* Dark text on hover */
+    }
+
+    .join-button .arrow {
+        margin-left: 8px;
+    }
+
+    /* --- MEDIA QUERIES (Handling Responsiveness) --- */
+    /* All your existing, well-structured media queries remain correct for responsiveness */
+
+    @media (max-width: 992px) {
+        .legacy-section {
+            padding: 60px 20px;
+        }
+
+        .legacy-section h1 {
+            font-size: 2.2em;
+        }
+
+        .legacy-section p {
+            font-size: 1.05em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .legacy-section {
+            padding: 50px 15px;
+        }
+
+        .legacy-section h1 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+
+        .legacy-section p {
+            font-size: 1em;
+        }
+
+        .join-button {
+            padding: 8px 20px;
+            font-size: 0.95em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .legacy-section {
+            padding: 40px 10px;
+        }
+
+        .legacy-section h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .legacy-section p {
+            font-size: 0.9em;
+        }
+
+        .join-button {
+            padding: 8px 18px;
+            font-size: 0.9em;
+        }
+    }
+</style>

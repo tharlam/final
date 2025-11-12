@@ -1,0 +1,167 @@
+---
+// src/components/WhiteHouseSection.astro
+// Defines the section for White House (Sapen House) details.
+---
+
+<section class="house-section white-house-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="house-heading" data-i18n="white_house_heading">White House (Sapen House): Spirit of Purity</h2>
+        
+        <div class="house-content-grid">
+            
+            <div class="house-text" data-aos="fade-right">
+                <p data-i18n="white_house_paragraph_1">The **White House**, also known as **Sapen House**, embodies purity, discipline, and precision.
+                    Students in White House are known for their meticulous approach to sports, excelling in
+                    activities that demand high levels of focus and technical skill. They represent the calm
+                    strength and unwavering dedication found in every Tharlam Academy athlete.</p>
+                <p data-i18n="white_house_paragraph_2">Their focus is on perfecting form and strategy, leading to consistent performance and a deep
+                    understanding of their chosen disciplines. White House fosters an environment of quiet
+                    determination and refined athleticism.</p>
+                <div class="house-motto">
+                    <strong>Motto:</strong> "Purity, Precision, Dedication."
+                </div>
+            </div>
+            
+            <div class="house-image" data-aos="fade-left">
+                <img src="/astro-school-site/house.png" alt="White House students demonstrating excellence"
+                    class="responsive-image" data-i18n-alt="white_house_image_alt" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- Component-Specific Styles --- */
+.white-house-section {
+    background-color: #fefefe; /* Very light background for white theme */
+    padding: 80px 0;
+}
+
+/* Desktop default: Text on left, Image on right */
+.white-house-section .house-content-grid {
+    flex-direction: row; 
+}
+
+.house-motto {
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--color-dark-blue, #001f3f); 
+    margin-top: 25px;
+}
+
+/* --- Essential Structural/General House CSS (Desktop/Base) --- */
+
+.house-heading {
+    text-align: center;
+    font-size: clamp(34px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--color-dark-blue, #2c3e50);
+    margin-bottom: 50px;
+}
+
+.house-content-grid {
+    display: flex; 
+    flex-wrap: wrap; /* Added for responsiveness */
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.house-text {
+    flex: 1 1 450px; /* NEW: Added flex basis for better resizing */
+    min-width: 300px;
+    max-width: 550px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.house-image {
+    flex: 1 1 350px; /* NEW: Added flex basis for better resizing */
+    min-width: 300px;
+    max-width: 550px;
+    text-align: center;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 1. Tablet/Small Laptop Adjustments (Max 992px) --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 992px) {
+    .house-section {
+        padding: 70px 20px;
+    }
+    
+    .house-content-grid {
+        gap: 40px;
+    }
+    
+    .house-heading {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .house-text, .house-image {
+        min-width: unset; 
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 2. Mobile Landscape/Tablet Portrait (Max 768px) --- */
+/* --- CRITICAL: Stacks the content vertically --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    .house-section {
+        padding: 50px 20px; 
+    }
+    
+    /* Force columns to stack, Text on top, Image on bottom */
+    .house-content-grid {
+        flex-direction: column; 
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .house-heading {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Set elements to full width, centering content */
+    .house-text, .house-image {
+        width: 100%;
+        max-width: 500px; 
+        text-align: center;
+    }
+
+    .house-text {
+        text-align: left; /* Keep text aligned left for readability */
+    }
+    
+    .house-text p {
+        font-size: 1rem;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 3. Small Mobile Phones (Max 480px) --- */
+/* ------------------------------------------------------------------ */
+@media (max-width: 480px) {
+    .house-section {
+        padding: 30px 15px;
+    }
+    .house-heading {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    .house-text p {
+        font-size: 0.95rem;
+    }
+}
+</style>

@@ -1,0 +1,25 @@
+---
+// 1. LINKING Astro's Content API
+import { getCollection } from 'astro:content'; 
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// 2. Function to GENERATE all possible article URLs (linking content to routes)
+export async function getStaticPaths() {
+  const news = await getCollection('news'); // Fetch all files from src/content/news
+  return news.map((entry) => ({
+    params: { slug: entry.slug }, // Creates URL slug (e.g., 'first-post')
+    props: { entry }, // Passes the full data object to the component below
+  }));
+}
+
+// 3. Destructure the data passed from the function above
+const { entry } = Astro.props;
+const { Content } = await entry.render(); // Renders the MD/MDX content
+---
+<BaseLayout title={entry.data.title}>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <p>Published: {entry.data.pubDate.toDateString()}</p>
+    <Content /> 
+  </article>
+</BaseLayout>

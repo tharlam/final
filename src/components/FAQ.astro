@@ -1,0 +1,388 @@
+---
+// src/components/FAQ.astro
+// Defines the single-column FAQ section with a dynamic accordion, 
+// using the user's specific HTML/CSS structure, updated for 1200px full width and enhanced mobile optimization.
+
+// Define a placeholder list of FAQ items
+const faqItems = [
+    { 
+        id: "q1", 
+        question: "What is the purpose of Tharlam Academy?", 
+        answer: "Tharlam Academy provides a holistic education for monks by integrating traditional Sakya Buddhist teachings with modern academic subjects like science, mathematics, languages, social studies, and health science. Its mission is to preserve the Sakya tradition while equipping monks for contemporary life."
+    },
+    { 
+        id: "q2", 
+        question: "Who studies at Tharlam Academy?", 
+        answer: "The academy is designed primarily for ordained monks from Tharlam Monastery. While lay practitioners may participate in community events, public teachings, and retreats, formal academic enrollment is reserved for monks only."
+    },
+    { 
+        id: "q3", 
+        question: "How many students are enrolled?", 
+        answer: "Tharlam Academy currently has around 100 students enrolled in the formal school. Previously, official records indicated 76 students up to class 8 and over 120 monks in total at the monastery."
+    },
+    { 
+        id: "q4", 
+        question: "What grades are offered?", 
+        answer: "Tharlam Academy provides education up to grade 10, with the option to continue through class 11 and 12 for those monks who wish to pursue higher secondary education. This expansion supports their path toward national exams and broader academic opportunities."
+    },
+    { 
+        id: "q5", 
+        question: "Are laypeople allowed to enroll?", 
+        answer: "No. Only monks may enroll in the formal academic program. However, laypeople are welcome to join public Dharma teachings, cultural events, retreats, and health camps hosted by the monastery."
+    }
+];
+---
+
+<section id="faq-section" class="faq-section">
+    <div class="container">
+        <header class="section-header" data-aos="fade-up">
+            <h2 class="section-title" data-i18n="faq_section_title">
+                Frequently Asked <span class="highlight-blue">Questions</span>
+            </h2>
+            <p class="section-subtitle" data-i18n="faq_section_subtitle">
+                Find quick answers to common questions about Tharlam Academy.
+            </p>
+        </header>
+
+        <div class="faq-content-wrapper full-width-accordion">
+            
+            <div class="faq-accordion-container" data-aos="fade-up" data-aos-delay="200">
+                
+                {faqItems.map((item, index) => (
+                    <div class="faq-item" id={`faq-${item.id}`}>
+                        <div class="faq-question">
+                            <h3 data-i18n={`faq_q${index + 1}`}>{item.question}</h3>
+                            <span class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n={`faq_a${index + 1}`}>{item.answer}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    /* --- General/Shared Styles --- */
+    .container {
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .highlight-blue { color: var(--color-dark-blue, #001f3f); }
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--color-dark-blue, #001f3f);
+        margin-bottom: 10px;
+    }
+    .section-header p {
+        font-size: 1.15rem;
+        color: #555;
+    }
+
+    /* --- FAQ Section Styles --- */
+    .faq-section {
+        padding: 80px 0;
+        background-color: #f7f7f7;
+        color: #333;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* --- Full 1200px Width Adjustment (Main Content Box) --- */
+    .faq-content-wrapper.full-width-accordion {
+        width: 100%; 
+        margin: 0 auto;
+        /* Default padding for large screens */
+        padding: 40px 20px; 
+        background-color: white;
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        display: block; 
+        text-align: left;
+    }
+    
+    .faq-accordion-container {
+        width: 100%; 
+        padding: 0;
+    }
+
+    /* --- Accordion Item Styles --- */
+    .faq-item {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .faq-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-item.active {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        border-color: var(--color-primary-blue, #007bff); 
+        background-color: #fcfcfc;
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        cursor: pointer;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        z-index: 1;
+        outline: none;
+    }
+
+    .faq-question:focus {
+        box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.3);
+        background-color: #f9f9f9;
+        transform: translateY(-1px);
+    }
+
+    .faq-item:not(.active):last-child .faq-question {
+        border-bottom: none;
+    }
+
+    .faq-question:hover {
+        background-color: #f9f9f9;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #001f3f;
+        margin: 0;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    /* --- Icon Styling --- */
+    .faq-icon {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #001f3f;
+        margin-left: 20px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        width: 25px;
+        text-align: center;
+    }
+    
+    .faq-icon i {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon i {
+        transform: rotate(45deg); 
+        color: var(--color-primary-blue, #007bff);
+    }
+
+    .faq-answer {
+        padding: 0 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.4s ease, transform 0.5s ease-out;
+        background-color: white;
+        opacity: 0;
+        transform: translateY(-10px);
+        height: auto !important;
+        min-height: auto !important;
+        will-change: max-height, padding, opacity, transform;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 3000px;
+        padding-top: 0px;
+        padding-bottom: 30px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .faq-answer p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    /* --- ENHANCED MOBILE OPTIMIZATION (Focus on Small Screens) --- */
+
+    @media (max-width: 992px) {
+        .faq-content-wrapper.full-width-accordion {
+            padding: 30px 15px; /* Reduced side padding slightly */
+        }
+        .faq-question {
+            padding: 18px 20px;
+        }
+        .faq-question:hover {
+            transform: none; /* Disable subtle lift on tablets/mobile */
+            box-shadow: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .faq-section {
+            padding: 50px 0;
+        }
+        .faq-content-wrapper.full-width-accordion {
+            padding: 20px 10px; /* Further reduced side padding for smaller tablets */
+        }
+        .faq-question {
+            padding: 15px 15px;
+        }
+        .faq-question h3 {
+            font-size: 1.05rem; /* Standard mobile question size */
+        }
+        .faq-icon {
+             font-size: 1.2rem;
+             width: 20px; /* Reduced icon container width */
+             margin-left: 10px;
+        }
+        .faq-answer {
+            padding: 0 15px;
+        }
+        .faq-answer p {
+            font-size: 0.95rem; /* Optimal answer text size for mobile */
+        }
+        .faq-item.active .faq-answer {
+            padding-bottom: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-header h2 {
+            font-size: 1.8rem;
+        }
+        .section-header p {
+            font-size: 1rem;
+        }
+        .faq-content-wrapper.full-width-accordion {
+            padding: 15px 8px; /* Minimal padding on phone screens */
+        }
+        .faq-question {
+            padding: 12px 10px;
+        }
+        .faq-question h3 {
+            font-size: 1rem; 
+        }
+        .faq-icon {
+            font-size: 1.1rem;
+            width: 18px;
+            margin-left: 8px;
+        }
+        .faq-answer {
+            padding: 0 10px;
+        }
+        .faq-answer p {
+            font-size: 0.9rem; 
+        }
+        .faq-item.active .faq-answer {
+            padding-bottom: 15px;
+        }
+    }
+</style>
+
+<script>
+    /**
+     * Initializes the FAQ Accordion functionality.
+     * This function is designed to run safely after Astro View Transitions (soft navigation).
+     */
+    function initializeFAQAccordion() {
+        // Select all clickable question elements (MUST be run inside the function)
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        // Stop gracefully if no FAQs are found on this page
+        if (faqQuestions.length === 0) {
+            return;
+        }
+
+        faqQuestions.forEach(question => {
+            // Use keyboard focus to ensure accessibility
+            question.setAttribute('tabindex', '0');
+
+            // Define the core toggle logic (made into a function to be called by handlers)
+            const toggleAccordion = () => {
+                const faqItem = question.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = faqItem.querySelector('.faq-icon');
+                const isActive = faqItem.classList.contains('active');
+
+                // 1. Close all other open items (Single-open accordion)
+                faqQuestions.forEach(otherQuestion => {
+                    const otherItem = otherQuestion.closest('.faq-item');
+                    if (otherItem !== faqItem && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherIcon = otherItem.querySelector('.faq-icon');
+                        otherAnswer.style.maxHeight = null;
+                        otherIcon.textContent = '+';
+                    }
+                });
+
+                // 2. Toggle the clicked item
+                if (isActive) {
+                    // Collapse
+                    faqItem.classList.remove('active');
+                    answer.style.maxHeight = null;
+                    icon.textContent = '+';
+                } else {
+                    // Expand
+                    faqItem.classList.add('active');
+                    icon.textContent = '–'; // Use a minus sign for open state
+
+                    // Set maxHeight to the content's scroll height for smooth transition
+                    setTimeout(() => {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }, 0);
+                }
+            };
+
+            // Define event listeners separately for cleanup (CRITICAL for Astro fix)
+            const clickHandler = () => toggleAccordion();
+            const keydownHandler = (e) => {
+                // Allows space or enter key to activate the accordion
+                if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault();
+                    toggleAccordion();
+                }
+            };
+
+            // 🚨 CRITICAL FIX: Remove previous listeners before adding new ones
+            question.removeEventListener('click', clickHandler);
+            question.removeEventListener('keydown', keydownHandler);
+
+            // Attach event listeners for mouse click and keyboard entry
+            question.addEventListener('click', clickHandler);
+            question.addEventListener('keydown', keydownHandler);
+        });
+    }
+
+    // --- EXECUTION TRIGGERS (The Astro Fix) ---
+
+    // 1. Run on initial page load (for hard refresh)
+    document.addEventListener('DOMContentLoaded', initializeFAQAccordion);
+
+    // 2. Run after a View Transition completes (for soft navigation) - THE RELOAD FIX
+    document.addEventListener('astro:page-load', initializeFAQAccordion);
+</script>

@@ -1,0 +1,675 @@
+---
+// src/components/SponsorBankDetails.astro
+// Defines the tabbed section with a clean two-column (Menu/Content) layout.
+// Script logic is now moved to src/js/bank-details-tabs.js
+---
+
+<section id="bank-transfer-info" class="bank-transfer-info-section">
+    <div class="container">
+        <div class="bank-transfer-card">
+            <div
+                class="bank-tab-buttons-wrap"
+                data-aos="fade-right"
+                data-aos-delay="100"
+            >
+                <button
+                    class="bank-tab-button active"
+                    data-bank="nepal"
+                    data-i18n="btn_nepal_short"
+                >
+                    🇳🇵 Local
+                </button>
+                <button
+                    class="bank-tab-button"
+                    data-bank="outside-nepal"
+                    data-i18n="btn_outside_nepal_short"
+                >
+                    🌍 International
+                </button>
+            </div>
+
+            <div
+                class="bank-details-display"
+                data-aos="fade-left"
+                data-aos-delay="200"
+            >
+                <div
+                    id="nepal-bank-details"
+                    class="bank-details-content active"
+                >
+                    <h3 data-i18n="local_bank_details_title">
+                        Local Bank Details
+                    </h3>
+                    <p data-i18n="local_bank_details_description">
+                        For transfers within Nepal, please use the following
+                        details:
+                    </p>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="bank_name_label"
+                                    >Bank Name</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="bank_name_nepal"
+                                    >Nepal Investment Mega Bank Ltd.</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Bank Name"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="account_name_label"
+                                    >Account Name</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="account_name_nepal"
+                                    >Tharlam Sakya Dharma Vihara</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Account Name"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="account_number_label"
+                                    >Account Number</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="account_number_nepal"
+                                    >02405020257510</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Account Number"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="branch_name_label"
+                                    >Branch Name</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="branch_name_nepal">Bouddha</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Branch Name"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <p class="note note-local" data-i18n="nepal_bank_note">
+                        Kindly mention 'Donation for Tharlam Academy' in the
+                        transaction remarks.
+                    </p>
+                </div>
+
+                <div
+                    id="outside-nepal-bank-details"
+                    class="bank-details-content"
+                >
+                    <h3 data-i18n="international_bank_details_title">
+                        International Bank Details
+                    </h3>
+                    <p
+                        class="international-transfer-guidance"
+                        data-i18n="international_bank_details_description"
+                    >
+                        For international transfers, please use these details:
+                    </p>
+                    <div class="alert-note-inline" data-i18n="alert_note">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>IMPORTANT:</strong> Please verify all international
+                        account details (especially SWIFT/BIC) with the recipient
+                        before initiating a wire transfer.
+                    </div>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="bank_name_label"
+                                    >Bank Name</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="bank_name_international"
+                                    >Prabhu Bank Limited</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Bank Name"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="account_name_label"
+                                    >Account Name</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="account_name_international"
+                                    >THARLAM SANSAG NAMAGYAL LING SAKYA DHARMA
+                                    BIHAR</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Account Name"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="account_number_label"
+                                    >Account Number</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="account_number_international"
+                                    >3260155862000019</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Account Number"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="swift_bic_code_label"
+                                    >SWIFT/BIC Code</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="swift_bic_code_international"
+                                    >PRVUNPKA</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy SWIFT/BIC Code"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="bank_address_label"
+                                    >Bank Address</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="bank_address_international"
+                                    >Boudha branch</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Bank Address"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <strong
+                                ><span data-i18n="beneficiary_address_label"
+                                    >Beneficiary Address</span
+                                >:</strong
+                            >
+                            <div class="copy-group">
+                                <span
+                                    class="copy-target"
+                                    data-i18n="beneficiary_address_international"
+                                    >Boudha-6, Kathmandu, Nepal</span
+                                >
+                                <button
+                                    class="copy-button"
+                                    aria-label="Copy Beneficiary Address"
+                                >
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <span
+                                    class="copy-message"
+                                    data-i18n="copied_message">Copied!</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <p
+                        class="note note-international"
+                        data-i18n="international_bank_note"
+                    >
+                        Please ensure all details are correctly entered for
+                        smooth processing. Transaction remarks: 'Donation for
+                        Tharlam Academy'.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- General/Shared Styles --- */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .highlight-green {
+        color: var(--color-primary-green, #28a745);
+    }
+
+    /* --- Section 2: Bank Details Styles - Final Layout (Full Width) --- */
+    .bank-transfer-info-section {
+        padding: 80px 0;
+        background-color: #f7f9fb;
+    }
+    .bank-transfer-card {
+        display: flex;
+        max-width: 1200px; /* Matched to .container for full section width */
+        width: 100%;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+    }
+
+    /* --- LEFT SIDE: MENU BUTTONS (Minimal Width) --- */
+    .bank-tab-buttons-wrap {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-dark-blue, #001f3f);
+        padding: 10px 0;
+        min-width: 180px;
+    }
+    .bank-tab-button {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 15px 20px;
+        text-align: left;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition:
+            background-color 0.3s,
+            color 0.3s;
+        border-left: 4px solid transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+    }
+    .bank-tab-button:hover:not(.active) {
+        background-color: #003366;
+        color: white;
+    }
+    .bank-tab-button.active {
+        background-color: #f7f9fb;
+        color: var(--color-dark-blue, #001f3f);
+        font-weight: 700;
+        border-left: 4px solid var(--color-primary-green, #28a745);
+    }
+
+    /* --- RIGHT SIDE: DETAILS CONTENT (Takes Remaining Space) --- */
+    .bank-details-display {
+        flex: 1;
+        padding: 40px;
+        background-color: #f7f9fb;
+    }
+
+    /* --- Content Styling --- */
+    .bank-details-content {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+    }
+    .bank-details-content.active {
+        display: block;
+    }
+    .bank-details-content h3 {
+        font-size: 1.7rem;
+        color: var(--color-dark-blue, #001f3f);
+        margin-top: 0;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #e0e0e0;
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+    .detail-item strong {
+        flex: 0 0 auto;
+        margin-right: 15px;
+        color: #333;
+        font-weight: 700;
+    }
+    .international-transfer-guidance {
+        margin-bottom: 20px;
+        color: #555;
+        font-size: 1.05rem;
+    }
+    .alert-note-inline {
+        background-color: #fffde7;
+        color: #d1b000;
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin-bottom: 25px;
+        font-weight: 500;
+        border-left: 4px solid #ffeb3b;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.95rem;
+    }
+    .alert-note-inline i {
+        color: #ffc107;
+        font-size: 1.2em;
+        margin-top: 2px;
+    }
+    .bank-details-content .note {
+        padding: 15px;
+        border-radius: 4px;
+        font-style: italic;
+        color: #333;
+        margin-top: 30px;
+    }
+    .note-local {
+        background-color: #e6f7e9;
+        border-left: 5px solid var(--color-primary-green, #28a745);
+    }
+    .note-international {
+        background-color: #eaf3f8;
+        border-left: 5px solid var(--color-dark-blue, #001f3f);
+    }
+
+    /* --- Copy Group Styles --- */
+    .copy-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-grow: 1;
+        justify-content: flex-end;
+        position: relative;
+        text-align: right;
+    }
+    .copy-target {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+            Courier, monospace;
+        color: var(--color-dark-blue, #001f3f);
+        font-weight: 600;
+        font-size: 1rem;
+        flex-grow: 1;
+    }
+    .copy-button {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        color: var(--color-primary-green, #28a745);
+        cursor: pointer;
+        border-radius: 4px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+    }
+    .copy-button:hover {
+        background-color: var(--color-primary-green, #28a745);
+        color: white;
+        border-color: var(--color-primary-green, #28a745);
+    }
+    .copy-message {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--color-primary-green, #28a745);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            opacity 0.3s,
+            right 0.3s;
+        white-space: nowrap;
+        z-index: 10;
+    }
+    .copy-message.show {
+        opacity: 1;
+        right: 35px;
+    }
+
+    /* --- Media Queries (Responsiveness) --- */
+    @media (max-width: 992px) {
+        .bank-transfer-card {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .bank-tab-buttons-wrap {
+            flex-direction: row;
+            flex: auto;
+            padding: 0;
+            min-width: auto;
+        }
+        .bank-tab-button {
+            flex: 1;
+            text-align: center;
+            border-left: none;
+            border-bottom: 4px solid transparent;
+            font-size: 1rem;
+            padding: 15px 10px;
+            justify-content: center;
+        }
+        .bank-tab-button.active {
+            border-left: none;
+            border-bottom: 4px solid var(--color-primary-green, #28a745);
+        }
+        .bank-details-display {
+            padding: 30px 20px;
+        }
+        .detail-item {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 0;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+<script>
+    /**
+     * Initializes tab switching and copy-to-clipboard functionality, 
+     * designed to be safe for Astro View Transitions (soft navigation).
+     */
+    function initializeBankDetails() {
+        // --- 1. Element Selection (MUST be inside this function) ---
+        const tabButtons = document.querySelectorAll('.bank-tab-button');
+        const contentAreas = document.querySelectorAll('.bank-details-content');
+        const copyButtons = document.querySelectorAll('.copy-button');
+
+        // Safety check
+        if (tabButtons.length === 0) {
+            return;
+        }
+
+        // --- 2. Tab Switching Logic ---
+        const switchTab = (bankType) => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            contentAreas.forEach(content => content.classList.remove('active'));
+
+            const activeBtn = document.querySelector(`.bank-tab-button[data-bank="${bankType}"]`);
+            const activeContent = document.getElementById(`${bankType}-bank-details`);
+
+            if (activeBtn) activeBtn.classList.add('active');
+            if (activeContent) activeContent.classList.add('active');
+        };
+
+        // Tab Button Handler (used for adding/removing listeners)
+        const tabButtonListener = (event) => {
+            const bankType = event.currentTarget.dataset.bank;
+            switchTab(bankType);
+        };
+
+        // --- 3. Copy-to-Clipboard Logic ---
+        // Copy Button Handler (used for adding/removing listeners)
+        const copyButtonListener = async (event) => {
+            const copyGroup = event.currentTarget.closest('.copy-group');
+            const copyTarget = copyGroup.querySelector('.copy-target');
+            const copyMessage = copyGroup.querySelector('.copy-message');
+            
+            if (copyTarget && navigator.clipboard) {
+                try {
+                    const textToCopy = copyTarget.textContent.trim();
+                    await navigator.clipboard.writeText(textToCopy);
+                    
+                    // Show the 'Copied!' message
+                    copyMessage.classList.add('show');
+
+                    setTimeout(() => {
+                        copyMessage.classList.remove('show');
+                    }, 1500);
+
+                } catch (err) {
+                    console.error('Could not copy text: ', err);
+                }
+            } else {
+                console.warn('Clipboard API not supported or copy target not found.');
+            }
+        };
+
+
+        // --- 4. Listener Management (The Astro View Transition Fix) ---
+
+        // A. Tab Listeners
+        tabButtons.forEach(button => {
+            // CRITICAL: Remove previous listeners before adding new ones
+            button.removeEventListener('click', tabButtonListener); 
+            button.addEventListener('click', tabButtonListener);
+        });
+
+        // B. Copy Button Listeners
+        copyButtons.forEach(button => {
+            // CRITICAL: Remove previous listeners before adding new ones
+            button.removeEventListener('click', copyButtonListener); 
+            button.addEventListener('click', copyButtonListener);
+        });
+
+        // C. Initialize the default tab
+        switchTab('nepal');
+    }
+
+    // --- EXECUTION TRIGGERS ---
+
+    // 1. Initial Load (Hard navigation/Browser refresh)
+    document.addEventListener('DOMContentLoaded', initializeBankDetails);
+
+    // 2. Astro View Transition (Soft navigation) - THE FIX
+    document.addEventListener('astro:page-load', initializeBankDetails);
+</script>

@@ -1,0 +1,250 @@
+---
+// src/components/OurHistory.astro
+---
+
+<section class="our-history-section">
+    <div class="container">
+        <p
+            class="section-tagline"
+            data-aos="fade-up"
+            data-i18n="history_tagline"
+        >
+            Our Legacy
+        </p>
+        <h2
+            class="section-main-heading"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-i18n="history_main_heading"
+        >
+            A Journey Through Centuries of Faith and Learning
+        </h2>
+
+        <div class="history-row" data-aos="fade-up">
+            <div class="history-text" data-aos="fade-right">
+                <h3
+                    class="history-sub-heading"
+                    data-i18n="history_from_ancient_heading"
+                >
+                    From Ancient Roots to New Horizons
+                </h3>
+                <p data-i18n="history_paragraph_1">
+                    Tharlam Monastery, a revered Sakya Buddhist institution
+                    whose full name is **Shree Tharlam Sasang Namgyal Ling
+                    Monastery**, traces its origins to **1436**. It was
+                    originally established by **Ga Rabjampa Kunga Yeshe** in
+                    **Kham, Eastern Tibet**, beginning its long and significant
+                    journey as a center for Buddhist teachings and practice.
+                </p>
+                <p data-i18n="history_paragraph_2">
+                    Centuries later, its legacy was faithfully rebuilt. In
+                    **1981**, the monastery was re-established in **Boudhanath,
+                    Kathmandu, Nepal**, by **Dezhung Rinpoche**. This profound
+                    re-establishment fulfilled the specific instructions of his
+                    guru, **Gaton Dorjechang**, ensuring the spiritual and
+                    material continuity of Tharlam Monastery's enduring
+                    tradition for future generations.
+                </p>
+            </div>
+            <div class="history-image" data-aos="fade-left">
+                <img
+                    src="house.png"
+                    alt="Historical image of Tharlam Monastery"
+                    class="responsive-image"
+                    data-i18n-alt="monastery_image_alt"
+                />
+            </div>
+        </div>
+
+        <div class="history-row" data-aos="fade-up" data-aos-delay="100">
+            <div class="history-text" data-aos="fade-right">
+                <h3
+                    class="history-sub-heading"
+                    data-i18n="history_academy_bridging_heading"
+                >
+                    Tharlam Academy: Bridging Worlds
+                </h3>
+                <p data-i18n="history_academy_paragraph_1">
+                    Tharlam Academy, an integral part of Tharlam Monastery, was
+                    established in **1985** right here at the monastery. Its
+                    primary purpose was to introduce young monks to essential
+                    Western education, including subjects like mathematics,
+                    English, science, and various languages. This initiative was
+                    crucial, as at that time, Tharlam Monastery primarily
+                    focused on teaching rituals and the Tibetan language.
+                </p>
+                <p data-i18n="history_academy_paragraph_2">
+                    Significant improvements began in the early 2000s, enabling
+                    the full integration of a comprehensive Western curriculum.
+                    Over the past two decades, we have diligently worked to
+                    provide the best quality education, allowing our students to
+                    excel in subjects like math and science, and become
+                    proficient in multiple languages. Today, Tharlam Academy
+                    proudly educates around a hundred students, preparing them
+                    for both monastic life and the broader world.
+                </p>
+            </div>
+            <div class="history-image" data-aos="fade-left">
+                <img
+                    src="house.png"
+                    alt="Historical image of Tharlam Academy"
+                    class="responsive-image"
+                    data-i18n-alt="academy_building_image_alt"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Ensure .container is defined globally or locally */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    /* ============================================== */
+    /* 1. HISTORY SECTION STYLES (Mobile First) */
+    /* ============================================== */
+
+    .our-history-section {
+        padding: 60px 0;
+        background-color: #fff; /* White background */
+        text-align: center;
+    }
+
+    /* --- Section Headings --- */
+    .section-tagline {
+        color: #004d99; /* Primary Blue */
+        font-size: 1.1em;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .section-main-heading {
+        font-size: 2em; /* Mobile size */
+        color: #001f3f;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    /* --- History Rows (Layout) --- */
+    .history-row {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile by default */
+        gap: 30px;
+        align-items: flex-start;
+        text-align: left;
+        padding: 30px 0;
+        border-bottom: 1px solid #eee; /* Separator between history rows */
+    }
+
+    /* Remove border on the last row */
+    .history-row:last-child {
+        border-bottom: none;
+    }
+
+    /* --- Content Blocks (Mobile Order) --- */
+    .history-text,
+    .history-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .history-image {
+        order: 1; /* Image appears first on mobile */
+    }
+    .history-text {
+        order: 2; /* Text appears second on mobile */
+    }
+
+    .history-image .responsive-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+    }
+
+    .history-sub-heading {
+        color: #001f3f;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        font-weight: 700;
+        border-left: 4px solid #004d99; /* Accent bar */
+        padding-left: 10px;
+    }
+
+    .history-text p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    /* ============================================== */
+    /* 2. DESKTOP/LARGE SCREEN (Min-width: 992px) */
+    /* ============================================== */
+    @media (min-width: 992px) {
+        .our-history-section {
+            padding: 80px 0;
+        }
+
+        .section-main-heading {
+            font-size: 2.5em; /* Desktop size */
+            margin-bottom: 60px;
+        }
+
+        .history-row {
+            flex-direction: row; /* Display side-by-side on desktop */
+            gap: 50px;
+            align-items: center;
+        }
+
+        .history-text,
+        .history-image {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        /* Desktop Layout Alternation Logic: */
+
+        /* Row 1 (and odd rows): Image Left / Text Right */
+        .history-row:nth-child(2n) .history-image {
+            order: 1;
+        }
+        .history-row:nth-child(2n) .history-text {
+            order: 2;
+        }
+
+        /* Row 2 (and even rows): Text Left / Image Right */
+        .history-row:nth-child(2n + 1) .history-text {
+            order: 1;
+        }
+        .history-row:nth-child(2n + 1) .history-image {
+            order: 2;
+        }
+
+        /* Correction for the very first row to match your AOS (fade-right/fade-left) structure: 
+           The HTML provided has Text first, Image second. We flip it here to match the 
+           visually expected alternation if the first row is Image-Left. */
+        .history-row:nth-child(1) .history-image {
+            order: 1; /* Image on Left */
+        }
+        .history-row:nth-child(1) .history-text {
+            order: 2; /* Text on Right */
+        }
+
+        .history-sub-heading {
+            font-size: 1.6em;
+        }
+
+        .history-text p {
+            font-size: 16px;
+        }
+    }
+</style>
