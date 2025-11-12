@@ -1,7 +1,6 @@
 ---
 // This is the main layout for the entire website
-// 1. IMPORT ADDED FOR SMOOTH NAVIGATION
-import { ViewTransitions } from "astro:transitions";
+// NOTE: Removed ViewTransitions import and usage
 
 import Header from "../components/nav.astro";
 import Footer from "../components/Footer.astro";
@@ -23,10 +22,9 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title} | Tharlam Academy</title>
 
-        <ViewTransitions />
-
         <link rel="stylesheet" href="/fa/css/all.min.css" />
     </head>
+
 
     <body>
         <Header />
