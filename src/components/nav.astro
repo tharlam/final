@@ -1,6 +1,9 @@
 ---
-// src/components/nav.astro
-// Frontmatter is intentionally empty. The language script is managed by BaseLayout.astro.
+// 1. Access the base path from astro.config.mjs (which is '/final/')
+const BASE_PATH = import.meta.env.BASE_URL;
+
+// 2. Helper function to create the full path (e.g., /final/about)
+const getPath = (route) => `${BASE_PATH}${route}`;
 ---
 
 <header class="main-header">
@@ -56,7 +59,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="brand">
       <a
-        href="/"
+        href={BASE_PATH}
         class="header-logo-link"
         data-i18n-alt="brand_link_aria"
         aria-label="Tharlam Academy Home"
@@ -103,13 +106,44 @@
 
     <div class="nav-controls" id="navLinks">
       <ul class="nav-links-list">
-        <li><a href="/" data-i18n="nav_home">Home</a></li>
-        <li><a href="about" data-i18n="nav_about">About</a></li>
-        <li><a href="sport" data-i18n="nav_sport">Sport</a></li>
-        <li><a href="sponsor" data-i18n="nav_sponsor">Sponsor</a></li>
-        <li><a href="faq" data-i18n="nav_faq">FAQ</a></li>
+        <li><a href={BASE_PATH} data-i18n="nav_home">Home</a></li>
+
+        <li><a href={getPath("about")} data-i18n="nav_about">About</a></li>
+
+        <li><a href={getPath("sport")} data-i18n="nav_sport">Sport</a></li>
         <li>
-          <a href="/contact" class="nav-contact-link" data-i18n="nav_contact"
+          <a href={getPath("sponsor")} data-i18n="nav_sponsor">Sponsor</a>
+        </li>
+        <li><a href={getPath("faq")} data-i18n="nav_faq">FAQ</a></li>
+
+        <li>
+          <a
+
+
+
+
+
+
+            href={getPath("contact")}
+
+
+
+
+
+
+            class="nav-contact-link"
+
+
+
+
+
+
+            data-i18n="nav_contact"
+
+
+
+
+
             >Contact</a
           >
         </li>
