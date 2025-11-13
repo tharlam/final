@@ -1,4 +1,6 @@
 ---
+// nav.astro
+
 // 1. Access the base path from astro.config.mjs (which is '/final/')
 const BASE_PATH = import.meta.env.BASE_URL;
 
@@ -18,10 +20,39 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
         <span>
           <a
+
+
+
+
+
+
             href="https://wa.me/9773456437456746"
+
+
+
+
+
+
             target="_blank"
+
+
+
+
+
+
             class="whatsapp-link"
+
+
+
+
+
+
             aria-label="Contact us on WhatsApp"
+
+
+
+
+
           >
             <i class="fab fa-whatsapp"></i> 3456437456746
           </a>
@@ -29,9 +60,32 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
         <span>
           <a
+
+
+
+
+
+
             href="mailto:tharlamfamily@gmail.com"
+
+
+
+
+
+
             class="email-link"
+
+
+
+
+
+
             aria-label="Email us"
+
+
+
+
+
           >
             <i class="fas fa-envelope"></i> tharlamfamily@gmail.com
           </a>
@@ -41,9 +95,32 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       <div class="top-bar-tools">
         <div class="language-selector-wrapper desktop-only">
           <select
+
+
+
+
+
+
             class="language-select"
+
+
+
+
+
+
             id="lang-desktop"
+
+
+
+
+
+
             aria-label="Select Language"
+
+
+
+
+
           >
             <option value="en" selected>English</option>
             <option value="ne">नेपाली</option>
@@ -59,16 +136,59 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="brand">
       <a
+
+
+
+
         href={BASE_PATH}
+
+
+
+
         class="header-logo-link"
+
+
+
+
         data-i18n-alt="brand_link_aria"
+
+
+
+
         aria-label="Tharlam Academy Home"
+
+
+
       >
         <img
-          src="loading-logo.png"
+
+
+
+
+
+          src={`${BASE_PATH}loading-logo.png`}
+
+
+
+
+
           alt="Tharlam Academy Logo"
+
+
+
+
+
           class="logo"
+
+
+
+
+
           data-i18n-alt="brand_logo_alt"
+
+
+
+
         />
         <div class="text-group">
           <h2 data-i18n="brand_title">Tharlam Academy</h2>
@@ -80,9 +200,28 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     <div class="mobile-tools">
       <div class="language-selector-wrapper mobile-only">
         <select
+
+
+
+
+
           class="language-select"
+
+
+
+
+
           id="lang-mobile"
+
+
+
+
+
           aria-label="Select Language"
+
+
+
+
         >
           <option value="en" selected>English</option>
           <option value="ne">नेपाली</option>
@@ -93,10 +232,29 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       </div>
 
       <button
+
+
+
+
         class="menu-toggle"
+
+
+
+
         aria-expanded="false"
+
+
+
+
         aria-controls="navLinks"
+
+
+
+
         id="menuToggle"
+
+
+
       >
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

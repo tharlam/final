@@ -4,6 +4,9 @@ import WhoWeAre from "../components/WhoWeAre.astro";
 import WhatWeDo from "../components/WhatWeDo.astro";
 import OurHistory from "../components/OurHistory.astro";
 import ScheduleTabs from "../components/ScheduleTabs.astro";
+
+// CRITICAL FIX: Get BASE_PATH here to use for static assets
+const BASE_PATH = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="About Us">
@@ -11,4 +14,6 @@ import ScheduleTabs from "../components/ScheduleTabs.astro";
   <WhatWeDo />
   <OurHistory />
   <ScheduleTabs />
+
+  <script src={`${BASE_PATH}scripts/modal-handler.js`} defer></script>
 </BaseLayout>
