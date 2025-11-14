@@ -11,7 +11,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-// Define BASE_PATH
+// Define BASE_PATH from the environment variable (e.g., /final/)
 const BASE_PATH = import.meta.env.BASE_URL;
 ---
 
@@ -20,13 +20,34 @@ const BASE_PATH = import.meta.env.BASE_URL;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>{title} | Tharlam Academy</title>
 
-        <link
-            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-            rel="stylesheet"
+        <meta
+            name="google-site-verification"
+            content="googled8e2fda3b799e028"
         />
 
+        <link
+
+
+
+
+
+
+            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+
+
+
+
+
+
+            rel="stylesheet"
+
+
+
+
+        />
         <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
     </head>
 
@@ -41,6 +62,10 @@ const BASE_PATH = import.meta.env.BASE_URL;
         </main>
 
         <Footer />
+
+        <script>
+            window.BASE_PATH = "${BASE_PATH}";
+        </script>
 
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
