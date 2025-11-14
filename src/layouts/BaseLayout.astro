@@ -6,71 +6,59 @@ import "../styles/global.css";
 import "../styles/about-section.css";
 
 interface Props {
-    title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
 
-// 1. CRITICAL: BASE_PATH MUST BE DEFINED HERE IN THE FRONTMATTER
+// This variable will correctly hold the base path (/final/) defined in astro.config.mjs
 const BASE_PATH = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>{title} | Tharlam Academy</title>
+		<title>{title} | Tharlam Academy</title>
 
+        <!-- GOOGLE SEARCH CONSOLE VERIFICATION TAG -->
+        <!-- !!! IMPORTANT: Replace 'YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE' with your unique code from Google Search Console !!! -->
         <meta
             name="google-site-verification"
-            content="googled8e2fda3b799e028"
+            content="googled8e2fda3b799e028.html"
         />
+        <!-- END GOOGLE SEARCH CONSOLE TAG -->
 
-        <link
+		<link
+			href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
+	</head>
 
+	<body>
+		<Header />
+		<main>
+			<div class="site-content-container">
+				<slot />
+			</div>
+		</main>
+		<Footer />
 
+		<script>
+			window.BASE_PATH = "${BASE_PATH}";
+		</script>
 
+		<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
+		<script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
+		></script>
 
-
-            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-
-
-
-
-
-
-            rel="stylesheet"
-
-
-
-
-        />
-        <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
-    </head>
-
-
-    <body>
-        <Header />
-        <main>
-            <div class="site-content-container">
-                <slot />
-            </div>
-        </main>
-        <Footer />
-
-        <script>
-            window.BASE_PATH = "${BASE_PATH}";
-        </script>
-
-        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-
-        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
-        ></script>
-
-        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
-        ></script>
-    </body>
+		<script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
+		></script>
+	</body>
 </html>
+
+I hope this helps you see the code clearly!
