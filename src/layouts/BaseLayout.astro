@@ -20,11 +20,10 @@ const BASE_PATH = import.meta.env.BASE_URL;
 // Generate absolute URLs for Open Graph (OG) tags
 const absoluteUrl = Astro.url.href;
 
-// FIX: Corrected typo from '/Dezhung-Rinpoche.PNG' to the full, assumed correct path.
-// This is used if the 'ogImage' prop is not passed from a specific page.
+// src/layouts/BaseLayout.astro (Line 23)
 const absoluteOgImage = ogImage
     ? new URL(ogImage, Astro.site).href
-    : new URL("/Dezhung-Rinpoche.png", Astro.site).href;
+    : new URL("/dezhung-rinpoche.png", Astro.site).href; // <-- CORRECTED PATH/CASE
 ---
 
 <!doctype html>
