@@ -5,60 +5,78 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/about-section.css";
 
+// Interface updated to require 'description' and allow optional 'ogImage'
 interface Props {
-	title: string;
+    title: string;
+    description: string; // The short note/keytype for search results
+    ogImage?: string; // The path to the image for rich snippets
 }
 
-const { title } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 
 // This variable will correctly hold the base path (/final/) defined in astro.config.mjs
 const BASE_PATH = import.meta.env.BASE_URL;
+
+// Generate absolute URLs for Open Graph (OG) tags
+const absoluteUrl = Astro.url.href;
+
+// The OG image is set to the provided 'ogImage', or falls back to '/Founder.png'
+const absoluteOgImage = ogImage
+    ? new URL(ogImage, Astro.site).href
+    : new URL("/Dezhung-Rinpoche", Astro.site).href;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>{title} | Tharlam Academy</title>
+        <title>{title} | Tharlam Academy</title>
 
-        <!-- GOOGLE SEARCH CONSOLE VERIFICATION TAG -->
-        <!-- !!! IMPORTANT: Replace 'YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE' with your unique code from Google Search Console !!! -->
+        <link rel="icon" type="image/png" href={`${BASE_PATH}loading-logo.png`} />
+
+        <meta name="description" content={description} />
+
+        <meta property="og:title" content={`${title} | Tharlam Academy`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={absoluteUrl} />
+        <meta property="og:image" content={absoluteOgImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={absoluteOgImage} />
+
         <meta
             name="google-site-verification"
             content="googled8e2fda3b799e028.html"
         />
-        <!-- END GOOGLE SEARCH CONSOLE TAG -->
+        <link
+            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
+    </head>
 
-		<link
-			href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
-	</head>
+    <body>
+        <Header />
+        <main>
+            <div class="site-content-container">
+                <slot />
+            </div>
+        </main>
+        <Footer />
 
-	<body>
-		<Header />
-		<main>
-			<div class="site-content-container">
-				<slot />
-			</div>
-		</main>
-		<Footer />
+        <script>
+            window.BASE_PATH = "${BASE_PATH}";
+        </script>
 
-		<script>
-			window.BASE_PATH = "${BASE_PATH}";
-		</script>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
-		<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
+        ></script>
 
-		<script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
-		></script>
-
-		<script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
-		></script>
-	</body>
+        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
+        ></script>
+    </body>
 </html>
-
-I hope this helps you see the code clearly!
