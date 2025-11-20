@@ -1,19 +1,34 @@
+---
+import { Image } from "astro:assets";
+// 1. Import your files here using relative paths
+import banner1 from "../assets/Banner-1.jpg";
+import banner2 from "../assets/Banner-2.png";
+---
+
 <section class="banner-slider">
     <div class="slide active">
-        <img
-            src="Banner-1.JPG"
+        <Image
+            src={banner1}
             alt="People gathering for a spiritual event"
             data-i18n-alt="banner_slide1_alt"
+            width={1920}
+            height={700}
+            format="webp"
+            loading="eager"
         />
         <div class="slide-caption">
             <h3 data-i18n="banner_slide1_title">Tharlam Academy 2025</h3>
         </div>
     </div>
     <div class="slide">
-        <img
-            src="Banner-2.png"
+        <Image
+            src={banner2}
             alt="Monastery building during sunset"
             data-i18n-alt="banner_slide2_alt"
+            width={1920}
+            height={700}
+            format="webp"
+            loading="lazy"
         />
         <div class="slide-caption">
             <h3 data-i18n="banner_slide2_title">
