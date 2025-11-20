@@ -15,14 +15,9 @@ export default defineConfig({
         sitemap(), // Sitemap is now enabled
         
         // ------------------------------------------------------------------
-        // ⭐ CRITICAL FIX: Add the Assets integration for image optimization
-        // This explicitly tells Astro to use the 'sharp' library you installed.
-        {
-            name: '@astrojs/assets',
-            service: {
-                entrypoint: 'astro/assets/services/sharp' 
-            }
-        }
+        // ⭐ FIX APPLIED: The manual '@astrojs/assets' integration (for v2) 
+        // has been REMOVED. Astro 3+ handles image optimization (Image component) 
+        // automatically when 'sharp' or 'squoosh' is installed.
         // ------------------------------------------------------------------
     ],
 
