@@ -1,19 +1,16 @@
 ---
-import { Image } from "astro:assets";
-// 1. Import your files here using RELATIVE paths
-import banner1 from "../assets/banner-1.jpg"; // <-- FIX: Changed from /src/assets/...
-import banner2 from "../assets/Banner-2.png"; // <-- FIX: Changed from /src/assets/...
+// This frontmatter block is now empty (or can be completely removed)
+// since you are using static <img> tags and not importing modules.
 ---
 
 <section class="banner-slider">
     <div class="slide active">
-        <Image
-            src={banner1}
+        <img
+            src="/final/Banner-1.webp"
             alt="People gathering for a spiritual event"
             data-i18n-alt="banner_slide1_alt"
-            width={1920}
-            height={700}
-            format="webp"
+            width="1920"
+            height="700"
             loading="eager"
         />
         <div class="slide-caption">
@@ -21,13 +18,12 @@ import banner2 from "../assets/Banner-2.png"; // <-- FIX: Changed from /src/asse
         </div>
     </div>
     <div class="slide">
-        <Image
-            src={banner2}
+        <img
+            src="/final/Banner-2.webp"
             alt="Monastery building during sunset"
             data-i18n-alt="banner_slide2_alt"
-            width={1920}
-            height={700}
-            format="webp"
+            width="1920"
+            height="700"
             loading="lazy"
         />
         <div class="slide-caption">
