@@ -5,8 +5,7 @@
     padding: 40px 20px;
     color: white;
     overflow: hidden;
-    /* Corrected image path with quotes for spaces */
-    background: url('/public/house.png') no-repeat center center/cover fixed;
+    background: url('/final/bg wall.webp') no-repeat center center/cover fixed;
     text-align: center;
 }
 
