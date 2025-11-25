@@ -37,10 +37,21 @@ const absoluteOgImage = ogImage
 
         <link
             rel="icon"
-            type="image/png"
-            href={`${BASE_PATH}loading-logo.png`}
+            href={`${BASE_PATH}favicon.svg`}
+            type="image/svg+xml"
         />
 
+        <link
+            rel="apple-touch-icon"
+            href={`${BASE_PATH}apple-touch-icon.png`}
+        />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href={`${BASE_PATH}icon-192.png`}
+        />
         <meta name="description" content={description} />
         <meta property="og:title" content={`${title} | Tharlam Academy`} />
         <meta property="og:description" content={description} />
