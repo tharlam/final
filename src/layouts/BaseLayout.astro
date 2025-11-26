@@ -5,11 +5,11 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/about-section.css";
 
-// Interface updated to require 'description' and allow optional 'ogImage'
+// Inside BaseLayout.astro frontmatter
 interface Props {
     title: string;
-    description: string; // The short note/keytype for search results
-    ogImage?: string; // The path to the image for rich snippets
+    description?: string; // Changed to optional
+    ogImage?: string;
 }
 
 const { title, description, ogImage } = Astro.props;
@@ -22,7 +22,7 @@ const absoluteUrl = Astro.url.href;
 
 const absoluteOgImage = ogImage
     ? new URL(ogImage, Astro.site).href
-    : new URL("/dezhung-rinpoche.jpg", Astro.site).href; // <-- CORRECTED PATH/CASE
+    : new URL("/final/dezhung-rinpoche.jpg", Astro.site).href; // <-- CORRECTED PATH/CASE
 ---
 
 <!doctype html>
@@ -52,6 +52,7 @@ const absoluteOgImage = ogImage
             sizes="192x192"
             href={`${BASE_PATH}icon-192.png`}
         />
+
         <meta name="description" content={description} />
         <meta property="og:title" content={`${title} | Tharlam Academy`} />
         <meta property="og:description" content={description} />
@@ -78,7 +79,7 @@ const absoluteOgImage = ogImage
         </main>
         <Footer />
 
-        <script>
+        <script is:inline>
             window.BASE_PATH = "${BASE_PATH}";
         </script>
 
