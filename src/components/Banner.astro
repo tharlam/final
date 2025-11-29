@@ -143,12 +143,18 @@
         padding-right: 15px;
     }
 
-    /* --- RESPONSIVENESS --- */
+    /* ------------------------------------------------------------------ */
+    /* --- RESPONSIVENESS (WITH STICKY HEADER FIX) --- */
+    /* ------------------------------------------------------------------ */
 
     /* Tablet and Small Desktop */
     @media (max-width: 992px) {
         .banner-slider {
             height: 450px;
+            /* 💡 STICKY HEADER FIX: Pushes the banner down below the fixed navigation. 
+               ~90px (Header) + ~50px (Spacing) = 140px. 
+            */
+            padding-top: 140px;
         }
         .slide-caption {
             padding: var(--spacing-lg) var(--spacing-xxl);
@@ -175,6 +181,8 @@
     @media (max-width: 768px) {
         .banner-slider {
             height: 350px;
+            /* STICKY HEADER FIX ADJUSTMENT */
+            padding-top: 120px;
         }
         .slide-caption {
             padding: 12px var(--spacing-xl);
@@ -201,6 +209,8 @@
     @media (max-width: 480px) {
         .banner-slider {
             height: 250px;
+            /* STICKY HEADER FIX ADJUSTMENT */
+            padding-top: 100px;
         }
         .slide-caption {
             padding: var(--spacing-md) var(--spacing-lg);

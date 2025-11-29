@@ -7,57 +7,144 @@ import "../styles/mission.css";
 <section id="mission" class="glance-section">
   <div class="glance-overlay"></div>
   <div class="glance-content-wrapper">
-    <h2 class="glance-title" data-i18n="mission_vision_title">
-      Our Mission & Vision At A Glance
-    </h2>
-    <div class="glance-cards-container">
-      <div class="glance-card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-bullseye glance-icon"></i>
-        <h3 class="glance-card-title" data-i18n="mission_card_title">
-          Our Mission
-        </h3>
-        <p class="glance-card-description" data-i18n="mission_card_desc">
-          At Tharlam Academy, we offer a holistic education grounded in Buddhist
-          philosophy and modern knowledge. Our mission is to provide the highest
-          quality instruction in both ritual and Eastern wisdom traditions,
-          alongside contemporary subjects, empowering every student.
-        </p>
-      </div>
+    
+    <div class="glance-header-row">
+        <h2 class="glance-title" data-i18n="mission_vision_title">
+          Our Mission & Vision
+        </h2>
+        
+        <div class="glance-navigation">
+            <button class="glance-prev-btn" aria-label="Previous card">
+               <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="glance-next-btn" aria-label="Next card">
+               <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="glance-slider-wrapper">
+        
+      <div class="glance-cards-container">
+        
+        <div class="glance-card" data-index="0" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-bullseye glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="mission_card_title">
+            Our Mission
+          </h3>
+          <p class="glance-card-description" data-i18n="mission_card_desc">
+            At Tharlam Academy, we offer a holistic education grounded in Buddhist
+            philosophy and modern knowledge. Our mission is to provide the highest
+            quality instruction in both ritual and Eastern wisdom traditions,
+            alongside contemporary subjects, empowering every student.
+          </p>
+        </div>
 
-      <div class="glance-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-lightbulb glance-icon"></i>
-        <h3 class="glance-card-title" data-i18n="vision_card_title">
-          Our Vision
-        </h3>
-        <p class="glance-card-description" data-i18n="vision_card_desc">
-          Our vision is to be a leading center of learning that seamlessly
-          integrates traditional Buddhist teachings with modern academic
-          excellence, inspiring critical thinking and spiritual growth.
-        </p>
-      </div>
+        <div class="glance-card" data-index="1" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-lightbulb glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="vision_card_title">
+            Our Vision
+          </h3>
+          <p class="glance-card-description" data-i18n="vision_card_desc">
+            Our vision is to be a leading center of learning that seamlessly
+            integrates traditional Buddhist teachings with modern academic
+            excellence, inspiring critical thinking and spiritual growth.
+          </p>
+        </div>
+        
+        <div class="glance-card" data-index="2" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-hands-helping glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="values_card_title">
+            Our Values
+          </h3>
+          <p class="glance-card-description" data-i18n="values_card_desc">
+            Compassion, Wisdom, Integrity, Community, and a deep Respect for our
+            Educators and the knowledge they impart.
+          </p>
+        </div>
 
-      <div class="glance-card" data-aos="fade-up" data-aos-delay="300">
-        <i class="fas fa-hands-helping glance-icon"></i>
-        <h3 class="glance-card-title" data-i18n="values_card_title">
-          Our Values
-        </h3>
-        <p class="glance-card-description" data-i18n="values_card_desc">
-          Compassion, Wisdom, Integrity, Community, and a deep Respect for our
-          Educators and the knowledge they impart.
-        </p>
-      </div>
-
-      <div class="glance-card" data-aos="fade-up" data-aos-delay="400">
-        <i class="fas fa-users glance-icon"></i>
-        <h3 class="glance-card-title" data-i18n="community_card_title">
-          Our Community
-        </h3>
-        <p class="glance-card-description" data-i18n="community_card_desc">
-          A vibrant and supportive environment where students, teachers, and
-          brothers collaborate, grow, and learn together in harmony and mutual
-          understanding.
-        </p>
+        <div class="glance-card" data-index="3" data-aos="fade-up" data-aos-delay="400">
+          <i class="fas fa-users glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="community_card_title">
+            Our Community
+          </h3>
+          <p class="glance-card-description" data-i18n="community_card_desc">
+            A vibrant and supportive environment where students, teachers, and
+            brothers collaborate, grow, and learn together in harmony and mutual
+            understanding.
+          </p>
+        </div>
+        
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+ // public/scripts/glance-slider.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Only run slider logic if we are within the slider mode range (<= 992px)
+    if (window.innerWidth > 992) {
+        return; 
+    }
+    
+    const container = document.querySelector('.glance-cards-container');
+    const prevBtn = document.querySelector('.glance-prev-btn');
+    const nextBtn = document.querySelector('.glance-next-btn');
+    const cards = document.querySelectorAll('.glance-card');
+    const cardCount = cards.length;
+    let currentIndex = 0;
+
+    if (!container || cardCount === 0) return;
+
+    function getGap() {
+        // Must match the CSS gap values for the active breakpoint
+        if (window.innerWidth <= 480) return 15;
+        if (window.innerWidth <= 768) return 20;
+        return 30; // Default gap for 992px view
+    }
+
+    function updateSlider() {
+        const gap = getGap();
+        
+        // 💡 CRITICAL: Get the full step size based on the width of the card 
+        // (which is 100% of wrapper minus the preview space).
+        // This automatically accounts for the new preview width.
+        const cardStepSize = container.querySelector('.glance-card').offsetWidth + gap;
+        
+        // Calculate the total offset: (card step size * current index)
+        const offset = -(currentIndex * cardStepSize);
+        
+        container.style.transform = `translateX(${offset}px)`;
+
+        // Update button visibility
+        prevBtn.classList.toggle('hidden', currentIndex === 0);
+        nextBtn.classList.toggle('hidden', currentIndex === cardCount - 1);
+    }
+    
+    // Initial setup
+    updateSlider();
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cardCount - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    // Recalculate on window resize/rotation to ensure accurate offset
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 992) {
+             updateSlider();
+        }
+    });
+});
+</script>

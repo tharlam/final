@@ -1,10 +1,5 @@
 ---
-// nav.astro
-
-// 1. Access the base path from astro.config.mjs (which is '/final/')
 const BASE_PATH = import.meta.env.BASE_URL;
-
-// 2. Helper function to create the full path (e.g., /final/about)
 const getPath = (route) => `${BASE_PATH}${route}`;
 ---
 
@@ -216,6 +211,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     width: 100%;
     z-index: 1000;
     background-color: var(--color-primary-dark);
+    position: sticky;
   }
 
   /* --- TOP CONTACT BAR (First Line) --- */

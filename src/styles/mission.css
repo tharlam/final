@@ -1,11 +1,12 @@
-/*mission and vision*/
-/* --- Mission & Vision At A Glance Section --- */
+/* ------------------------------------------------------------------ */
+/* --- 1. BASE STYLES (Desktop Default - Applies above 992px) --- */
+/* ------------------------------------------------------------------ */
 .glance-section {
     position: relative;
-    padding: 40px 20px;
-    color: white;
+    padding: 50px 20px;
+    color: #ffffff;
     overflow: hidden;
-    background: url('/final/bg wall.webp') no-repeat center center/cover fixed;
+    background: url('/final/bg wall.webp') no-repeat center center/cover fixed; 
     text-align: center;
 }
 
@@ -16,82 +17,48 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 31, 63, 0.7);
-    /* Dark blue overlay (001f3f with 70% opacity) */
     z-index: 1;
-    /* Sits above background, below content */
 }
 
 .glance-content-wrapper {
     position: relative;
     z-index: 2;
-    /* Sits above the overlay */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .glance-title {
-    font-size: 2.8rem;
-    color: white;
-    margin-bottom: 50px;
-    /* Space below title before cards */
+    font-size: 38px;
+    color: #ffffff;
+    margin-bottom: 30px; 
     position: relative;
-    padding-bottom: 15px;
     font-weight: 700;
+    text-align: center; 
 }
 
-.glance-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 100px;
-    /* Length of the underline */
-    height: 4px;
-    background-color: white;
-    /* Yellow accent color */
-    border-radius: 2px;
-}
-
+/* --- CARD CONTAINER (Desktop 4-column) --- */
 .glance-cards-container {
     display: flex;
-    flex-wrap: wrap;
-    /* Allows cards to wrap on smaller screens */
+    flex-wrap: wrap; 
     justify-content: center;
-    /* Centers cards in the container */
-    gap: 30px;
-    /* Space between cards */
+    gap: 20px;
 }
 
 .glance-card {
     background-color: rgba(255, 255, 255, 0.9);
-    /* Slightly transparent white card */
     color: #333;
-    /* Dark text on white card */
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    /* Subtle shadow for depth */
     text-align: center;
-    flex: 1 1 calc(25% - 30px);
-    /* Four columns on large screens */
+    flex: 1 1 calc(25% - 22.5px); 
     min-width: 220px;
-    /* Minimum width before stacking */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glance-card:hover {
-    transform: translateY(-5px);
-    /* Lift effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    /* More pronounced shadow on hover */
 }
 
 .glance-icon {
     font-size: 3rem;
-    /* Size of the icon */
     color: #001f3f;
-    /* Primary blue for icons */
     margin-bottom: 15px;
 }
 
@@ -100,127 +67,154 @@
     font-weight: 600;
     margin-bottom: 10px;
     color: #001f3f;
-    /* Dark blue for card titles */
 }
 
 .glance-card-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.8;
     color: #555;
 }
 
+/* --- NAVIGATION BUTTONS (Hidden on Desktop) --- */
+.glance-navigation {
+    display: none; 
+}
 
-/* --- Responsive Adjustments for Mission & Vision Section --- */
 
-/* Tablets and smaller desktops (max-width: 992px) */
+/* ------------------------------------------------------------------ */
+/* --- 2. RESPONSIVE ADJUSTMENTS (SINGLE-CARD SLIDER MODE) --- */
+/* ------------------------------------------------------------------ */
+
+/* 1. Tablets and smaller desktops (Max-width: 992px) - Slider Mode ON */
 @media (max-width: 992px) {
-    .glance-section {
-        padding: 60px 15px;
+    .glance-content-wrapper {
+        display: block; /* Reset wrapper display */
+    }
+
+    /* 💡 NEW: Header Row Setup for Perfect Alignment 💡 */
+    .glance-header-row {
+        display: flex;
+        justify-content: space-between; /* Title left, Buttons right */
+        align-items: center; /* Vertically centers buttons with title text */
+        margin-bottom: 20px; 
+        padding-top: 15px;
     }
 
     .glance-title {
-        font-size: 2.2rem;
-        margin-bottom: 40px;
+        font-size: 32px;
+        text-align: left; 
+        margin-bottom: 0; 
+        padding-bottom: 0;
+        flex-grow: 1; /* Title takes space */
+    }
+    
+    /* 💡 NAVIGATION BUTTONS: VISIBLE, ALIGNED, AND STYLED 💡 */
+    .glance-navigation {
+        display: flex; 
+        width: auto;
+        /* Remove floating/positioning overrides */
+        margin-top: 0; 
+        position: static;
+        z-index: 3;
     }
 
-    .glance-title::after {
-        width: 80px;
-        height: 3px;
+    .glance-prev-btn, .glance-next-btn {
+        width: 30px; 
+        height: 30px; 
+        font-size: 0.8rem; 
+        cursor: pointer;
+        margin: 0; 
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        border: 1px solid #001f3f; 
+        transition: background 0.2s, color 0.2s;
+        border-radius: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .glance-prev-btn {
+        background: #ffffff;
+        color: #001f3f; 
+        border-right: none; 
+    }
+
+    .glance-next-btn {
+        background: #001f3f; 
+        color: #ffffff; 
+        margin-left: -1px; 
+    }
+    
+    .glance-prev-btn:hover {
+        background: #f0f0f0;
+    }
+    .glance-next-btn:hover {
+        background: #002b59; 
+    }
+
+    /* CRITICAL: SLIDER WRAPPER SETUP */
+    .glance-slider-wrapper {
+        position: relative;
+        overflow: hidden; 
+        margin-top: 0; /* Space handled by .glance-header-row margin-bottom */
+    }
+
+    /* CRITICAL FIX: CARD SIZE - SHOWS PREVIEW OF NEXT CARD */
+    .glance-cards-container {
+        flex-wrap: nowrap; 
+        justify-content: flex-start;
+        transition: transform 0.3s ease-in-out;
+        gap: 30px; 
     }
 
     .glance-card {
-        flex: 1 1 calc(50% - 20px);
-        /* Two columns on tablets */
+        /* Card width: 100% minus (30px gap + 30px preview space) */
+        flex: 0 0 calc(100% - 60px); 
         padding: 25px 15px;
-        min-width: 200px;
-    }
-
-    .glance-icon {
-        font-size: 2.5rem;
-    }
-
-    .glance-card-title {
-        font-size: 1.2rem;
-    }
-
-    .glance-card-description {
-        font-size: 0.9rem;
     }
 }
 
-/* Mobile devices (max-width: 768px) */
+/* 2. Large Mobile Devices (Max-width: 768px) - Further Scaling */
 @media (max-width: 768px) {
     .glance-section {
-        height: auto;
-        /* Allow height to adjust to content */
-        padding: 50px 10px;
-        /* The line 'background-attachment: scroll;' has been REMOVED from here */
+        padding: 30px 10px;
     }
 
     .glance-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        font-size: 28px;
     }
-
-    .glance-title::after {
-        width: 60px;
-        height: 2px;
-    }
-
+    
     .glance-cards-container {
         gap: 20px;
-        /* Reduced gap */
     }
 
     .glance-card {
-        flex: 1 1 100%;
-        /* Single column on mobile, ensures it adapts to full width */
-        margin: 0 auto;
-        /* Center individual cards */
-        padding: 20px 15px;
-    }
-
-    .glance-icon {
-        font-size: 2rem;
-    }
-
-    .glance-card-title {
-        font-size: 1.1rem;
-    }
-
-    .glance-card-description {
-        font-size: 0.85rem;
+        /* Card width: 100% minus (20px gap + 20px preview space) */
+        flex: 0 0 calc(100% - 40px); 
+        padding: 20px 15px; 
     }
 }
 
-/* Very small mobile devices (max-width: 480px) */
+/* 3. Small Mobile Devices (Max-width: 480px) - Final Tightening */
 @media (max-width: 480px) {
-    .glance-section {
-        padding: 40px 10px;
-    }
-
     .glance-title {
-        font-size: 22px;
-        margin-bottom: 25px;
+        font-size: 24px;
     }
 
+    .glance-header-row {
+        /* Adjust header row padding for tight mobile screens */
+        padding: 10px 0 10px 0;
+        margin-bottom: 10px;
+    }
+    
     .glance-cards-container {
         gap: 15px;
     }
 
     .glance-card {
+        /* Card width: 100% minus (15px gap + 15px preview space) */
+        flex: 0 0 calc(100% - 30px); 
         padding: 18px 10px;
-    }
-
-    .glance-icon {
-        font-size: 1.8rem;
-    }
-
-    .glance-card-title {
-        font-size: 1rem;
-    }
-
-    .glance-card-description {
-        font-size: 0.8rem;
     }
 }

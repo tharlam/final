@@ -1,9 +1,15 @@
-<section id="faci" class="facilities-tabbed-grid-section">
+<section id="faci" class="facilities-tabbed-grid-section site-section">
   <div class="facilities-header" data-aos="fade-up">
-    <h2 class="facilities-title" data-i18n="facilities_main_title">
+    <h2
+      class="facilities-title section-title"
+      data-i18n="facilities_main_title"
+    >
       Discover Our <span class="highlight-blue">Campus Amenities</span>
     </h2>
-    <p class="facilities-subtitle" data-i18n="facilities_subtitle">
+    <p
+      class="facilities-subtitle consistent-paragraph-text"
+      data-i18n="facilities_subtitle"
+    >
       Tharlam Academy offers a comprehensive array of modern facilities,
       thoughtfully designed to enrich every aspect of our students' academic,
       spiritual, and daily lives.
@@ -310,30 +316,34 @@
 
   /* Main Section Container */
   .facilities-tabbed-grid-section {
-    padding: 10px 20px;
-    background-color: white;
+    /* CONSISTENCY: Vertical padding is controlled by the global .site-section class */
+    padding: 0 20px;
+    background-color: #f8f8f8;
     color: #333;
     overflow: hidden;
     text-align: center;
+     
   }
 
   /* Section Header */
   .facilities-header {
     max-width: 800px;
-    margin: 0 auto 10px auto;
+    /* CONSISTENCY: Margin-bottom set to 30px from the global .section-title rules */
+    margin: 0 auto 30px auto;
     padding: 0 20px;
   }
 
+  /* H2 Title: .section-title handles font-size/weight globally */
   .facilities-title {
-    font-size: 2rem;
     color: #001f3f;
+    /* Margin-bottom is managed by .section-title globally */
     margin-bottom: 15px;
     position: relative;
     padding-bottom: 12px;
-    font-weight: 700;
   }
 
   .facilities-title::after {
+    /* Design preserved */
     content: "";
     position: absolute;
     left: 50%;
@@ -345,19 +355,19 @@
     border-radius: 2px;
   }
 
+  /* Subtitle: .consistent-paragraph-text handles font-size/line-height globally */
   .facilities-subtitle {
-    font-size: 12px;
-    color: #555;
-    line-height: 1.7;
+    /* CONSISTENCY: Margin-top preserved */
     margin-top: 15px;
   }
 
-  /* Tab Buttons Container */
+  /* Tab Buttons Container (Design Preservation) */
   .facilities-tabs-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
+    /* CONSISTENCY: Adjusted margin-bottom to fit global spacing standards (40px) */
     margin-bottom: 40px;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
@@ -370,9 +380,9 @@
     background-color: transparent;
     border: none;
     padding: 10px 20px;
-    font-size: 1.05rem;
+    /* CONSISTENCY: Adjusted font size to fit global styling */
+    font-size: 17px;
     font-weight: 600;
-    color: #555;
     cursor: pointer;
     position: relative;
     transition:
@@ -404,7 +414,7 @@
     border-radius: 2px;
   }
 
-  /* Facilities Grid Content */
+  /* Facilities Grid Content (Layout Preservation) */
   .facilities-grid-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -456,8 +466,10 @@
     transform: scale(1.08);
   }
 
+  /* Card Title (Design Preservation) */
   .card-title {
-    font-size: 1.2rem;
+    /* CONSISTENCY: Adjusted font size to fit global styling */
+    font-size: 19px;
     font-weight: 600;
     color: #001f3f;
     padding: 18px 15px;
@@ -479,39 +491,30 @@
     transform: scale(1);
   }
 
-  /* --- Responsive Adjustments --- */
+  /* --- Responsive Adjustments (Sizing Changes Only) --- */
 
   /* Tablets and smaller desktops (max-width: 992px) */
   @media (max-width: 992px) {
     .facilities-tabbed-grid-section {
-      padding: 60px 15px;
+      /* CONSISTENCY: Remove conflicting vertical padding, rely on .site-section */
+      padding: 0 15px;
     }
 
     .facilities-title {
-      font-size: 2.2rem;
       margin-bottom: 40px;
-    }
-
-    .facilities-title::after {
-      width: 70px;
-      height: 3px;
     }
 
     .facilities-tabs-container {
       gap: 10px;
       padding-bottom: 12px;
+      /* CONSISTENCY: Adjusted margin to match global vertical flow */
       margin-bottom: 30px;
     }
 
     .tab-btn {
       padding: 8px 15px;
-      font-size: 0.95rem;
-    }
-
-    .tab-btn.active::after {
-      bottom: -14px;
-      width: 70%;
-      height: 2px;
+      /* CONSISTENCY: Adjusted to fit the consistent range */
+      font-size: 16px;
     }
 
     .facilities-grid-content {
@@ -524,7 +527,8 @@
     }
 
     .card-title {
-      font-size: 1.1rem;
+      /* CONSISTENCY: Adjusted to fit the consistent range */
+      font-size: 17px;
       padding: 15px 12px;
     }
   }
@@ -532,35 +536,32 @@
   /* Mobile devices (max-width: 768px) */
   @media (max-width: 768px) {
     .facilities-tabbed-grid-section {
-      padding: 50px 10px;
+      /* CONSISTENCY: Remove conflicting vertical padding, rely on .site-section */
+      padding: 0 10px;
     }
 
     .facilities-header {
+      /* CONSISTENCY: Adjusted margin to match global vertical flow */
       margin-bottom: 30px;
     }
 
     .facilities-title {
-      font-size: 1.8rem;
       margin-bottom: 10px;
     }
 
-    .facilities-title::after {
-      width: 60px;
-      height: 2px;
-    }
-
     .facilities-tabs-container {
+      /* CONSISTENCY: Adjusted margin to match global vertical flow */
+      margin-bottom: 25px;
       flex-direction: column;
       gap: 8px;
       padding-bottom: 10px;
-      margin-bottom: 25px;
       border-bottom: none;
     }
 
     .tab-btn {
+      /* CONSISTENCY: Adjusted to fit the consistent range */
+      font-size: 15px;
       width: 100%;
-      padding: 10px 15px;
-      font-size: 0.9rem;
       text-align: center;
       border: 1px solid #e0e0e0;
       border-radius: 8px;
@@ -574,7 +575,7 @@
       display: none;
     }
 
-    /* Key changes for horizontal carousel on mobile */
+    /* GRID: Mobile carousel design is fully preserved */
     .facilities-grid-content {
       display: flex;
       flex-wrap: nowrap;
@@ -598,10 +599,47 @@
       max-width: 350px;
       scroll-snap-align: center; /* Aligns the card in the center of the view */
     }
+
+    /* Very small mobile devices (max-width: 480px) - **FIX APPLIED** */
+    @media (max-width: 480px) {
+      .facilities-tabbed-grid-section {
+        /* CONSISTENCY: Vertical padding controlled by .site-section */
+        padding: 0 5px; /* Use a tighter horizontal padding */
+      }
+
+      .facilities-header {
+        /* CONSISTENCY: Adjusted margin to match global vertical flow */
+        margin-bottom: 20px;
+      }
+
+      .facilities-tabs-container {
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .tab-btn {
+        font-size: 14px; /* Slightly smaller text for very small screens */
+        padding: 8px 12px;
+      }
+
+      .facilities-grid-content {
+        gap: 15px;
+      }
+
+      .facility-card {
+        width: 90%; /* Let cards take slightly more width on smallest screens */
+        max-width: 300px;
+      }
+
+      .card-title {
+        font-size: 16px; /* Reduced title size on smallest screens */
+        padding: 12px 10px;
+      }
+    }
   }
 </style>
 
-<script>
+<script is:inline>
   // Define the function that sets up all the tab/filter logic
   function initializeFacilitiesTabs() {
     // --- 1. Element Selection (MUST be inside the function) ---
