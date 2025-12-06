@@ -9,13 +9,13 @@
             "type": "image/png"
         },
         {
-            "src": "/final/web-app-manifest-192x192.png",
+            "src": "/final/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "/final/web-app-manifest-512x512.png",
+            "src": "/final/android-chrome-5112x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
