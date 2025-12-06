@@ -20,8 +20,11 @@ const BASE_PATH = import.meta.env.BASE_URL;
 // Generate absolute URLs for Open Graph (OG) tags and the canonical link
 const absoluteUrl = Astro.url.href;
 
+// 🔥 FIX: Added a safe fallback for the ogImage. 
+// Use a real image path that exists in your /public/ directory.
 const absoluteOgImage = ogImage
     ? new URL(ogImage, Astro.site).href
+    : new URL("/final/default-og-image.jpg", Astro.site).href;
 ---
 
 <!doctype html>
