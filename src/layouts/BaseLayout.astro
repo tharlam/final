@@ -20,11 +20,11 @@ const BASE_PATH = import.meta.env.BASE_URL;
 // Generate absolute URLs for Open Graph (OG) tags and the canonical link
 const absoluteUrl = Astro.url.href;
 
-// Corrected: Added a safe fallback for the ogImage. 
-// Ensure 'default-og-image.jpg' exists in your /public/ directory.
+// ✨ FINAL FIX: Using the existing, deployed 'apple-touch-icon.png' as the fallback.
+// This prevents the 404 error and ensures a working image is always available for sharing.
 const absoluteOgImage = ogImage
     ? new URL(ogImage, Astro.site).href
-    : new URL("/final/default-og-image.jpg", Astro.site).href;
+    : new URL("/final/apple-touch-icon.png", Astro.site).href; 
 ---
 
 <!doctype html>
