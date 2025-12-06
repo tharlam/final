@@ -20,8 +20,8 @@ const BASE_PATH = import.meta.env.BASE_URL;
 // Generate absolute URLs for Open Graph (OG) tags and the canonical link
 const absoluteUrl = Astro.url.href;
 
-// 🔥 FIX: Added a safe fallback for the ogImage. 
-// Use a real image path that exists in your /public/ directory.
+// Corrected: Added a safe fallback for the ogImage. 
+// Ensure 'default-og-image.jpg' exists in your /public/ directory.
 const absoluteOgImage = ogImage
     ? new URL(ogImage, Astro.site).href
     : new URL("/final/default-og-image.jpg", Astro.site).href;
@@ -42,23 +42,23 @@ const absoluteOgImage = ogImage
         <link
             rel="icon"
             type="image/svg+xml"
-            href={`${BASE_PATH}favicon.svg`}
+            href={`${BASE_PATH}favicon.svg?v=3`} 
         />
 
         <link
             rel="icon"
             type="image/png"
-            href={`${BASE_PATH}favicon-96x96.png`}
+            href={`${BASE_PATH}favicon-96x96.png?v=3`} 
             sizes="96x96"
         />
 
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href={`${BASE_PATH}apple-touch-icon.png`}
+            href={`${BASE_PATH}apple-touch-icon.png?v=3`} 
         />
 
-        <link rel="manifest" href={`${BASE_PATH}site.webmanifest`} />
+        <link rel="manifest" href={`${BASE_PATH}site.webmanifest?v=3`} />
         <meta name="description" content={description} />
         <meta property="og:title" content={`${title} | Tharlam Academy`} />
         <meta property="og:description" content={description} />
