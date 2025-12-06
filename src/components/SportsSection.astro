@@ -1,8 +1,11 @@
 <section class="legacy-section site-section">
     <div class="legacy-content">
-        <h1 data-i18n="sports_legacy_title" class="section-title">
+        <p 
+            data-i18n="sports_legacy_title" 
+            class="legacy-heading-text"
+        >
             Tharlam Sports Association
-        </h1>
+        </p>
         <p
             data-i18n="sports_legacy_description"
             class="consistent-paragraph-text"
@@ -19,21 +22,19 @@
         </a>
     </div>
 </section>
-
 <style>
     /* --- BASE STYLES (Desktop/Default) --- */
 
     .legacy-section {
         background-image: linear-gradient(
-                rgba(0, 0, 0, 0.6),
-                rgba(0, 0, 0, 0.6)
-            ),
-            url("/final/football.webp"); /* Assuming /public/football.jpeg */
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url("/final/football.webp");
         background-size: cover;
         background-position: center;
         color: white;
-        /* CONSISTENCY: Vertical padding is now handled by the global .site-section class. Removed 80px */
-        padding: 0 20px;
+        padding: 30px 20px;
         text-align: center;
     }
 
@@ -42,22 +43,20 @@
         margin: 0 auto;
     }
 
-    /* H1 is now using .section-title class for consistent sizing */
-    .legacy-section h1 {
-        /* REMOVED: font-size (Now handled by .section-title) */
-        /* REMOVED: font-weight (Now handled by .section-title) */
-        /* CONSISTENCY: Margin-bottom now set to 30px to match global section-title margin */
+    /* New style for the paragraph acting as a heading */
+    .legacy-heading-text {
+        font-size: 3em; /* Large size to mimic h1 */
+        font-weight: 700; /* Bold */
         margin-bottom: 30px;
+        line-height: 1.2;
     }
 
-    /* P is now using .consistent-paragraph-text class for consistent sizing */
+    /* The main description paragraph */
     .legacy-section p {
-        /* REMOVED: font-size, line-height, font-weight (Now handled by .consistent-paragraph-text) */
-        /* CONSISTENCY: Margin-bottom is set to 25px to separate from the button */
         margin-bottom: 25px;
     }
 
-    /* CTA Button (Design preserved) */
+    /* CTA Button */
     .join-button {
         display: inline-flex;
         align-items: center;
@@ -65,84 +64,76 @@
         color: white;
         background-color: transparent;
         border: 2px solid white;
-        /* CONSISTENCY: Preserve button size, slightly adjust padding to match if needed */
         padding: 10px 25px;
         border-radius: 50px;
         font-weight: 600;
-        /* CONSISTENCY: Margin-top adjusted to 25px to match paragraph spacing */
-        margin-top: 25px;
         transition:
             background-color 0.3s ease,
             color 0.3s ease;
     }
 
-    /* --- MEDIA QUERIES (Harmonization and Fixes Applied) --- */
+    .join-button:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+    }
+
+    /* --- MEDIA QUERIES (Harmonized and Simplified) --- */
 
     /* Tablet and Small Desktop (max-width: 992px) */
     @media (max-width: 992px) {
         .legacy-section {
-            /* CONSISTENCY: Vertical padding handled by .site-section global 992px rules */
             padding: 0 20px;
         }
 
-        .legacy-section h1 {
-            /* REMOVED: font-size (Now handled by .section-title global 992px rules) */
+        .legacy-heading-text {
+            font-size: 2em; /* Adjusted size for tablet */
             margin-bottom: 30px;
-        }
-
-        .legacy-section p {
-            /* REMOVED: font-size (Now handled by .consistent-paragraph-text global 992px rules) */
-            margin-bottom: 25px;
         }
     }
 
     /* Mobile devices (max-width: 768px) */
     @media (max-width: 768px) {
         .legacy-section {
-            /* CONSISTENCY: Vertical padding handled by .site-section global 768px rules */
             padding: 0 15px;
         }
 
-        .legacy-section h1 {
-            /* REMOVED: font-size (Now handled by .section-title global 768px rules) */
-            /* CONSISTENCY: Margin-bottom harmonized */
+        .legacy-heading-text {
+            font-size: 2em; /* Smaller size for mobile */
+            /* Enhancements for small screens */
+            padding: 10px 0; 
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+            /* ------------------------------------- */
             margin-bottom: 25px;
         }
 
         .legacy-section p {
-            /* REMOVED: font-size (Now handled by .consistent-paragraph-text global 768px rules) */
             margin-bottom: 20px;
         }
 
         .join-button {
-            /* CONSISTENCY: Button size harmonized */
             padding: 8px 20px;
-            font-size: 14px; /* Set to 14px for consistency with global small text */
+            font-size: 14px;
         }
     }
 
-    /* Very small mobile devices (max-width: 480px) - **CHECKED & HARMONIZED** */
+    /* Very small mobile devices (max-width: 480px) */
     @media (max-width: 480px) {
         .legacy-section {
-            /* CONSISTENCY: Vertical padding handled by .site-section global 480px rules */
             padding: 0 10px;
         }
 
-        .legacy-section h1 {
-            /* REMOVED: font-size (Now handled by .section-title global 480px rules) */
-            /* CONSISTENCY: Margin-bottom harmonized */
+        .legacy-heading-text {
+            font-size: 1.5em; /* Smallest size */
             margin-bottom: 20px;
         }
 
         .legacy-section p {
-            /* REMOVED: font-size (Now handled by .consistent-paragraph-text global 480px rules) */
             margin-bottom: 15px;
         }
 
         .join-button {
-            /* CONSISTENCY: Button size harmonized */
             padding: 8px 18px;
-            font-size: 13px; /* Set to 13px for consistency with global smallest text */
+            font-size: 13px;
         }
     }
 </style>

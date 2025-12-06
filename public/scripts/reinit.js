@@ -25,8 +25,8 @@ function reinitializeAos() {
 
 // --- EXECUTION TRIGGERS ---
 
-// A. Initial page load
+// A. Initial page load (runs on hard refresh/first visit)
 document.addEventListener('DOMContentLoaded', initializeAos);
 
-// B. Astro View Transition
+// B. Astro View Transition (runs on soft navigation)
 document.addEventListener('astro:page-load', reinitializeAos);
