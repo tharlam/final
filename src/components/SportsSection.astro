@@ -1,139 +1,84 @@
-<section class="legacy-section site-section">
-    <div class="legacy-content">
-        <p 
-            data-i18n="sports_legacy_title" 
-            class="legacy-heading-text"
-        >
-            Tharlam Sports Association
-        </p>
-        <p
-            data-i18n="sports_legacy_description"
-            class="consistent-paragraph-text"
-        >
+<section class="sports-hero">
+    <div class="hero-content">
+        <h1>Tharlam Sports Association</h1>
+
+        <p>
             A core part of the **Tharlam Monastery's** commitment to holistic
             development, the Sports Association offers multiple programs,
             fostering **teamwork, discipline, and healthy living** among our
             students. Our primary goal is to nurture both academic and athletic
             potential within the monastic community.
         </p>
-        <a href="/final/sport" class="join-button">
-            <span data-i18n="sports_legacy_cta_text">View Our Programs</span>
-            <span class="arrow">&rarr;</span>
-        </a>
+
+        <a href="#programs" class="view-programs-btn">View Our Programs →</a>
     </div>
 </section>
-<style>
-    /* --- BASE STYLES (Desktop/Default) --- */
 
-    .legacy-section {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0.6)
-        ),
-        url("/final/football.webp");
+<style>
+    .sports-hero {
+        /* Set the background image and create a dark overlay */
+        background-image: 
+        /* Dark Overlay using a linear gradient over the image */
+            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            /* Your background image (replace the path) */
+                url("football.webp");
+
+        /* Ensure the image covers the entire section */
         background-size: cover;
         background-position: center;
-        color: white;
-        padding: 30px 20px;
+        background-repeat: no-repeat;
+
+        /* Set the height and use Flexbox to center the content */
+        min-height: 500px; /* Adjust height as needed */
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+
+        /* Padding for mobile responsiveness */
+        padding: 20px;
+        color: white; /* Text color is white */
     }
 
-    .legacy-content {
-        max-width: 900px;
+    .hero-content {
+        /* Limit the width of the content for better readability */
+        max-width: 800px;
         margin: 0 auto;
     }
 
-    /* New style for the paragraph acting as a heading */
-    .legacy-heading-text {
-        font-size: 3em; /* Large size to mimic h1 */
-        font-weight: 700; /* Bold */
+    /* Title Styling */
+    .sports-hero h1 {
+        font-size: 3rem; /* Adjust font size */
+        margin-bottom: 20px;
+    }
+
+    /* Paragraph Styling */
+    .sports-hero p {
+        font-size: 1.1rem;
+        line-height: 1.6;
         margin-bottom: 30px;
-        line-height: 1.2;
     }
 
-    /* The main description paragraph */
-    .legacy-section p {
-        margin-bottom: 25px;
-    }
-
-    /* CTA Button */
-    .join-button {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        color: white;
+    /* Button Styling */
+    .view-programs-btn {
+        /* Button appearance */
+        display: inline-block;
+        padding: 12px 25px;
+        border: 1px solid white; /* White border */
+        border-radius: 5px;
         background-color: transparent;
-        border: 2px solid white;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: 600;
-        transition:
-            background-color 0.3s ease,
-            color 0.3s ease;
-    }
-
-    .join-button:hover {
-        background-color: rgba(255, 255, 255, 0.15);
         color: white;
+        text-decoration: none; /* Remove underline */
+
+        /* Transition for hover effect */
+        transition:
+            background-color 0.3s,
+            color 0.3s;
     }
 
-    /* --- MEDIA QUERIES (Harmonized and Simplified) --- */
-
-    /* Tablet and Small Desktop (max-width: 992px) */
-    @media (max-width: 992px) {
-        .legacy-section {
-            padding: 0 20px;
-        }
-
-        .legacy-heading-text {
-            font-size: 2em; /* Adjusted size for tablet */
-            margin-bottom: 30px;
-        }
-    }
-
-    /* Mobile devices (max-width: 768px) */
-    @media (max-width: 768px) {
-        .legacy-section {
-            padding: 0 15px;
-        }
-
-        .legacy-heading-text {
-            font-size: 2em; /* Smaller size for mobile */
-            /* Enhancements for small screens */
-            padding: 10px 0; 
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-            /* ------------------------------------- */
-            margin-bottom: 25px;
-        }
-
-        .legacy-section p {
-            margin-bottom: 20px;
-        }
-
-        .join-button {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-    }
-
-    /* Very small mobile devices (max-width: 480px) */
-    @media (max-width: 480px) {
-        .legacy-section {
-            padding: 0 10px;
-        }
-
-        .legacy-heading-text {
-            font-size: 1.5em; /* Smallest size */
-            margin-bottom: 20px;
-        }
-
-        .legacy-section p {
-            margin-bottom: 15px;
-        }
-
-        .join-button {
-            padding: 8px 18px;
-            font-size: 13px;
-        }
+    /* Button Hover Effect */
+    .view-programs-btn:hover {
+        background-color: white;
+        color: #000; /* Text turns black on hover */
     }
 </style>

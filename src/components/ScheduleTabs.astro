@@ -40,50 +40,42 @@
                                 ><td>5:30 AM</td><td
                                     data-i18n="schedule_daily_activity_1"
                                 >Morning Puja and Prayers</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>7:00 AM</td><td
                                     data-i18n="schedule_daily_activity_2"
                                 >Breakfast</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>7:40 AM</td><td
                                     data-i18n="schedule_daily_activity_3"
                                 >Avalokiteshvara Prayer & Meditation</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>10:30 AM</td><td
                                     data-i18n="schedule_daily_activity_4"
                                 >Academic Classes</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>3:30 PM</td><td
                                     data-i18n="schedule_daily_activity_5"
                                 >Sports and Play Time</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>6:00 PM</td><td
                                     data-i18n="schedule_daily_activity_6"
                                 >Dinner Break</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>8:30 PM</td><td
                                     data-i18n="schedule_daily_activity_7"
                                 >Homework and Self-Study</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td>9:30 PM</td><td
                                     data-i18n="schedule_daily_activity_8"
                                 >Sleeping Time</td
-                                ></tr
-                            >
+                                ></tr>
                         </tbody>
                     </table>
                 </div>
@@ -112,8 +104,7 @@
                                 ><td
                                     data-i18n="schedule_sports_participants_1"
                                 >Inter-house competition</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td
                                     data-i18n="schedule_sports_game_2"
@@ -121,8 +112,7 @@
                                 ><td
                                     data-i18n="schedule_sports_participants_2"
                                 >Inter-house competition</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td
                                     data-i18n="schedule_sports_game_3"
@@ -130,8 +120,7 @@
                                 ><td
                                     data-i18n="schedule_sports_participants_3"
                                 >Inter-house competition</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td
                                     data-i18n="schedule_sports_game_4"
@@ -139,8 +128,7 @@
                                 ><td
                                     data-i18n="schedule_sports_participants_4"
                                 >Inter-house competition</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td
                                     data-i18n="schedule_sports_game_5"
@@ -148,8 +136,7 @@
                                 ><td
                                     data-i18n="schedule_sports_participants_5"
                                 >Inter-house competition</td
-                                ></tr
-                            >
+                                ></tr>
                             <tr
                                 ><td
                                     data-i18n="schedule_sports_game_6"
@@ -158,8 +145,7 @@
                                     data-i18n="schedule_sports_participants_6"
                                 >Other inter-house competitions and
                                 recreational activities</td
-                                ></tr
-                            >
+                                ></tr>
                         </tbody>
                     </table>
                 </div>
@@ -236,20 +222,23 @@
 </section>
 
 <style>
-    /* Color Palette */
-    :root {
-        --primary-blue: #001f3f;
-        --accent-gold: #ffc107;
-        --text-light: #555;
-        --background-light: #f9f9f9;
-        --border-color: #e0e0e0;
-        --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
+    /*
+     * ⚠️ MODIFICATION 1: Removed the :root block and replaced 
+     * CSS variables with their direct color codes.
+     */
+    
+    /* Variables used:
+     * --primary-blue: #001f3f;
+     * --text-light: #555;
+     * --background-light: #f9f9f9;
+     * --border-color: #e0e0e0;
+     * --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+     */
 
     /* General Layout */
     .interactive-tabs-section {
         padding: 60px 0;
-        background-color: var(--background-light);
+        background-color: #f9f9f9; /* Was var(--background-light) */
     }
 
     /* Desktop Vertical Layout */
@@ -257,7 +246,7 @@
         display: flex;
         flex-direction: row;
         gap: 30px;
-        max-width: 1200px;
+        max-width: 1280px;
         margin: 0 auto;
         padding: 0 20px;
     }
@@ -271,7 +260,7 @@
         background-color: white;
         border-radius: 8px;
         padding: 10px 0;
-        box-shadow: var(--shadow-light);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Was var(--shadow-light) */
         height: fit-content;
     }
 
@@ -280,49 +269,51 @@
         padding: 12px 20px;
         font-size: 16px;
         font-weight: 600;
-        color: var(--text-light);
+        color: #555; /* Was var(--text-light) */
         background-color: transparent;
         border: none;
         text-align: left;
-        border-left: 3px solid transparent;
+        border-left: 3px solid transparent; 
         cursor: pointer;
         transition: all 0.3s ease;
     }
 
     .tab-button:hover:not(.active) {
-        color: var(--primary-blue);
+        color: #001f3f; /* Was var(--primary-blue) */
         background-color: #f0f0f0;
     }
 
-    /* Active Tab Indicator (Vertical bar on the left) */
+    /*
+     * ⚠️ MODIFICATION 2: Make the active button fully blue.
+     */
     .tab-button.active {
-        color: var(--primary-blue);
+        color: white; /* Changed from var(--primary-blue) to white for contrast */
         font-weight: 700;
-        border-left: 3px solid var(--primary-blue);
-        background-color: var(--background-light);
+        border-left: 3px solid #001f3f; /* Added the blue line back but kept it as a solid blue, not just transparent */
+        background-color: #001f3f; /* Changed from var(--background-light) to primary blue */
     }
-
+    
     /* Tab Content Styling */
     .tabs-content-wrapper {
         flex-grow: 1;
         background-color: white;
         padding: 30px;
         border-radius: 8px;
-        box-shadow: var(--shadow-light);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Was var(--shadow-light) */
         min-height: 400px;
     }
 
     .tab-panel-title {
         font-size: 28px;
-        color: var(--primary-blue);
+        color: #001f3f; /* Was var(--primary-blue) */
         margin-bottom: 10px;
-        border-bottom: 2px solid var(--border-color);
+        border-bottom: 2px solid #e0e0e0; /* Was var(--border-color) */
         padding-bottom: 10px;
     }
 
     .tab-panel-intro {
         font-size: 17px;
-        color: var(--text-light);
+        color: #555; /* Was var(--text-light) */
         line-height: 1.6;
         margin-bottom: 30px;
     }
@@ -342,7 +333,7 @@
     }
 
     .daily-schedule-table thead th {
-        background-color: var(--primary-blue);
+        background-color: #001f3f; /* Was var(--primary-blue) */
         color: white;
         font-weight: 700;
         text-transform: uppercase;
@@ -355,7 +346,7 @@
 
     .daily-schedule-table td:first-child {
         font-weight: 600;
-        color: var(--primary-blue);
+        color: #001f3f; /* Was var(--primary-blue) */
         width: 120px;
     }
 
@@ -401,7 +392,7 @@
             width: 100%;
             background-color: white;
             border-radius: 8px;
-            box-shadow: var(--shadow-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Was var(--shadow-light) */
             overflow-x: auto;
             white-space: nowrap;
             padding: 10px; /* Spacing inside the scrollable bar */
@@ -419,18 +410,18 @@
             flex-shrink: 0;
             min-width: 120px;
             text-align: center;
-            border-bottom: 3px solid transparent;
+            border-bottom: 3px solid transparent; 
             margin-right: 15px;
             background-color: transparent;
             padding: 8px 10px;
             font-size: 15px;
         }
 
-        /* Mobile Active Tab Indicator */
+        /* ⚠️ MODIFICATION 2: Make the active button fully blue on mobile. */
         .tab-button.active {
-            border-bottom: 3px solid var(--primary-blue);
-            background-color: transparent;
-            color: var(--primary-blue);
+            border-bottom: 3px solid #001f3f; /* Added back the blue line as a full blue border */
+            background-color: #001f3f; /* Changed background to blue */
+            color: white; /* Changed text to white for contrast */
             font-weight: 700;
         }
 
@@ -460,7 +451,7 @@
         }
     }
 </style>
-<script>
+<script is:inline>
     // src/Scripts/scheduleTabs.js
 
 /**

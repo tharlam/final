@@ -1,46 +1,48 @@
----
-// src/components/MissionVision.astro
-// ⭐️ Import the dedicated CSS file ⭐️
-import "../styles/mission.css";
----
-
 <section id="mission" class="glance-section">
   <div class="glance-overlay"></div>
   <div class="glance-content-wrapper">
-    
     <div class="glance-header-row">
-        <h2 class="glance-title" data-i18n="mission_vision_title">
-          Our Mission & Vision
-        </h2>
-        
-        <div class="glance-navigation">
-            <button class="glance-prev-btn" aria-label="Previous card">
-               <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="glance-next-btn" aria-label="Next card">
-               <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
+      <h2 class="glance-title" data-i18n="mission_vision_title">
+        Our Mission & Vision
+      </h2>
+
+      <div class="glance-navigation">
+        <button class="glance-prev-btn" aria-label="Previous card">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="glance-next-btn" aria-label="Next card">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
     </div>
-    
+
     <div class="glance-slider-wrapper">
-        
       <div class="glance-cards-container">
-        
-        <div class="glance-card" data-index="0" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="glance-card"
+          data-index="0"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <i class="fas fa-bullseye glance-icon"></i>
           <h3 class="glance-card-title" data-i18n="mission_card_title">
             Our Mission
           </h3>
           <p class="glance-card-description" data-i18n="mission_card_desc">
-            At Tharlam Academy, we offer a holistic education grounded in Buddhist
-            philosophy and modern knowledge. Our mission is to provide the highest
-            quality instruction in both ritual and Eastern wisdom traditions,
-            alongside contemporary subjects, empowering every student.
+            At Tharlam Academy, we offer a holistic education grounded in
+            Buddhist philosophy and modern knowledge. Our mission is to provide
+            the highest quality instruction in both ritual and Eastern wisdom
+            traditions, alongside contemporary subjects, empowering every
+            student.
           </p>
         </div>
 
-        <div class="glance-card" data-index="1" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="glance-card"
+          data-index="1"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <i class="fas fa-lightbulb glance-icon"></i>
           <h3 class="glance-card-title" data-i18n="vision_card_title">
             Our Vision
@@ -51,8 +53,13 @@ import "../styles/mission.css";
             excellence, inspiring critical thinking and spiritual growth.
           </p>
         </div>
-        
-        <div class="glance-card" data-index="2" data-aos="fade-up" data-aos-delay="300">
+
+        <div
+          class="glance-card"
+          data-index="2"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <i class="fas fa-hands-helping glance-icon"></i>
           <h3 class="glance-card-title" data-i18n="values_card_title">
             Our Values
@@ -63,7 +70,12 @@ import "../styles/mission.css";
           </p>
         </div>
 
-        <div class="glance-card" data-index="3" data-aos="fade-up" data-aos-delay="400">
+        <div
+          class="glance-card"
+          data-index="3"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           <i class="fas fa-users glance-icon"></i>
           <h3 class="glance-card-title" data-i18n="community_card_title">
             Our Community
@@ -74,77 +86,315 @@ import "../styles/mission.css";
             understanding.
           </p>
         </div>
-        
       </div>
     </div>
   </div>
 </section>
 
-<script is:inline>
- // public/scripts/glance-slider.js
+<style>
+  /* ------------------------------------------------------------------ */
+  /* --- 1. BASE STYLES (Desktop Default - Applies above 992px) --- */
+  /* ------------------------------------------------------------------ */
+  .glance-section {
+    position: relative;
+    padding: 50px 20px;
+    color: #ffffff;
+    overflow: hidden;
+    background: url("/final/bg wall.webp") no-repeat center center/cover fixed;
+    text-align: center;
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
+  .glance-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 31, 63, 0.7);
+    z-index: 1;
+  }
+
+  .glance-content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .glance-title {
+    font-size: 38px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* --- CARD CONTAINER (Desktop 4-column) --- */
+  .glance-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .glance-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    flex: 1 1 calc(25% - 22.5px);
+    min-width: 220px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .glance-icon {
+    font-size: 3rem;
+    color: #001f3f;
+    margin-bottom: 15px;
+  }
+
+  .glance-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #001f3f;
+  }
+
+  .glance-card-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* --- NAVIGATION BUTTONS (Hidden on Desktop) --- */
+  .glance-navigation {
+    display: none;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* --- 2. RESPONSIVE ADJUSTMENTS (SINGLE-CARD SLIDER MODE) --- */
+  /* ------------------------------------------------------------------ */
+
+  /* 1. Tablets and smaller desktops (Max-width: 992px) - Slider Mode ON */
+  @media (max-width: 992px) {
+    .glance-content-wrapper {
+      display: block; /* Reset wrapper display */
+    }
+
+    /* 💡 Header Row Setup for Perfect Alignment 💡 */
+    .glance-header-row {
+      display: flex;
+      justify-content: space-between; /* Title left, Buttons right */
+      align-items: center; /* Vertically centers buttons with title text */
+      margin-bottom: 20px;
+      padding-top: 15px;
+    }
+
+    .glance-title {
+      font-size: 32px;
+      text-align: left;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      flex-grow: 1; /* Title takes space */
+    }
+
+    /* 💡 NAVIGATION BUTTONS: VISIBLE, ALIGNED, AND STYLED 💡 */
+    .glance-navigation {
+      display: flex;
+      width: auto;
+      margin-top: 0;
+      position: static;
+      z-index: 3;
+    }
+
+    .glance-prev-btn,
+    .glance-next-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      border: 1px solid #001f3f;
+      transition:
+        background 0.2s,
+        color 0.2s;
+      border-radius: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .glance-prev-btn {
+      background: #ffffff;
+      color: #001f3f;
+      border-right: none;
+    }
+
+    .glance-next-btn {
+      background: #001f3f;
+      color: #ffffff;
+      margin-left: -1px;
+    }
+
+    .glance-prev-btn:hover {
+      background: #f0f0f0;
+    }
+    .glance-next-btn:hover {
+      background: #002b59;
+    }
+
+    /* CRITICAL: SLIDER WRAPPER SETUP */
+    .glance-slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-top: 0; /* Space handled by .glance-header-row margin-bottom */
+    }
+
+    /* CRITICAL FIX: CARD SIZE - SHOWS PREVIEW OF NEXT CARD */
+    .glance-cards-container {
+      display: flex; /* Ensure it stays flex */
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      transition: transform 0.3s ease-in-out;
+      gap: 30px;
+    }
+
+    .glance-card {
+      /* Card width: 100% minus (30px gap + 30px preview space) */
+      flex: 0 0 calc(100% - 60px);
+      padding: 25px 15px;
+    }
+  }
+
+  /* 2. Large Mobile Devices (Max-width: 768px) - Further Scaling */
+  @media (max-width: 768px) {
+    .glance-section {
+      padding: 30px 10px;
+    }
+
+    .glance-title {
+      font-size: 28px;
+    }
+
+    .glance-cards-container {
+      gap: 20px;
+    }
+
+    .glance-card {
+      /* Card width: 100% minus (20px gap + 20px preview space) */
+      flex: 0 0 calc(100% - 40px);
+      padding: 20px 15px;
+    }
+  }
+
+  /* 3. Small Mobile Devices (Max-width: 480px) - Final Tightening */
+  @media (max-width: 480px) {
+    .glance-title {
+      font-size: 24px;
+    }
+
+    .glance-header-row {
+      /* Adjust header row padding for tight mobile screens */
+      padding: 10px 0 10px 0;
+      margin-bottom: 10px;
+    }
+
+    .glance-cards-container {
+      gap: 15px;
+    }
+
+    .glance-card {
+      /* Card width: 100% minus (15px gap + 15px preview space) */
+      flex: 0 0 calc(100% - 30px);
+      padding: 18px 10px;
+    }
+  }
+</style>
+
+<script is:inline>
+  // 💡 CRITICAL FIX: Slider initialization wrapper function for Astro View Transitions
+  function setupGlanceSlider() {
+    // Check if the component exists on the page
+    const container = document.querySelector(".glance-cards-container");
+    if (!container) return;
+
     // Only run slider logic if we are within the slider mode range (<= 992px)
     if (window.innerWidth > 992) {
-        return; 
+      // If desktop, ensure any previous mobile transform is cleared
+      container.style.transform = `translateX(0px)`;
+      return;
     }
-    
-    const container = document.querySelector('.glance-cards-container');
-    const prevBtn = document.querySelector('.glance-prev-btn');
-    const nextBtn = document.querySelector('.glance-next-btn');
-    const cards = document.querySelectorAll('.glance-card');
+
+    const prevBtn = document.querySelector(".glance-prev-btn");
+    const nextBtn = document.querySelector(".glance-next-btn");
+    const cards = document.querySelectorAll(".glance-card");
     const cardCount = cards.length;
     let currentIndex = 0;
 
-    if (!container || cardCount === 0) return;
-
     function getGap() {
-        // Must match the CSS gap values for the active breakpoint
-        if (window.innerWidth <= 480) return 15;
-        if (window.innerWidth <= 768) return 20;
-        return 30; // Default gap for 992px view
+      // Must match the CSS gap values for the active breakpoint
+      if (window.innerWidth <= 480) return 15;
+      if (window.innerWidth <= 768) return 20;
+      return 30; // Default gap for 992px view
     }
 
     function updateSlider() {
-        const gap = getGap();
-        
-        // 💡 CRITICAL: Get the full step size based on the width of the card 
-        // (which is 100% of wrapper minus the preview space).
-        // This automatically accounts for the new preview width.
-        const cardStepSize = container.querySelector('.glance-card').offsetWidth + gap;
-        
-        // Calculate the total offset: (card step size * current index)
-        const offset = -(currentIndex * cardStepSize);
-        
-        container.style.transform = `translateX(${offset}px)`;
+      const gap = getGap();
 
-        // Update button visibility
-        prevBtn.classList.toggle('hidden', currentIndex === 0);
-        nextBtn.classList.toggle('hidden', currentIndex === cardCount - 1);
+      // CRITICAL: Get the full step size based on the width of the card
+      // Use clientWidth for the card's width without padding/border if needed, but offsetWidth is generally safer here.
+      const cardStepSize =
+        container.querySelector(".glance-card").offsetWidth + gap;
+
+      const offset = -(currentIndex * cardStepSize);
+
+      container.style.transform = `translateX(${offset}px)`;
+
+      // Update button visibility
+      if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
+      if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
     }
-    
-    // Initial setup
+
+    // --- Event Listeners ---
+    // 1. Initial setup (Runs every time the Astro page loads/reloads)
     updateSlider();
 
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < cardCount - 1) {
-            currentIndex++;
-            updateSlider();
-        }
-    });
+    // 2. Navigation
+    if (nextBtn) nextBtn.onclick = () => {
+      if (currentIndex < cardCount - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    };
 
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    });
+    if (prevBtn) prevBtn.onclick = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    };
 
-    // Recalculate on window resize/rotation to ensure accurate offset
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 992) {
-             updateSlider();
-        }
+    // 3. Recalculate on window resize/rotation to ensure accurate offset
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 992) {
+        // Reset index on major window resize to ensure card 1 is visible
+        currentIndex = 0;
+        updateSlider();
+      }
     });
-});
+  }
+
+  // 💡 Astro View Transition Compatibility:
+  // 1. Run once on initial DOM load (if loaded directly)
+  document.addEventListener("DOMContentLoaded", setupGlanceSlider);
+
+  // 2. Run every time a user navigates via Astro View Transitions
+  document.addEventListener("astro:page-load", setupGlanceSlider);
 </script>

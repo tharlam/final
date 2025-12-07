@@ -1,3 +1,6 @@
+---
+---
+
 <section id="faci" class="facilities-tabbed-grid-section site-section">
   <div class="facilities-header" data-aos="fade-up">
     <h2
@@ -48,7 +51,8 @@
     >
   </div>
 
-  <div class="facilities-grid-content">
+  <div class="facilities-grid-content hidden-by-default">
+    
     <div
       class="facility-card"
       data-category="academic"
@@ -316,19 +320,16 @@
 
   /* Main Section Container */
   .facilities-tabbed-grid-section {
-    /* CONSISTENCY: Vertical padding is controlled by the global .site-section class */
     padding: 30px 20px;
     background-color: #f8f8f8;
     color: #333;
     overflow: hidden;
     text-align: center;
-     
   }
 
   /* Section Header */
   .facilities-header {
     max-width: 800px;
-    /* CONSISTENCY: Margin-bottom set to 30px from the global .section-title rules */
     margin: 30px auto 30px auto;
     padding: 0 20px;
   }
@@ -336,10 +337,15 @@
   /* H2 Title: .section-title handles font-size/weight globally */
   .facilities-title {
     color: #001f3f;
-    /* Margin-bottom is managed by .section-title globally */
     margin-bottom: 15px;
     position: relative;
     padding-bottom: 12px;
+  }
+
+  /* Title Highlight Styling */
+  .facilities-title .highlight-blue {
+    color: #007bff;
+    font-weight: 700;
   }
 
   .facilities-title::after {
@@ -357,8 +363,8 @@
 
   /* Subtitle: .consistent-paragraph-text handles font-size/line-height globally */
   .facilities-subtitle {
-    /* CONSISTENCY: Margin-top preserved */
     margin-top: 15px;
+    color: #555;
   }
 
   /* Tab Buttons Container (Design Preservation) */
@@ -367,7 +373,6 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    /* CONSISTENCY: Adjusted margin-bottom to fit global spacing standards (40px) */
     margin-bottom: 40px;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
@@ -380,26 +385,32 @@
     background-color: transparent;
     border: none;
     padding: 10px 20px;
-    /* CONSISTENCY: Adjusted font size to fit global styling */
     font-size: 17px;
     font-weight: 600;
     cursor: pointer;
     position: relative;
+    color: #6c757d; /* Softer color when inactive */
     transition:
       color 0.3s ease,
-      background-color 0.3s ease;
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
     border-radius: 6px;
   }
 
+  /* 🌟 ENHANCED HOVER 🌟 */
   .tab-btn:hover {
     color: #001f3f;
-    background-color: white;
+    background-color: #e9ecef; /* Subtle light background on hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Very light shadow on hover */
   }
 
+  /* Active state */
   .tab-btn.active {
     color: #001f3f;
     background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+    /* Stronger shadow using primary blue */
+    box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15); 
+    border-radius: 6px 6px 0 0; /* Flat bottom border to meet the line */
   }
 
   .tab-btn.active::after {
@@ -408,7 +419,7 @@
     bottom: -17px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: 100%; /* Wider underline for active tab */
     height: 3px;
     background-color: #001f3f;
     border-radius: 2px;
@@ -422,6 +433,25 @@
     max-width: 1215px;
     margin: 0 auto;
     padding: 0 0px;
+    
+    /* 🌟 FOUC FIX: Initially hide the container 🌟 */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* 🌟 FOUC FIX: This forces all cards to be hidden before JS runs 🌟 */
+  .facilities-grid-content.hidden-by-default .facility-card {
+    display: none !important;
+  }
+  
+  /* 🌟 FOUC FIX: This ensures the DEFAULT cards are shown by the CSS 🌟 */
+  .facilities-grid-content.hidden-by-default .facility-card[data-category="academic"] {
+    display: flex !important; /* Overrides the 'display: none' above */
+  }
+  
+  /* 🌟 FOUC FIX: Reveals the container after JS removes the class 🌟 */
+  .facilities-grid-content:not(.hidden-by-default) {
+    opacity: 1; 
   }
 
   .facility-card {
@@ -433,14 +463,15 @@
     flex-direction: column;
     transition:
       transform 0.3s ease,
-      box-shadow 0.3s ease,
-      opacity 0.3s ease;
+      box-shadow 0.3s ease;
     cursor: pointer;
+    /* Added subtle border for definition */
+    border: 1px solid #e0e0e0; 
   }
 
   .facility-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
   }
 
   .card-image-placeholder {
@@ -468,7 +499,6 @@
 
   /* Card Title (Design Preservation) */
   .card-title {
-    /* CONSISTENCY: Adjusted font size to fit global styling */
     font-size: 19px;
     font-weight: 600;
     color: #001f3f;
@@ -476,19 +506,21 @@
     text-align: center;
     background-color: #ffffff;
     border-top: 1px solid #f0f0f0;
+    transition: color 0.3s ease; /* Added transition */
   }
 
+  /* Title color change on card hover */
+  .facility-card:hover .card-title {
+    color: #007bff; /* Primary blue on hover */
+  }
+  
   /* Hidden and Visible states for cards */
   .facility-card.hidden {
-    display: none;
-    opacity: 0;
-    transform: scale(0.9);
+    display: none !important; 
   }
 
   .facility-card.visible {
-    display: flex;
-    opacity: 1;
-    transform: scale(1);
+    display: flex; 
   }
 
   /* --- Responsive Adjustments (Sizing Changes Only) --- */
@@ -496,7 +528,6 @@
   /* Tablets and smaller desktops (max-width: 992px) */
   @media (max-width: 992px) {
     .facilities-tabbed-grid-section {
-      /* CONSISTENCY: Remove conflicting vertical padding, rely on .site-section */
       padding: 0 15px;
     }
 
@@ -507,15 +538,18 @@
     .facilities-tabs-container {
       gap: 10px;
       padding-bottom: 12px;
-      /* CONSISTENCY: Adjusted margin to match global vertical flow */
       margin-bottom: 30px;
     }
 
     .tab-btn {
       padding: 8px 15px;
-      /* CONSISTENCY: Adjusted to fit the consistent range */
       font-size: 16px;
     }
+    
+    .tab-btn.active {
+        box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1); 
+    }
+
 
     .facilities-grid-content {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -527,7 +561,6 @@
     }
 
     .card-title {
-      /* CONSISTENCY: Adjusted to fit the consistent range */
       font-size: 17px;
       padding: 15px 12px;
     }
@@ -536,21 +569,19 @@
   /* Mobile devices (max-width: 768px) */
   @media (max-width: 768px) {
     .facilities-tabbed-grid-section {
-      /* CONSISTENCY: Remove conflicting vertical padding, rely on .site-section */
       padding: 0 10px;
     }
 
     .facilities-header {
-      /* CONSISTENCY: Adjusted margin to match global vertical flow */
       margin-bottom: 30px;
     }
 
     .facilities-title {
       margin-bottom: 10px;
     }
-
+    
+    /* Mobile tabs stack vertically and don't need the underline design */
     .facilities-tabs-container {
-      /* CONSISTENCY: Adjusted margin to match global vertical flow */
       margin-bottom: 25px;
       flex-direction: column;
       gap: 8px;
@@ -559,7 +590,6 @@
     }
 
     .tab-btn {
-      /* CONSISTENCY: Adjusted to fit the consistent range */
       font-size: 15px;
       width: 100%;
       text-align: center;
@@ -569,19 +599,21 @@
 
     .tab-btn.active {
       border-color: #001f3f;
+      background-color: #f0f0f0; /* Less distracting on mobile when active */
+      box-shadow: none; /* Remove shadow on mobile */
     }
 
     .tab-btn.active::after {
       display: none;
     }
 
-    /* GRID: Mobile carousel design is fully preserved */
+    /* GRID: Mobile carousel design */
     .facilities-grid-content {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-      scroll-snap-type: x mandatory; /* Makes it snap to each card */
+      -webkit-overflow-scrolling: touch; 
+      scroll-snap-type: x mandatory; 
       gap: 20px;
     }
 
@@ -590,25 +622,23 @@
       display: none;
     }
     .facilities-grid-content {
-      scrollbar-width: none; /* For Firefox */
+      scrollbar-width: none; 
     }
 
     .facility-card {
       flex-shrink: 0;
       width: 85%;
       max-width: 350px;
-      scroll-snap-align: center; /* Aligns the card in the center of the view */
+      scroll-snap-align: center; 
     }
 
-    /* Very small mobile devices (max-width: 480px) - **FIX APPLIED** */
+    /* Very small mobile devices (max-width: 480px) */
     @media (max-width: 480px) {
       .facilities-tabbed-grid-section {
-        /* CONSISTENCY: Vertical padding controlled by .site-section */
-        padding: 0 5px; /* Use a tighter horizontal padding */
+        padding: 0 5px; 
       }
 
       .facilities-header {
-        /* CONSISTENCY: Adjusted margin to match global vertical flow */
         margin-bottom: 20px;
       }
 
@@ -618,7 +648,7 @@
       }
 
       .tab-btn {
-        font-size: 14px; /* Slightly smaller text for very small screens */
+        font-size: 14px; 
         padding: 8px 12px;
       }
 
@@ -627,12 +657,12 @@
       }
 
       .facility-card {
-        width: 90%; /* Let cards take slightly more width on smallest screens */
+        width: 90%; 
         max-width: 300px;
       }
 
       .card-title {
-        font-size: 16px; /* Reduced title size on smallest screens */
+        font-size: 16px; 
         padding: 12px 10px;
       }
     }
@@ -640,28 +670,35 @@
 </style>
 
 <script is:inline>
-  // Define the function that sets up all the tab/filter logic
   function initializeFacilitiesTabs() {
-    // --- 1. Element Selection (MUST be inside the function) ---
+    // --- 1. Element Selection ---
     const tabButtons = document.querySelectorAll(
       ".facilities-tabs-container .tab-btn",
     );
     const facilityCards = document.querySelectorAll(
       ".facilities-grid-content .facility-card",
     );
+    const gridContent = document.querySelector(".facilities-grid-content");
+
 
     // --- 2. Filter Function (Helper) ---
     const filterFacilities = (category) => {
       facilityCards.forEach((card) => {
         const cardCategory = card.dataset.category;
+        
         if (category === "all" || cardCategory === category) {
           card.classList.remove("hidden");
           card.classList.add("visible");
         } else {
-          card.classList.remove("visible");
-          card.classList.add("hidden");
+          card.classList.remove("visible"); 
+          card.classList.add("hidden"); 
         }
       });
+      
+      // FIX for Mobile Carousel: Force scroll reset after filter
+      if (gridContent) {
+          gridContent.scrollLeft = 0; 
+      }
     };
 
     // --- 3. Event Listener Setup ---
@@ -674,28 +711,31 @@
     };
 
     tabButtons.forEach((button) => {
-      // FIX: Remove previous listeners to prevent duplication on astro:page-load
       button.removeEventListener("click", handleTabClick);
-
-      // Add the new listener
       button.addEventListener("click", handleTabClick);
     });
 
-    // --- 4. Default Activation ---
-    // Find and click the 'academic' tab to set the default state
+    // --- 4. Default Activation (Modified) ---
     const academicTabButton = document.querySelector(
       '.facilities-tabs-container .tab-btn[data-category="academic"]',
     );
+    
     if (academicTabButton) {
-      academicTabButton.click();
+        // Run the filter logic immediately
+        // We use click() here for simplicity, but filterFacilities('academic') works too.
+        academicTabButton.click(); 
+        
+        // Remove the CSS class to smoothly reveal the now-filtered content
+        if (gridContent) {
+            // Use setTimeout to allow any AOS/filter processing to finish before revealing
+            setTimeout(() => {
+                gridContent.classList.remove('hidden-by-default');
+            }, 100); 
+        }
     }
   }
 
   // --- EXECUTION TRIGGERS ---
-
-  // 1. Initial Load (Hard navigation)
   document.addEventListener("DOMContentLoaded", initializeFacilitiesTabs);
-
-  // 2. Astro View Transition (Soft navigation) - THE FIX
   document.addEventListener("astro:page-load", initializeFacilitiesTabs);
 </script>

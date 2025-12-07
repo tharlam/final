@@ -1,22 +1,18 @@
 ---
 // src/components/YellowHouseSection.astro
-// Defines the section for Yellow House (Deshung House) details.
 ---
 
 <section class="house-section yellow-house-section" data-aos="fade-up">
     <div class="container">
-        <h2 class="house-heading" data-i18n="yellow_house_heading">
-            Yellow House (Deshung House): Vibrant Energy & Agility
-        </h2>
-
         <div class="house-content-grid">
-            <div class="house-text" data-aos="fade-left">
+            <div class="house-text" data-aos="fade-right">
                 <p data-i18n="yellow_house_paragraph_1">
-                    **Yellow House**, also known as **Deshung House**, radiates
-                    vibrant energy, enthusiasm, and exceptional agility. Members
-                    of Yellow House are often found leading the charge in
-                    fast-paced sports, showcasing their quick reflexes and
-                    dynamic movement. They bring an infectious positivity to
+                    The **Yellow House (Deshung House): Vibrant Energy &
+                    Agility**. The Yellow House, also known as Deshung House,
+                    radiates vibrant energy, enthusiasm, and exceptional
+                    agility. Members of Yellow House are often found leading the
+                    charge in fast-paced sports, showcasing their quick reflexes
+                    and dynamic movement. They bring an infectious positivity to
                     every game and training session.
                 </p>
                 <p data-i18n="yellow_house_paragraph_2">
@@ -31,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="house-image" data-aos="fade-right">
+            <div class="house-image" data-aos="fade-left">
                 <img
                     src="/final/ho-3.webp"
                     alt="Yellow House students showing agility and Deshung House spirit"
@@ -45,142 +41,145 @@
 </section>
 
 <style>
-    /* --- Component-Specific Styles (Color and Layout Order) --- */
-
+    /* --- Component-Specific Styles --- */
     .yellow-house-section {
-        background-color: #fffacd; /* Light background for yellow theme */
-        padding: 80px 0;
+        background-color: #fffacd;
+        padding: 70px 0;
     }
 
-    /* CRITICAL: Ensure the order is REVERSED (Image on left, Text on right) for desktop */
+    /* CRITICAL DESKTOP FIX: Text on left, Image on right 
+   (Default flex-direction: row; property is used by simply removing row-reverse) 
+*/
     .yellow-house-section .house-content-grid {
-        flex-direction: row-reverse;
-    }
-
-    .house-motto {
-        font-style: italic;
-        font-size: 1.05em;
-        color: var(--color-dark-blue, #001f3f);
-        margin-top: 25px;
+        flex-direction: row;
     }
 
     /* --- Essential Structural/General House CSS (Desktop/Base) --- */
-
-    .house-heading {
-        text-align: center;
-        font-size: clamp(34px, 5vw, 44px);
-        font-weight: 700;
-        color: var(--color-dark-blue, #2c3e50);
-        margin-bottom: 50px;
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
-
     .house-content-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 70px;
+        gap: 60px;
         align-items: center;
         justify-content: center;
     }
-
     .house-text {
         flex: 1 1 450px;
         min-width: 300px;
-        max-width: 650px;
-        line-height: 1.7;
+        max-width: 550px;
         text-align: left;
     }
-
+    .house-text p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #444;
+        margin-bottom: 20px;
+    }
+    .house-text p:first-child {
+        font-size: 17px;
+        color: #001f3f;
+        font-weight: 500;
+    }
     .house-image {
         flex: 1 1 350px;
         min-width: 300px;
         max-width: 550px;
         text-align: center;
     }
-
     .responsive-image {
         max-width: 100%;
         height: auto;
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-
-    /* ------------------------------------------------------------------ */
-    /* --- 1. Tablet/Small Laptop Adjustments (Max 992px) --- */
-    /* ------------------------------------------------------------------ */
-    @media (max-width: 992px) {
-        .house-section {
-            padding: 70px 20px; /* Add horizontal padding */
-        }
-
-        .house-content-grid {
-            gap: 40px;
-        }
-
-        .house-heading {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-        }
-
-        /* Relax minimum width constraints */
-        .house-text,
-        .house-image {
-            min-width: unset;
-        }
+    .house-motto {
+        font-style: italic;
+        font-size: 16px;
+        font-weight: 500;
+        color: #001f3f;
+        margin-top: 25px;
+        padding: 10px 15px;
+        background-color: rgba(0, 31, 63, 0.05);
+        border-left: 4px solid #001f3f;
+        border-radius: 4px;
     }
 
     /* ------------------------------------------------------------------ */
-    /* --- 2. Mobile Landscape/Tablet Portrait (Max 768px) --- */
-    /* --- CRITICAL: Stacks the content vertically --- */
+    /* --- MOBILE MEDIA QUERIES (Text on Top / Minimal Gap Fix) --- */
     /* ------------------------------------------------------------------ */
-    @media (max-width: 768px) {
-        .house-section {
-            padding: 50px 20px;
-        }
 
-        /* Force columns to stack */
+    @media (max-width: 992px) {
+        .yellow-house-section {
+            padding: 60px 0;
+        }
         .house-content-grid {
-            /* Reverts row-reverse to a simple column stack (Text on top, Image on bottom) */
+            gap: 30px;
+            flex-direction: column;
+        } /* Forces Text-on-Top on mobile */
+    }
+
+    @media (max-width: 768px) {
+        .yellow-house-section {
+            padding: 40px 0;
+        }
+        .container {
+            padding: 0 15px;
+        }
+        .house-content-grid {
+            gap: 10px;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
         }
-
-        .house-heading {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Set elements to full width, centering content */
         .house-text,
         .house-image {
             width: 100%;
-            max-width: 500px; /* Cap width for comfortable reading */
-            text-align: center; /* Center the image in its container */
+            max-width: 500px;
         }
 
-        .house-text {
-            text-align: left; /* Keep text aligned left for readability */
+        /* CRITICAL FIX: Ensure minimal gap below text/above image */
+        .house-image {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        .house-image .responsive-image {
+            margin-top: 0 !important;
+            display: block;
         }
 
         .house-text p {
+            font-size: 15px;
+        }
+        .house-text p:first-child {
             font-size: 16px;
         }
     }
 
-    /* ------------------------------------------------------------------ */
-    /* --- 3. Small Mobile Phones (Max 480px) --- */
-    /* ------------------------------------------------------------------ */
     @media (max-width: 480px) {
-        .house-section {
-            padding: 30px 15px;
+        .yellow-house-section {
+            padding: 30px 0;
         }
-        .house-heading {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
+        .container {
+            padding: 0 10px;
+        }
+        .house-content-grid {
+            gap: 5px;
+        }
+        .house-image .responsive-image {
+            display: block;
+            margin-top: 0 !important;
         }
         .house-text p {
-            font-size: 0.95rem;
+            font-size: 14px;
+        }
+        .house-text p:first-child {
+            font-size: 15px;
+        }
+        .house-motto {
+            font-size: 15px;
         }
     }
 </style>

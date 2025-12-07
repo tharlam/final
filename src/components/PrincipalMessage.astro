@@ -1,8 +1,13 @@
+---
+// This is the frontmatter block. It's required here to access BASE_PATH.
+const BASE_PATH = import.meta.env.BASE_URL; 
+---
+
 <section id="message" class="principal-section">
   <div class="principal-container">
     <div class="principal-image" data-aos="fade-right">
       <img
-        src="/final/prin.webp"
+        src={`${BASE_PATH}prin.webp`} 
         alt="Photo of the Principal of Tharlam Academy"
         data-i18n-alt="principal_photo_alt"
       />
@@ -41,135 +46,105 @@
   /* --- Principal's Message Section --- */
   .principal-section {
     padding: 40px 20px;
-    /* Ample padding */
     background-color: #f8f8f8;
-    /* Changed to light white background */
     color: #333;
-    /* Changed to dark text color for contrast */
     overflow: hidden;
     text-align: center;
-    /* Default center alignment for content */
   }
 
   .principal-container {
     max-width: 1000px;
-    /* Max width for the content block */
     margin: 0 auto;
-    /* Center the container */
     display: flex;
     flex-wrap: wrap;
-    /* Allows image and text to stack on smaller screens */
     align-items: center;
-    /* Vertically center items */
     justify-content: center;
-    /* Center content horizontally */
     gap: 40px;
-    /* Space between image and text */
     padding: 20px;
-    /* Inner padding for the container */
   }
 
   .principal-image {
     flex-shrink: 0;
-    /* Prevent image from shrinking */
     width: 300px;
-    /* Fixed width for the image container */
     height: 300px;
-    /* Fixed height for the image container */
     border-radius: 50%;
-    /* Makes the container circular */
     overflow: hidden;
-    /* Hides parts of the image outside the circle */
     border: 3px solid #001f3f;
-    /* Changed border to primary blue */
     box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
-    /* Subtle blue glow effect */
     display: flex;
-    /* Use flex to center the image within the circle */
     justify-content: center;
     align-items: center;
   }
 
   .principal-image img {
     width: 100%;
-    /* Image fills the circular container */
     height: 100%;
     object-fit: cover;
-    /* Ensures the image covers the circle without distortion */
     display: block;
   }
 
   .principal-content {
     flex: 1 1 100px;
-    /* Flexible width for the text content */
     max-width: 750px;
-    /* Max width for readability */
     text-align: left;
-    /* Text content is left-aligned */
   }
 
+  /* 🌟 ADJUSTED FOR TYPOGRAPHIC CONSISTENCY 🌟 */
   .principal-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Slightly reduced for better flow */
     font-weight: 700;
     color: #001f3f;
-    /* Changed name color to dark blue */
     margin-bottom: 5px;
   }
 
   .principal-title {
     font-size: 1rem;
     color: #777;
-    /* Darker grey for the title */
     margin-bottom: 20px;
     opacity: 0.9;
   }
 
   .principal-quote {
-    font-size: 1.15rem;
+    font-size: 1.0625rem; /* ~17px for consistency with body text */
     line-height: 1.7;
     color: #444;
-    /* Darker grey for the quote text */
     margin: 0;
-    /* Remove default blockquote margins */
     padding: 0;
     font-style: italic;
-    /* Italicize the quote */
     position: relative;
   }
 
-  /* Optional: Add quote marks if desired, similar to the screenshot's implied style */
+  /* Quote marks styling */
   .principal-quote::before {
     content: "“";
-    /* Left quote mark */
     font-size: 4em;
-    /* Large quote mark */
     color: rgba(0, 123, 255, 0.1);
-    /* Translucent blue */
     position: absolute;
     left: -30px;
-    /* Adjust position */
     top: -20px;
-    /* Adjust position */
     line-height: 1;
     z-index: 0;
   }
 
   .principal-quote::after {
     content: "”";
-    /* Right quote mark */
     font-size: 4em;
     color: rgba(0, 123, 255, 0.1);
-    /* Translucent blue */
     position: absolute;
     right: -20px;
-    /* Adjust position */
     bottom: -20px;
-    /* Adjust position */
     line-height: 1;
     z-index: 0;
   }
 
-  /* --- Responsive Adjustments for Principal's Message Section --- */
+  .buddhist-inspiration {
+    font-size: 0.95rem; /* Slightly smaller size for supporting text */
+    line-height: 1.5;
+    color: #666;
+    margin-top: 15px;
+  }
+
+  /* --- Responsive Adjustments --- */
 
   /* Tablets and smaller desktops (max-width: 992px) */
   @media (max-width: 992px) {
@@ -179,10 +154,8 @@
 
     .principal-container {
       flex-direction: column;
-      /* Stack image and text vertically */
       gap: 30px;
       max-width: 700px;
-      /* Constrain width when stacked */
     }
 
     .principal-image {
@@ -190,16 +163,9 @@
       height: 120px;
       border-width: 2px;
       box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.08);
-      /* Lighter blue glow */
     }
 
-    .principal-content {
-      text-align: left;
-      /* Center text when stacked */
-      max-width: 100%;
-      /* Allow full width of container */
-    }
-
+    /* Adjusted tablet sizes */
     .principal-name {
       font-size: 1.3rem;
     }
@@ -212,6 +178,10 @@
       font-size: 1rem;
     }
 
+    .buddhist-inspiration {
+      font-size: 0.9rem;
+    }
+    
     .principal-quote::before,
     .principal-quote::after {
       font-size: 3em;
@@ -245,6 +215,7 @@
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.05);
     }
 
+    /* Adjusted phone sizes */
     .principal-name {
       font-size: 1.1rem;
     }
@@ -255,6 +226,10 @@
 
     .principal-quote {
       font-size: 0.9rem;
+    }
+
+    .buddhist-inspiration {
+      font-size: 0.85rem;
     }
 
     .principal-quote::before,
@@ -284,6 +259,7 @@
       box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.03);
     }
 
+    /* Adjusted smallest phone sizes */
     .principal-name {
       font-size: 1rem;
     }
@@ -294,6 +270,10 @@
 
     .principal-quote {
       font-size: 0.85rem;
+    }
+
+    .buddhist-inspiration {
+      font-size: 0.8rem;
     }
 
     .principal-quote::before,
