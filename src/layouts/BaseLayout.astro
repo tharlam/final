@@ -8,23 +8,12 @@ import "../styles/about-section.css";
 // Inside BaseLayout.astro frontmatter
 interface Props {
     title: string;
-    description?: string; // Changed to optional
-    ogImage?: string;
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title } = Astro.props;
 
 // This variable will correctly hold the base path (/final/) defined in astro.config.mjs
 const BASE_PATH = import.meta.env.BASE_URL;
-
-// Generate absolute URLs for Open Graph (OG) tags and the canonical link
-const absoluteUrl = Astro.url.href;
-
-// ✨ FINAL FIX: Using the existing, deployed 'apple-touch-icon.png' as the fallback.
-// This prevents the 404 error and ensures a working image is always available for sharing.
-const absoluteOgImage = ogImage
-    ? new URL(ogImage, Astro.site).href
-    : new URL("/final/apple-touch-icon.png", Astro.site).href; 
 ---
 
 <!doctype html>
@@ -33,41 +22,7 @@ const absoluteOgImage = ogImage
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="canonical" href={absoluteUrl} />
-
-        <title>{title} | Tharlam Academy</title>
-
-        <meta name="apple-mobile-web-app-title" content="Thar-Aca" />
-
-        <link
-            rel="icon"
-            type="image/svg+xml"
-            href={`${BASE_PATH}/final/favicon.svg?v=3`} 
-        />
-
-        <link
-            rel="icon"
-            type="image/png"
-            href={`${BASE_PATH}/final/favicon-96x96.png?v=3`} 
-            sizes="96x96"
-        />
-
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href={`${BASE_PATH}/final/apple-touch-icon.png?v=3`} 
-        />
-
-        <link rel="manifest" href={`${BASE_PATH}site.webmanifest?v=3`} />
-        <meta name="description" content={description} />
-        <meta property="og:title" content={`${title} | Tharlam Academy`} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={absoluteUrl} />
-        <meta property="og:image" content={absoluteOgImage} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={absoluteOgImage} />
+        <title>{title} | Tharlam Academy</title> 
 
         <link
             href="https://unpkg.com/aos@2.3.4/dist/aos.css"
