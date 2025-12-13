@@ -1,7 +1,12 @@
 ---
 // src/layouts/BaseLayout.astro frontmatter
+
+// Import the necessary components
 import Header from "../components/nav.astro";
 import Footer from "../components/Footer.astro";
+// REMOVED: import FaviconTags from "../components/FaviconTags.astro"; 
+
+// Import global styles
 import "../styles/global.css";
 import "../styles/about-section.css";
 
@@ -23,6 +28,8 @@ const BASE_PATH = import.meta.env.BASE_URL;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>{title} | Tharlam Academy</title> 
+        
+        {/* REMOVED: <FaviconTags /> */}
 
         <link
             href="https://unpkg.com/aos@2.3.4/dist/aos.css"
