@@ -1,22 +1,16 @@
 ---
-// src/layouts/BaseLayout.astro frontmatter
-
-// Import the necessary components
+// 1. IMPORT CLIENT ROUTER
+import { ClientRouter } from 'astro:transitions';
 import Header from "../components/nav.astro";
-import Footer from "../components/Footer.astro"; 
-
-// Import global styles
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/about-section.css";
 
-// Inside BaseLayout.astro frontmatter
 interface Props {
     title: string;
 }
 
 const { title } = Astro.props;
-
-// This variable will correctly hold the base path (/final/) defined in astro.config.mjs
 const BASE_PATH = import.meta.env.BASE_URL;
 ---
 
@@ -25,40 +19,85 @@ const BASE_PATH = import.meta.env.BASE_URL;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title} | Tharlam Academy</title>
 
-        <title>{title} | Tharlam Academy</title> 
-        
-        {/* --- PROFESSIONAL FAVICON IMPLEMENTATION START --- */}
+        <ClientRouter />
 
-        {/* 1. PWA/Android Manifest Link & Theme Color (Essential for mobile) */}
         <link rel="manifest" href={`${BASE_PATH}site.webmanifest`} />
-        <meta name="theme-color" content="#ffffff" /> 
-        <meta name="apple-mobile-web-app-title" content="MyWebSite" /> 
-
-        {/* 2. SVG Icon: Best quality, modern browsers (highest priority) */}
+        <meta name="theme-color" content="#00152a" />
         <link rel="icon" type="image/svg+xml" href={`${BASE_PATH}favicon.svg`} />
-
-        {/* 3. Apple Touch Icon: Required for iOS Home Screen shortcut */}
-        <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_PATH}apple-touch-icon.png`} />
-
-        {/* 4. PNG Icon Fallbacks: For specific browser sizes (e.g., Google SERPs) */}
-        {/* If your generator provided 16x16 and 32x32, they should also be included here */}
-        <link rel="icon" type="image/png" sizes="96x96" href={`${BASE_PATH}favicon-96x96.png`} />
-        
-        {/* 5. Legacy ICO Fallback: For older browsers (rel="shortcut icon" is obsolete) */}
-        <link rel="icon" href={`${BASE_PATH}favicon.ico`} />
-
-        {/* --- PROFESSIONAL FAVICON IMPLEMENTATION END --- */}
-
-
-        <link
-            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-            rel="stylesheet"
-        />
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
         <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
+
+        <style is:global>
+            /* FULL SCREEN OVERLAY */
+            #initial-loader {
+                position: fixed;
+                inset: 0;
+                background: #00152a; /* Your Brand Dark Blue */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 999999;
+                transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* CONTAINER FOR LINE AND TEXT */
+            .loader-content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            /* THE TRACK */
+            .line-container {
+                width: 280px;
+                height: 2px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 4px;
+                overflow: hidden;
+            }
+
+            /* THE REAL GREEN PROGRESS LINE */
+            #progress-line {
+                width: 0%;
+                height: 100%;
+                background: #00ff88; /* Your Brand Green */
+                box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+                transition: width 0.4s cubic-bezier(0.1, 0.05, 0.1, 1);
+            }
+
+            /* PERCENTAGE TEXT */
+            #percent-text {
+                color: #00ff88;
+                font-family: 'Inter', sans-serif;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+
+            /* CLASS TO HIDE LOADER */
+            .loader-hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+        </style>
     </head>
 
     <body>
+        <div id="initial-loader">
+            <div class="loader-content">
+                <div class="line-container">
+                    <div id="progress-line"></div>
+                </div>
+                <div id="percent-text">0%</div>
+            </div>
+        </div>
+
         <Header />
         <main>
             <div class="site-content-container">
@@ -67,16 +106,69 @@ const BASE_PATH = import.meta.env.BASE_URL;
         </main>
         <Footer />
 
+        <script is:inline define:vars={{ BASE_PATH }}>
+            window.BASE_PATH = BASE_PATH;
+        </script>
+
         <script is:inline>
-            window.BASE_PATH = "${BASE_PATH}";
+            function runRealLoader() {
+                const bar = document.getElementById('progress-line');
+                const text = document.getElementById('percent-text');
+                const wrapper = document.getElementById('initial-loader');
+
+                if (!bar || !text || !wrapper) return;
+
+                // 1. Start State
+                wrapper.classList.remove('loader-hidden');
+                bar.style.width = '0%';
+                text.innerText = '0%';
+
+                // 2. Track Real Resources
+                // We estimate progress based on resource timing
+                const resources = window.performance.getEntriesByType('resource');
+                const totalResources = resources.length > 5 ? resources.length : 20; // estimate
+                let loadedCount = 0;
+
+                const updateUI = (percent) => {
+                    bar.style.width = percent + '%';
+                    text.innerText = percent + '%';
+                };
+
+                // Watch for new assets loading
+                const observer = new PerformanceObserver((list) => {
+                    const entries = list.getEntries();
+                    loadedCount += entries.length;
+                    let progress = Math.round((loadedCount / totalResources) * 90); // Cap at 90
+                    if (progress < 90) updateUI(progress);
+                });
+
+                observer.observe({ entryTypes: ['resource'] });
+
+                // 3. Final Finish (When window is fully ready)
+                const finish = () => {
+                    updateUI(100);
+                    setTimeout(() => {
+                        wrapper.classList.add('loader-hidden');
+                        observer.disconnect();
+                    }, 600);
+                };
+
+                if (document.readyState === 'complete') {
+                    finish();
+                } else {
+                    window.addEventListener('load', finish, { once: true });
+                }
+            }
+
+            // Execute on first page load
+            runRealLoader();
+
+            // Execute on every Astro internal page navigation
+            document.addEventListener('astro:after-swap', runRealLoader);
         </script>
 
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-
-        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
-        ></script>
-
-        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
-        ></script>
+        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"></script>
+        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"></script>
     </body>
 </html>

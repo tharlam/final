@@ -1,6 +1,3 @@
----
----
-
 <section id="faci" class="facilities-tabbed-grid-section site-section">
   <div class="facilities-header" data-aos="fade-up">
     <h2
@@ -52,7 +49,6 @@
   </div>
 
   <div class="facilities-grid-content hidden-by-default">
-    
     <div
       class="facility-card"
       data-category="academic"
@@ -329,9 +325,9 @@
 
   /* Section Header */
   .facilities-header {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 30px auto 30px auto;
-    padding: 0 20px;
+    padding: 10px;
   }
 
   /* H2 Title: .section-title handles font-size/weight globally */
@@ -409,7 +405,7 @@
     color: #001f3f;
     background-color: white;
     /* Stronger shadow using primary blue */
-    box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15); 
+    box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15);
     border-radius: 6px 6px 0 0; /* Flat bottom border to meet the line */
   }
 
@@ -433,25 +429,26 @@
     max-width: 1215px;
     margin: 0 auto;
     padding: 0 0px;
-    
+
     /* 🌟 FOUC FIX: Initially hide the container 🌟 */
     opacity: 0;
     transition: opacity 0.5s ease;
   }
-  
+
   /* 🌟 FOUC FIX: This forces all cards to be hidden before JS runs 🌟 */
   .facilities-grid-content.hidden-by-default .facility-card {
     display: none !important;
   }
-  
+
   /* 🌟 FOUC FIX: This ensures the DEFAULT cards are shown by the CSS 🌟 */
-  .facilities-grid-content.hidden-by-default .facility-card[data-category="academic"] {
+  .facilities-grid-content.hidden-by-default
+    .facility-card[data-category="academic"] {
     display: flex !important; /* Overrides the 'display: none' above */
   }
-  
+
   /* 🌟 FOUC FIX: Reveals the container after JS removes the class 🌟 */
   .facilities-grid-content:not(.hidden-by-default) {
-    opacity: 1; 
+    opacity: 1;
   }
 
   .facility-card {
@@ -466,7 +463,7 @@
       box-shadow 0.3s ease;
     cursor: pointer;
     /* Added subtle border for definition */
-    border: 1px solid #e0e0e0; 
+    border: 1px solid #e0e0e0;
   }
 
   .facility-card:hover {
@@ -513,14 +510,14 @@
   .facility-card:hover .card-title {
     color: #007bff; /* Primary blue on hover */
   }
-  
+
   /* Hidden and Visible states for cards */
   .facility-card.hidden {
-    display: none !important; 
+    display: none !important;
   }
 
   .facility-card.visible {
-    display: flex; 
+    display: flex;
   }
 
   /* --- Responsive Adjustments (Sizing Changes Only) --- */
@@ -545,11 +542,10 @@
       padding: 8px 15px;
       font-size: 16px;
     }
-    
-    .tab-btn.active {
-        box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1); 
-    }
 
+    .tab-btn.active {
+      box-shadow: 0 2px 8px rgba(0, 31, 63, 0.1);
+    }
 
     .facilities-grid-content {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -579,7 +575,7 @@
     .facilities-title {
       margin-bottom: 10px;
     }
-    
+
     /* Mobile tabs stack vertically and don't need the underline design */
     .facilities-tabs-container {
       margin-bottom: 25px;
@@ -612,8 +608,8 @@
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch; 
-      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
       gap: 20px;
     }
 
@@ -622,20 +618,20 @@
       display: none;
     }
     .facilities-grid-content {
-      scrollbar-width: none; 
+      scrollbar-width: none;
     }
 
     .facility-card {
       flex-shrink: 0;
       width: 85%;
       max-width: 350px;
-      scroll-snap-align: center; 
+      scroll-snap-align: center;
     }
 
     /* Very small mobile devices (max-width: 480px) */
     @media (max-width: 480px) {
       .facilities-tabbed-grid-section {
-        padding: 0 5px; 
+        padding: 0 5px;
       }
 
       .facilities-header {
@@ -648,7 +644,7 @@
       }
 
       .tab-btn {
-        font-size: 14px; 
+        font-size: 14px;
         padding: 8px 12px;
       }
 
@@ -657,12 +653,12 @@
       }
 
       .facility-card {
-        width: 90%; 
+        width: 90%;
         max-width: 300px;
       }
 
       .card-title {
-        font-size: 16px; 
+        font-size: 16px;
         padding: 12px 10px;
       }
     }
@@ -680,24 +676,23 @@
     );
     const gridContent = document.querySelector(".facilities-grid-content");
 
-
     // --- 2. Filter Function (Helper) ---
     const filterFacilities = (category) => {
       facilityCards.forEach((card) => {
         const cardCategory = card.dataset.category;
-        
+
         if (category === "all" || cardCategory === category) {
           card.classList.remove("hidden");
           card.classList.add("visible");
         } else {
-          card.classList.remove("visible"); 
-          card.classList.add("hidden"); 
+          card.classList.remove("visible");
+          card.classList.add("hidden");
         }
       });
-      
+
       // FIX for Mobile Carousel: Force scroll reset after filter
       if (gridContent) {
-          gridContent.scrollLeft = 0; 
+        gridContent.scrollLeft = 0;
       }
     };
 
@@ -719,19 +714,19 @@
     const academicTabButton = document.querySelector(
       '.facilities-tabs-container .tab-btn[data-category="academic"]',
     );
-    
+
     if (academicTabButton) {
-        // Run the filter logic immediately
-        // We use click() here for simplicity, but filterFacilities('academic') works too.
-        academicTabButton.click(); 
-        
-        // Remove the CSS class to smoothly reveal the now-filtered content
-        if (gridContent) {
-            // Use setTimeout to allow any AOS/filter processing to finish before revealing
-            setTimeout(() => {
-                gridContent.classList.remove('hidden-by-default');
-            }, 100); 
-        }
+      // Run the filter logic immediately
+      // We use click() here for simplicity, but filterFacilities('academic') works too.
+      academicTabButton.click();
+
+      // Remove the CSS class to smoothly reveal the now-filtered content
+      if (gridContent) {
+        // Use setTimeout to allow any AOS/filter processing to finish before revealing
+        setTimeout(() => {
+          gridContent.classList.remove("hidden-by-default");
+        }, 100);
+      }
     }
   }
 

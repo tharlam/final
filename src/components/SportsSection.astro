@@ -1,84 +1,137 @@
-<section class="sports-hero">
+<section class="sports-hero" id="sports-hero">
     <div class="hero-content">
-        <h1>Tharlam Sports Association</h1>
+        <h1 data-i18n="sports_hero_title">Tharlam Sports Association</h1>
 
-        <p>
-            A core part of the **Tharlam Monastery's** commitment to holistic
-            development, the Sports Association offers multiple programs,
-            fostering **teamwork, discipline, and healthy living** among our
-            students. Our primary goal is to nurture both academic and athletic
+        <p data-i18n="sports_hero_description">
+            A core part of the <strong>Tharlam Monastery's</strong> commitment to
+            holistic development, the Sports Association offers multiple programs,
+            fostering <strong>teamwork, discipline, and healthy living</strong> among
+            our students. Our primary goal is to nurture both academic and athletic
             potential within the monastic community.
         </p>
 
-        <a href="#programs" class="view-programs-btn">View Our Programs →</a>
+        <div class="hero-cta">
+            <a
+                href="#programs"
+                class="btn primary-btn-outline"
+                data-i18n="sports_hero_button"
+            >
+                View Our Programs →
+            </a>
+        </div>
     </div>
 </section>
 
 <style>
-    .sports-hero {
-        /* Set the background image and create a dark overlay */
-        background-image: 
-        /* Dark Overlay using a linear gradient over the image */
-            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            /* Your background image (replace the path) */
-                url("football.webp");
+    /* ======================================================= */
+    /* --- Sports Hero Styles (Consistent with About Section) --- */
+    /* ======================================================= */
 
-        /* Ensure the image covers the entire section */
+    .sports-hero {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url("/final/football.webp"); /* Updated path to match your /final/ convention */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
-        /* Set the height and use Flexbox to center the content */
-        min-height: 500px; /* Adjust height as needed */
+        /* Consistency: Matching your vertical spacing logic */
+        min-height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-
-        /* Padding for mobile responsiveness */
-        padding: 20px;
-        color: white; /* Text color is white */
+        padding: 20px 20px;
+        color: white;
     }
 
     .hero-content {
-        /* Limit the width of the content for better readability */
-        max-width: 800px;
+        max-width: 1200px;
         margin: 0 auto;
     }
 
-    /* Title Styling */
     .sports-hero h1 {
-        font-size: 3rem; /* Adjust font size */
+        /* Consistency: Using your Heading scale */
+        font-size: 38px;
+        font-weight: 700;
         margin-bottom: 20px;
+        color: white;
     }
 
-    /* Paragraph Styling */
     .sports-hero p {
-        font-size: 1.1rem;
-        line-height: 1.6;
+        /* Consistency: Using your Paragraph scale (17px) and line-height (1.8) */
+        font-size: 17px;
+        line-height: 1.8;
         margin-bottom: 30px;
+        color: #eee; /* Slightly lighter for readability on dark backgrounds */
     }
 
-    /* Button Styling */
-    .view-programs-btn {
-        /* Button appearance */
+    .sports-hero p strong {
+        color: white;
+        font-weight: bold;
+    }
+
+    /* --- Button Consistency --- */
+    .btn {
         display: inline-block;
-        padding: 12px 25px;
-        border: 1px solid white; /* White border */
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
         border-radius: 5px;
+        transition:
+            background-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    /* Outline version of your primary-btn for Hero overlay */
+    .primary-btn-outline {
         background-color: transparent;
         color: white;
-        text-decoration: none; /* Remove underline */
-
-        /* Transition for hover effect */
-        transition:
-            background-color 0.3s,
-            color 0.3s;
+        border: 2px solid white;
     }
 
-    /* Button Hover Effect */
-    .view-programs-btn:hover {
+    .primary-btn-outline:hover {
         background-color: white;
-        color: #000; /* Text turns black on hover */
+        color: black;
+        transform: translateY(-2px);
+    }
+
+    /* ======================================================= */
+    /* --- RESPONSIVENESS (Matching About Us Section) --- */
+    /* ======================================================= */
+
+    @media (max-width: 992px) {
+        .sports-hero {
+            padding: 50px 20px;
+        }
+        .sports-hero h1 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sports-hero {
+            padding: 30px 20px;
+            min-height: 400px;
+        }
+        .sports-hero h1 {
+            font-size: 28px;
+        }
+        .sports-hero p {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sports-hero {
+            padding: 20px 20px;
+        }
+        .sports-hero h1 {
+            font-size: 24px;
+        }
+        .sports-hero p {
+            font-size: 15px;
+        }
     }
 </style>

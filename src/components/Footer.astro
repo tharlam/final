@@ -1,342 +1,249 @@
+---
+// src/components/Footer.astro
+---
+
 <footer class="footer-section">
-  <div class="footer-container">
-    <div class="footer-about">
-      <h3 data-i18n="footer_about_title">About Tharlam Academy</h3>
+  <div class="container footer-container">
+    
+    <div class="footer-col about-col">
+      <h3 data-i18n="footer_about_title">About Tharlam</h3>
       <p data-i18n="footer_about_description">
-        Dedicated to blending traditional Buddhist wisdom with modern education,
-        fostering compassion, knowledge, and ethical conduct.
+        Blending traditional Buddhist wisdom with modern education to foster 
+        compassion, knowledge, and ethical conduct in every student.
       </p>
       <div class="social-icons">
-        <a
-          href="https://www.facebook.com/profile.php?id=100057365083022"
-          target="_blank"
-          aria-label="Facebook"><i class="fab fa-facebook-f"></i></a
-        >
-        <a href="/" target="_blank" aria-label="Twitter"
-          ><i class="fab fa-twitter"></i></a
-        >
-        <a
-          href="https://www.instagram.com/tharlamacademy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          aria-label="Instagram"><i class="fab fa-instagram"></i></a
-        >
-        <a href="/" target="_blank" aria-label="YouTube"
-          ><i class="fab fa-youtube"></i></a
-        >
+        <a href="https://www.facebook.com/profile.php?id=100057365083022" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/tharlamacademy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
 
-    <div class="footer-links">
-      <h3 data-i18n="footer_quick_links_title">Quick Links</h3>
-      <ul>
-        <li>
-          <a href="/about" data-i18n="footer_link_admissions">About Us</a>
-        </li>
-        <li>
-          <a href="/sport" data-i18n="footer_link_academics">Tharlam Sports</a>
-        </li>
-        <li>
-          <a href="/gallery" data-i18n="footer_link_student_life"
-            >Tharlam Gallery</a
-          >
-        </li>
+    <div class="footer-col">
+      <h3 data-i18n="footer_links_title">Quick Links</h3>
+      <ul class="footer-list">
+        <li><a href="/about" data-i18n="footer_link_about">About Us</a></li>
+        <li><a href="/gallery" data-i18n="footer_link_gallery">Tharlam Gallery</a></li>
+        <li><a href="/sport" data-i18n="footer_link_sports">Tharlam Sports</a></li>
       </ul>
     </div>
 
-    <div class="footer-contact">
-      <h3 data-i18n="footer_contact_us_title">Contact Us</h3>
-
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a
-          href="https://maps.google.com/?cid=4836395698972452149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
-          target="_blank"
-        >
-          <span data-i18n="footer_contact_address"
-            >Boudha-6, Kathmandu, Nepal</span
-          >
-        </a>
-      </p>
-
-      <p>
-        <i class="fas fa-phone"></i>
-        <a href="tel:+9771xxxxxxx">
-          <span data-i18n="footer_contact_phone">+977-1-xxxxxxx</span>
-        </a>
-      </p>
-
-      <p>
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:tharlamfamily@gmail.com">
-          <span data-i18n="footer_contact_email">tharlamfamily@gmail.com</span>
-        </a>
-      </p>
+    <div class="footer-col motto-col">
+      <h3 data-i18n="footer_motto_title">Our Motto</h3>
+      <div class="motto-content">
+        <p class="motto-text" data-i18n="footer_motto_content">
+          "Wisdom through Compassion, <br /> Enlightenment through Education."
+        </p>
+      </div>
     </div>
 
-    <div class="footer-newsletter">
+    <div class="footer-col newsletter-col">
       <h3 data-i18n="footer_newsletter_title">Newsletter</h3>
-      <p data-i18n="footer_newsletter_description">
-        Stay updated with our latest news and events.
-      </p>
-      <form
-        class="newsletter-form"
-        action="https://formspree.io/f/mgvkpwbd"
-        method="POST"
-      >
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Your Email"
-          aria-label="Your Email Address"
-          data-i18n-placeholder="footer_newsletter_placeholder"
-        />
-        <button type="submit" data-i18n="footer_newsletter_subscribe">
-          Subscribe
-        </button>
-        <input type="text" name="_gotcha" style="display:none" />
-        <input
-          type="hidden"
-          name="Subscribe"
-          value="Subscriber from Tharlam Academy Footer"
-        />
+      <p data-i18n="footer_newsletter_desc">Stay updated with our latest news.</p>
+      <form class="newsletter-form" action="https://formspree.io/f/mgvkpwbd" method="POST">
+        <input type="email" name="email" required placeholder="Email Address" />
+        <button type="submit" data-i18n="footer_subscribe">Subscribe</button>
       </form>
     </div>
   </div>
+
   <div class="footer-bottom">
-    <p data-i18n="footer_copyright">
-      © 2024 Tharlam Academy. All Rights Reserved.
-    </p>
-    <p>
-      <a href="/" data-i18n="footer_privacy_policy">Privacy Policy</a> |
-      <a href="/" data-i18n="footer_terms_of_service">Terms of Service</a>
-    </p>
+    <div class="container bottom-content">
+      <p>© 2024 Tharlam Academy. All Rights Reserved.</p>
+      <div class="policy-links">
+        <a href="/">Privacy Policy</a>
+        <span class="separator">|</span>
+        <a href="/">Terms of Service</a>
+      </div>
+    </div>
   </div>
 </footer>
 
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
 <style>
-  /* ------------------------------------------------------------------ */
-  /* --- FOOTER BASE STYLES (Desktop/Default: 4 COLUMNS) --- */
-  /* ------------------------------------------------------------------ */
-
-  :root {
-    /* Re-defined here for clarity, though they should be in global.css */
-    --footer-bg-color: var(
-      --color-primary-darker
-    ); /* Deepest dark blue for footer */
-    --footer-text-color: var(--color-text-light); /* Off-White/Light text */
-    --footer-link-color: #adb5bd; /* Slightly lighter gray for link text */
-    --footer-heading-color: var(
-      --color-text-white
-    ); /* Pure white for headings */
-    --color-accent-green: #28a745;
-
-    --spacing-sm: 8px;
-    --spacing-md: 10px;
-    --spacing-lg: 15px;
-    --spacing-xl: 20px;
-    --spacing-xxl: 30px;
+  .footer-section {
+    background-color: var(--color-primary-darker);
+    color: var(--color-text-white);
+    padding: 80px 0 0;
+    border-top: 1px solid var(--border-light-blue);
+    width: 100%;
   }
 
-  .footer-section {
-    /* Using the darkest blue from your nav background */
-    background-color: var(--color-primary-darker);
-    color: var(--footer-text-color);
-    padding: 60px var(--spacing-xl) 0; /* Adjusted padding using variables */
-    font-family: "Inter", sans-serif;
+  /* Sync with WhiteHouseSection container logic */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0; 
   }
 
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: var(--spacing-xxl); /* Using XXl for column gap */
-    padding-bottom: 40px;
+    gap: 60px; 
+    padding-bottom: 60px;
   }
 
-  .footer-about,
-  .footer-links,
-  .footer-contact,
-  .footer-newsletter {
-    width: 25%;
-    min-width: 200px;
-  }
+  .footer-col { flex: 1; }
+  .about-col { flex: 1.2; }
 
-  /* Headings and Text Styles */
+  /* Heading Style - White */
   .footer-section h3 {
-    color: var(--footer-heading-color);
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-xl);
-    text-transform: uppercase;
-  }
-  .footer-section p {
-    color: var(--footer-link-color);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-md);
-  }
-
-  /* Links and Interactive Elements */
-  .footer-links ul {
-    list-style: none;
-    padding: 0;
-  }
-  .footer-links a,
-  .footer-bottom a,
-  .footer-contact a {
-    color: var(--footer-link-color);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  /* Consistent green hover effect */
-  .footer-links a:hover,
-  .footer-bottom a:hover,
-  .footer-contact a:hover {
-    color: var(--color-accent-green);
-  }
-
-  .footer-contact p {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-  }
-  /* Icon color matches your accent green */
-  .footer-contact i {
-    color: var(--color-accent-green);
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
-  }
-
-  .social-icons a {
-    color: var(--footer-text-color);
-    font-size: 1.2rem;
-    margin-right: var(--spacing-lg);
-    transition: color 0.3s;
-  }
-  .social-icons a:hover {
-    color: var(--color-accent-green);
-  }
-
-  /* Newsletter Form */
-  .newsletter-form input[type="email"] {
-    width: 100%;
-    padding: var(--spacing-md);
-    /* Slightly lighter dark blue border/background for contrast */
-    border: 1px solid var(--color-primary-dark);
-    background-color: var(--color-primary-dark);
     color: var(--color-text-white);
-    margin-bottom: var(--spacing-md);
-    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* Green Accent line under headings */
+  .footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-accent-green);
+  }
+
+  .footer-section p {
+    font-size: 16px; 
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .motto-text {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-text-white);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-list { list-style: none; padding: 0; }
+  .footer-list li { margin-bottom: 12px; }
+  .footer-list a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  .footer-list a:hover {
+    color: var(--color-accent-green);
+    padding-left: 8px;
+  }
+
+  .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+  .social-icons a { color: white; font-size: 1.2rem; transition: 0.3s; opacity: 0.8; }
+  .social-icons a:hover { color: var(--color-accent-green); transform: translateY(-3px); opacity: 1; }
+
+  .newsletter-form input {
+    width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light-blue); color: white; border-radius: 4px; margin-bottom: 10px; outline: none;
   }
   .newsletter-form button {
-    width: 100%;
-    padding: var(--spacing-md);
+    width: 100%; padding: 12px; background: var(--color-accent-green); color: white;
+    border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s;
+  }
+  .newsletter-form button:hover { background: var(--color-green-hover); }
+
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* --- REFINED SMALL BACK TO TOP BUTTON --- */
+  .back-to-top {
+    position: fixed;
+    bottom: 25px; /* Slightly closer to edge */
+    right: 25px;
+    width: 38px;  /* Reduced from 45px */
+    height: 38px; /* Reduced from 45px */
     background-color: var(--color-accent-green);
     color: var(--color-text-white);
     border: none;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 4px;
-  }
-  /* Consistent green hover effect */
-  .newsletter-form button:hover {
-    background-color: var(--color-green-hover);
-  }
-
-  /* Footer Bottom (Copyright and Policy Links) */
-  .footer-bottom {
-    /* Border uses a color between the main dark and the text color */
-    border-top: 1px solid var(--color-primary-dark);
-    padding: 20px var(--spacing-xl);
-    text-align: center;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .footer-bottom p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--footer-link-color);
+    justify-content: center;
+    font-size: 0.9rem; /* Smaller arrow icon */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;           
+    visibility: hidden;    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added a nice bounce */
+    z-index: 1000;
   }
 
-  /* ------------------------------------------------------------------ */
-  /* --- RESPONSIVE BREAKPOINT 1: Tablet/Small Desktop (Max 1000px) --- */
-  /* --- Switches from 4 columns to 2 columns wide --- */
-  /* ------------------------------------------------------------------ */
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 30px; /* Positions perfectly when showing */
+  }
 
-  @media (max-width: 1000px) {
-    .footer-container {
-      flex-wrap: wrap;
-      justify-content: space-around;
+  .back-to-top:hover {
+    background-color: var(--color-green-hover);
+    transform: translateY(-3px);
+  }
+
+  /* --- VERY SMALL FOR MOBILE --- */
+  @media (max-width: 480px) {
+    .back-to-top {
+      width: 32px;  /* Very compact for mobile */
+      height: 32px;
+      bottom: 15px;
+      right: 15px;
+      font-size: 0.8rem;
     }
-
-    .footer-about,
-    .footer-links,
-    .footer-contact,
-    .footer-newsletter {
-      width: 45%;
-      margin-bottom: var(--spacing-xxl);
-      min-width: unset;
+    
+    .back-to-top.show {
+      bottom: 20px;
     }
   }
 
-  /* ------------------------------------------------------------------ */
-  /* --- RESPONSIVE BREAKPOINT 2: Mobile/Small Tablet (Max 768px) --- */
-  /* --- Stacks all 4 columns vertically and centers them --- */
-  /* ------------------------------------------------------------------ */
+  /* Responsive Behavior */
+  @media (max-width: 992px) {
+    .container { padding: 0 15px; }
+    .footer-container { gap: 30px; }
+  }
 
   @media (max-width: 768px) {
-    .footer-section {
-      padding-left: var(--spacing-md);
-      padding-right: var(--spacing-md);
-    }
-
-    /* Stack the main columns vertically */
-    .footer-container {
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    /* Make each column full width and center its content */
-    .footer-about,
-    .footer-links,
-    .footer-contact,
-    .footer-newsletter {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 0;
-    }
-
-    /* Center interactive elements for better mobile aesthetics */
-    .footer-links ul {
-      text-align: center;
-    }
-
-    .footer-contact p {
-      justify-content: center;
-    }
-
-    .footer-contact p a {
-      display: inline-block;
-    }
-
-    .social-icons {
-      text-align: center;
-    }
-
-    /* Adjust the footer bottom section */
-    .footer-bottom {
-      flex-direction: column;
-      gap: 10px;
-      text-align: center;
-    }
-    .footer-bottom p {
-      width: 100%;
-    }
+    .footer-container { flex-direction: column; text-align: center; gap: 40px; }
+    .footer-section h3::after { left: 50%; transform: translateX(-50%); }
+    .social-icons { justify-content: center; }
+    .bottom-content { flex-direction: column; gap: 10px; }
   }
 </style>
+
+<script>
+  // Select the button
+  const backToTopBtn = document.getElementById("backToTop");
+
+  // Show/Hide logic
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      backToTopBtn?.classList.add("show");
+    } else {
+      backToTopBtn?.classList.remove("show");
+    }
+  });
+
+  // Scroll to top logic
+  backToTopBtn?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>

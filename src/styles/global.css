@@ -12,21 +12,16 @@
 /**
  * =======================================================
  * 1. GLOBAL CSS VARIABLES (:root)
- * --- Fixed (Non-Responsive) Styles for NAV and BODY ---
  * =======================================================
  */
 :root {
-    /* --- Brand Colors (Required for Nav) --- */
+    /* --- Brand Colors --- */
     --color-primary-dark: #001f3f;
-    /* Main dark blue */
     --color-primary-darker: #00152a;
-    /* Top bar darkest blue */
     --color-accent-blue: #007bff;
     --color-accent-yellow: #ffc107;
     --color-text-dark: #333;
-    /* NOTE: Text will be hard to read on dark blue! */
     --color-text-white: #ffffff;
-    /* Use this for all text on the dark background */
     --color-bg-dark-overlay: rgba(0, 0, 0, 0.6);
     --shadow-light: rgba(0, 0, 0, 0.1);
 
@@ -36,11 +31,11 @@
     --shadow-medium: rgba(0, 0, 0, 0.35);
     --color-green-hover: #1e7e34;
 
-    /* --- Typography (Required for Body) --- */
+    /* --- Typography --- */
     --font-size-base: 16px;
     --line-height-text: 1.8;
 
-    /* --- Spacing/Gaps (Required for Nav & Container) --- */
+    /* --- Spacing/Gaps --- */
     --spacing-xs: 5px;
     --spacing-sm: 8px;
     --spacing-md: 10px;
@@ -54,23 +49,36 @@
  * 2. GENERAL BODY & UTILITY STYLES (Fixed Layout)
  * =======================================================
  */
-/* In your GLOBAL CSS file: */
 html {
     scroll-behavior: smooth;
     background-color: var(--color-primary-darker);
-    /* 👇 ADD THIS LINE */
     overflow-x: hidden;
+
+    /* HIDE SCROLLBAR (Firefox) */
+    scrollbar-width: none; 
+    /* HIDE SCROLLBAR (IE and Edge) */
+    -ms-overflow-style: none;
+}
+
+/* HIDE SCROLLBAR (Chrome, Safari, Opera, and newer Edge) */
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    /* NOTE: Consider changing this color to var(--color-text-white) if your main content is dark blue */
     color: var(--color-text-dark);
     font-size: var(--font-size-base);
     line-height: var(--line-height-text);
     overflow-x: hidden;
-    /* KEY CHANGE: Set the main content background to dark blue */
     background-color: var(--color-text-white);
+
+    /* Repeat hiding for body to ensure cross-browser coverage */
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* Utility classes */
@@ -83,4 +91,13 @@ body.no-scroll {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-xl);
+}
+
+/* --- Ensure the Site Content Container also hides scrollbar --- */
+.site-content-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.site-content-container::-webkit-scrollbar {
+    display: none;
 }
