@@ -316,7 +316,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     background-color: var(--color-primary-dark);
   }
 
-  /* Brand/Logo Styling (Unchanged) */
+  /* Brand/Logo Styling */
   .brand {
     display: flex;
     align-items: center;
@@ -359,12 +359,10 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     opacity: 0.8;
   }
 
-  /* Mobile Tools/Language - NOW IN SECOND LINE */
   .mobile-tools {
     display: none;
-  } /* Hidden by default on desktop */
+  } 
 
-  /* Mobile Menu Toggle Button (Unchanged) */
   .menu-toggle {
     display: none;
     width: 28px;
@@ -399,7 +397,6 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Navigation Controls (Desktop) - HOME, ABOUT, etc. */
   .nav-controls {
     display: flex;
     align-items: center;
@@ -448,7 +445,6 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     outline: none;
   }
 
-  /* ENHANCED CONTACT BUTTON (in main nav) */
   .nav-controls .nav-contact-link {
     background: linear-gradient(
       135deg,
@@ -488,47 +484,44 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   /* ------------------------------------------------------------------ */
 
   @media (max-width: 992px) {
-    /* 1. TOP BAR (Darkest Blue Strip) Adjustments */
+    /* SCROLLABLE CONTACT BAR ONLY */
     .top-bar {
-      padding: 6px var(--spacing-lg); /* Reduced padding for mobile space */
-      height: auto;
+      padding: 6px 15px;
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar Firefox */
       display: block;
     }
-
-    .top-bar-container {
-      /* Aligns content centrally and allows wrapping */
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+    .top-bar::-webkit-scrollbar {
+      display: none; /* Hide scrollbar Chrome/Safari */
     }
-
-    /* 2. CONTACT INFO (Phone, WhatsApp, Email) - Refined Layout */
+    .top-bar-container {
+      display: flex;
+      flex-wrap: nowrap; /* Force one line */
+      justify-content: flex-start;
+      width: max-content; 
+      gap: 15px;
+    }
     .contact-info {
       display: flex;
-      flex-wrap: wrap; /* Allows the links to wrap to a new line on narrow screens */
-      justify-content: center; /* Center the links within the wrapper */
+      flex-wrap: nowrap; 
+      justify-content: flex-start; 
       width: 100%;
       margin-bottom: 0;
-      font-size: 0.8rem; /* Smaller font size for mobile space saving */
+      font-size: 0.85rem; 
     }
-
     .contact-info span {
-      margin-right: var(--spacing-sm);
-      margin-left: var(--spacing-sm);
-      margin-bottom: 2px; /* Small margin to separate items when they wrap */
-      white-space: nowrap; /* Prevents text from breaking mid-word/number */
+      margin-right: 20px;
+      white-space: nowrap; 
     }
 
-    /* 3. TOP-BAR TOOLS (Desktop Language Selector) - HIDE */
+    /* ALL OTHER ORIGINAL MENU/LOGO LOGIC BELOW */
     .top-bar-tools {
       display: none;
     }
     .desktop-only {
       display: none;
     }
-
-    /* 4. SHOW MOBILE TOOLS (Hamburger and Mobile Language Switcher) on the SECOND LINE */
     .mobile-only {
       display: block;
     }
@@ -540,14 +533,10 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     .menu-toggle {
       display: block;
     }
-
-    /* 5. ENSURE SECOND LINE (NAVBAR) LOOKS CORRECT */
     .navbar {
       padding: var(--spacing-md) var(--spacing-lg);
       min-height: 60px;
     }
-
-    /* 6. MOBILE SIDEBAR SETUP (Unchanged functionality) */
     .nav-controls {
       position: fixed;
       top: 0;
@@ -565,12 +554,9 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       align-items: flex-start;
       gap: 0;
     }
-
-    /* Mobile Menu Open State */
     .nav-controls.open {
       right: 0;
     }
-
     .nav-controls ul.nav-links-list {
       flex-direction: column;
       align-items: flex-start;
@@ -578,19 +564,15 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       gap: var(--spacing-md);
       padding: 0;
     }
-
     .nav-controls .nav-links-list li {
       width: 100%;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .nav-controls .nav-links-list li a {
       padding: 12px 18px;
       font-size: 1.05rem;
       width: 100%;
     }
-
-    /* Mobile contact button styling */
     .nav-controls .nav-contact-link {
       width: calc(100% - 36px);
       text-align: center;
@@ -610,7 +592,6 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     }
   }
 
-  /* Smaller Mobile/Tablet Adjustments (Unchanged) */
   @media (max-width: 768px) {
     .navbar {
       padding: var(--spacing-sm) var(--spacing-lg);
@@ -641,7 +622,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
   @media (max-width: 480px) {
     .top-bar-container {
-      flex-direction: row-reverse;
+      flex-direction: row; /* Fixed to keep scroll natural */
     }
     .top-bar {
       padding: 4px var(--spacing-sm);
