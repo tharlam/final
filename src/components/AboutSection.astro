@@ -48,20 +48,17 @@
   /* ======================================================= */
 
   .about-us-section {
-    /* Large screen padding */
     padding: 50px 0;
     background-color: #fff;
   }
 
   .container {
-    /* Assuming a max-width container is defined elsewhere */
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
   }
 
   .section-title {
-    /* Large screen typography */
     font-size: 38px;
     font-weight: 700;
     color: #001f3f; /* Deep Blue */
@@ -72,7 +69,7 @@
   .about-content-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px; /* Large screen gap */
+    gap: 50px;
     align-items: flex-start;
     justify-content: center;
   }
@@ -86,7 +83,12 @@
     font-size: 17px;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #555; /* Light Grey Text */
+    color: #555;
+    /* --- JUSTIFICATION UPDATES START --- */
+    text-align: justify;
+    text-justify: inter-word; /* Creates even spacing between words */
+    hyphens: auto;            /* Prevents big gaps on smaller lines */
+    /* --- JUSTIFICATION UPDATES END --- */
   }
 
   .about-text p strong {
@@ -107,7 +109,6 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
-  /* --- Call to Action Button Styles --- */
   .about-cta {
     margin-top: 0;
     text-align: left;
@@ -120,9 +121,7 @@
     font-weight: 600;
     text-decoration: none;
     border-radius: 5px;
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
 
   .primary-btn {
@@ -138,41 +137,34 @@
   }
 
   /* ======================================================= */
-  /* --- RESPONSIVENESS (WITH CORRECTED PADDING) --- */
+  /* --- RESPONSIVENESS --- */
   /* ======================================================= */
 
-  /* Tablet and Small Desktop */
   @media (max-width: 992px) {
-    /* Corrected padding - assuming sticky fix is global now */
     .about-us-section {
       padding-top: 50px;
       padding-bottom: 50px;
     }
-
     .section-title {
       font-size: 32px;
     }
     .about-content-grid {
       gap: 30px;
     }
-    .about-text,
-    .about-image {
+    .about-text, .about-image {
       min-width: unset;
     }
   }
 
-  /* Mobile */
   @media (max-width: 768px) {
-    /* Corrected padding - assuming sticky fix is global now */
     .about-us-section {
       padding-top: 30px;
       padding-bottom: 30px;
     }
-
     .about-content-grid {
       flex-direction: column;
       align-items: center;
-      gap: 20px; /* Reduced gap for mobile */
+      gap: 20px;
     }
     .about-text {
       order: 2;
@@ -181,33 +173,27 @@
       order: 1;
       margin-bottom: 20px;
     }
-
     .section-title {
       font-size: 28px;
-      margin-bottom: 30px;
     }
     .about-text p {
       font-size: 16px;
-      margin-bottom: 15px;
-    }
-    .btn {
-      padding: 10px 25px;
-      font-size: 15px;
+      /* Keeping it justified on tablet/mobile for consistency */
+      text-align: justify; 
     }
   }
 
-  /* Smallest Mobile */
   @media (max-width: 480px) {
-    /* Corrected padding - assuming sticky fix is global now */
     .about-us-section {
       padding-top: 20px;
     }
-
     .section-title {
       font-size: 24px;
     }
     .about-text p {
       font-size: 15px;
+      /* On very small phones, you can change to 'left' if justify looks too spaced out */
+      text-align: justify;
     }
   }
 </style>
