@@ -119,6 +119,7 @@
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0px;
   }
 
   .glance-title {
@@ -169,8 +170,10 @@
     font-size: 17px;
     line-height: 1.8;
     color: #555;
+    text-align: justify;
+    text-justify: inter-word; /* Enhances the justification algorithm */
+    hyphens: auto;
   }
-
   /* --- NAVIGATION BUTTONS (Hidden on Desktop) --- */
   .glance-navigation {
     display: none;
@@ -359,7 +362,8 @@
 
       // Update button visibility
       if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
-      if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
+      if (nextBtn)
+        nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
     }
 
     // --- Event Listeners ---
@@ -367,19 +371,21 @@
     updateSlider();
 
     // 2. Navigation
-    if (nextBtn) nextBtn.onclick = () => {
-      if (currentIndex < cardCount - 1) {
-        currentIndex++;
-        updateSlider();
-      }
-    };
+    if (nextBtn)
+      nextBtn.onclick = () => {
+        if (currentIndex < cardCount - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      };
 
-    if (prevBtn) prevBtn.onclick = () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlider();
-      }
-    };
+    if (prevBtn)
+      prevBtn.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      };
 
     // 3. Recalculate on window resize/rotation to ensure accurate offset
     window.addEventListener("resize", () => {

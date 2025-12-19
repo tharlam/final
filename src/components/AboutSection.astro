@@ -1,3 +1,7 @@
+---
+// Astro Component: AboutSection.astro
+---
+
 <section id="about" class="about-us-section">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up" data-i18n="section_title">
@@ -44,26 +48,47 @@
 
 <style>
   /* ======================================================= */
-  /* --- Base Styles (Desktop) --- */
+  /* --- GLOBAL VARIABLES (Maintain Consistency) --- */
+  /* ======================================================= */
+  :root {
+    --primary-color: #001f3f;
+    --text-color: #555;
+    --heading-color: #001f3f;
+    --bg-white: #ffffff;
+    
+    /* Layout Constants */
+    --container-width: 1200px;
+    --section-padding-desktop: 60px 0;
+    --section-padding-tablet: 40px 0;
+    --section-padding-mobile: 30px 0;
+    
+    /* Typography */
+    --font-size-p: 17px;
+    --line-height-p: 1.8;
+  }
+
+  /* ======================================================= */
+  /* --- BASE STYLES (Desktop / Laptop) --- */
   /* ======================================================= */
 
   .about-us-section {
-    padding: 50px 0;
-    background-color: #fff;
+    padding: var(--section-padding-desktop);
+    background-color: var(--bg-white);
+    overflow: hidden; /* Prevents AOS animations from causing scrollbars */
   }
 
   .container {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 10px;
+    padding: 0 20px; /* Essential for mobile "breathing room" */
   }
 
   .section-title {
     font-size: 38px;
     font-weight: 700;
-    color: #001f3f; /* Deep Blue */
+    color: var(--heading-color);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   .about-content-grid {
@@ -71,129 +96,129 @@
     flex-wrap: wrap;
     gap: 50px;
     align-items: flex-start;
-    justify-content: center;
   }
 
   .about-text {
-    flex: 2;
+    flex: 1.5; /* Takes up more space than the image */
     min-width: 300px;
   }
 
   .about-text p {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #555;
-    /* --- JUSTIFICATION UPDATES START --- */
+    font-size: var(--font-size-p);
+    line-height: var(--line-height-p);
+    margin-bottom: 22px;
+    color: var(--text-color);
+    
+    /* Text Justification Logic */
     text-align: justify;
-    text-justify: inter-word; /* Creates even spacing between words */
-    hyphens: auto;            /* Prevents big gaps on smaller lines */
-    /* --- JUSTIFICATION UPDATES END --- */
-  }
-
-  .about-text p strong {
-    font-weight: bold;
-    color: #333;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-break: break-word;
   }
 
   .about-image {
     flex: 1;
-    min-width: 280px;
+    min-width: 300px;
     text-align: center;
   }
 
   .about-image .responsive-image {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
   .about-cta {
-    margin-top: 0;
+    margin-top: 10px;
     text-align: left;
   }
 
   .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 32px;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 6px;
+    transition: all 0.3s ease;
   }
 
   .primary-btn {
-    background-color: #001f3f;
+    background-color: var(--primary-color);
     color: white;
-    border: 2px solid #001f3f;
+    border: 2px solid var(--primary-color);
   }
 
   .primary-btn:hover {
-    background-color: black;
-    border-color: black;
-    transform: translateY(-2px);
+    background-color: #000;
+    border-color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 
   /* ======================================================= */
-  /* --- RESPONSIVENESS --- */
+  /* --- BREAKPOINT: 992px (Small Laptops) --- */
   /* ======================================================= */
-
   @media (max-width: 992px) {
-    .about-us-section {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
     .section-title {
-      font-size: 32px;
+      font-size: 34px;
     }
     .about-content-grid {
       gap: 30px;
     }
-    .about-text, .about-image {
-      min-width: unset;
-    }
   }
 
+  /* ======================================================= */
+  /* --- BREAKPOINT: 768px (Tablets) --- */
+  /* ======================================================= */
   @media (max-width: 768px) {
     .about-us-section {
-      padding-top: 30px;
-      padding-bottom: 30px;
+      padding: var(--section-padding-tablet);
     }
     .about-content-grid {
-      flex-direction: column;
+      flex-direction: column; /* Stack vertically */
       align-items: center;
-      gap: 20px;
     }
     .about-text {
-      order: 2;
+      order: 2; /* Move text below the image for better mobile flow */
+      width: 100%;
     }
     .about-image {
       order: 1;
-      margin-bottom: 20px;
+      width: 100%;
+      margin-bottom: 30px;
     }
     .section-title {
-      font-size: 28px;
+      font-size: 30px;
+      margin-bottom: 25px;
     }
     .about-text p {
       font-size: 16px;
-      /* Keeping it justified on tablet/mobile for consistency */
-      text-align: justify; 
+      text-align: justify; /* Maintain clean edges */
     }
   }
 
+  /* ======================================================= */
+  /* --- BREAKPOINT: 480px (Small Mobile) --- */
+  /* ======================================================= */
   @media (max-width: 480px) {
     .about-us-section {
-      padding-top: 20px;
+      padding: var(--section-padding-mobile);
+    }
+    .container {
+      padding: 0 15px; /* Narrower padding for small screens */
     }
     .section-title {
-      font-size: 24px;
+      font-size: 26px;
     }
     .about-text p {
       font-size: 15px;
-      /* On very small phones, you can change to 'left' if justify looks too spaced out */
-      text-align: justify;
+      line-height: 1.6;
+    }
+    .btn {
+      width: 100%; /* Full width button is easier to tap on mobile */
+      text-align: center;
     }
   }
 </style>
