@@ -1,0 +1,21 @@
+/* global2.css */
+:root {
+  --color-primary: #001f3f;
+  --color-text: #555;
+  --color-heading: #001f3f;
+  --color-btn-hover: #000;
+
+  /* Spacing */
+  --space-section: clamp(1rem, 5vw, 2rem);
+  --space-gap: clamp(1rem, 3vw, 2rem);
+  --space-small: clamp(0.5rem, 2vw, 1rem);
+  --space-container: clamp(0.5rem, 2vw, 1.5rem);
+
+  /* Container */
+  --container-width: 95%;
+  --max-container: 1200px;
+
+  /* Typography */
+  --font-heading: clamp(1.5rem, 3vw, 3rem);
+  --font-body: clamp(1rem, 1.2vw, 1.2rem);
+}

@@ -6,9 +6,9 @@ import Header from "../components/nav.astro";
 import Footer from "../components/Footer.astro";
 
 // Import global styles
-import "../styles/global.css";
-import "../styles/about-section.css";
-// --- REMOVED: Conflicting Google Maps API script tag ---
+import "../styles/global.css"; // your nav/global styles
+import "../styles/global2.css"; // your new design system
+import "../styles/about-section.css"; // section-specific styles
 
 // Inside BaseLayout.astro frontmatter
 interface Props {
@@ -40,98 +40,26 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
         {/* 2. SVG Icon: Best quality, modern browsers (highest priority) */}
         <link
-
-
-
-
-
-
             rel="icon"
-
-
-
-
-
-
             type="image/svg+xml"
-
-
-
-
-
-
             href={`${BASE_PATH}favicon.svg`}
-
-
-
-
         />
 
         {/* 3. Apple Touch Icon: Required for iOS Home Screen shortcut */}
         <link
-
-
-
-
-
-
             rel="apple-touch-icon"
-
-
-
-
-
-
             sizes="180x180"
-
-
-
-
-
-
             href={`${BASE_PATH}apple-touch-icon.png`}
-
-
-
-
         />
 
         {
             /* 4. PNG Icon Fallbacks: For specific browser sizes (e.g., Google SERPs) */
         }
         <link
-
-
-
-
-
-
             rel="icon"
-
-
-
-
-
-
             type="image/png"
-
-
-
-
-
-
             sizes="96x96"
-
-
-
-
-
-
             href={`${BASE_PATH}favicon-96x96.png`}
-
-
-
-
         />
 
         {
@@ -142,28 +70,11 @@ const BASE_PATH = import.meta.env.BASE_URL;
         {/* --- PROFESSIONAL FAVICON IMPLEMENTATION END --- */}
 
         <link
-
-
-
-
-
-
             href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-
-
-
-
-
-
             rel="stylesheet"
-
-
-
-
         />
         <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
     </head>
-
 
     <body>
         <Header />
