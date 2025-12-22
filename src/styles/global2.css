@@ -12,7 +12,7 @@
   --space-container: clamp(0.5rem, 2vw, 1.5rem);
 
   /* Container */
-  --container-width: 95%;
+  --container-width: 99%;
   --max-container: 1200px;
 
   /* Typography */
