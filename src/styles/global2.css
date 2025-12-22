@@ -16,6 +16,6 @@
   --max-container: 1200px;
 
   /* Typography */
-  --font-heading: clamp(1.5rem, 3vw, 3rem);
-  --font-body: clamp(1rem, 1.2vw, 1.2rem);
+  --font-heading: clamp(1rem, 3vw, 1.5rem);
+  --font-body: clamp(0.85rem, 1vw, 1.1rem);
 }
