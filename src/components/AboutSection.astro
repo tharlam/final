@@ -43,22 +43,19 @@
 </section>
 
 <style>
-  :root {
-    /* Buttons */
-    --btn-padding-y: clamp(0.6rem, 1vw, 0.30rem);
-    --btn-padding-x: clamp(1.2rem, 3vw, 2rem);
-    --btn-radius: 0.5rem;
-  }
-
+  /* --- Strict Root Application --- */
+  
   .about-us-section {
+    /* Vertical spacing from root */
     padding: var(--space-section) 0;
-    background-color: #fff;
+    background-color: transparent; /* Assuming main background is handled elsewhere */
   }
 
   .container {
     width: var(--container-width);
     max-width: var(--max-container);
     margin: 0 auto;
+    /* Responsive container padding */
     padding: var(--space-container);
   }
 
@@ -70,60 +67,54 @@
     margin-bottom: var(--space-gap);
   }
 
-  /* Grid Layout: text left, photo right */
   .about-content-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* text larger, photo smaller */
+    /* Grid gap from root */
     gap: var(--space-gap);
+    grid-template-columns: 2fr 1fr; 
     align-items: start;
     justify-content: center;
   }
 
-  /* On small screens, stack with photo first */
-  @media (max-width: 768px) {
-    .about-content-grid {
-      grid-template-columns: 1fr;
-    }
-    .about-image {
-      order: -1;
-    }
-  }
-
   .about-text p {
     font-size: var(--font-body);
-    line-height: 1.8;
-    margin-bottom: var(--space-small);
     color: var(--color-text);
+    /* Space between paragraphs from root */
+    margin-bottom: var(--space-small);
+    line-height: 1.8;
     text-align: justify;
     text-justify: inter-word;
-    hyphens: auto;
   }
 
+  /* Ensuring strong tags match the heading color variable */
   .about-text p strong {
+    color: var(--color-heading);
     font-weight: bold;
-    color: #333;
   }
 
   .about-image .responsive-image {
     width: 100%;
     height: auto;
-    border-radius: var(--btn-radius);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    /* Reusing a small spacing variable for the border radius to keep it consistent */
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
   .about-cta {
-    margin-top: var(--space-small);
+    margin-top: var(--space-gap);
     text-align: left;
   }
 
+  /* --- Button Strictly using Root --- */
   .btn {
     display: inline-block;
-    padding: var(--btn-padding-y) var(--btn-padding-x);
-    font-size: var(--font-btn);
+    /* Buttons use body font and root spacing for padding */
+    font-size: var(--font-body);
+    padding: var(--space-small) var(--space-gap);
     font-weight: 600;
     text-decoration: none;
-    border-radius: var(--btn-radius);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s;
   }
 
   .primary-btn {
@@ -135,6 +126,21 @@
   .primary-btn:hover {
     background-color: var(--color-btn-hover);
     border-color: var(--color-btn-hover);
-    transform: translateY(-0.2rem);
+    transform: translateY(-2px);
+  }
+
+  /* --- The Single Layout Media Query --- */
+  @media (max-width: 768px) {
+    .about-content-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+      order: -1; /* Image moves to top on mobile */
+    }
+
+    .about-cta {
+      text-align: left;
+    }
   }
 </style>

@@ -13,7 +13,7 @@ const BASE_PATH = import.meta.env.BASE_URL;
     </p>
 
     <div class="testimonials-navigation">
-      <button class="testo-prev-btn" aria-label="Previous testimonials">
+      <button class="testo-prev-btn disabled" aria-label="Previous testimonials">
         <i class="fas fa-chevron-left"></i>
       </button>
       <button class="testo-next-btn" aria-label="Next testimonials">
@@ -24,538 +24,275 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
   <div class="testo-slider-wrapper">
     <div class="testimonials-container">
-      <div class="testimonial-card" data-aos="fade-left" data-aos-delay="100">
+      
+      <div class="testimonial-card" data-aos="fade-up">
         <i class="fas fa-quote-left quote-icon"></i>
         <p class="testimonial-text" data-i18n="testimonial_lobsang_text">
-          “Before joining Tharlam Academy, I could not read. Now I can recite
-          prayers, study texts, and help others.”
+          “Before joining Tharlam Academy, I could not read. Now I can recite prayers, study texts, and help others.”
         </p>
         <div class="testimonial-author">
-          <img
-            src={`${BASE_PATH}testo3.webp`}
-            alt="Photo of Lobsang Nyima, student"
-            data-i18n-alt="testimonial_lobsang_alt"
-          />
+          <img src={`${BASE_PATH}testo3.webp`} alt="Lobsang Nyima" />
           <div class="author-info">
-            <p class="author-name" data-i18n="testimonial_lobsang_name">
-              Lobsang Nyima
-            </p>
-            <p class="author-role" data-i18n="testimonial_lobsang_role">
-              Age 12 (Class 4)
-            </p>
+            <p class="author-name">Lobsang Nyima</p>
+            <p class="author-role">Age 12 (Class 4)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <p class="testimonial-text">
+          "The teachers are kind, and I have many good friends here. We play, we learn, and we help each other like a big family."
+        </p>
+        <div class="testimonial-author">
+          <img src={`${BASE_PATH}testo1.webp`} alt="Chokey Wangpo" />
+          <div class="author-info">
+            <p class="author-name">Chokey Wangpo</p>
+            <p class="author-role">Age 14 (Class 6)</p>
           </div>
         </div>
       </div>
 
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
         <i class="fas fa-quote-left quote-icon"></i>
-        <p class="testimonial-text" data-i18n="testimonial_pema_text">
-          "Hello! My name is Chokey Wangpo. I feel very happy to study at
-          Tharlam Academy. The teachers are kind, and I have many good friends
-          here. I love learning about the Buddha’s teachings and also enjoy
-          reading English books. We play, we learn, and we help each other like
-          a big family. Tharlam Academy is my second home!"
+        <p class="testimonial-text">
+          "I came to Tharlam Academy when I was small. Since then, I’ve learned many things — from meditation to math."
         </p>
         <div class="testimonial-author">
-          <img
-            src={`${BASE_PATH}testo1.webp`}
-            alt="Photo of Pema Sherap, student"
-            data-i18n-alt="testimonial_pema_alt"
-          />
+          <img src={`${BASE_PATH}testo2.webp`} alt="Dhundup Lama" />
           <div class="author-info">
-            <p class="author-name" data-i18n="testimonial_pema_name">
-              Chokey Wangpo
-            </p>
-            <p class="author-role" data-i18n="testimonial_pema_role">
-              Age 14 (Class 6)
-            </p>
+            <p class="author-name">Dhundup Lama</p>
+            <p class="author-role">Age 12 (Class 4)</p>
           </div>
         </div>
       </div>
 
-      <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
         <i class="fas fa-quote-left quote-icon"></i>
-        <p class="testimonial-text" data-i18n="testimonial_dhundup_text">
-          "Hi! I’m Dhundup Lama. I came to Tharlam Academy when I was small.
-          Since then, I’ve learned many things — from meditation to math. The
-          classes are fun, and our teachers guide us with love. I feel proud to
-          be part of this academy. One day, I want to help others just like I’ve
-          been helped here."
+        <p class="testimonial-text">
+          “We’re grateful to all the sponsors who help us learn not only facts but how to be good human beings.”
         </p>
         <div class="testimonial-author">
-          <img
-            src={`${BASE_PATH}testo2.webp`}
-            alt="Photo of Dhundup, student"
-            data-i18n-alt="testimonial_dhundup_alt"
-          />
+          <img src={`${BASE_PATH}testo4.webp`} alt="Gyen Lekshay" />
           <div class="author-info">
-            <p class="author-name" data-i18n="testimonial_dhundup_name">
-              Dhundup
-            </p>
-            <p class="author-role" data-i18n="testimonial_dhundup_role">
-              Age 12 (Class 4)
-            </p>
+            <p class="author-name">Gyen Lekshay</p>
+            <p class="author-role">Senior Teacher</p>
           </div>
         </div>
       </div>
 
-      <div class="testimonial-card" data-aos="fade-left" data-aos-delay="400">
-        <i class="fas fa-quote-left quote-icon"></i>
-        <p class="testimonial-text" data-i18n="testimonial_gyen_text">
-          “We’re grateful to all the sponsors who help us learn not only facts
-          but how to be good human beings.”
-        </p>
-        <div class="testimonial-author">
-          <img
-            src={`${BASE_PATH}testo4.webp`}
-            alt="Photo of Gyen Lekshay, Senior Teacher"
-            data-i18n-alt="testimonial_gyen_alt"
-          />
-          <div class="author-info">
-            <p class="author-name" data-i18n="testimonial_gyen_name">
-              Gyen Lekshay
-            </p>
-            <p class="author-role" data-i18n="testimonial_gyen_role">
-              Senior Teacher
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* --- Testimonials Section --- */
+  /* --- Section Foundation --- */
   .testimonials-section {
-    padding: 20px 20px;
-    background-color: white;
-    color: #333;
+    padding: var(--space-section) 0;
+    background-color: transparent;
+    color: var(--color-text);
     overflow: hidden;
-    text-align: center;
   }
 
   .testimonials-header {
-    max-width: 1200px; /* Matched to container width */
-    margin: 0 auto 20px auto;
-    padding: 0 20px;
-    position: relative; /* Needed for navigation button positioning */
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto var(--space-gap) auto;
+    padding: 0 var(--space-container);
+    position: relative;
+    text-align: center;
   }
 
   .testimonials-title {
-    font-size: 2rem;
-    color: #001f3f;
-    margin-bottom: 15px;
-    position: relative;
-    padding-bottom: 12px;
+    font-size: var(--font-heading);
+    color: var(--color-heading);
     font-weight: 700;
-  }
-
-  .testimonials-title::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 80px;
-    height: 4px;
-    background-color: #001f3f;
-    border-radius: 2px;
+    margin-bottom: var(--space-small);
   }
 
   .testimonials-subtitle {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.7;
-    margin-top: 15px;
+    font-size: var(--font-body);
+    opacity: 0.8;
   }
 
-  /* 🌟 NEW: Navigation Styles (Desktop Only) 🌟 */
+  /* --- Navigation Buttons --- */
   .testimonials-navigation {
-    display: none; /* Default hidden, shown via JS/media query on desktop */
+    display: none; /* Only visible on desktop */
     position: absolute;
-    right: 0;
-    top: 20px;
+    right: var(--space-container);
+    bottom: 0;
+    gap: 10px;
   }
 
-  .testo-prev-btn,
-  .testo-next-btn {
-    background: #001f3f;
+  .testo-prev-btn, .testo-next-btn {
+    background: var(--color-primary);
     color: white;
     border: none;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--space-small);
+    cursor: pointer;
+    transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 5px;
-    transition:
-      background 0.2s,
-      opacity 0.2s;
   }
 
-  .testo-prev-btn:hover,
-  .testo-next-btn:hover {
-    background: #002b59;
+  .testo-prev-btn.disabled, .testo-next-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 
-  .testo-prev-btn.disabled,
-  .testo-next-btn.disabled {
-    opacity: 0.5;
-    cursor: default;
-    background: #001f3f; /* Keep color consistent */
-  }
-
-  /* 🌟 NEW: Wrapper to crop the container (crucial for slider) 🌟 */
+  /* --- Slider Engine --- */
   .testo-slider-wrapper {
-    overflow: hidden;
+    width: var(--container-width);
+    max-width: var(--max-container);
     margin: 0 auto;
-    max-width: 1200px;
+    overflow: hidden;
+    padding: 20px 0; /* Space for shadows */
   }
 
   .testimonials-container {
-    /* Max width is managed by the wrapper */
-    margin: 0 auto;
     display: flex;
-    flex-wrap: nowrap; /* Forces cards onto one line for slider */
-    justify-content: flex-start;
-    gap: 30px;
-    transition: transform 0.3s ease-in-out; /* Enables smooth sliding */
+    gap: var(--space-gap);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
+  /* --- The Card --- */
   .testimonial-card {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    text-align: left;
-
-    /* 🌟 DESKTOP SLIDER: 3 cards visible, calculation based on 30px gap 🌟 */
-    flex: 0 0 calc(33.333% - 20px);
-    min-width: 250px;
-
+    background: white;
+    padding: var(--space-gap);
+    border-radius: var(--space-small);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    flex: 0 0 calc(33.333% - (var(--space-gap) * 2 / 3)); /* 3 Columns */
+    min-width: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-top: 4px solid var(--color-primary);
   }
 
   .quote-icon {
-    font-size: 2.5rem;
-    color: #001f3f;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    color: var(--color-primary);
+    opacity: 0.2;
+    margin-bottom: var(--space-small);
   }
 
   .testimonial-text {
-    font-size: 1.0625rem; /* ~17px for consistency */
-    line-height: 1.7;
-    color: #555;
-    margin-bottom: 25px;
+    font-size: var(--font-body);
+    line-height: 1.6;
     flex-grow: 1;
+    margin-bottom: var(--space-gap);
   }
 
   .testimonial-author {
     display: flex;
     align-items: center;
-    margin-top: auto;
+    gap: var(--space-small);
   }
 
   .testimonial-author img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px;
-    border: 2px solid #ffc107;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .author-info {
-    text-align: left;
+    border: 2px solid var(--color-primary);
   }
 
   .author-name {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #001f3f;
+    font-size: var(--font-body);
+    font-weight: 700;
+    color: var(--color-heading);
     margin: 0;
   }
 
   .author-role {
-    font-size: 0.85rem;
-    color: #777;
+    font-size: 0.8rem;
+    opacity: 0.7;
     margin: 0;
   }
 
-  /* --- Responsive Adjustments for Testimonials Section --- */
+  /* --- Responsive Logic --- */
+  @media (min-width: 992px) {
+    .testimonials-navigation { display: flex; }
+  }
 
-  /* 🌟 DESKTOP (Min-width: 993px) - Ensure Navigation is VISIBLE 🌟 */
-  @media (min-width: 993px) {
-    .testimonials-navigation {
-      display: flex;
+  @media (max-width: 991px) {
+    .testimonial-card {
+      flex: 0 0 calc(50% - (var(--space-gap) / 2)); /* 2 Columns */
+    }
+    .testo-slider-wrapper { overflow: visible; }
+    .testimonials-container { 
+      flex-wrap: nowrap; 
+      overflow-x: auto; 
+      padding-bottom: 20px;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
-  /* Tablets and smaller desktops (max-width: 992px) */
-  @media (max-width: 992px) {
-    .testimonials-section {
-      padding: 60px 15px;
-    }
-
-    .testimonials-container {
-      flex-wrap: wrap; /* Allow cards to wrap to 2 columns */
-      justify-content: center;
-    }
-
-    /* 🌟 TABLET: 2 columns, reset flex-grow 🌟 */
+  @media (max-width: 600px) {
     .testimonial-card {
-      flex: 1 1 calc(50% - 15px); /* Two columns on tablets, adjusted for 25px gap */
-      padding: 25px;
-      min-width: 250px;
-    }
-
-    /* Hide the desktop slider wrapper constraint */
-    .testo-slider-wrapper {
-      overflow: visible;
-    }
-
-    .testimonials-title {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-    }
-
-    .testimonials-title::after {
-      width: 70px;
-      height: 3px;
-    }
-
-    .testimonials-subtitle {
-      font-size: 1rem;
-      margin-top: 10px;
-    }
-
-    .testimonials-container {
-      gap: 25px;
-    }
-
-    .quote-icon {
-      font-size: 2rem;
-    }
-
-    .testimonial-text {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-
-    .testimonial-author img {
-      width: 50px;
-      height: 50px;
-      margin-right: 12px;
-    }
-
-    .author-name {
-      font-size: 1rem;
-    }
-
-    .author-role {
-      font-size: 0.8rem;
-    }
-  }
-
-  /* Mobile devices (max-width: 768px) */
-  @media (max-width: 768px) {
-    .testimonials-section {
-      padding: 50px 10px;
-    }
-
-    .testimonials-header {
-      margin-bottom: 40px;
-    }
-
-    /* 🌟 MOBILE: 1 column 🌟 */
-    .testimonial-card {
-      flex: 1 1 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .testimonials-title {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-    }
-
-    .testimonials-title::after {
-      width: 60px;
-      height: 2px;
-    }
-
-    .testimonials-subtitle {
-      font-size: 0.9rem;
-      margin-top: 8px;
-    }
-
-    .testimonials-container {
-      gap: 20px;
-    }
-
-    .quote-icon {
-      font-size: 1.8rem;
-    }
-
-    .testimonial-text {
-      font-size: 0.85rem;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-author img {
-      width: 45px;
-      height: 45px;
-      margin-right: 10px;
-    }
-
-    .author-name {
-      font-size: 0.9rem;
-    }
-
-    .author-role {
-      font-size: 0.75rem;
-    }
-  }
-
-  /* Very small mobile devices (max-width: 480px) */
-  @media (max-width: 480px) {
-    .testimonials-section {
-      padding: 30px 10px;
-    }
-
-    .testimonials-header {
-      margin-bottom: 30px;
-    }
-
-    .testimonials-title {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-    }
-
-    .testimonials-container {
-      gap: 15px;
-    }
-
-    .testimonial-card {
-      padding: 15px;
-    }
-
-    .quote-icon {
-      font-size: 1.5rem;
-    }
-
-    .testimonial-text {
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-    }
-
-    .testimonial-author img {
-      width: 40px;
-      height: 40px;
-      margin-right: 8px;
-    }
-
-    .author-name {
-      font-size: 0.85rem;
-    }
-
-    .author-role {
-      font-size: 0.7rem;
+      flex: 0 0 100%; /* 1 Column */
     }
   }
 </style>
 
 <script is:inline>
-  function setupTestimonialsSlider() {
-    const wrapper = document.querySelector(".testo-slider-wrapper");
-    const container = document.querySelector(".testimonials-container");
-    const nextBtn = document.querySelector(".testo-next-btn");
-    const prevBtn = document.querySelector(".testo-prev-btn");
+  function initTestoSlider() {
+    const container = document.querySelector('.testimonials-container');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const nextBtn = document.querySelector('.testo-next-btn');
+    const prevBtn = document.querySelector('.testo-prev-btn');
+    
+    if (!container || cards.length === 0 || !nextBtn) return;
 
-    if (!container || !wrapper || !nextBtn || !prevBtn) return;
+    let currentIndex = 0;
 
-    // We only want the slider logic to run on large screens (Desktop)
-    // where we can display 4 cards, but only 3 are visible at once.
-    if (window.innerWidth <= 992) {
-      // If mobile/tablet, hide navigation and exit slider logic
-      if (nextBtn) nextBtn.style.display = "none";
-      if (prevBtn) prevBtn.style.display = "none";
-      container.style.transform = `translateX(0px)`;
-      container.style.flexWrap = "wrap"; // Ensure wrapping on smaller screens
-      return;
+    function getVisibleCards() {
+      if (window.innerWidth < 600) return 1;
+      if (window.innerWidth < 992) return 2;
+      return 3;
     }
-
-    // Desktop Slider Setup (3 cards visible, total 4 cards)
-    if (nextBtn) nextBtn.style.display = "flex";
-    if (prevBtn) prevBtn.style.display = "flex";
-    container.style.flexWrap = "nowrap"; // Ensure no wrapping on desktop slider
-
-    const card = container.querySelector(".testimonial-card");
-    if (!card) return;
-
-    // Calculate the exact step size (Card Width + Gap)
-    const cardGap = 30; // Matches CSS gap
-    // Use offsetWidth to get the card's calculated width
-    const cardStepSize = card.offsetWidth + cardGap;
-
-    // The total distance to slide to reveal the 4th card (one card step)
-    const slideOffset = -cardStepSize;
-
-    let isSlid = false;
 
     function updateSlider() {
-      container.style.transform = `translateX(${isSlid ? slideOffset : 0}px)`;
+      const visibleCards = getVisibleCards();
+      const maxIndex = cards.length - visibleCards;
+      
+      // Ensure index stays in bounds
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
 
-      // Control button state based on the slide position
-      prevBtn.classList.toggle("disabled", !isSlid);
-      nextBtn.classList.toggle("disabled", isSlid);
+      const gap = parseInt(getComputedStyle(container).gap) || 0;
+      const cardWidth = cards[0].offsetWidth;
+      const moveDistance = currentIndex * (cardWidth + gap);
+
+      container.style.transform = `translateX(-${moveDistance}px)`;
+
+      // Update Buttons
+      prevBtn.classList.toggle('disabled', currentIndex === 0);
+      nextBtn.classList.toggle('disabled', currentIndex >= maxIndex);
     }
 
-    // --- Event Listeners ---
-    nextBtn.onclick = () => {
-      if (!isSlid) {
-        isSlid = true;
+    nextBtn.addEventListener('click', () => {
+      const maxIndex = cards.length - getVisibleCards();
+      if (currentIndex < maxIndex) {
+        currentIndex++;
         updateSlider();
       }
-    };
-
-    prevBtn.onclick = () => {
-      if (isSlid) {
-        isSlid = false;
-        updateSlider();
-      }
-    };
-
-    // Reset and update on initial load
-    isSlid = false;
-    updateSlider();
-
-    // Recalculate on window resize to ensure correct offset
-    window.addEventListener("resize", () => {
-      // Recalculate everything, in case a card has changed size
-      setupTestimonialsSlider();
     });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
   }
 
-  // Astro View Transition Compatibility:
-  document.addEventListener("DOMContentLoaded", setupTestimonialsSlider);
-  document.addEventListener("astro:page-load", setupTestimonialsSlider);
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', initTestoSlider);
+  document.addEventListener('astro:page-load', initTestoSlider);
 </script>

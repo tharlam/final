@@ -210,15 +210,15 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     left: 0;
     width: 100%;
     z-index: 100000;
-    background-color: var(--color-primary-dark);
+    background-color: var(--nav-primary-dark);
     position: sticky;
   }
 
   /* --- TOP CONTACT BAR (First Line) --- */
   .top-bar {
-    background-color: var(--color-primary-darker);
-    color: var(--color-text-white);
-    font-size: 0.85rem;
+    background-color: var(--nav-primary-darker);
+    color: var(--nav-text-white);
+    font-size: var(--nav-body);
     padding: 6px var(--spacing-xl);
   }
 
@@ -231,7 +231,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   }
 
   .contact-info a {
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -244,12 +244,12 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   }
 
   .contact-info i {
-    color: var(--color-accent-yellow);
+    color: var(--nav-accent-yellow);
     margin-right: 4px;
   }
 
   .contact-info a:hover {
-    color: var(--color-accent-yellow);
+    color: var(--nav-accent-yellow);
   }
 
   .whatsapp-link i {
@@ -259,11 +259,11 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   /* --- LANGUAGE SELECTOR STYLING --- */
   .language-select {
     background-color: transparent;
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     padding: 4px 28px 4px 10px;
     border: 1px solid var(--border-light-blue);
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: var(--nav-body);
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -274,8 +274,8 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   }
 
   .language-select option {
-    background-color: var(--color-primary-darker);
-    color: var(--color-text-white);
+    background-color: var(--nav-primary-darker);
+    color: var(--nav-text-white);
   }
 
   .language-selector-wrapper {
@@ -284,14 +284,14 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   }
   .language-select:hover,
   .language-select:focus {
-    border-color: var(--color-accent-blue);
+    border-color: var(--nav-accent-blue);
   }
   .custom-select-arrow {
     position: absolute;
     right: var(--spacing-md);
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     font-size: 0.75rem;
     pointer-events: none;
   }
@@ -313,7 +313,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     margin: 0 auto;
     width: 100%;
     min-height: 65px;
-    background-color: var(--color-primary-dark);
+    background-color: var(--nav-primary-dark);
   }
 
   /* Brand/Logo Styling */
@@ -342,19 +342,20 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   .brand .text-group {
     text-align: left;
     white-space: nowrap;
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 40px;
   }
   .brand .text-group h2 {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     margin: 0;
     line-height: 1.2;
+    color: white;
   }
   .brand .text-group p {
-    font-size: 0.75rem;
+    font-size: var(--nav-body);
     margin: 0;
     opacity: 0.8;
   }
@@ -379,7 +380,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--color-text-white);
+    background-color: var(--nav-text-white);
     border-radius: 1px;
     margin-bottom: var(--spacing-xs);
     transition: all 0.3s ease-in-out;
@@ -413,9 +414,9 @@ const getPath = (route) => `${BASE_PATH}${route}`;
   }
 
   .nav-controls .nav-links-list li a {
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: var(--nav-body);
     font-weight: 500;
     padding: 6px;
     position: relative;
@@ -430,7 +431,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     bottom: -2px;
     width: 0;
     height: 2px;
-    background-color: var(--color-accent-yellow);
+    background-color: var(--nav-accent-yellow);
     transition: width 0.3s ease;
   }
 
@@ -441,38 +442,38 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
   .nav-controls .nav-links-list li a:hover,
   .nav-controls .nav-links-list li a:focus {
-    color: var(--color-accent-yellow);
+    color: var(--nav-accent-yellow);
     outline: none;
   }
 
   .nav-controls .nav-contact-link {
     background: linear-gradient(
       135deg,
-      var(--color-accent-green) 0%,
+      var(--nav-accent-green) 0%,
       #1e7e34 100%
     );
     box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
     padding: 10px 22px;
     border-radius: 8px;
-    font-size: 1.05rem;
+    font-size: var(--nav-body);
     font-weight: 700;
     transition: all 0.3s ease;
     text-decoration: none;
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
     margin-left: var(--spacing-lg);
     position: static;
-    border: 2px solid var(--color-accent-green);
+    border: 2px solid var(--nav-accent-green);
   }
 
   .nav-controls .nav-contact-link:hover {
     background: linear-gradient(
       135deg,
       #1e7e34 0%,
-      var(--color-accent-green) 100%
+      var(--nav-accent-green) 100%
     );
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 15px rgba(40, 167, 69, 0.6);
-    color: var(--color-text-white);
+    color: var(--nav-text-white);
   }
 
   .nav-controls .nav-contact-link::after {
@@ -544,7 +545,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       width: 75%;
       max-width: 280px;
       height: 100vh;
-      background-color: var(--color-primary-dark);
+      background-color: var(--nav-primary-dark);
       box-shadow: -5px 0 15px var(--shadow-medium);
       transition: right 0.4s ease-in-out;
       z-index: 999;
@@ -580,7 +581,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       font-size: 1rem;
       padding: 10px var(--spacing-lg);
       display: block;
-      background: var(--color-accent-green);
+      background: var(--nav-accent-green);
       box-shadow: none;
       transform: none;
       border: none;
@@ -588,7 +589,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     .nav-controls .nav-contact-link:hover {
       transform: none;
       box-shadow: none;
-      background-color: var(--color-green-hover);
+      background-color: var(--nav-green-hover);
     }
   }
 

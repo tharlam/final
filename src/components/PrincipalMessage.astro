@@ -5,72 +5,80 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
 <section id="message" class="principal-section">
   <div class="principal-container">
+    
     <div class="principal-image" data-aos="fade-right">
       <img
         src={`${BASE_PATH}prin.webp`} 
-        alt="Photo of the Principal of Tharlam Academy"
+        alt="Photo of the Principal"
         data-i18n-alt="principal_photo_alt"
       />
     </div>
+
     <div class="principal-content" data-aos="fade-left">
       <p class="principal-name" data-i18n="principal_name">Tenpa Gyaltsen</p>
+      
       <p class="principal-title" data-i18n="principal_title">
         Principal of Tharlam-Academy
       </p>
-      <h3 class="principal-name" data-i18n="principal_message_heading">
+
+      <h3 class="principal-heading" data-i18n="principal_message_heading">
         Message from the Principal
       </h3>
 
       <blockquote class="principal-quote">
-        <span data-i18n="principal_quote_text"
-          >"Supporting a child’s education is like planting the seed of wisdom
+        <span data-i18n="principal_quote_text">
+          "Supporting a child’s education is like planting the seed of wisdom
           in this world. We invite you to walk this path with us—gently,
-          generously, and with joy."</span
-        >
+          generously, and with joy."
+        </span>
       </blockquote>
-      <br />
+
       <p class="buddhist-inspiration">
-        <strong data-i18n="buddhist_inspiration_strong"
-          >Related Buddhist Inspiration:</strong
-        >
-        <br /><span data-i18n="buddhist_inspiration_text"
-          >"As a lamp lights another lamp, thousands of lamps can be lit from
-          one. So too, wisdom shared spreads boundless benefit."</span
-        >
+        <strong data-i18n="buddhist_inspiration_strong">Related Buddhist Inspiration:</strong>
+        <br />
+        <span data-i18n="buddhist_inspiration_text">
+          "As a lamp lights another lamp, thousands of lamps can be lit from
+          one. So too, wisdom shared spreads boundless benefit."
+        </span>
       </p>
     </div>
+
   </div>
 </section>
 
 <style>
-  /* --- Principal's Message Section --- */
+  /* --- Section Wrapper --- */
   .principal-section {
-    padding: 40px 20px;
-    background-color: #f8f8f8;
-    color: #333;
+    /* Vertical padding from root */
+    padding: var(--space-section) 0;
+    color: var(--color-text);
+    background-color: transparent;
     overflow: hidden;
-    text-align: center;
   }
 
+  /* --- Main Container --- */
   .principal-container {
-    max-width: 1200px;
+    width: var(--container-width);
+    max-width: var(--max-container);
     margin: 0 auto;
+    padding: var(--space-container);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    padding: 10px;
+    /* Space between image and text from root */
+    gap: var(--space-gap);
   }
 
+  /* --- Image Styling --- */
   .principal-image {
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
+    /* We use a clamp for the circle size to keep it responsive */
+    width: clamp(180px, 35vw, 300px); 
+    height: clamp(180px, 35vw, 300px);
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #001f3f;
-    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
+    border: 3px solid var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,208 +88,65 @@ const BASE_PATH = import.meta.env.BASE_URL;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
 
+  /* --- Text Content Area --- */
   .principal-content {
-    flex: 1 1 100px;
+    flex: 1 1 320px;
     max-width: 750px;
     text-align: left;
   }
 
-  /* 🌟 ADJUSTED FOR TYPOGRAPHIC CONSISTENCY 🌟 */
-  .principal-name {
-    font-size: 1.4rem; /* Slightly reduced for better flow */
+  /* Titles and Headings using root variables */
+  .principal-name, 
+  .principal-heading {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
     font-weight: 700;
-    color: #001f3f;
-    margin-bottom: 5px;
+    margin-bottom: var(--space-small);
   }
 
   .principal-title {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 20px;
-    opacity: 0.9;
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-gap);
+    opacity: 0.8;
   }
 
+  /* Body text and quotes using root variables */
   .principal-quote {
-    font-size: 1.0625rem; /* ~17px for consistency with body text */
-    line-height: 1.7;
-    color: #444;
-    margin: 0;
-    padding: 0;
+    font-size: var(--font-body);
+    color: var(--color-text);
     font-style: italic;
-    position: relative;
-  }
-
-  /* Quote marks styling */
-  .principal-quote::before {
-    content: "“";
-    font-size: 4em;
-    color: rgba(0, 123, 255, 0.1);
-    position: absolute;
-    left: -30px;
-    top: -20px;
-    line-height: 1;
-    z-index: 0;
-  }
-
-  .principal-quote::after {
-    content: "”";
-    font-size: 4em;
-    color: rgba(0, 123, 255, 0.1);
-    position: absolute;
-    right: -20px;
-    bottom: -20px;
-    line-height: 1;
-    z-index: 0;
+    line-height: 1.8;
+    margin: 0;
+    /* Small spacing from root */
+    padding-bottom: var(--space-small);
   }
 
   .buddhist-inspiration {
-    font-size: 0.95rem; /* Slightly smaller size for supporting text */
-    line-height: 1.5;
-    color: #666;
-    margin-top: 15px;
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-top: var(--space-gap);
+    /* Decorative line using primary color variable */
+    border-top: 1px solid var(--color-primary);
+    padding-top: var(--space-small);
   }
 
-  /* --- Responsive Adjustments --- */
+  .buddhist-inspiration strong {
+    color: var(--color-heading);
+  }
 
-  /* Tablets and smaller desktops (max-width: 992px) */
-  @media (max-width: 992px) {
-    .principal-section {
-      padding: 60px 15px;
-    }
-
+  /* --- Single Structural Media Query --- */
+  /* This ONLY handles the layout shift (switching from Row to Column) */
+  @media (max-width: 768px) {
     .principal-container {
       flex-direction: column;
-      gap: 30px;
-      max-width: 700px;
-    }
-
-    .principal-image {
-      width: 120px;
-      height: 120px;
-      border-width: 2px;
-      box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.08);
-    }
-
-    /* Adjusted tablet sizes */
-    .principal-name {
-      font-size: 1.3rem;
-    }
-
-    .principal-title {
-      font-size: 0.9rem;
-    }
-
-    .principal-quote {
-      font-size: 1rem;
-    }
-
-    .buddhist-inspiration {
-      font-size: 0.9rem;
+      text-align: center;
     }
     
-    .principal-quote::before,
-    .principal-quote::after {
-      font-size: 3em;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -10px;
-    }
-
-    .principal-quote::after {
-      bottom: auto;
-      top: auto;
-      margin-top: 10px;
-    }
-  }
-
-  /* Mobile devices (max-width: 768px) */
-  @media (max-width: 768px) {
-    .principal-section {
-      padding: 40px 10px;
-    }
-
-    .principal-container {
-      gap: 25px;
-      padding: 15px;
-    }
-
-    .principal-image {
-      width: 100px;
-      height: 100px;
-      border-width: 2px;
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.05);
-    }
-
-    /* Adjusted phone sizes */
-    .principal-name {
-      font-size: 1.1rem;
-    }
-
-    .principal-title {
-      font-size: 0.8rem;
-    }
-
-    .principal-quote {
-      font-size: 0.9rem;
-    }
-
-    .buddhist-inspiration {
-      font-size: 0.85rem;
-    }
-
-    .principal-quote::before,
-    .principal-quote::after {
-      font-size: 2.5em;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -5px;
-    }
-  }
-
-  /* Very small mobile devices (max-width: 480px) */
-  @media (max-width: 480px) {
-    .principal-section {
-      padding: 30px 10px;
-    }
-
-    .principal-container {
-      gap: 20px;
-      padding: 10px;
-    }
-
-    .principal-image {
-      width: 150px;
-      height: 150px;
-      border-width: 1px;
-      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.03);
-    }
-
-    /* Adjusted smallest phone sizes */
-    .principal-name {
-      font-size: 1rem;
-    }
-
-    .principal-title {
-      font-size: 0.75rem;
-    }
-
-    .principal-quote {
-      font-size: 0.85rem;
-    }
-
-    .buddhist-inspiration {
-      font-size: 0.8rem;
-    }
-
-    .principal-quote::before,
-    .principal-quote::after {
-      font-size: 2em;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 0px;
+    .principal-content {
+      text-align: center;
     }
   }
 </style>

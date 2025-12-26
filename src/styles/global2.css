@@ -1,21 +1,150 @@
-/* global2.css */
+/* global2.css
+   A clean, responsive design system with fluid typography and hidden scrollbars.
+*/
+
+/**
+ * 1. DESIGN TOKENS (Variables)
+ * =======================================================
+ */
 :root {
+  /* --- Navigation & Footer Specific --- */
+  --nav-primary: #001f3f;
+  --nav-primary-dark: #001f3f;
+  --nav-primary-darker: #00152a;
+  --nav-accent-yellow: #ffc107;
+  --nav-accent-green: #28a745;
+  --nav-green-hover: #1e7e34;
+  --nav-text-white: white;
+
+  /* --- General Section Colors --- */
   --color-primary: #001f3f;
   --color-text: #555;
+  --color-text-dark: #333;
+  --color-text-white: #ffffff;
   --color-heading: #001f3f;
+  --color-accent-blue: #007bff;
   --color-btn-hover: #000;
 
-  /* Spacing */
+  /* --- UI Elements & Feedback --- */
+  --color-bg-dark-overlay: rgba(0, 0, 0, 0.6);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.35);
+  --border-light-blue: #004d99;
+
+  /* --- Typography (Fluid) --- */
+  --font-heading: clamp(1rem, 3vw, 1.5rem);
+  --font-body: clamp(0.85rem, 1vw, 1.1rem);
+  --font-size-base: 16px;
+  --line-height-text: 1.8;
+
+  /* --- Spacing (Fluid & Fixed) --- */
   --space-section: clamp(1rem, 5vw, 2rem);
   --space-gap: clamp(1rem, 3vw, 2rem);
   --space-small: clamp(0.5rem, 2vw, 1rem);
   --space-container: clamp(0.5rem, 2vw, 1.5rem);
 
-  /* Container */
+  --spacing-xs: 5px;
+  --spacing-sm: 8px;
+  --spacing-md: 10px;
+  --spacing-lg: 15px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 50px;
+
+  /* --- Layout Constraints --- */
   --container-width: 99%;
   --max-container: 1200px;
+}
 
-  /* Typography */
-  --font-heading: clamp(1rem, 3vw, 1.5rem);
-  --font-body: clamp(0.85rem, 1vw, 1.1rem);
+/**
+ * 2. GLOBAL RESET & BASE STYLES
+ * =======================================================
+ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Uses the dark variable for the background behind content */
+  background-color: var(--nav-primary-darker);
+  overflow-x: hidden;
+
+  /* Hide Scrollbar (Firefox/IE/Edge) */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide Scrollbar (Chrome, Safari, newer Edge) */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text-dark);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-text);
+  background-color: var(--color-text-white);
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/**
+ * 3. UTILITY CLASSES & LAYOUT
+ * =======================================================
+ */
+
+/* Main centering container */
+.container {
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  width: 100%;
+}
+
+/* Modal/Overlay lock: prevents background scroll */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Container for specific scrolling areas that need scrollbars hidden */
+.site-content-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.site-content-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Typography Utilities --- */
+
+h1,
+h2,
+h3,
+.heading-fluid {
+  color: var(--color-heading);
+  font-size: var(--font-heading);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+p,
+.text-fluid {
+  font-size: var(--font-body);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Ensure images don't overflow containers */
+img {
+  max-width: 100%;
+  display: block;
 }

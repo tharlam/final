@@ -1,8 +1,8 @@
 <section class="sports-hero" id="sports-hero">
-    <div class="hero-content">
+    <div class="container hero-content">
         <h1 data-i18n="sports_hero_title">Tharlam Sports Association</h1>
 
-        <p data-i18n="sports_hero_description">
+        <p class="sports-description" data-i18n="sports_hero_description">
             A core part of the <strong>Tharlam Monastery's</strong> commitment to
             holistic development, the Sports Association offers multiple programs,
             fostering <strong>teamwork, discipline, and healthy living</strong> among
@@ -13,7 +13,7 @@
         <div class="hero-cta">
             <a
                 href="#programs"
-                class="btn primary-btn-outline"
+                class="btn-sports-outline"
                 data-i18n="sports_hero_button"
             >
                 View Our Programs →
@@ -24,114 +24,86 @@
 
 <style>
     /* ======================================================= */
-    /* --- Sports Hero Styles (Consistent with About Section) --- */
+    /* --- Sports Hero Styles (Strict Section Root Only) --- */
     /* ======================================================= */
 
     .sports-hero {
         background-image:
-            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url("/final/football.webp"); /* Updated path to match your /final/ convention */
+            linear-gradient(var(--color-bg-dark-overlay), var(--color-bg-dark-overlay)),
+            url("/final/football.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
-        /* Consistency: Matching your vertical spacing logic */
-        min-height: 300px;
+        /* Using your fluid section spacing tokens */
+        padding: var(--space-section) 0;
+        min-height: 400px;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px 20px;
-        color: white;
+        width: 100%;
     }
 
     .hero-content {
-        max-width: 1200px;
-        margin: 0 auto;
+        /* container class from your root is applied in HTML */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--color-text-white);
     }
 
     .sports-hero h1 {
-        /* Consistency: Using your Heading scale */
-        font-size: 38px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: white;
+        /* Fluid Heading Token */
+        font-size: var(--font-heading);
+        color: var(--color-text-white);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-decoration: none; /* No underline */
     }
 
     .sports-hero p {
-        /* Consistency: Using your Paragraph scale (17px) and line-height (1.8) */
-        font-size: 17px;
-        line-height: 1.8;
-        margin-bottom: 30px;
-        color: #eee; /* Slightly lighter for readability on dark backgrounds */
+        /* Fluid Body & Line Height Tokens */
+        font-size: var(--font-body);
+        line-height: var(--line-height-text);
+        margin-bottom: var(--spacing-xl);
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 800px;
+        text-decoration: none; /* No underline */
     }
 
     .sports-hero p strong {
-        color: white;
-        font-weight: bold;
+        /* Using Blue Accent for emphasis within the paragraph */
+        color: var(--color-accent-blue);
+        font-weight: 700;
     }
 
-    /* --- Button Consistency --- */
-    .btn {
+    /* --- Button: Strict Section Tokens & No Underline --- */
+    .btn-sports-outline {
         display: inline-block;
-        padding: 12px 30px;
-        font-size: 16px;
+        /* Using fixed spacing tokens for button balance */
+        padding: var(--spacing-md) var(--spacing-xxl);
+        font-size: var(--font-body);
         font-weight: 600;
-        text-decoration: none;
-        border-radius: 5px;
-        transition:
-            background-color 0.3s ease,
-            transform 0.2s ease;
+        color: var(--color-text-white);
+        border: 2px solid var(--color-text-white);
+        border-radius: 4px;
+        text-decoration: none; /* No underline */
+        transition: all 0.3s ease;
     }
 
-    /* Outline version of your primary-btn for Hero overlay */
-    .primary-btn-outline {
-        background-color: transparent;
-        color: white;
-        border: 2px solid white;
-    }
-
-    .primary-btn-outline:hover {
-        background-color: white;
-        color: black;
+    .btn-sports-outline:hover {
+        background-color: var(--color-text-white);
+        color: var(--color-primary); /* Navy color from section root */
         transform: translateY(-2px);
+        text-decoration: none; /* No underline on hover */
+        box-shadow: var(--shadow-medium);
     }
 
-    /* ======================================================= */
-    /* --- RESPONSIVENESS (Matching About Us Section) --- */
-    /* ======================================================= */
-
-    @media (max-width: 992px) {
-        .sports-hero {
-            padding: 50px 20px;
-        }
-        .sports-hero h1 {
-            font-size: 32px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sports-hero {
-            padding: 30px 20px;
-            min-height: 400px;
-        }
-        .sports-hero h1 {
-            font-size: 28px;
-        }
-        .sports-hero p {
-            font-size: 16px;
-        }
-    }
-
+    /* Custom spacing for very small screens using root container spacing */
     @media (max-width: 480px) {
         .sports-hero {
-            padding: 20px 20px;
-        }
-        .sports-hero h1 {
-            font-size: 24px;
-        }
-        .sports-hero p {
-            font-size: 15px;
+            padding: var(--spacing-xxl) var(--space-container);
         }
     }
-</style>

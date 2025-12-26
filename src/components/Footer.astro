@@ -3,7 +3,7 @@
 ---
 
 <footer class="footer-section">
-  <div class="container footer-container">
+  <div class="footer-inner-container footer-container">
     
     <div class="footer-col about-col">
       <h3 data-i18n="footer_about_title">About Tharlam</h3>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="footer-bottom">
-    <div class="container bottom-content">
+    <div class="footer-inner-container bottom-content">
       <p>© 2024 Tharlam Academy. All Rights Reserved.</p>
       <div class="policy-links">
         <a href="/">Privacy Policy</a>
@@ -65,23 +65,23 @@
 
 <style>
   .footer-section {
-    background-color: var(--color-primary-darker);
-    color: var(--color-text-white);
-    padding: 80px 0 0;
-    border-top: 1px solid var(--border-light-blue);
+    background-color: var(--nav-primary-darker);
+    color: var(--nav-text-white);
+    padding: 60px 0 0;
     width: 100%;
+    /* Removed border-top line/underline */
   }
 
-  .container {
-    max-width: 1200px;
+  .footer-inner-container {
+    max-width: 1200px; /* Standard container width */
     margin: 0 auto;
-    padding: 0 20px; /* Added 20px padding to prevent text touching edges on mobile */
+    padding: 0 20px;
   }
 
   .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 60px; 
+    gap: 40px; 
     padding-bottom: 60px;
   }
 
@@ -89,34 +89,23 @@
   .about-col { flex: 1.2; }
 
   .footer-section h3 {
-    color: var(--color-text-white);
-    font-size: 1rem;
+    color: var(--nav-text-white);
+    font-size: var(--nav-heading);
     font-weight: 700;
-    margin-bottom: 25px;
-    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    position: relative;
-  }
-
-  .footer-section h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 30px;
-    height: 2px;
-    background-color: var(--color-accent-green);
+    /* Removed the ::after underline decoration */
   }
 
   .footer-section p {
-    font-size: 16px; 
-    line-height: 1.7;
+    font-size: var(--nav-body); 
+    line-height: var(--nav-height-text);
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Improved Motto Styling */
   .motto-content {
-    border-left: 3px solid var(--color-accent-green);
+    border-left: 3px solid var(--nav-accent-green);
     padding-left: 15px;
     margin-top: 10px;
   }
@@ -124,30 +113,30 @@
   .motto-text {
     font-style: italic;
     font-weight: 500;
-    color: var(--color-text-white);
-    line-height: 1.6;
+    color: var(--nav-text-white);
+    line-height: var(--nav-height-text);
     margin: 0;
   }
 
   .footer-list { list-style: none; padding: 0; }
   .footer-list li { margin-bottom: 12px; }
+  
   .footer-list a {
     color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
+    text-decoration: none; /* Removed underline */
+    font-size: var(--nav-body);
     transition: 0.3s ease;
   }
+
   .footer-list a:hover {
-    color: var(--color-accent-green);
-    padding-left: 8px;
+    color: var(--nav-accent-green);
+    text-decoration: none; /* Ensure no underline on hover */
   }
 
-  /* Modern Social Icons */
-  .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+  .social-icons { display: flex; gap: 12px; margin-top: 20px; }
   .social-icons a { 
-    color: white; 
-    font-size: 1.1rem; 
-    transition: 0.3s; 
-    opacity: 0.8; 
+    color: var(--nav-text-white); 
+    text-decoration: none; /* Removed underline from icons */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,49 +144,46 @@
     height: 38px;
     background: rgba(255,255,255,0.05);
     border-radius: 50%;
+    transition: 0.3s;
   }
   .social-icons a:hover { 
-    color: var(--color-text-white); 
-    background-color: var(--color-accent-green);
+    background-color: var(--nav-accent-green);
     transform: translateY(-3px); 
-    opacity: 1; 
   }
 
-  /* Newsletter Box - Fixed Zoom & Style */
   .newsletter-form input {
     width: 100%; 
     padding: 12px; 
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-light-blue); 
-    color: white; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    color: var(--nav-text-white); 
     border-radius: 4px; 
     margin-bottom: 10px; 
+    font-size: var(--nav-size-base); 
     outline: none;
-    font-size: 16px; /* CRITICAL: Must be 16px to prevent iOS zoom */
-    transition: border-color 0.3s ease;
   }
-  .newsletter-form input:focus {
-    border-color: var(--color-accent-green);
-  }
+
   .newsletter-form button {
     width: 100%; 
     padding: 12px; 
-    background: var(--color-accent-green); 
-    color: white;
+    background: var(--nav-accent-green); 
+    color: var(--nav-text-white);
     border: none; 
     border-radius: 4px; 
     font-weight: 600; 
     cursor: pointer; 
     transition: 0.3s;
-    font-size: 16px;
+    font-size: var(--nav-size-base);
   }
-  .newsletter-form button:hover { background: var(--color-green-hover); }
+
+  .newsletter-form button:hover { background: var(--nav-green-hover); }
 
   .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 25px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
+
   .bottom-content {
     display: flex;
     justify-content: space-between;
@@ -206,64 +192,46 @@
   }
   
   .policy-links .separator { margin: 0 10px; }
-  .policy-links a { color: inherit; text-decoration: none; }
-  .policy-links a:hover { color: var(--color-text-white); }
+  .policy-links a { 
+    color: inherit; 
+    text-decoration: none; /* Removed underline */
+  }
+  .policy-links a:hover { 
+    color: var(--nav-text-white);
+    text-decoration: none;
+  }
 
-  /* Back to Top Button */
   .back-to-top {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    width: 38px;
-    height: 38px;
-    background-color: var(--color-accent-green);
-    color: var(--color-text-white);
+    width: 40px;
+    height: 40px;
+    background-color: var(--nav-accent-green);
+    color: var(--nav-text-white);
     border: none;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0;           
-    visibility: hidden;    
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1000;
+    opacity: 0; visibility: hidden; z-index: 1000;
+    transition: 0.4s ease;
   }
 
-  .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .back-to-top:hover {
-    background-color: var(--color-green-hover);
-    transform: translateY(-3px);
-  }
-
-  /* Responsive Behavior */
-  @media (max-width: 992px) {
-    .footer-container { gap: 30px; }
-  }
+  .back-to-top.show { opacity: 1; visibility: visible; }
 
   @media (max-width: 768px) {
     .footer-container { flex-direction: column; text-align: center; gap: 40px; }
-    .footer-section h3::after { left: 50%; transform: translateX(-50%); }
     .social-icons { justify-content: center; }
-    .motto-content { border-left: none; border-top: 2px solid var(--color-accent-green); padding-left: 0; padding-top: 10px; }
+    .motto-content { border-left: none; border-top: 2px solid var(--nav-accent-green); padding-left: 0; padding-top: 10px; }
     .bottom-content { flex-direction: column; gap: 10px; text-align: center; }
-  }
-
-  @media (max-width: 480px) {
-    .back-to-top { width: 34px; height: 34px; right: 15px; bottom: 15px; }
   }
 </style>
 
-<script>
+<script is:inline>
   function initializeFooter() {
     const backToTopBtn = document.getElementById("backToTop");
-
     const handleScroll = () => {
       if (window.scrollY > 400) {
         backToTopBtn?.classList.add("show");
@@ -271,20 +239,11 @@
         backToTopBtn?.classList.remove("show");
       }
     };
-
-    // Remove old listeners to avoid duplicates in Astro
-    window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll);
-
     backToTopBtn?.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-
-  // Handle both initial load and View Transition navigation
   document.addEventListener("DOMContentLoaded", initializeFooter);
   document.addEventListener("astro:page-load", initializeFooter);
 </script>
