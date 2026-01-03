@@ -1,209 +1,131 @@
----
-// src/components/SponsorMissionRefined.astro
-// Defines the introductory text and CTA for the Support page using a clean, refined classic layout.
----
-
 <section id="support-mission" class="support-section" data-aos="fade-up">
-    <div class="container">
-        <div class="support-flex-container">
-            <div
-                class="support-text-column"
-                data-aos="fade-right"
-                data-aos-delay="100"
-            >
-                <p class="support-description" data-i18n="support_paragraph_1">
-                    At Tharlam Academy, we are deeply committed to fostering
-                    academic excellence, spiritual growth, and community values.
-                    However, maintaining our facilities, providing scholarships,
-                    and offering enriching programs requires significant
-                    resources. Your financial support, no matter the size,
-                    directly impacts the lives of our students and helps us
-                    continue our vital work.
-                </p>
-                <p class="support-description" data-i18n="support_paragraph_2">
-                    We believe in transparency and accountability. Every
-                    donation is utilized efficiently to directly benefit our
-                    students and enhance their learning experience. Your
-                    partnership is invaluable in sustaining our mission.
-                </p>
-            </div>
+  <div class="container">
+    <div class="support-content-grid">
+      <!-- Left Column: Mission Text -->
+      <div class="support-text-column" data-aos="fade-right" data-aos-delay="100">
+        <p class="support-description" data-i18n="support_paragraph_1">
+          At Tharlam Academy, we are deeply committed to fostering
+          academic excellence, spiritual growth, and community values.
+          However, maintaining our facilities, providing scholarships,
+          and offering enriching programs requires significant
+          resources. Your financial support, no matter the size,
+          directly impacts the lives of our students and helps us
+          continue our vital work.
+        </p>
+        <p class="support-description" data-i18n="support_paragraph_2">
+          We believe in transparency and accountability. Every
+          donation is utilized efficiently to directly benefit our
+          students and enhance their learning experience. Your
+          partnership is invaluable in sustaining our mission.
+        </p>
+      </div>
 
-            <div
-                class="support-cta-column"
-                data-aos="fade-left"
-                data-aos-delay="200"
-            >
-                <p class="cta-heading" data-i18n="support_cta_heading">
-                    Ready to Partner?
-                </p>
-                <p class="support-cta-text" data-i18n="support_cta_text">
-                    If you wish to learn more about how you can contribute,
-                    discuss specific donation opportunities, or have any
-                    questions, please do not hesitate to reach out to us.
-                </p>
-                <a
-                    href="/final/contact"
-                    class="btn-support-contact"
-                    data-i18n="support_cta_button"
-                >
-                    Contact for Partnership
-                </a>
-            </div>
-        </div>
+      <!-- Right Column: CTA -->
+      <div class="support-cta-column" data-aos="fade-left" data-aos-delay="200">
+        <p class="support-cta-text" data-i18n="support_cta_text">
+          If you wish to learn more about how you can contribute,
+          discuss specific donation opportunities, or have any
+          questions, please do not hesitate to reach out to us.
+        </p>
+        <a
+          href="/final/contact"
+          class="btn-support-contact"
+          data-i18n="support_cta_button"
+        >
+          Contact for Partnership
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    /* ------------------------------------------------------------------ */
-    /* --- SHARED & DESKTOP STYLES --- */
-    /* ------------------------------------------------------------------ */
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0px;
-    }
+  /* --- Section Basics --- */
+  .support-section {
+    padding: var(--space-section) 0;
+    background-color: #ffffff; /* keep original */
+  }
 
-    .support-section {
-        padding: 70px 0;
-        background-color: #ffffff;
-    }
-    .support-flex-container {
-        display: flex;
-        gap: 50px;
-        align-items: flex-start;
-    }
+  /* --- Container --- */
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin-inline: auto;
+    padding: var(--space-container);
+  }
 
-    /* --- Left Column: Main Text Styling (Desktop) --- */
+  /* --- Grid Layout --- */
+  .support-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* text dominant */
+    gap: var(--space-gap);
+    align-items: start;
+    justify-content: center;
+  }
+
+  /* --- Text Column --- */
+  .support-text-column {
+    border-right: 1px solid #e0e0e0;
+    padding-right: var(--space-gap);
+  }
+
+  .support-description {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    margin-bottom: var(--space-small);
+    color: #333;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* --- CTA Column --- */
+  .support-cta-column {
+    padding: var(--space-gap);
+    border-radius: 9px;
+    background-color: #f7f9fb;
+    border: 1px solid #e0e0e0;
+    border-top: 3px solid #28a745;
+    box-shadow: none;
+  }
+
+  .support-cta-text {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    margin-bottom: var(--space-small);
+    color: #555;
+  }
+
+  .btn-support-contact {
+    display: inline-block;
+    background-color: #001f3f;
+    color: #ffffff;
+    padding: var(--space-small) var(--space-gap);
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-body);
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-support-contact:hover {
+    background-color: #28a745;
+  }
+
+  /* --- Single Structural Breakpoint --- */
+  @media (max-width: 768px) {
+    .support-content-grid {
+      grid-template-columns: 1fr; /* stack columns */
+      gap: var(--space-small);
+    }
     .support-text-column {
-        flex: 2;
-        padding-right: 30px;
-        border-right: 1px solid #e0e0e0;
-    }
-    .support-description {
-        font-size: 1.05rem; /* ~16.8px */
-        line-height: 1.7;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    /* --- Right Column: CTA Box Styling (Desktop) --- */
-    .support-cta-column {
-        /* *** REFINEMENT: Made column smaller and less visually dominant *** */
-        flex: 1; /* Retain flex: 1 */
-        padding: 25px; /* Reduced padding */
-        border-radius: 6px;
-        background-color: #f7f9fb;
-        border: 1px solid #e0e0e0;
-        border-top: 3px solid var(--color-primary-green, #28a745); /* Reduced top border thickness */
-        box-shadow: none; /* Removed heavy shadow for a lighter look */
-        /* *************************************************************** */
-    }
-    .cta-heading {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 10px; /* Reduced margin */
-        color: var(--color-dark-blue, #001f3f);
-        border-bottom: 1px solid #eee;
-        padding-bottom: 8px; /* Reduced padding */
-    }
-    .support-cta-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 25px; /* Reduced margin */
-        color: #555;
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding-right: 0;
+      padding-bottom: var(--space-gap);
     }
     .btn-support-contact {
-        display: inline-block;
-        background-color: var(--color-dark-blue, #001f3f);
-        color: white;
-        padding: 10px 25px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: background-color 0.3s;
+      display: block;
+      text-align: center;
     }
-    .btn-support-contact:hover {
-        background-color: var(--color-primary-green, #28a745);
-    }
-
-    /* ------------------------------------------------------------------ */
-    /* --- MEDIA QUERIES (Mobile Optimizations) --- */
-    /* ------------------------------------------------------------------ */
-
-    @media (max-width: 992px) {
-        .support-section {
-            padding: 60px 0;
-        }
-        .support-flex-container {
-            flex-direction: column;
-            gap: 30px;
-        }
-        .support-text-column {
-            padding: 0;
-            border-right: none;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 30px;
-        }
-        .container {
-            padding: 0 15px;
-        }
-        /* Make the CTA column full width on stack */
-        .support-cta-column {
-            flex: unset;
-        }
-    }
-
-    @media (max-width: 768px) {
-        /* Standard Mobile/Tablet Portrait */
-        .support-section {
-            padding: 40px 0;
-        }
-        .container {
-            padding: 0 15px;
-        }
-
-        /* OPTIMIZATION: Reduce main text size slightly */
-        .support-description {
-            font-size: 1rem;
-            line-height: 1.65;
-        }
-
-        /* OPTIMIZATION: Reduce CTA text size */
-        .cta-heading {
-            font-size: 1.2rem;
-        }
-        .support-cta-text {
-            font-size: 0.95rem;
-        }
-
-        .btn-support-contact {
-            display: block;
-            text-align: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        /* Small Mobile Phone */
-        .support-section {
-            padding: 30px 0;
-        }
-        .container {
-            padding: 0 10px;
-        }
-        .support-cta-column {
-            padding: 20px; /* Reduced padding on small screens */
-        }
-
-        /* OPTIMIZATION: Further reduce main text size */
-        .support-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        /* OPTIMIZATION: Further reduce CTA text size */
-        .support-cta-text {
-            font-size: 0.9rem;
-        }
-    }
+  }
 </style>

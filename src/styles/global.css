@@ -16,10 +16,17 @@
     --nav-green-hover: #1e7e34;
     --nav-text-white: white;
 
-    --nav-heading: clamp(1rem, 3vw, 1.rem);
+    --nav-heading: clamp(1rem, 3vw, 1rem);
     --nav-body: clamp(0.85rem, 1vw, 1.1rem);
     --nav-size-base: 16px;
     --nav-height-text: 1.8;
+
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 50px;
 
     /* --- General Section Colors --- */
     --color-primary: #001f3f;
@@ -47,13 +54,6 @@
     --space-gap: clamp(1rem, 3vw, 2rem);
     --space-small: clamp(0.5rem, 2vw, 1rem);
     --space-container: clamp(0.5rem, 2vw, 1.5rem);
-
-    --spacing-xs: 5px;
-    --spacing-sm: 8px;
-    --spacing-md: 10px;
-    --spacing-lg: 15px;
-    --spacing-xl: 20px;
-    --spacing-xxl: 50px;
 
     /* --- Layout Constraints --- */
     --container-width: 99%;

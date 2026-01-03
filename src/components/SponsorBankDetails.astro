@@ -1,12 +1,11 @@
----
-// src/components/SponsorBankDetails.astro
-// Defines the tabbed section for bank transfer details.
-// Features: Two tabs (Local/International), reduced text size, and clear copy buttons with icons.
----
-
-<section id="bank-transfer-info" class="bank-transfer-info-section" data-aos="fade-up">
+<section
+    id="bank-transfer-info"
+    class="bank-transfer-info-section"
+    data-aos="fade-up"
+>
     <div class="container">
         <div class="bank-transfer-card">
+            <!-- Tab Buttons -->
             <div
                 class="bank-tab-buttons-wrap"
                 data-aos="fade-right"
@@ -28,24 +27,34 @@
                 </button>
             </div>
 
+            <!-- Bank Details -->
             <div
                 class="bank-details-display"
                 data-aos="fade-left"
                 data-aos-delay="200"
             >
+                <!-- Local -->
                 <div
                     id="nepal-bank-details"
                     class="bank-details-content active"
                 >
-                    <h3 data-i18n="local_bank_details_title">
+                    <p
+                        class="bank-details-title"
+                        data-i18n="local_bank_details_title"
+                    >
                         Local Bank Details
-                    </h3>
+                    </p>
                     <p data-i18n="local_bank_details_description">
-                        For transfers within Nepal, please use the following details:
+                        For transfers within Nepal, please use the following
+                        details:
                     </p>
                     <div class="details-grid">
                         <div class="detail-item">
-                            <strong><span data-i18n="bank_name_label">Bank Name</span>:</strong>
+                            <strong
+                                ><span data-i18n="bank_name_label"
+                                    >Bank Name</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -55,9 +64,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Bank Name"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i> 
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -65,7 +73,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="account_name_label">Account Name</span>:</strong>
+                            <strong
+                                ><span data-i18n="account_name_label"
+                                    >Account Name</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -75,9 +87,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Account Name"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -85,7 +96,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="account_number_label">Account Number</span>:</strong>
+                            <strong
+                                ><span data-i18n="account_number_label"
+                                    >Account Number</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -95,9 +110,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Account Number"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -105,7 +119,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="branch_name_label">Branch Name</span>:</strong>
+                            <strong
+                                ><span data-i18n="branch_name_label"
+                                    >Branch Name</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -114,9 +132,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Branch Name"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -124,25 +141,32 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
+                <!-- International -->
                 <div
                     id="outside-nepal-bank-details"
                     class="bank-details-content"
                 >
-                    <h3 data-i18n="international_bank_details_title">
+                    <p
+                        class="bank-details-title"
+                        data-i18n="international_bank_details_title"
+                    >
                         International Bank Details
-                    </h3>
+                    </p>
                     <p
                         class="international-transfer-guidance"
                         data-i18n="international_bank_details_description"
                     >
                         For international transfers, please use these details:
                     </p>
-                    
                     <div class="details-grid">
                         <div class="detail-item">
-                            <strong><span data-i18n="bank_name_label">Bank Name</span>:</strong>
+                            <strong
+                                ><span data-i18n="bank_name_label"
+                                    >Bank Name</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -152,9 +176,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Bank Name"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -162,7 +185,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="account_name_label">Account Name</span>:</strong>
+                            <strong
+                                ><span data-i18n="account_name_label"
+                                    >Account Name</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -173,9 +200,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Account Name"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -183,7 +209,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="account_number_label">Account Number</span>:</strong>
+                            <strong
+                                ><span data-i18n="account_number_label"
+                                    >Account Number</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -193,9 +223,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Account Number"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -203,7 +232,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="swift_bic_code_label">SWIFT/BIC Code</span>:</strong>
+                            <strong
+                                ><span data-i18n="swift_bic_code_label"
+                                    >SWIFT/BIC Code</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -213,9 +246,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy SWIFT/BIC Code"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -223,7 +255,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="bank_address_label">Bank Address</span>:</strong>
+                            <strong
+                                ><span data-i18n="bank_address_label"
+                                    >Bank Address</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -233,9 +269,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Bank Address"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -243,7 +278,11 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <strong><span data-i18n="beneficiary_address_label">Beneficiary Address</span>:</strong>
+                            <strong
+                                ><span data-i18n="beneficiary_address_label"
+                                    >Beneficiary Address</span
+                                >:</strong
+                            >
                             <div class="copy-group">
                                 <span
                                     class="copy-target"
@@ -253,9 +292,8 @@
                                 <button
                                     class="copy-button"
                                     aria-label="Copy Beneficiary Address"
+                                    ><i class="fas fa-clipboard"></i></button
                                 >
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
                                 <span
                                     class="copy-message"
                                     data-i18n="copied_message">Copied!</span
@@ -263,407 +301,321 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <style>
-    /* ------------------------------------------------------------------ */
-    /* --- SHARED STRUCTURE STYLES --- */
-    /* ------------------------------------------------------------------ */
-    .container {
-        max-width: 1200px; 
-        margin: 0 auto;
-        padding: 0px; 
-    }
     .bank-transfer-info-section {
-        padding: 70px 0; 
-        background-color: #f7f9fb;
-    }
-    .bank-transfer-card {
-        display: flex;
-        max-width: 100%;
-        width: 100%;
-        margin: 0 auto;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        border: 1px solid #e0e0e0;
+        padding: var(--space-section) 0;
+        background-color: var(--color-text-white);
     }
 
-    /* ------------------------------------------------------------------ */
-    /* --- LEFT SIDE: MENU BUTTONS --- */
-    /* ------------------------------------------------------------------ */
+    .container {
+        width: var(--container-width);
+        max-width: var(--max-container);
+        margin-inline: auto;
+        padding: var(--space-container);
+    }
+
+    .bank-transfer-card {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        background-color: var(--color-text-white);
+        border-radius: var(--space-small);
+        box-shadow: 0 5px 25px var(--shadow-light);
+        overflow: hidden;
+        border: 1px solid var(--color-text);
+    }
+
+    /* Tab Buttons */
     .bank-tab-buttons-wrap {
         flex: 0 0 auto;
         display: flex;
         flex-direction: column;
-        background-color: var(--color-dark-blue, #001f3f);
-        padding: 10px 0;
-        min-width: 200px; 
+        background-color: var(--color-primary);
+        padding: var(--space-small) 0;
+        min-width: 200px;
     }
+
     .bank-tab-button {
         background-color: transparent;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--color-text-white);
         border: none;
-        padding: 15px 20px;
+        padding: var(--space-small) var(--space-gap);
         text-align: left;
         cursor: pointer;
-        transition: background-color 0.2s, color 0.2s;
-        font-size: 1rem; 
+        transition:
+            background-color 0.2s,
+            color 0.2s;
+        font-size: var(--font-body);
         font-weight: 500;
         display: flex;
         align-items: center;
     }
+
     .bank-tab-button i {
-        font-size: 1.1em;
-        margin-right: 8px;
+        font-size: var(--font-body);
+        margin-right: var(--space-small);
     }
+
     .bank-tab-button:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
+        background-color: var(--color-primary); /* hover green */
     }
+
     .bank-tab-button.active {
-        background-color: var(--color-primary-green, #28a745);
-        color: white;
-        position: relative;
+        background-color: var(--color-primary);
+        color: var(--color-text-white);
         font-weight: 600;
     }
 
-    /* ------------------------------------------------------------------ */
-    /* --- RIGHT SIDE: DETAILS CONTENT --- */
-    /* ------------------------------------------------------------------ */
+    /* Details Content */
     .bank-details-display {
         flex: 1;
-        padding: 40px;
-        background-color: #f7f9fb;
+        padding: var(--space-gap);
+        background-color: var(--color-text-white);
     }
+
     .bank-details-content {
         display: none;
     }
+
     .bank-details-content.active {
         display: block;
     }
-    .bank-details-content h3 {
-        font-size: 1.6rem;
-        color: var(--color-dark-blue, #001f3f);
-        margin-bottom: 20px;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
+
+    .bank-details-title {
+        font-size: var(--font-body);
+        font-weight: 600;
+        color: var(--color-heading);
+        margin-bottom: var(--space-small);
+        border-bottom: 2px solid var(--color-text);
+        padding-bottom: var(--space-small);
     }
+
     .bank-details-content p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #555;
-        margin-bottom: 25px;
+        font-size: var(--font-body);
+        line-height: var(--line-height-text);
+        color: var(--color-text);
+        margin-bottom: var(--space-gap);
     }
-    
-    /* Grid Layout for Details */
+
+    /* Grid Layout */
     .details-grid {
         display: flex;
         flex-direction: column;
-        gap: 12px; /* Tighter spacing */
-        border: 1px solid #e0e0e0;
-        padding: 15px;
-        border-radius: 6px;
-        background-color: #fff;
+        gap: var(--space-small);
+        border: 1px solid var(--color-text);
+        padding: var(--space-small);
+        border-radius: var(--space-small);
+        background-color: var(--color-text-white);
     }
+
     .detail-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 7px;
-        border-bottom: 1px dashed #eee;
-        font-size: 0.95rem; /* Reduced overall text size */
+        padding-bottom: var(--space-small);
+        border-bottom: 1px dashed var(--color-text);
+        font-size: var(--font-body);
     }
+
     .detail-item:last-child {
         border-bottom: none;
         padding-bottom: 0;
     }
+
     .detail-item strong {
-        color: #333;
+        color: var(--color-text-dark);
         font-weight: 600;
         flex-shrink: 0;
-        margin-right: 15px;
-    }
-    
-    /* Notes (Styles are kept but the elements are removed in the HTML) */
-    .note {
-        margin-top: 30px;
-        padding: 15px;
-        border-radius: 5px;
-        font-style: italic;
-        font-size: 0.9rem;
-    }
-    .note-local {
-        background-color: #e6f7ff;
-        border-left: 5px solid #007bff;
-    }
-    .note-international {
-        background-color: #fff3e6;
-        border-left: 5px solid #ff9900;
+        margin-right: var(--space-small);
     }
 
-    /* ------------------------------------------------------------------ */
-    /* --- COPY GROUP STYLES (Focus on clarity) --- */
-    /* ------------------------------------------------------------------ */
+    /* Copy Group */
     .copy-group {
         display: flex;
         align-items: center;
         position: relative;
-        gap: 8px; /* Tighter gap */
+        gap: var(--space-small);
     }
+
     .copy-target {
-        font-family: 'Courier New', Courier, monospace;
-        color: #000; /* Darker color for data emphasis */
+        font-family: "Courier New", Courier, monospace;
+        color: var(--color-text-dark);
         font-weight: 600;
-        font-size: 0.95rem; /* Reduced overall text size */
+        font-size: var(--font-body);
         flex-grow: 1;
         text-align: right;
-        overflow-wrap: break-word; /* Ensure long account names wrap if necessary */
+        overflow-wrap: break-word;
     }
+
     .copy-button {
-        background-color: var(--color-primary-green, #28a745); /* Highlight button clearly */
+        background-color: var(--color-primary);
         border: none;
-        color: white;
+        color: var(--color-text-white);
         width: 30px;
         height: 30px;
-        border-radius: 3px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        border-radius: var(--space-small);
+        box-shadow: 0 2px 5px var(--shadow-medium);
         cursor: pointer;
-        transition: background-color 0.2s, transform 0.1s;
+        transition:
+            background-color 0.2s,
+            transform 0.1s;
         flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 0.85rem;
+        font-size: var(--font-body);
     }
+
     .copy-button:hover {
-        background-color: #1e8736;
+        background-color: var(--color-primary);
         transform: translateY(-1px);
     }
+
     .copy-button:active {
         transform: translateY(0);
     }
-    
-    /* 'Copied' Pop-up Message */
+
+    /* Copied Message */
     .copy-message {
         position: absolute;
         top: 50%;
-        right: 38px; /* Position next to the button */
+        right: 38px;
         transform: translateY(-50%);
-        padding: 4px 8px;
-        background-color: var(--color-dark-blue, #001f3f); /* Dark background for pop-up */
-        color: white;
-        border-radius: 4px;
-        font-size: 0.75rem;
+        padding: var(--space-small);
+        background-color: var(--color-primary);
+        color: var(--color-text-white);
+        border-radius: var(--space-small);
+        font-size: var(--font-body);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.2s, visibility 0.2s, right 0.2s;
+        transition:
+            opacity 0.2s,
+            visibility 0.2s,
+            right 0.2s;
         pointer-events: none;
         white-space: nowrap;
         z-index: 10;
     }
+
     .copy-message.show {
         opacity: 1;
         visibility: visible;
-        right: 35px; /* Slight movement animation */
+        right: 35px;
     }
 
-
-    /* ------------------------------------------------------------------ */
-    /* --- MEDIA QUERIES (Mobile and Tablet Refinements) --- */
-    /* ------------------------------------------------------------------ */
-
-    @media (max-width: 992px) { 
+    /* --- Single Breakpoint at 768px --- */
+    @media (max-width: 768px) {
         .bank-transfer-card {
-            flex-direction: column; /* Stacks menu and content */
+            flex-direction: column;
         }
         .bank-tab-buttons-wrap {
-            flex-direction: row; /* Buttons switch to row layout */
+            flex-direction: row;
             min-width: unset;
-            padding: 0; 
-            border-bottom: 5px solid var(--color-primary-green, #28a745);
+            padding: 0;
+            border-bottom: 5px solid var(--color-primary);
         }
         .bank-tab-button {
             flex: 1;
             text-align: center;
-            padding: 12px 10px;
-            font-size: 0.95rem;
-            justify-content: center; /* Center text and icon */
-        }
-        .bank-tab-button.active:after {
-            content: none; /* Remove right arrow visual on mobile */
-        }
-
-        .bank-details-display {
-            padding: 30px 20px;
-        }
-        .detail-item {
-            font-size: 0.9rem; /* Further reduced item text size for stacked view */
-            padding: 8px 0;
-        }
-        .detail-item strong {
-            font-size: 0.95rem;
-            margin-right: 10px;
-        }
-        .copy-target {
-            font-size: 0.9rem;
-        }
-        .copy-button {
-            width: 28px;
-            height: 28px;
-            font-size: 0.8rem;
-        }
-        .copy-message.show {
-            right: 32px; /* Adjust copied message position */
-        }
-    }
-    
-    @media (max-width: 768px) { 
-        .bank-transfer-info-section {
-            padding: 40px 0; 
+            justify-content: center;
         }
         .bank-details-display {
-            padding: 20px 15px; /* Tighter padding */
+            padding: var(--space-small);
         }
-        .bank-details-content h3 {
-             font-size: 1.4rem;
-             margin-bottom: 15px;
+        .bank-details-title {
+            margin-bottom: var(--space-small);
         }
         .details-grid {
-             padding: 10px;
-        }
-        .international-transfer-guidance, .bank-details-content p {
-            font-size: 0.9rem;
-        }
-        /* Since .note is removed, these styles only apply if you manually add back a .note element */
-        /* .note {
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 0.85rem;
-        } */
-    }
-
-    @media (max-width: 480px) { 
-        .bank-transfer-info-section {
-            padding: 30px 0; 
-        }
-        .container {
-             padding: 0 10px;
-        }
-        .bank-tab-button {
-            font-size: 0.85rem;
-            padding: 10px 5px;
-        }
-        .bank-tab-button i {
-            margin-right: 5px;
-        }
-        .detail-item {
-            font-size: 0.85rem;
-        }
-        .copy-target {
-            font-size: 0.8rem;
-        }
-        .copy-button {
-            width: 25px;
-            height: 25px;
-            font-size: 0.75rem;
-        }
-        .copy-message {
-             font-size: 0.7rem;
+            padding: var(--space-small);
         }
     }
 </style>
 
 <script is:inline>
     /**
-     * Initializes tab switching and copy-to-clipboard functionality, 
+     * Initializes tab switching and copy-to-clipboard functionality,
      * designed to be safe for Astro View Transitions (soft navigation).
      */
     function initializeBankDetails() {
-        // --- 1. Element Selection (MUST be inside this function) ---
-        const tabButtons = document.querySelectorAll('.bank-tab-button');
-        const contentAreas = document.querySelectorAll('.bank-details-content');
-        const copyButtons = document.querySelectorAll('.copy-button');
+        const tabButtons = document.querySelectorAll(".bank-tab-button");
+        const contentAreas = document.querySelectorAll(".bank-details-content");
+        const copyButtons = document.querySelectorAll(".copy-button");
 
-        // Safety check
-        if (tabButtons.length === 0) {
-            return;
-        }
+        if (tabButtons.length === 0) return;
 
-        // --- 2. Tab Switching Logic ---
+        // --- Tab Switching ---
         const switchTab = (bankType) => {
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            contentAreas.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach((btn) => {
+                btn.classList.remove("active");
+                btn.setAttribute("aria-selected", "false");
+            });
+            contentAreas.forEach((content) =>
+                content.classList.remove("active"),
+            );
 
-            const activeBtn = document.querySelector(`.bank-tab-button[data-bank="${bankType}"]`);
-            const activeContent = document.getElementById(`${bankType}-bank-details`);
+            const activeBtn = document.querySelector(
+                `.bank-tab-button[data-bank="${bankType}"]`,
+            );
+            const activeContent = document.getElementById(
+                `${bankType}-bank-details`,
+            );
 
-            if (activeBtn) activeBtn.classList.add('active');
-            if (activeContent) activeContent.classList.add('active');
+            if (activeBtn) {
+                activeBtn.classList.add("active");
+                activeBtn.setAttribute("aria-selected", "true");
+            }
+            if (activeContent) activeContent.classList.add("active");
         };
 
-        // Tab Button Handler (used for adding/removing listeners)
         const tabButtonListener = (event) => {
             const bankType = event.currentTarget.dataset.bank;
             switchTab(bankType);
         };
 
-        // --- 3. Copy-to-Clipboard Logic ---
-        // Copy Button Handler (used for adding/removing listeners)
+        // --- Copy-to-Clipboard ---
         const copyButtonListener = async (event) => {
-            const copyGroup = event.currentTarget.closest('.copy-group');
-            const copyTarget = copyGroup.querySelector('.copy-target');
-            const copyMessage = copyGroup.querySelector('.copy-message');
-            
+            const copyGroup = event.currentTarget.closest(".copy-group");
+            const copyTarget = copyGroup.querySelector(".copy-target");
+            const copyMessage = copyGroup.querySelector(".copy-message");
+
             if (copyTarget && navigator.clipboard) {
                 try {
-                    const textToCopy = copyTarget.textContent.trim();
-                    await navigator.clipboard.writeText(textToCopy);
-                    
-                    // Show the 'Copied!' message
-                    copyMessage.classList.add('show');
-
-                    setTimeout(() => {
-                        copyMessage.classList.remove('show');
-                    }, 1500);
-
+                    await navigator.clipboard.writeText(
+                        copyTarget.textContent.trim(),
+                    );
+                    copyMessage.classList.add("show");
+                    setTimeout(
+                        () => copyMessage.classList.remove("show"),
+                        1500,
+                    );
                 } catch (err) {
-                    console.error('Could not copy text: ', err);
-                    // Fallback or user notification for copy failure if needed
+                    console.error("Could not copy text: ", err);
                 }
-            } else {
-                console.warn('Clipboard API not supported or copy target not found.');
             }
         };
 
-
-        // --- 4. Listener Management (The Astro View Transition Fix) ---
-
-        // A. Tab Listeners
-        tabButtons.forEach(button => {
-            // CRITICAL: Remove previous listeners before adding new ones
-            button.removeEventListener('click', tabButtonListener); 
-            button.addEventListener('click', tabButtonListener);
+        // --- Listener Management ---
+        tabButtons.forEach((button) => {
+            button.removeEventListener("click", tabButtonListener);
+            button.addEventListener("click", tabButtonListener);
         });
 
-        // B. Copy Button Listeners
-        copyButtons.forEach(button => {
-            // CRITICAL: Remove previous listeners before adding new ones
-            button.removeEventListener('click', copyButtonListener); 
-            button.addEventListener('click', copyButtonListener);
+        copyButtons.forEach((button) => {
+            button.removeEventListener("click", copyButtonListener);
+            button.addEventListener("click", copyButtonListener);
         });
 
-        // C. Initialize the default tab
-        switchTab('nepal');
+        // --- Default Tab ---
+        switchTab("nepal");
     }
 
-    // --- EXECUTION TRIGGERS ---
-    // Ensure initialization runs both on initial load and after soft navigation (Astro View Transitions)
-    document.addEventListener('DOMContentLoaded', initializeBankDetails);
-    document.addEventListener('astro:page-load', initializeBankDetails);
+    // Run on initial load and Astro soft navigation
+    document.addEventListener("DOMContentLoaded", initializeBankDetails);
+    document.addEventListener("astro:page-load", initializeBankDetails);
 </script>

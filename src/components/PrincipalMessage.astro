@@ -1,6 +1,6 @@
 ---
-// This is the frontmatter block. It's required here to access BASE_PATH.
-const BASE_PATH = import.meta.env.BASE_URL; 
+// Required to access BASE_PATH
+const BASE_PATH = import.meta.env.BASE_URL;
 ---
 
 <section id="message" class="principal-section">
@@ -21,9 +21,9 @@ const BASE_PATH = import.meta.env.BASE_URL;
         Principal of Tharlam-Academy
       </p>
 
-      <h3 class="principal-heading" data-i18n="principal_message_heading">
+      <p class="principal-heading" data-i18n="principal_message_heading">
         Message from the Principal
-      </h3>
+      </p>
 
       <blockquote class="principal-quote">
         <span data-i18n="principal_quote_text">
@@ -47,106 +47,112 @@ const BASE_PATH = import.meta.env.BASE_URL;
 </section>
 
 <style>
-  /* --- Section Wrapper --- */
-  .principal-section {
-    /* Vertical padding from root */
-    padding: var(--space-section) 0;
-    color: var(--color-text);
-    background-color: transparent;
-    overflow: hidden;
-  }
+/* --- Section Wrapper --- */
+.principal-section {
+  padding: var(--space-section) 0;
+  color: var(--color-text);
+  background-color: transparent;
+  overflow: hidden;
+}
 
-  /* --- Main Container --- */
+/* --- Main Container --- */
+.principal-container {
+  width: var(--container-width);
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: var(--space-container);
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  gap: var(--space-gap);
+  align-items: center;
+}
+
+/* --- Image Styling --- */
+.principal-image {
+  width: clamp(180px, 35vw, 300px);
+  height: clamp(180px, 35vw, 300px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.principal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Text Content Area --- */
+.principal-content {
+  max-width: 750px;
+  text-align: left;
+}
+
+/* --- All Text Uses Body Font Size --- */
+.principal-name,
+.principal-title,
+.principal-heading {
+  font-size: var(--font-body);
+  font-family: inherit;
+  color: var(--color-heading);
+  font-weight: 600;
+  margin-bottom: var(--space-small);
+}
+
+.principal-title {
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-small);
+}
+
+.principal-heading {
+  color: var(--color-heading);
+  font-weight: 600;
+  margin-bottom: var(--space-small);
+}
+
+/* --- Quote Styling --- */
+.principal-quote {
+  font-size: var(--font-body);
+  font-family: inherit;
+  color: var(--color-text);
+  font-style: italic;
+  line-height: var(--line-height-text);
+  margin: 0;
+  padding-bottom: var(--space-small);
+}
+
+/* --- Buddhist Inspiration --- */
+.buddhist-inspiration {
+  font-size: var(--font-body);
+  font-family: inherit;
+  color: var(--color-text);
+  margin-top: var(--space-gap);
+  border-top: 1px solid var(--color-primary);
+  padding-top: var(--space-small);
+}
+.buddhist-inspiration strong {
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+/* --- Single Breakpoint --- */
+@media (max-width: 768px) {
   .principal-container {
-    width: var(--container-width);
-    max-width: var(--max-container);
-    margin: 0 auto;
-    padding: var(--space-container);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    /* Space between image and text from root */
-    gap: var(--space-gap);
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  /* --- Image Styling --- */
   .principal-image {
-    flex-shrink: 0;
-    /* We use a clamp for the circle size to keep it responsive */
-    width: clamp(180px, 35vw, 300px); 
-    height: clamp(180px, 35vw, 300px);
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
   }
 
-  .principal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* --- Text Content Area --- */
   .principal-content {
-    flex: 1 1 320px;
-    max-width: 750px;
-    text-align: left;
-  }
-
-  /* Titles and Headings using root variables */
-  .principal-name, 
-  .principal-heading {
-    font-size: var(--font-heading);
-    color: var(--color-heading);
-    font-weight: 700;
-    margin-bottom: var(--space-small);
-  }
-
-  .principal-title {
-    font-size: var(--font-body);
-    color: var(--color-text);
-    margin-bottom: var(--space-gap);
-    opacity: 0.8;
-  }
-
-  /* Body text and quotes using root variables */
-  .principal-quote {
-    font-size: var(--font-body);
-    color: var(--color-text);
-    font-style: italic;
-    line-height: 1.8;
-    margin: 0;
-    /* Small spacing from root */
-    padding-bottom: var(--space-small);
-  }
-
-  .buddhist-inspiration {
-    font-size: var(--font-body);
-    color: var(--color-text);
+    text-align: center;
     margin-top: var(--space-gap);
-    /* Decorative line using primary color variable */
-    border-top: 1px solid var(--color-primary);
-    padding-top: var(--space-small);
   }
+}
 
-  .buddhist-inspiration strong {
-    color: var(--color-heading);
-  }
-
-  /* --- Single Structural Media Query --- */
-  /* This ONLY handles the layout shift (switching from Row to Column) */
-  @media (max-width: 768px) {
-    .principal-container {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .principal-content {
-      text-align: center;
-    }
-  }
 </style>

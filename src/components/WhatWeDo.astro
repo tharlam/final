@@ -1,203 +1,104 @@
-<section class="what-we-do-section">
-    <div class="container">
-        <div class="what-we-do-grid">
-            
-            <div
-                class="what-we-do-image"
-                data-aos="fade-right"
-                data-aos-delay="200"
-            >
-                <img
-                    src="/final/about-2.webp"
-                    alt="Students collaborating on a project in a modern library"
-                    class="responsive-image"
-                    data-i18n-alt="what_we_do_photo_alt"
-                />
-            </div>
+<section id="what-we-do" class="what-we-do-section">
+  <div class="container">
+    <div class="what-we-do-grid">
+      <div class="what-we-do-image" data-aos="fade-right" data-aos-delay="200">
+        <img
+          src="/final/about-2.webp"
+          alt="Students collaborating on a project in a modern library"
+          class="responsive-image"
+          data-i18n-alt="what_we_do_photo_alt"
+        />
+      </div>
 
-            <div
-                class="what-we-do-text"
-                data-aos="fade-left"
-                data-aos-delay="100"
-            >
-                <h3 class="section-sub-heading" data-i18n="what_we_do_heading">
-                    What We Do
-                </h3>
-                <p class="section-tagline" data-i18n="what_we_do_tagline">
-                    Fostering **Wisdom** and **Skill** for the Future
-                </p>
-                <p data-i18n="what_we_do_paragraph_1">
-                    Tharlam Academy provides a **comprehensive educational
-                    experience** encompassing both traditional Buddhist studies
-                    and a modern academic curriculum. Our programs are designed
-                    to foster intellectual growth, ethical development, and
-                    practical skills.
-                </p>
+      <div class="what-we-do-text" data-aos="fade-left" data-aos-delay="100">
+        <p class="section-sub-title" data-i18n="what_we_do_heading">
+          What We Do
+        </p>
 
-                <p data-i18n="what_we_do_paragraph_2">
-                    We offer a rich environment for learning that encourages
-                    **critical thinking, creativity**, and a deep understanding
-                    of diverse subjects, preparing students for future
-                    challenges and opportunities.
-                </p>
-            </div>
-        </div>
+        <p class="section-tagline" data-i18n="what_we_do_tagline">
+          <strong>Fostering Wisdom and Skill for the Future</strong>
+        </p>
+
+        <p data-i18n="what_we_do_paragraph_1">
+          Tharlam Academy provides a comprehensive educational experience encompassing both traditional Buddhist studies and a modern academic curriculum. Our programs are designed to foster intellectual growth, ethical development, and practical skills.
+        </p>
+
+        <p data-i18n="what_we_do_paragraph_2">
+          We offer a rich environment for learning that encourages critical thinking, creativity, and a deep understanding of diverse subjects, preparing students for future challenges and opportunities.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
----
-
 <style>
-    /* ============================================== */
-    /* GLOBAL / BASE STYLES */
-    /* ============================================== */
+  /* --- Section Basics --- */
+  .what-we-do-section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-section-bg, #f8f9fa);
+  }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 10px;
-    }
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin-inline: auto;
+    padding: var(--space-container);
+  }
 
-    /* Common typography styles */
-    .section-sub-heading {
-        color: #001f3f;
-        font-size: 1.1em;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px;
-        letter-spacing: 1px;
-    }
-    .section-tagline {
-        font-size: 1.8em;
-        color: #1a1a1a;
-        font-weight: 800;
-        margin-top: 0;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
+  /* --- Headings & Tagline --- */
+  .section-sub-title {
+    color: var(--color-heading);
+    font-size: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: var(--space-small);
+    letter-spacing: 0.06em;
+  }
 
-    /* ============================================== */
-    /* 1. MOBILE FIRST DEFAULTS */
-    /* ============================================== */
+  .section-tagline {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    margin: 0 0 var(--space-small) 0;
+    line-height: 1.4;
+  }
 
-    .what-we-do-section {
-        padding: 0px;
-        background-color: #f8f9fa;
-    }
+  /* --- Grid Layout --- */
+  .what-we-do-grid {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 1fr; /* mobile default */
+    align-items: center;
+  }
 
+  @media (min-width: 768px) {
     .what-we-do-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        align-items: flex-start;
+      grid-template-columns: 1.5fr 2fr; /* text bigger, photo smaller */
     }
+  }
 
-    /* Mobile Order Reversal: Text (1) then Image (2) */
-    .what-we-do-text {
-        width: 100%;
-        order: 1;
-    }
+  /* --- Text --- */
+  .what-we-do-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    line-height: var(--line-height-text);
+    text-align: justify;
+    text-justify: inter-word;
+  }
 
-    .what-we-do-image {
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-        order: 2;
-        margin-bottom: 10px;
-    }
+  .what-we-do-text p strong {
+    color: var(--color-heading);
+    font-weight: bold;
+  }
 
-    .what-we-do-image .responsive-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        object-fit: cover;
-    }
-
-    .what-we-do-text p {
-        font-size: 17px;
-        line-height: 1.7;
-        color: #333;
-        margin-bottom: 15px;
-    }
-
-    /* ============================================== */
-    /* 2. EXTRA SMALL MOBILE ADJUSTMENTS (Max-width: 480px) */
-    /* ============================================== */
-    @media (max-width: 480px) {
-        .what-we-do-section {
-            padding: 30px 0;
-        }
-        .section-tagline {
-            font-size: 1.5em;
-        }
-        .what-we-do-text p {
-            font-size: 15px;
-        }
-        .what-we-do-grid {
-            gap: 20px;
-        }
-    }
-
-    /* ============================================== */
-    /* 3. TABLET/MEDIUM SCREENS (Min-width: 768px) */
-    /* ============================================== */
-    @media (min-width: 768px) {
-        .container {
-            padding: 0 30px;
-        }
-        .what-we-do-section {
-            padding: 60px 0;
-        }
-        .section-tagline {
-            font-size: 2.2em;
-        }
-        .what-we-do-text p {
-            font-size: 16px;
-        }
-    }
-
-    /* ============================================== */
-    /* 4. DESKTOP/LARGE SCREEN (Min-width: 992px) */
-    /* ============================================== */
-    @media (min-width: 992px) {
-        /* *** CORRECTED: Max-width is applied ONLY here for large screens *** */
-        .container {
-            max-width: 1280px; /* UNIFIED: Final large max-width for alignment */
-            padding: 0 20px;
-        }
-        .what-we-do-section {
-            padding: 70px 0; /* UNIFIED: Matching vertical padding */
-        }
-
-        .what-we-do-grid {
-            flex-direction: row;
-            gap: 60px; /* UNIFIED: Matching desktop gap */
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        /* UNIFIED FLEX RATIOS (60% Text / 40% Image): */
-        .what-we-do-text {
-            flex: 3;
-            max-width: 60%;
-            order: 2; 
-        }
-
-        .what-we-do-image {
-            flex: 2;
-            max-width: 40%;
-            order: 1; 
-            margin-bottom: 0;
-        }
-
-        /* Adjusted typography for large screens */
-        .section-tagline {
-            font-size: 2.5em; 
-        }
-        .what-we-do-text p {
-            font-size: 17px;
-        }
-    }
+  /* --- Image --- */
+  .what-we-do-image .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    object-fit: cover;
+    display: block;
+  }
 </style>

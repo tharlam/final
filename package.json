@@ -4,10 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro start",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fresh": "rm -rf .astro node_modules/.vite && astro dev"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

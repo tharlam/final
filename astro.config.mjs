@@ -4,37 +4,45 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-
     // 🌐 DEPLOYMENT CONFIGURATION
     site: 'https://tharlam.github.io/final/',
-    base: '/final/', // This is for the production build (npm run build)
+    base: '/final/', 
 
     // 1. Integrations:
     integrations: [
         react(),
-        sitemap(), // Sitemap is now enabled
-        
-        // ------------------------------------------------------------------
-        // ⭐ FIX APPLIED: The manual '@astrojs/assets' integration (for v2) 
-        // has been REMOVED. Astro 3+ handles image optimization (Image component) 
-        // automatically when 'sharp' or 'squoosh' is installed.
-        // ------------------------------------------------------------------
+        sitemap(),
     ],
 
-    // ------------------------------------------------------------------
     // 🚀 DEVELOPMENT CONFIGURATION 
-    // ------------------------------------------------------------------
-    dev: {
-        // This tells 'npm run dev' to use '/final/' as the base path for routing.
+    server: {
+        // This ensures the local dev server uses the same base path
         base: '/final/',
     },
-    // ------------------------------------------------------------------
 
-    // 2. Collections: (Fixed schema for 'news' collection)
+    // ⚙️ CACHE BUSTING & OPTIMIZATION
+    vite: {
+        server: {
+            watch: {
+                // Use polling if changes aren't reflecting in some environments
+                usePolling: true,
+            },
+        },
+        optimizeDeps: {
+            // Forces Vite to re-bundle dependencies on every start
+            force: true,
+        },
+        build: {
+            // Ensures CSS/JS assets get fresh hashes
+            cssCodeSplit: true,
+            assetsInlineLimit: 0,
+        }
+    },
+
+    // 2. Collections:
     collections: {
         'news': {
             schema: z.object({
-                // Placeholder schema for news collection
                 title: z.string(),
                 pubDate: z.date(),
                 description: z.string(),

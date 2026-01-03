@@ -1,656 +1,147 @@
 ---
 // src/components/WhoWeAre.astro
-// Finalized component with all media queries and enhanced modal JavaScript for accessibility.
 ---
 
-<section class="who-we-are-section">
-    <div class="container">
-        <div class="who-we-are-grid">
-            <div
-                class="who-we-are-text"
-                data-aos="fade-right"
-                data-aos-delay="100"
-            >
-                <h3 class="section-sub-heading" data-i18n="welcome_heading">
-                    Welcome to Tharlam Academy
-                </h3>
-                <p class="section-tagline" data-i18n="welcome_tagline">
-                    Where **Wisdom** Meets **Modern Learning**
-                </p>
-                <p data-i18n="welcome_paragraph_1">
-                    Nestled in the heart of Kathmandu, Tharlam Academy is more
-                    than just a school — it's a place where young minds grow
-                    with knowledge, compassion, and purpose. Inspired by
-                    Buddhist values and supported by a modern curriculum, we
-                    offer students a well-rounded education rooted in tradition
-                    and aimed at the future.
-                </p>
+<section id="who-we-are" class="who-we-are-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-i18n="welcome_heading">
+      Welcome to Tharlam Academy
+    </h2>
 
-                <h3
-                    class="curriculum-heading"
-                    data-i18n="curriculum_overview_heading"
-                >
-                    Curriculum Overview
-                </h3>
-                <p data-i18n="curriculum_overview_paragraph">
-                    Tharlam Academy offers a unique curriculum spanning
-                    pre-primary to secondary levels. Our integrated approach
-                    empowers students by blending Buddhist traditions with
-                    diverse modern subjects, preparing them for both academic
-                    excellence and a values-based life.
-                </p>
+    <div class="who-we-are-grid">
+      <div class="who-we-are-text" data-aos="fade-left">
+        <p>
+          <strong data-i18n="welcome_tagline">Where Wisdom Meets Modern Learning</strong>
+        </p>
 
-                <button
-                    id="openCurriculumModal"
-                    class="btn-primary"
-                    data-i18n="view_curriculum_button"
-                    >View Full Curriculum</button
-                >
-            </div>
+        <p data-i18n="welcome_paragraph_1">
+          Nestled in the heart of Kathmandu, Tharlam Academy is more than just a school — it's a place where young minds grow with knowledge, compassion, and purpose. Inspired by Buddhist values and supported by a modern curriculum, we offer students a well-rounded education rooted in tradition and aimed at the future.
+        </p>
 
-            <div
-                class="who-we-are-image"
-                data-aos="fade-left"
-                data-aos-delay="200"
-            >
-                <img
-                    src="/final/about-1.webp"
-                    alt="Students in a classroom setting"
-                    class="responsive-image"
-                    data-i18n-alt="about_photo_alt"
-                />
-            </div>
+        <p>
+          <strong data-i18n="curriculum_overview_heading">Curriculum Overview</strong>
+        </p>
+
+        <p data-i18n="curriculum_overview_paragraph">
+          Tharlam Academy offers a unique curriculum spanning pre-primary to secondary levels. Our integrated approach empowers students by blending Buddhist traditions with diverse modern subjects.
+        </p>
+
+        <div class="who-we-are-cta">
+          <a href="/curriculum" class="btn primary-btn" data-i18n="curriculum_view_button">
+            View Full Curriculum
+          </a>
         </div>
+      </div>
+
+      <div class="who-we-are-image" data-aos="fade-up">
+        <img
+          src="/final/about-1.webp"
+          alt="School"
+          class="responsive-image"
+          data-i18n-alt="who_we_are_image_alt"
+        />
+      </div>
     </div>
-
-    <div
-        id="curriculumModal"
-        class="modal"
-        aria-hidden="true"
-        aria-modal="true"
-    >
-        <div class="modal-content">
-            <span class="close-button" tabindex="0">&times;</span>
-            <h2 class="modal-title" data-i18n="modal_curriculum_title">
-                Explore Our Curriculum
-            </h2>
-
-            <h4
-                class="modal-level-heading"
-                data-i18n="modal_preprimary_level_heading"
-            >
-                Pre-Primary Level (Ages 4–6)
-            </h4>
-            <ul class="modal-list">
-                <li>
-                    <strong data-i18n="modal_preprimary_tibetan_language_label"
-                        >Tibetan Language:</strong
-                    >
-                    <span data-i18n="modal_preprimary_tibetan_language_desc"
-                        >Basic reading and writing</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_preprimary_english_math_label"
-                        >English & Mathematics:</strong
-                    >
-                    <span data-i18n="modal_preprimary_english_math_desc"
-                        >Foundational concepts and early numeracy</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_preprimary_daily_prayers_label"
-                        >Daily Prayers:</strong
-                    >
-                    <span data-i18n="modal_preprimary_daily_prayers_desc"
-                        >Cultivating mindfulness and discipline</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_preprimary_creative_physical_label"
-                        >Creative & Physical Activities:</strong
-                    >
-                    <span data-i18n="modal_preprimary_creative_physical_desc"
-                        >Art, imaginative play, and movement for holistic early
-                        development</span
-                    >
-                </li>
-            </ul>
-
-            <h4
-                class="modal-level-heading"
-                data-i18n="modal_primary_level_heading"
-            >
-                Primary Level (Classes 1–5)
-            </h4>
-            <ul class="modal-list">
-                <li>
-                    <strong data-i18n="modal_primary_languages_label"
-                        >Languages:</strong
-                    >
-                    <span data-i18n="modal_primary_languages_desc"
-                        >In-depth Tibetan and English language acquisition</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_primary_core_subjects_label"
-                        >Core Subjects:</strong
-                    >
-                    <span data-i18n="modal_primary_core_subjects_desc"
-                        >Mathematics, Science, and Social Studies fundamentals</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_primary_buddhist_studies_label"
-                        >Buddhist Studies:</strong
-                    >
-                    <span data-i18n="modal_primary_buddhist_studies_desc"
-                        >Introduction to core teachings, ethics, and ritual
-                        practices</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_primary_cultural_learning_label"
-                        >Cultural Learning:</strong
-                    >
-                    <span data-i18n="modal_primary_cultural_learning_desc"
-                        >Engaging stories and values-based lessons from Buddhist
-                        tradition</span
-                    >
-                </li>
-            </ul>
-
-            <h4
-                class="modal-level-heading"
-                data-i18n="modal_secondary_level_heading"
-            >
-                Secondary Level (Classes 6–8)
-            </h4>
-            <ul class="modal-list">
-                <li>
-                    <strong data-i18n="modal_secondary_languages_label"
-                        >Languages:</strong
-                    >
-                    <span data-i18n="modal_secondary_languages_desc"
-                        >Advanced Tibetan grammar and refined English
-                        composition</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_secondary_core_academics_label"
-                        >Core Academics:</strong
-                    >
-                    <span data-i18n="modal_secondary_core_academics_desc"
-                        >Advanced Mathematics and Science concepts</span
-                    >
-                </li>
-                <li>
-                    <strong
-                        data-i18n="modal_secondary_buddhist_philosophy_label"
-                        >Buddhist Philosophy:</strong
-                    >
-                    <span data-i18n="modal_secondary_buddhist_philosophy_desc"
-                        >Deeper study of the Four Noble Truths and the Eightfold
-                        Path</span
-                    >
-                </li>
-                <li>
-                    <strong data-i18n="modal_secondary_ritual_training_label"
-                        >Ritual Training:</strong
-                    >
-                    <span data-i18n="modal_secondary_ritual_training_desc"
-                        >Comprehensive training in Torma and Karkeen making,
-                        advanced puja practices, ritual instrument playing,
-                        sutra chanting, intricate mandala (kheel khor) creation,
-                        and more</span
-                    >
-                </li>
-            </ul>
-
-            <h4
-                class="modal-level-heading"
-                data-i18n="modal_special_buddhist_practices_heading"
-            >
-                Special Buddhist Practices
-            </h4>
-            <p
-                class="modal-paragraph"
-                data-i18n="modal_special_buddhist_practices_paragraph"
-            >
-                These profound practices are thoughtfully integrated across all
-                academic levels:
-            </p>
-            <ul class="modal-list">
-                <li data-i18n="modal_mandala_offering">Mandala Offering</li>
-                <li data-i18n="modal_prostrations">Prostrations</li>
-                <li data-i18n="modal_guru_yoga">Guru Yoga</li>
-                <li data-i18n="modal_buddha_events">
-                    Buddha Event Celebrations (e.g., Vesak, Lhabab Düchen)
-                </li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </section>
 
 <style>
-    /* ============================================== */
-    /* 1. BASE STYLES (Mobile First Defaults - Below 480px) */
-    /* ============================================== */
+  /* --- Section Basics --- */
+  .who-we-are-section {
+    padding: var(--space-section) 0;
+    background-color: transparent;
+  }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 10px;
-    }
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container);
+  }
 
-    /* --- Primary Button --- */
-    .btn-primary {
-        background-color: #001f3f;
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: 700;
-        transition:
-            background-color 0.3s ease,
-            transform 0.2s ease;
-        margin-top: 25px;
-        display: inline-block;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+  .section-title {
+    font-size: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--space-gap);
+  }
 
-    .btn-primary:hover {
-        background-color: black;
-        transform: translateY(-2px);
-    }
+  .who-we-are-grid {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    justify-content: center;
+  }
 
-    /* --- Who We Are Section Layout (Mobile Default: Stacked) --- */
-    .who-we-are-section {
-        padding: 0px;
-        background-color: #fff;
-    }
+  .who-we-are-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+  }
 
+  .who-we-are-text p strong {
+    color: var(--color-heading);
+    font-weight: bold;
+  }
+
+  .who-we-are-image .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .who-we-are-cta {
+    margin-top: var(--space-gap);
+    text-align: left;
+  }
+
+  /* --- Button copied from About section --- */
+  .btn {
+    display: inline-block;
+    font-size: var(--font-body);
+    padding: var(--space-small) var(--space-gap);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    outline: none;
+  }
+
+  .primary-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+  }
+
+  .primary-btn:hover {
+    background-color: var(--color-btn-hover);
+    border-color: var(--color-btn-hover);
+    transform: translateY(-2px);
+  }
+
+  .primary-btn:focus {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+
+  /* --- Responsive layout --- */
+  @media (max-width: 768px) {
     .who-we-are-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        align-items: flex-start;
+      grid-template-columns: 1fr;
     }
 
-    /* --- Image Styling (Mobile) --- */
     .who-we-are-image {
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-        order: 1;
-        margin-bottom: 10px;
+      order: -1; /* Image moves to top on mobile */
     }
 
-    .who-we-are-image .responsive-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 8px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        object-fit: cover;
+    .who-we-are-cta {
+      text-align: left;
     }
-
-    /* --- Text Styling (Mobile) --- */
-    .who-we-are-text {
-        width: 100%;
-        max-width: 100%;
-        text-align: left;
-        order: 2;
-    }
-
-    /* Sub-Heading (e.g., "Welcome to...") */
-    .section-sub-heading {
-        color: #001f3f;
-        font-size: 1.1em;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px;
-        letter-spacing: 1px;
-    }
-
-    /* Tagline (e.g., "Where Wisdom Meets...") */
-    .section-tagline {
-        font-size: 1.8em;
-        color: #1a1a1a;
-        font-weight: 800;
-        margin-top: 0;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
-
-    .who-we-are-text p {
-        font-size: 17px;
-        line-height: 1.7;
-        color: #333;
-        margin-bottom: 15px;
-    }
-
-    /* Content Headings inside the main text block (e.g., "Curriculum Overview") */
-    .who-we-are-text h3.curriculum-heading {
-        color: #001f3f;
-        font-size: 1.4em;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-weight: 700;
-    }
-
-    /* ============================================== */
-    /* 2. EXTRA SMALL MOBILE (Max-width: 480px) */
-    /* ============================================== */
-    @media (max-width: 480px) {
-        .who-we-are-section {
-            padding: 30px 0;
-        }
-        .section-tagline {
-            font-size: 1.5em;
-        }
-        .who-we-are-text p {
-            font-size: 15px;
-        }
-        .who-we-are-grid {
-            gap: 20px;
-        }
-    }
-
-    /* ============================================== */
-    /* 3. TABLET/MEDIUM SCREENS (Min-width: 768px) */
-    /* ============================================== */
-    @media (min-width: 768px) {
-        .container {
-            padding: 0 30px;
-        }
-        .who-we-are-section {
-            padding: 60px 0;
-        }
-        .section-tagline {
-            font-size: 2.2em;
-        }
-        .who-we-are-grid {
-            gap: 40px;
-        }
-        .who-we-are-text p {
-            font-size: 16px;
-        }
-    }
-
-    /* ============================================== */
-    /* 4. DESKTOP/LARGE SCREEN (Min-width: 992px) */
-    /* ============================================== */
-    @media (min-width: 992px) {
-        .container {
-            max-width: 1280px;
-        }
-        .who-we-are-section {
-            padding: 70px 0;
-        }
-
-        .who-we-are-grid {
-            flex-direction: row;
-            gap: 60px;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .who-we-are-text {
-            flex: 3;
-            max-width: 60%;
-            order: 1;
-        }
-
-        .who-we-are-image {
-            flex: 2;
-            max-width: 40%;
-            order: 2;
-            margin-bottom: 0;
-        }
-
-        .section-tagline {
-            font-size: 2.5em;
-        }
-        .who-we-are-text p {
-            font-size: 17px;
-        }
-    }
-
-    /* ============================================== */
-    /* 5. MODAL & UTILITY STYLES */
-    /* *** MODAL STYLES ARE OPTIMIZED HERE *** */
-    /* ============================================== */
-
-    :global(.no-scroll) {
-        overflow: hidden !important;
-    }
-
-    :global(.modal) {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow-y: scroll; /* Ensures modal itself can scroll */
-        background-color: rgba(0, 0, 0, 0.85);
-        padding: 0;
-        animation-name: fadeIn;
-        animation-duration: 0.3s;
-    }
-
-    :global(.modal-content) {
-        background-color: #ffffff;
-        /* MOBILE OPTIMIZATION */
-        margin: 10px auto;
-        padding: 20px;
-        border: none;
-        width: 95%;
-        max-width: 900px;
-        border-radius: 10px;
-        position: relative;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        animation-name: animatetop;
-        animation-duration: 0.4s;
-        line-height: 1.6;
-    }
-
-    @media (min-width: 768px) {
-        :global(.modal-content) {
-            margin: 30px auto;
-            padding: 40px;
-        }
-    }
-
-    /* Primary Modal Title (H2) */
-    :global(.modal-content h2.modal-title) {
-        color: #001f3f;
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.7em;
-        border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 15px;
-        font-weight: 600;
-        text-align: center;
-    }
-
-    :global(.close-button) {
-        color: #fff;
-        background-color: #001f3f !important;
-        border: none;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 22px;
-        font-weight: bold;
-        position: absolute;
-        top: -16px;
-        right: -16px;
-        cursor: pointer;
-        z-index: 100;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-        transition:
-            background-color 0.3s ease,
-            transform 0.2s ease;
-        outline: none;
-    }
-
-    :global(.close-button:hover),
-    :global(.close-button:focus) {
-        background-color: black !important;
-        transform: rotate(90deg) scale(1.1);
-        color: #fff;
-    }
-
-    /* Modal Level Headings (H4) */
-    :global(.modal-content h4.modal-level-heading) {
-        color: #001f3f;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        font-size: 1.2em;
-        font-weight: 600;
-        padding-left: 15px;
-        border-left: 5px solid #001f3f;
-    }
-
-    /* Modal Paragraphs */
-    :global(.modal-content p.modal-paragraph) {
-        color: #333;
-        line-height: 1.7;
-        margin-bottom: 15px;
-        font-size: 1em;
-    }
-
-    /* Modal Lists */
-    :global(.modal-content ul.modal-list) {
-        list-style: disc;
-        margin-left: 20px;
-        padding-left: 5px;
-        margin-bottom: 20px;
-        color: #444;
-        font-size: 1em;
-    }
-
-    :global(.modal-content ul.modal-list li) {
-        font-size: 1em;
-        margin-bottom: 5px;
-        line-height: 1.5;
-    }
-
-    /* Keyframe Animations */
-    @keyframes animatetop {
-        from {
-            top: -300px;
-            opacity: 0;
-        }
-        to {
-            top: 0;
-            opacity: 1;
-        }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    /* AOS Styles */
-    [data-aos] {
-        opacity: 0;
-        transition-property: opacity, transform;
-        transition-duration: 1s;
-    }
-
-    [data-aos].aos-animate {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-
-    [data-aos="fade-right"] {
-        transform: translateX(-100px);
-    }
-    [data-aos="fade-left"] {
-        transform: translateX(100px);
-    }
+  }
 </style>
-
-<script is:inline>
-    // 💡 The client-side script for modal functionality with enhanced Accessibility (A11y) focus management.
-
-    const openButton = document.getElementById("openCurriculumModal");
-    const modal = document.getElementById("curriculumModal");
-    const body = document.body;
-
-    if (modal && openButton) {
-        const closeButton = modal.querySelector(".close-button");
-        let previouslyFocusedElement = null;
-
-        // Ensure the close button is focusable
-        if (closeButton) {
-            closeButton.setAttribute("tabindex", "0");
-        }
-
-        function openModal() {
-            // 1. Save the element that triggered the modal
-            previouslyFocusedElement = document.activeElement;
-
-            modal.style.display = "block";
-            modal.setAttribute("aria-hidden", "false");
-            body.classList.add("no-scroll");
-            
-            // 2. Move focus into the modal (to the close button)
-            if (closeButton) {
-                closeButton.focus();
-            }
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-            modal.setAttribute("aria-hidden", "true");
-            body.classList.remove("no-scroll");
-
-            // 3. Return focus to the trigger element
-            if (previouslyFocusedElement) {
-                previouslyFocusedElement.focus();
-                previouslyFocusedElement = null; // Clean up
-            }
-        }
-
-        // Event Listeners
-        openButton.addEventListener("click", openModal);
-        closeButton?.addEventListener("click", closeModal);
-        // Also handle keyboard activation for the close button
-        closeButton?.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                closeModal();
-            }
-        });
-
-
-        // Close when clicking outside the modal content
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close on ESC key for keyboard accessibility
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal.style.display === "block") {
-                closeModal();
-            }
-        });
-    }
-</script>

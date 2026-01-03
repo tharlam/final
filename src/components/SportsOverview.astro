@@ -1,191 +1,127 @@
 <section class="sports-main-overview-section">
-    <div class="container"> 
-        
-        <div class="sports-text-columns-grid">
-            <div
-                class="sports-text-column left-column"
-                data-aos="fade-right"
-                data-aos-delay="100"
-            >
-                <p
-                    class="highlight-paragraph"
-                    data-i18n="sports_overview_paragraph_1"
-                >
-                    At Tharlam Academy, sports play a vital role in the lives of
-                    our students. We are divided into **four houses** that
-                    compete in a wide range of events, including **football,
-                    kabaddi, kho-kho, volleyball, relay races**, and other
-                    recreational activities that refresh the mind and build
-                    physical stamina. Football is especially beloved—many
-                    consider it the most enjoyable and prestigious sport at our
-                    academy.
-                </p>
-                <p data-i18n="sports_overview_paragraph_2">
-                    Tharlam Academy often organizes special football tournaments
-                    on occasions like birthdays (“Birthday Cup”) and during
-                    Thuktea, a distinctive school holiday that’s more than just
-                    a break—it’s a cherished time to recharge. These tournaments
-                    foster spirited competition, camaraderie, and school pride.
-                </p>
-            </div>
+  <div class="container"> 
+    <div class="sports-text-columns-grid">
+      <!-- Left Column -->
+      <div class="sports-text-column left-column" data-aos="fade-right" data-aos-delay="100">
+        <p class="highlight-paragraph" data-i18n="sports_overview_paragraph_1">
+          At Tharlam Academy, sports play a vital role in the lives of
+          our students. We are divided into **four houses** that
+          compete in a wide range of events, including **football,
+          kabaddi, kho-kho, volleyball, relay races**, and other
+          recreational activities that refresh the mind and build
+          physical stamina. Football is especially beloved—many
+          consider it the most enjoyable and prestigious sport at our
+          academy.
+        </p>
+        <p data-i18n="sports_overview_paragraph_2">
+          Tharlam Academy often organizes special football tournaments
+          on occasions like birthdays (“Birthday Cup”) and during
+          Thuktea, a distinctive school holiday that’s more than just
+          a break—it’s a cherished time to recharge. These tournaments
+          foster spirited competition, camaraderie, and school pride.
+        </p>
+      </div>
 
-            <div
-                class="sports-text-column right-column supplementary-info-box"
-                data-aos="fade-left"
-                data-aos-delay="200"
-            >
-                <h3 class="info-box-title" data-i18n="info-box-title">Holistic Development</h3>
-                <p data-i18n="sports_overview_paragraph_3">
-                    Such inter-house competitions not only keep students healthy
-                    and energetic but also sharpen their focus toward learning.
-                    In essence, Tharlam Academy’s emphasis on sports reflects
-                    its **holistic approach**, blending modern education,
-                    physical wellbeing, and traditional values.
-                </p>
-                <ul class="key-benefits">
-                    <li>
-                        <i class="fas fa-check-circle"></i> 
-                        <span data-i18n="sports_benefit_teamwork">Fosters Teamwork and Leadership</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i> 
-                        <span data-i18n="sports_benefit_stamina">Enhances Physical Stamina and Focus</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i> 
-                        <span data-i18n="sports_benefit_competition">Encourages Healthy Competition</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+      <!-- Right Column -->
+      <div class="sports-text-column right-column supplementary-info-box" data-aos="fade-left" data-aos-delay="200">
+        <p class="info-box-title" data-i18n="info-box-title">Holistic Development</p>
+        <p data-i18n="sports_overview_paragraph_3">
+          Such inter-house competitions not only keep students healthy
+          and energetic but also sharpen their focus toward learning.
+          In essence, Tharlam Academy’s emphasis on sports reflects
+          its **holistic approach**, blending modern education,
+          physical wellbeing, and traditional values.
+        </p>
+        <ul class="key-benefits">
+          <li><i class="fas fa-check-circle"></i><span data-i18n="sports_benefit_teamwork">Fosters Teamwork and Leadership</span></li>
+          <li><i class="fas fa-check-circle"></i><span data-i18n="sports_benefit_stamina">Enhances Physical Stamina and Focus</span></li>
+          <li><i class="fas fa-check-circle"></i><span data-i18n="sports_benefit_competition">Encourages Healthy Competition</span></li>
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    /*
-     * 🟢 CORE CONSISTENCY STYLES
-     */
+  /* --- Section Basics --- */
+  .sports-main-overview-section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-section-bg, #f8f8f8);
+  }
 
-    /* --- Container for Max Width (Applied to the standard .container class) --- */
-    .container {
-        max-width: 1200px; /* ✅ FIX: Applied 1280px to the .container class */
-        margin: 0 auto;
-        padding: 0px; /* Base horizontal padding */
-    }
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container); /* ✅ same as Who We Are */
+  }
 
-    /* --- Sports Main Overview Section (Desktop/Default) --- */
-    .sports-main-overview-section {
-        background-color: #f8f8f8;
-        padding: 60px 0 70px 0; 
-    }
+  /* --- Grid --- */
+  .sports-text-columns-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* text dominant */
+    gap: var(--space-gap);
+    align-items: start;
+    justify-content: center;
+  }
 
-    /* 2. Content Column Styling */
+  /* --- Text --- */
+  .sports-text-column p {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .highlight-paragraph {
+    font-weight: normal; /* no bold */
+    font-style: normal;  /* no italic */
+    color: var(--color-primary);
+  }
+
+  /* --- Info Box --- */
+  .supplementary-info-box {
+    background-color: var(--color-accent-light, #e9f5ed);
+    border-radius: var(--space-small);
+    padding: var(--space-gap);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-box-title {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    margin: 0 0 var(--space-small) 0;
+    border-bottom: 2px solid var(--border-light-blue);
+    padding-bottom: var(--space-xsmall);
+    font-weight: 700;
+  }
+
+  /* --- Benefits List --- */
+  .key-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-top: var(--space-small);
+  }
+
+  .key-benefits li {
+    font-size: var(--font-body);
+    margin-bottom: var(--space-xsmall);
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+  }
+
+  .key-benefits li i {
+    color: var(--color-accent-green, #28a745);
+    margin-right: var(--space-xsmall);
+  }
+
+  /* --- Responsive layout --- */
+  @media (max-width: 768px) {
     .sports-text-columns-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr; 
-        gap: 40px; 
-        align-items: flex-start; 
+      grid-template-columns: 1fr; /* stack columns */
     }
-
-    .sports-text-column p {
-        font-size: 16px; 
-        line-height: 1.7;
-        color: #444; 
-        margin-bottom: 20px; 
-        text-align: justify; 
-    }
-
-    /* 3. Highlighted Paragraph (No green accent) */
-    .highlight-paragraph {
-        font-weight: 600; 
-        color: #001f3f; 
-        font-style: italic; 
-    }
-
-    /* 4. Supplementary Info Box (Right Column) */
-    .supplementary-info-box {
-        background-color: #e9f5ed; 
-        border-radius: 8px;
-        padding: 30px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .info-box-title {
-        font-size: 22px; 
-        color: #001f3f; 
-        margin-top: 0;
-        margin-bottom: 15px;
-        border-bottom: 2px solid rgba(0, 31, 63, 0.1); 
-        padding-bottom: 8px;
-        font-weight: 700;
-    }
-
-    .key-benefits {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 20px;
-    }
-
-    .key-benefits li {
-        font-size: 16px;
-        margin-bottom: 10px;
-        color: #333;
-        display: flex;
-        align-items: center;
-    }
-
-    .key-benefits li i {
-        color: #28a745; 
-        margin-right: 10px;
-    }
-
-    /* * 📱 RESPONSIVE ADJUSTMENTS 
-     */
-
-    /* --- 992px Breakpoint (Tablet/Smaller Desktop) --- */
-    @media (max-width: 992px) {
-        .sports-main-overview-section {
-            padding: 50px 0;
-        }
-        .sports-text-columns-grid {
-            grid-template-columns: 1fr; 
-            gap: 30px;
-        }
-        .container {
-            padding: 0 15px; /* Adjust container padding */
-        }
-    }
-
-    /* --- 768px Breakpoint (Large Mobile/Vertical Tablet) --- */
-    @media (max-width: 768px) {
-        .sports-text-column p {
-            font-size: 15px;
-            text-align: left;
-        }
-        .supplementary-info-box {
-            padding: 20px;
-        }
-        .info-box-title {
-            font-size: 20px;
-        }
-    }
-
-    /* --- 480px Breakpoint (Small Mobile) --- */
-    @media (max-width: 480px) {
-        .sports-main-overview-section {
-            padding: 40px 0;
-        }
-        .container {
-            padding: 0 10px; /* Tighten padding for very small screens */
-        }
-        .sports-text-column p {
-            font-size: 14px;
-        }
-        .info-box-title {
-            font-size: 18px;
-        }
-        .key-benefits li {
-            font-size: 15px;
-        }
-    }
+  }
 </style>
