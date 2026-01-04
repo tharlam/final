@@ -49,11 +49,11 @@
 
     /* --- Typography (Fluid) --- */
     /* Heading: 1.1rem on mobile -> 1.5rem on desktop */
-    --font-heading: clamp(1.1rem, 4vw, 1.5rem);
+    --font-heading: clamp(1rem, 4vw, 1.5rem);
     /* Body: 0.9rem (~14.5px) on mobile -> 1.1rem on desktop */
-    --font-body: clamp(0.9rem, 1vw, 1.1rem);
-    --font-size-base: 16px;
-    --line-height-text: 1.6; /* Reduced from 1.8 for a cleaner mobile look */
+    --font-body: clamp(0.8rem, 1vw, 1.1rem);
+    --font-size-base: 13px;
+    --line-height-text: 1.4; /* Reduced from 1.8 for a cleaner mobile look */
 
     /* --- Spacing (Fluid & Fixed) --- */
     --space-section: clamp(1.5rem, 5vw, 3rem);
