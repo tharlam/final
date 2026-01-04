@@ -1,5 +1,6 @@
 /* global2.css
    A clean, responsive design system with fluid typography and hidden scrollbars.
+   Optimized for mobile compactness.
 */
 
 /**
@@ -16,17 +17,20 @@
     --nav-green-hover: #1e7e34;
     --nav-text-white: white;
 
-    --nav-heading: clamp(1rem, 3vw, 1rem);
-    --nav-body: clamp(0.85rem, 1vw, 1.1rem);
+    /* Mobile-first fluid navigation text */
+    --nav-heading: clamp(0.9rem, 2.5vw, 1rem);
+    --nav-body: clamp(0.8rem, 1vw, 1.1rem);
     --nav-size-base: 16px;
-    --nav-height-text: 1.8;
+    --nav-height-text: 1.5;
 
-    --spacing-xs: 5px;
-    --spacing-sm: 8px;
-    --spacing-md: 10px;
-    --spacing-lg: 15px;
-    --spacing-xl: 20px;
-    --spacing-xxl: 50px;
+    /* --- Spacing (Updated to be Fluid) --- */
+    /* These will now shrink automatically on small screens */
+    --spacing-xs: clamp(3px, 1vw, 5px);
+    --spacing-sm: clamp(5px, 1.5vw, 8px);
+    --spacing-md: clamp(6px, 2vw, 10px);
+    --spacing-lg: clamp(10px, 3vw, 15px);
+    --spacing-xl: clamp(15px, 4vw, 20px);
+    --spacing-xxl: clamp(30px, 8vw, 50px);
 
     /* --- General Section Colors --- */
     --color-primary: #001f3f;
@@ -44,13 +48,15 @@
     --border-light-blue: #004d99;
 
     /* --- Typography (Fluid) --- */
-    --font-heading: clamp(1rem, 3vw, 1.5rem);
-    --font-body: clamp(0.85rem, 1vw, 1.1rem);
+    /* Heading: 1.1rem on mobile -> 1.5rem on desktop */
+    --font-heading: clamp(1.1rem, 4vw, 1.5rem);
+    /* Body: 0.9rem (~14.5px) on mobile -> 1.1rem on desktop */
+    --font-body: clamp(0.9rem, 1vw, 1.1rem);
     --font-size-base: 16px;
-    --line-height-text: 1.8;
+    --line-height-text: 1.6; /* Reduced from 1.8 for a cleaner mobile look */
 
     /* --- Spacing (Fluid & Fixed) --- */
-    --space-section: clamp(1rem, 5vw, 2rem);
+    --space-section: clamp(1.5rem, 5vw, 3rem);
     --space-gap: clamp(1rem, 3vw, 2rem);
     --space-small: clamp(0.5rem, 2vw, 1rem);
     --space-container: clamp(0.5rem, 2vw, 1.5rem);
@@ -74,16 +80,12 @@
 
 html {
     scroll-behavior: smooth;
-    /* Uses the dark variable for the background behind content */
     background-color: var(--nav-primary-darker);
     overflow-x: hidden;
-
-    /* Hide Scrollbar (Firefox/IE/Edge) */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
-/* Hide Scrollbar (Chrome, Safari, newer Edge) */
 html::-webkit-scrollbar {
     display: none;
 }
@@ -107,7 +109,6 @@ body::-webkit-scrollbar {
  * =======================================================
  */
 
-/* Main centering container */
 .container {
     max-width: var(--max-container);
     margin: 0 auto;
@@ -115,12 +116,10 @@ body::-webkit-scrollbar {
     width: 100%;
 }
 
-/* Modal/Overlay lock: prevents background scroll */
 body.no-scroll {
     overflow: hidden;
 }
 
-/* Container for specific scrolling areas that need scrollbars hidden */
 .site-content-container {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -132,23 +131,24 @@ body.no-scroll {
 
 /* --- Typography Utilities --- */
 
+/* Note: Since you use <p> for headings, these classes/tags 
+   now use the fluid variables for responsive sizing */
 h1,
 h2,
 h3,
 .heading-fluid {
     color: var(--color-heading);
     font-size: var(--font-heading);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md); /* Now fluid */
     line-height: 1.2;
 }
 
 p,
 .text-fluid {
-    font-size: var(--font-body);
-    margin-bottom: var(--spacing-md);
+    font-size: var(--font-body); /* Now fluid */
+    margin-bottom: var(--spacing-md); /* Now fluid */
 }
 
-/* Ensure images don't overflow containers */
 img {
     max-width: 100%;
     display: block;
