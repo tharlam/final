@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WhoWeAre from "../components/WhoWeAre.astro";
+import Model from "../components/Model.astro";
 import WhatWeDo from "../components/WhatWeDo.astro";
 import OurHistory from "../components/OurHistory.astro";
 import ScheduleTabs from "../components/ScheduleTabs.astro";
@@ -11,6 +12,7 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
 <BaseLayout title="About Us">
   <WhoWeAre />
+  <Model />
   <WhatWeDo />
   <OurHistory />
   <ScheduleTabs />

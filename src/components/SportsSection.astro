@@ -1,23 +1,20 @@
+---
+// Import BASE_PATH for robust asset linking in Astro
+const BASE_PATH = import.meta.env.BASE_URL;
+---
+
 <section class="sports-hero" id="sports-hero">
     <div class="container hero-content">
-        <h1 data-i18n="sports_hero_title">Tharlam Sports Association</h1>
+        <h1 data-i18n="sports_hero_title"></h1>
 
-        <p class="sports-description" data-i18n="sports_hero_description">
-            A core part of the <strong>Tharlam Monastery's</strong> commitment to
-            holistic development, the Sports Association offers multiple programs,
-            fostering <strong>teamwork, discipline, and healthy living</strong> among
-            our students. Our primary goal is to nurture both academic and athletic
-            potential within the monastic community.
-        </p>
+        <p class="sports-description" data-i18n="sports_p1"></p>
 
         <div class="hero-cta">
             <a
                 href="#programs"
                 class="btn-sports-outline"
-                data-i18n="sports_hero_button"
-            >
-                View Our Programs →
-            </a>
+                data-i18n="sports_btn"
+            ></a>
         </div>
     </div>
 </section>
@@ -35,7 +32,7 @@
         background-position: center;
         background-repeat: no-repeat;
 
-        /* Using your fluid section spacing tokens */
+        /* Using fluid section spacing tokens */
         padding: var(--space-section) 0;
         min-height: 400px;
         display: flex;
@@ -46,7 +43,6 @@
     }
 
     .hero-content {
-        /* container class from your root is applied in HTML */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -54,56 +50,57 @@
     }
 
     .sports-hero h1 {
-        /* Fluid Heading Token */
         font-size: var(--font-heading);
         color: var(--color-text-white);
         margin-bottom: var(--spacing-md);
         line-height: 1.2;
         text-transform: uppercase;
-        text-decoration: none; /* No underline */
+        text-decoration: none;
+    }
+
+    /* Target the <strong> tag inside H1 if you want the title highlighted too */
+    .sports-hero h1 strong {
+        color: var(--color-accent-blue);
     }
 
     .sports-hero p {
-        /* Fluid Body & Line Height Tokens */
         font-size: var(--font-body);
         line-height: var(--line-height-text);
         margin-bottom: var(--spacing-xl);
         color: rgba(255, 255, 255, 0.9);
         max-width: 800px;
-        text-decoration: none; /* No underline */
+        text-decoration: none;
     }
 
+    /* This is what turns your JSON <strong> text into Blue */
     .sports-hero p strong {
-        /* Using Blue Accent for emphasis within the paragraph */
         color: var(--color-accent-blue);
         font-weight: 700;
     }
 
-    /* --- Button: Strict Section Tokens & No Underline --- */
     .btn-sports-outline {
         display: inline-block;
-        /* Using fixed spacing tokens for button balance */
         padding: var(--spacing-md) var(--spacing-xxl);
         font-size: var(--font-body);
         font-weight: 600;
         color: var(--color-text-white);
         border: 2px solid var(--color-text-white);
         border-radius: 4px;
-        text-decoration: none; /* No underline */
+        text-decoration: none;
         transition: all 0.3s ease;
     }
 
     .btn-sports-outline:hover {
         background-color: var(--color-text-white);
-        color: var(--color-primary); /* Navy color from section root */
+        color: var(--color-primary); 
         transform: translateY(-2px);
-        text-decoration: none; /* No underline on hover */
+        text-decoration: none;
         box-shadow: var(--shadow-medium);
     }
 
-    /* Custom spacing for very small screens using root container spacing */
     @media (max-width: 480px) {
         .sports-hero {
             padding: var(--spacing-xxl) var(--space-container);
         }
     }
+</style>

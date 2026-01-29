@@ -2,9 +2,7 @@
   <div class="glance-overlay"></div>
   <div class="glance-content-wrapper">
     <div class="glance-header-row">
-      <h2 class="glance-title" data-i18n="mission_vision_title">
-        Our Mission & Vision
-      </h2>
+      <h2 class="glance-title" data-i18n="mission_vision_title"></h2>
 
       <div class="glance-navigation">
         <button class="glance-prev-btn" aria-label="Previous card">
@@ -18,36 +16,48 @@
 
     <div class="glance-slider-wrapper">
       <div class="glance-cards-container">
-        <div class="glance-card" data-index="0" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="glance-card"
+          data-index="0"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <i class="fas fa-bullseye glance-icon"></i>
-          <h3 class="glance-card-title" data-i18n="mission_card_title">Our Mission</h3>
-          <p class="glance-card-description" data-i18n="mission_card_desc">
-            At Tharlam Academy, n both ritual and Eastern wisdom traditions, alongside contemporary subjects, empowering every student.
-          </p>
+          <h3 class="glance-card-title" data-i18n="mission_card_title"></h3>
+          <p class="glance-card-description" data-i18n="mission_p1"></p>
         </div>
 
-        <div class="glance-card" data-index="1" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="glance-card"
+          data-index="1"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <i class="fas fa-lightbulb glance-icon"></i>
-          <h3 class="glance-card-title" data-i18n="vision_card_title">Our Vision</h3>
-          <p class="glance-card-description" data-i18n="vision_card_desc">
-            Our vision is to be a leading center of learning that seamlessly integrates traditional Buddhist teachings with modern academic excellence, inspiring critical thinking and spiritual growth.
-          </p>
+          <h3 class="glance-card-title" data-i18n="vision_card_title"></h3>
+          <p class="glance-card-description" data-i18n="vision_p1"></p>
         </div>
 
-        <div class="glance-card" data-index="2" data-aos="fade-up" data-aos-delay="300">
+        <div
+          class="glance-card"
+          data-index="2"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <i class="fas fa-hands-helping glance-icon"></i>
-          <h3 class="glance-card-title" data-i18n="values_card_title">Our Values</h3>
-          <p class="glance-card-description" data-i18n="values_card_desc">
-            Compassion, Wisdom, Integrity, Community, and a deep Respect for our Educators and the knowledge they impart.
-          </p>
+          <h3 class="glance-card-title" data-i18n="values_card_title"></h3>
+          <p class="glance-card-description" data-i18n="values_p1"></p>
         </div>
 
-        <div class="glance-card" data-index="3" data-aos="fade-up" data-aos-delay="400">
+        <div
+          class="glance-card"
+          data-index="3"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           <i class="fas fa-users glance-icon"></i>
-          <h3 class="glance-card-title" data-i18n="community_card_title">Our Community</h3>
-          <p class="glance-card-description" data-i18n="community_card_desc">
-            A vibrant and supportive environment where sin harmony and mutual understanding.
-          </p>
+          <h3 class="glance-card-title" data-i18n="community_card_title"></h3>
+          <p class="glance-card-description" data-i18n="community_p1"></p>
         </div>
       </div>
     </div>
@@ -55,134 +65,139 @@
 </section>
 
 <style>
-.glance-section {
-  position: relative;
-  padding: var(--space-section) 0;
-  color: #fff;
-  overflow: hidden;
-  background: url("/final/bg wall.webp") no-repeat center center/cover fixed;
-  text-align: center;
-}
+  .glance-section {
+    position: relative;
+    padding: var(--space-section) 0;
+    color: #fff;
+    overflow: hidden;
+    background: url("/final/bg wall.webp") no-repeat center center/cover fixed;
+    text-align: center;
+  }
 
-.glance-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 31, 63, 0.7);
-  z-index: 1;
-}
+  .glance-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 31, 63, 0.7);
+    z-index: 1;
+  }
 
-.glance-content-wrapper {
-  position: relative;
-  z-index: 2;
-  width: var(--container-width);
-  max-width: var(--max-container);
-  margin: 0 auto;
-  padding: var(--space-container);
-}
+  .glance-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container);
+  }
 
-.glance-title {
-  font-size: var(--font-heading);
-  color: #fff;
-  margin-bottom: var(--space-gap);
-  font-weight: 700;
-  text-align: center;
-}
+  .glance-title {
+    font-size: var(--font-heading);
+    color: #fff;
+    margin-bottom: var(--space-gap);
+    font-weight: 700;
+    text-align: center;
+  }
 
-.glance-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-gap);
-  transition: transform 0.3s ease-in-out;
-}
+  .glance-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-gap);
+    transition: transform 0.3s ease-in-out;
+  }
 
-.glance-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-  padding: clamp(1rem, 2vw, 2rem);
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  text-align: center;
-  flex: 1 1 calc(25% - var(--space-gap));
-  min-width: 220px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .glance-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: clamp(1rem, 2vw, 2rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    text-align: center;
+    flex: 1 1 calc(25% - var(--space-gap));
+    min-width: 220px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
 
-.glance-icon {
-  font-size: 2rem;
-  color: var(--color-primary);
-  margin-bottom: var(--space-small);
-}
+  .glance-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-small);
+  }
 
-.glance-card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: var(--space-small);
-  color: var(--color-primary);
-}
+  .glance-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--space-small);
+    color: var(--color-primary);
+  }
 
-.glance-card-description {
-  font-size: var(--font-body);
-  line-height: 1.8;
-  color: var(--color-text);
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
+  .glance-card-description {
+    font-size: var(--font-body);
+    line-height: 1.8;
+    color: var(--color-text);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
 
-.glance-navigation {
-  display: none; /* hidden by default */
-}
-
+  .glance-navigation {
+    display: none; /* hidden by default */
+  }
 </style>
 
 <script is:inline>
-function setupGlanceSlider() {
-  const container = document.querySelector(".glance-cards-container");
-  if (!container) return;
+  function setupGlanceSlider() {
+    const container = document.querySelector(".glance-cards-container");
+    if (!container) return;
 
-  const prevBtn = document.querySelector(".glance-prev-btn");
-  const nextBtn = document.querySelector(".glance-next-btn");
-  const cards = document.querySelectorAll(".glance-card");
-  const cardCount = cards.length;
-  let currentIndex = 0;
+    const prevBtn = document.querySelector(".glance-prev-btn");
+    const nextBtn = document.querySelector(".glance-next-btn");
+    const cards = document.querySelectorAll(".glance-card");
+    const cardCount = cards.length;
+    let currentIndex = 0;
 
-  function getGap() {
-    return parseInt(getComputedStyle(container).gap) || 0;
-  }
-
-  function updateSlider() {
-    const gap = getGap();
-    const cardStepSize = container.querySelector(".glance-card").offsetWidth + gap;
-    const offset = -(currentIndex * cardStepSize);
-    container.style.transform = `translateX(${offset}px)`;
-
-    if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
-    if (nextBtn) nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
-  }
-
-  updateSlider();
-
-  if (nextBtn) nextBtn.onclick = () => {
-    if (currentIndex < cardCount - 1) {
-      currentIndex++;
-      updateSlider();
+    function getGap() {
+      return parseInt(getComputedStyle(container).gap) || 0;
     }
-  };
 
-  if (prevBtn) prevBtn.onclick = () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateSlider();
+    function updateSlider() {
+      const gap = getGap();
+      const cardStepSize =
+        container.querySelector(".glance-card").offsetWidth + gap;
+      const offset = -(currentIndex * cardStepSize);
+      container.style.transform = `translateX(${offset}px)`;
+
+      if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
+      if (nextBtn)
+        nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
     }
-  };
 
-  window.addEventListener("resize", () => {
-    currentIndex = 0;
     updateSlider();
-  });
-}
 
-document.addEventListener("DOMContentLoaded", setupGlanceSlider);
-document.addEventListener("astro:page-load", setupGlanceSlider);
+    if (nextBtn)
+      nextBtn.onclick = () => {
+        if (currentIndex < cardCount - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      };
+
+    if (prevBtn)
+      prevBtn.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      };
+
+    window.addEventListener("resize", () => {
+      currentIndex = 0;
+      updateSlider();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", setupGlanceSlider);
+  document.addEventListener("astro:page-load", setupGlanceSlider);
 </script>

@@ -1,0 +1,232 @@
+<section class="academy-cta-section">
+  <div class="container">
+    <button id="openModalBtn" class="academy-btn">Open Curriculum</button>
+  </div>
+</section>
+
+<div id="curriculumModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" aria-label="Close">&times;</span>
+    
+    <img src="/final/Model.webp" alt="Buddha" class="buddha-bg">
+
+    <div class="content-wrapper">
+      <div class="modal-header">
+        <p class="section-title">Our Approach to Education</p>
+        <p class="subtitle"><i>Combining traditional Buddhist historical practices with modern academic subjects, our curriculum nurtures the mind, heart, and spirit. We focus on wisdom, compassion, and service.</i></p>
+      </div>
+
+      <div class="curriculum-body">
+        <div class="curriculum-item">
+          <p class="item-title">Pre-primary level (Class 4 to 6)</p>
+          <p>• Tibetan language: Basic reading and writing.</p>
+          <p>• Basic English: Mathematics.</p>
+          <p>• Daily prayer, creative activities, physical activities.</p>
+        </div>
+
+        <div class="curriculum-item">
+          <p class="item-title">Primary level (Class 1 to 5)</p>
+          <p>• Tibetan and English language, Math, Science, Social Studies.</p>
+          <p>• Introduction to Buddhist studies and ritual practices.</p>
+        </div>
+
+        <div class="curriculum-item">
+          <p class="item-title">Secondary level (Class 6 to 8)</p>
+          <p>• Advanced Tibetan grammar, English composition, Math, Science.</p>
+          <p>• Buddhist studies: Four Noble Truths, Eightfold Path.</p>
+          <p>• Ritual training: Torma, Puja, Sutra chanting.</p>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <button id="closeModalBtn" class="btn primary-btn">Return</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .academy-cta-section {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    margin-bottom: var(--space-small);
+  }
+
+  .subtitle {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-gap);
+    line-height: var(--line-height-text);
+  }
+
+  .item-title {
+    font-size: var(--font-body);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 8px;
+  }
+
+  .curriculum-item p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-dark-overlay); 
+    backdrop-filter: blur(8px);
+    padding: 1rem; 
+  }
+
+  .modal-content {
+    /* BEST COLOR: Warm Parchment */
+    background-color: #fdf8ee; 
+    margin: 2rem auto;
+    padding: var(--space-gap);
+    border: 2px solid var(--color-primary); 
+    width: 95%; 
+    max-width: 600px;
+    border-radius: var(--space-small);
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    animation: modalSlideIn 0.3s ease-out;
+    overflow-y: auto; 
+    max-height: 90vh;
+  }
+
+  .buddha-bg {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: clamp(150px, 30vw, 250px); 
+    opacity: 0.15; /* Increased slightly for better visibility against cream */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes modalSlideIn {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .modal-header {
+    text-align: center;
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: var(--space-gap);
+    padding-bottom: var(--space-small);
+  }
+
+  .curriculum-item {
+    padding-left: 15px;
+    border-left: 3px solid var(--color-primary);
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+  }
+
+  .academy-btn {
+    padding: var(--space-small) var(--space-gap);
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    font-size: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .academy-btn:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .about-cta {
+    text-align: center;
+    margin-top: var(--space-gap);
+  }
+
+  .btn {
+    font-size: var(--font-body);
+    padding: var(--space-small) var(--space-gap);
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .primary-btn {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    .modal { padding: 0; }
+    .modal-content {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  const modal = document.getElementById("curriculumModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.querySelector(".close-btn");
+  const closeBtnLower = document.getElementById("closeModalBtn");
+
+  if (openBtn && modal) {
+    const closeModal = () => { 
+      modal.style.display = "none"; 
+      document.body.style.overflow = "auto";
+    }
+    openBtn.onclick = () => { 
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+    closeBtn.onclick = closeModal;
+    closeBtnLower.onclick = closeModal;
+    window.onclick = (event) => { if (event.target == modal) closeModal(); }
+  }
+</script>

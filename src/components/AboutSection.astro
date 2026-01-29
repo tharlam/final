@@ -1,41 +1,25 @@
 <section id="about" class="about-us-section">
   <div class="container">
-    <h2 class="section-title" data-aos="fade-up" data-i18n="section_title">
-      About Us
-    </h2>
+    <h2 class="section-title" data-aos="fade-up" data-i18n="about_title"></h2>
+
     <div class="about-content-grid">
       <div class="about-text" data-aos="fade-left">
-        <p data-i18n="about_intro_paragraph">
-          Tharlam Academy is a unique school dedicated to an education that
-          seamlessly blends traditional Buddhist values with a modern,
-          progressive curriculum. Our mission is to nurture well-rounded
-          individuals who possess both intellectual prowess and a strong moral
-          compass. The academy is providing a holistic learning environment that
-          encourages critical thinking, creativity, and compassion.
-        </p>
-        <p data-i18n="about_vision_paragraph">
-          Our vision is to empower the next generation of global citizens with
-          the wisdom of the past and the skills of the future. We foster an
-          atmosphere of respect, discipline, and ethical conduct, preparing
-          students to face the challenges of the modern world while staying true
-          to their spiritual heritage.
-        </p>
+        <p data-i18n="about_p1"></p>
+        <p data-i18n="about_p2"></p>
+        <p data-i18n="about_p3"></p>
+        <p data-i18n="about_p4"></p>
+
         <div class="about-cta">
-          <a
-            href="/final/about"
-            class="btn primary-btn"
-            data-i18n="about_learn_more_button"
-          >
-            Learn More About Us
-          </a>
+          <a href="/final/about" class="btn primary-btn" data-i18n="about_btn"
+          ></a>
         </div>
       </div>
+
       <div class="about-image" data-aos="fade-up">
         <img
           src="/final/house.webp"
-          alt="about image alt"
           class="responsive-image"
-          data-i18n-alt="about_image_alt"
+          data-i18n-alt="about_img_alt"
         />
       </div>
     </div>
@@ -44,7 +28,7 @@
 
 <style>
   /* --- Strict Root Application --- */
-  
+
   .about-us-section {
     /* Vertical spacing from root */
     padding: var(--space-section) 0;
@@ -71,7 +55,7 @@
     display: grid;
     /* Grid gap from root */
     gap: var(--space-gap);
-    grid-template-columns: 2fr 1fr; 
+    grid-template-columns: 2fr 1fr;
     align-items: start;
     justify-content: center;
   }
@@ -114,7 +98,9 @@
     font-weight: 600;
     text-decoration: none;
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s;
   }
 
   .primary-btn {
@@ -134,7 +120,7 @@
     .about-content-grid {
       grid-template-columns: 1fr;
     }
-    
+
     .about-image {
       order: -1; /* Image moves to top on mobile */
     }
