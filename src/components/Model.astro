@@ -7,13 +7,18 @@
 <div id="curriculumModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" aria-label="Close">&times;</span>
-    
-    <img src="/final/Model.webp" alt="Buddha" class="buddha-bg">
+
+    <img src="/final/Model.webp" alt="Buddha Background" class="buddha-bg" />
 
     <div class="content-wrapper">
       <div class="modal-header">
         <p class="section-title">Our Approach to Education</p>
-        <p class="subtitle"><i>Combining traditional Buddhist historical practices with modern academic subjects, our curriculum nurtures the mind, heart, and spirit. We focus on wisdom, compassion, and service.</i></p>
+        <p class="subtitle">
+          <i
+            >Combining traditional Buddhist historical practices with modern
+            academic subjects, our curriculum nurtures the mind, heart, and
+            spirit. We focus on wisdom, compassion, and service.</i>
+        </p>
       </div>
 
       <div class="curriculum-body">
@@ -46,11 +51,11 @@
 </div>
 
 <style>
+  /* --- Layout & Typography --- */
   .academy-cta-section {
     padding: 10px;
     text-align: center;
   }
-
   .container {
     width: var(--container-width);
     max-width: var(--max-container);
@@ -64,21 +69,18 @@
     font-weight: 700;
     margin-bottom: var(--space-small);
   }
-
   .subtitle {
     font-size: var(--font-body);
     color: var(--color-text);
     margin-bottom: var(--space-gap);
     line-height: var(--line-height-text);
   }
-
   .item-title {
     font-size: var(--font-body);
     font-weight: 700;
     color: var(--color-heading);
     margin-bottom: 8px;
   }
-
   .curriculum-item p {
     font-size: var(--font-body);
     color: var(--color-text);
@@ -86,48 +88,53 @@
     margin-bottom: 6px;
   }
 
+  /* --- Modal Container --- */
   .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-bg-dark-overlay); 
+    background-color: var(--color-bg-dark-overlay);
     backdrop-filter: blur(8px);
-    padding: 1rem; 
   }
 
   .modal-content {
-    /* BEST COLOR: Warm Parchment */
-    background-color: #fdf8ee; 
+    background-color: #fdf8ee;
     margin: 2rem auto;
     padding: var(--space-gap);
-    border: 2px solid var(--color-primary); 
-    width: 95%; 
+    border: 3px solid var(--color-primary);
+    width: 95%;
     max-width: 600px;
     border-radius: var(--space-small);
     position: relative;
     box-shadow: var(--shadow-medium);
     animation: modalSlideIn 0.3s ease-out;
-    overflow-y: auto; 
-    max-height: 90vh;
+
+    /* Scroll & Edge Fix */
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-height: 85vh;
   }
 
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* --- FIXED Watermark Photo --- */
   .buddha-bg {
-    position: absolute;
-    bottom: -10px;
-    left: -10px;
-    width: clamp(150px, 30vw, 250px); 
-    opacity: 0.15; /* Increased slightly for better visibility against cream */
+    position: fixed; /* Stays still while text moves */
+    top: 50%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Controlled size for desktop */
+    height: auto;
+    opacity: 0.16;
     pointer-events: none;
-    z-index: 0;
-  }
-
-  @keyframes modalSlideIn {
-    from { transform: translateY(15px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    z-index: 1;
   }
 
   .content-wrapper {
@@ -151,8 +158,8 @@
 
   .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 15px;
+    right: 20px;
     font-size: 2rem;
     color: var(--color-text-dark);
     cursor: pointer;
@@ -160,6 +167,7 @@
     z-index: 10;
   }
 
+  /* --- Buttons --- */
   .academy-btn {
     padding: var(--space-small) var(--space-gap);
     background: transparent;
@@ -168,44 +176,45 @@
     font-size: var(--font-body);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .academy-btn:hover {
-    background-color: var(--color-primary);
-    color: #ffffff;
-  }
-
-  .about-cta {
-    text-align: center;
-    margin-top: var(--space-gap);
-  }
-
-  .btn {
-    font-size: var(--font-body);
-    padding: var(--space-small) var(--space-gap);
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
   }
 
   .primary-btn {
     background-color: var(--color-primary);
     color: #ffffff;
+    padding: var(--space-small) var(--space-gap);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
   }
 
+  /* --- Small Screen Optimization --- */
   @media (max-width: 480px) {
-    .modal { padding: 0; }
+    .modal {
+      padding: 0;
+    }
     .modal-content {
       margin: 0;
       width: 100%;
       height: 100%;
       max-height: 100vh;
       border-radius: 0;
-      padding: 3rem 1.5rem;
+      padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+    .buddha-bg {
+      width: 80%; /* Large but contained on mobile */
+      opacity: 0.09;
+    }
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      transform: translate(0, 10px);
+      opacity: 0;
+    }
+    to {
+      transform: translate(0, 0);
+      opacity: 1;
     }
   }
 </style>
@@ -217,16 +226,18 @@
   const closeBtnLower = document.getElementById("closeModalBtn");
 
   if (openBtn && modal) {
-    const closeModal = () => { 
-      modal.style.display = "none"; 
+    const closeModal = () => {
+      modal.style.display = "none";
       document.body.style.overflow = "auto";
-    }
-    openBtn.onclick = () => { 
+    };
+    openBtn.onclick = () => {
       modal.style.display = "block";
       document.body.style.overflow = "hidden";
-    }
+    };
     closeBtn.onclick = closeModal;
     closeBtnLower.onclick = closeModal;
-    window.onclick = (event) => { if (event.target == modal) closeModal(); }
+    window.onclick = (event) => {
+      if (event.target == modal) closeModal();
+    };
   }
 </script>
