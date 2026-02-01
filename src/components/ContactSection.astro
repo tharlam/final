@@ -1,64 +1,46 @@
 ---
-// 1. ACCESS ENV VARIABLES (Ensure these are in your .env file or GitHub Secrets)
-const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
-const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace with YOUR key
+// src/components/ContactSection.astro
+const formId = import.meta.env.PUBLIC_FORMSPREE_ID || "mregbpyy";
+const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; 
 ---
 
 <section class="contact-section">
     <div class="container">
         <div class="header-content" data-aos="fade-up">
             <h2 class="contact-title">
-                <span data-i18n="contact_title_prefix"></span>
-                <span class="highlight" data-i18n="contact_title_highlight"
-                ></span>
-                <span data-i18n="contact_title_suffix"></span>
+                <span data-i18n="contact_title_prefix">Contact</span>
+                <span class="highlight" data-i18n="contact_title_highlight"> Us</span>
             </h2>
-            <p class="contact-subtitle" data-i18n="contact_subtitle"></p>
-
             <div class="direct-contact-list">
                 <div class="contact-item">
-                    <span class="label" data-i18n="label_location"
-                        >Location</span
-                    >
-                    <p data-i18n="info_location">Kathmandu, Nepal</p>
-                </div>
-                <div class="contact-item">
-                    <span class="label" data-i18n="label_email">Email</span>
-                    <p>tharlamfamily@gmail.com</p>
-                </div>
-                <div class="contact-item">
-                    <span class="label" data-i18n="label_phone">Phone</span>
-                    <p>+977-1-xxxxxxx</p>
+                    <span class="label">Email</span>
+                    <p>mediatharlam@gmail.com</p>
                 </div>
             </div>
         </div>
 
-        <div class="form-wrapper" data-aos="fade-up" data-aos-delay="150">
+        <div class="form-wrapper">
             <div class="contact-card">
-                <form id="astorContactForm" method="POST">
+                <form id="astorContactForm">
                     <div class="input-row">
                         <div class="input-group">
-                            <label data-i18n="label_form_name">Name</label>
+                            <label>Name</label>
                             <input type="text" name="name" required />
                         </div>
                         <div class="input-group">
-                            <label data-i18n="label_form_email">Email</label>
+                            <label>Email</label>
                             <input type="email" name="email" required />
                         </div>
                     </div>
-
                     <div class="input-group">
-                        <label data-i18n="label_form_message">Message</label>
+                        <label>Message</label>
                         <textarea name="message" required></textarea>
                     </div>
 
-                    <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}>
-                    </div>
+                    <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
 
                     <button type="submit" id="submitBtn" class="submit-button">
-                        <span id="btnText" data-i18n="btn_submit_message"
-                            >Send Message</span
-                        >
+                        <span id="btnText">Send Message</span>
                         <div id="btnSpinner" class="spinner hidden"></div>
                     </button>
                 </form>
@@ -69,17 +51,13 @@ const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace 
     <div id="successModal" class="modal-overlay hidden">
         <div class="modal-content">
             <div class="success-icon">✓</div>
-            <h3 data-i18n="modal_success_title">Sent!</h3>
-            <p data-i18n="modal_success_text">We'll get back to you soon.</p>
-            <button id="closeModal" class="close-btn" data-i18n="btn_close"
-                >Close</button
-            >
+            <h3>Sent Successfully!</h3>
+            <button id="closeModal" class="close-btn">Close</button>
         </div>
     </div>
 </section>
 
-<script is:inline src="https://www.google.com/recaptcha/api.js" async defer
-></script>
+<script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script is:inline define:vars={{ formId }}>
     const form = document.getElementById("astorContactForm");
@@ -91,16 +69,13 @@ const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace 
     form?.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Check reCAPTCHA
         const captchaResponse = grecaptcha.getResponse();
         if (!captchaResponse) {
-            alert("Please complete the reCAPTCHA.");
+            alert("Please check the 'I am not a robot' box.");
             return;
         }
 
-        // UI State: Loading
         btn.disabled = true;
-        const originalText = btnText.textContent;
         btnText.textContent = "Sending...";
         spinner.classList.remove("hidden");
 
@@ -108,7 +83,7 @@ const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace 
             const response = await fetch(`https://formspree.io/f/${formId}`, {
                 method: "POST",
                 body: new FormData(form),
-                headers: { Accept: "application/json" },
+                headers: { 'Accept': 'application/json' }
             });
 
             if (response.ok) {
@@ -116,13 +91,13 @@ const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace 
                 form.reset();
                 grecaptcha.reset();
             } else {
-                alert("Error: Please try again later.");
+                alert("Submission failed. Check your Formspree ID.");
             }
         } catch (err) {
-            alert("Connection error. Check your internet.");
+            alert("Connection error.");
         } finally {
             btn.disabled = false;
-            btnText.textContent = originalText;
+            btnText.textContent = "Send Message";
             spinner.classList.add("hidden");
         }
     });
