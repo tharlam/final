@@ -4,56 +4,72 @@
 
 <footer class="footer-section">
   <div class="footer-inner-container footer-container">
-    
     <div class="footer-col about-col">
-      <h3 data-i18n="footer_about_title">About Tharlam</h3>
-      <p data-i18n="footer_about_description">
-        Blending traditional Buddhist wisdom with modern education to foster 
-        compassion, knowledge, and ethical conduct in every student.
-      </p>
+      <h3 data-i18n="footer_about_title"></h3>
+      <p data-i18n="footer_about_description"></p>
       <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=100057365083022" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/tharlamacademy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100057365083022"
+          target="_blank"
+          aria-label="Facebook"><i class="fab fa-facebook-f"></i></a
+        >
+        <a href="/" target="_blank" aria-label="Twitter"
+          ><i class="fab fa-twitter"></i></a
+        >
+        <a
+          href="https://www.instagram.com/tharlamacademy"
+          target="_blank"
+          aria-label="Instagram"><i class="fab fa-instagram"></i></a
+        >
+        <a href="/" target="_blank" aria-label="YouTube"
+          ><i class="fab fa-youtube"></i></a
+        >
       </div>
     </div>
 
     <div class="footer-col">
-      <h3 data-i18n="footer_links_title">Quick Links</h3>
+      <h3 data-i18n="footer_links_title"></h3>
       <ul class="footer-list">
-        <li><a href="/about" data-i18n="footer_link_about">About Us</a></li>
-        <li><a href="/gallery" data-i18n="footer_link_gallery">Tharlam Gallery</a></li>
-        <li><a href="/sport" data-i18n="footer_link_sports">Tharlam Sports</a></li>
+        <li><a href="/about" data-i18n="footer_link_about"></a></li>
+        <li><a href="/gallery" data-i18n="footer_link_gallery"></a></li>
+        <li><a href="/sport" data-i18n="footer_link_sports"></a></li>
       </ul>
     </div>
 
     <div class="footer-col motto-col">
-      <h3 data-i18n="footer_motto_title">Our Motto</h3>
+      <h3 data-i18n="footer_motto_title"></h3>
       <div class="motto-content">
-        <p class="motto-text" data-i18n="footer_motto_content">
-          "Wisdom through Compassion, <br /> Enlightenment through Education."
-        </p>
+        <p class="motto-text" data-i18n="footer_motto_content"></p>
       </div>
     </div>
 
     <div class="footer-col newsletter-col">
-      <h3 data-i18n="footer_newsletter_title">Newsletter</h3>
-      <p data-i18n="footer_newsletter_desc">Stay updated with our latest news.</p>
-      <form class="newsletter-form" action="https://formspree.io/f/mgvkpwbd" method="POST">
-        <input type="email" name="email" required placeholder="Email Address" />
-        <button type="submit" data-i18n="footer_subscribe">Subscribe</button>
+      <h3 data-i18n="footer_newsletter_title"></h3>
+      <p data-i18n="footer_newsletter_desc"></p>
+      <form
+        class="newsletter-form"
+        action="https://formspree.io/f/mgvkpwbd"
+        method="POST"
+      >
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Email Address"
+          data-i18n-placeholder="footer_email_placeholder"
+        />
+        <button type="submit" data-i18n="footer_subscribe"></button>
       </form>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="footer-inner-container bottom-content">
-      <p>© 2024 Tharlam Academy. All Rights Reserved.</p>
+      <p data-i18n="footer_copyright"></p>
       <div class="policy-links">
-        <a href="/">Privacy Policy</a>
+        <a href="/" data-i18n="footer_privacy"></a>
         <span class="separator">|</span>
-        <a href="/">Terms of Service</a>
+        <a href="/" data-i18n="footer_terms"></a>
       </div>
     </div>
   </div>
@@ -81,12 +97,16 @@
   .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 40px; 
+    gap: 40px;
     padding-bottom: 60px;
   }
 
-  .footer-col { flex: 1; }
-  .about-col { flex: 1.2; }
+  .footer-col {
+    flex: 1;
+  }
+  .about-col {
+    flex: 1.2;
+  }
 
   .footer-section h3 {
     color: var(--nav-text-white);
@@ -99,7 +119,7 @@
   }
 
   .footer-section p {
-    font-size: var(--nav-body); 
+    font-size: var(--nav-body);
     line-height: var(--nav-height-text);
     color: rgba(255, 255, 255, 0.7);
   }
@@ -118,9 +138,14 @@
     margin: 0;
   }
 
-  .footer-list { list-style: none; padding: 0; }
-  .footer-list li { margin-bottom: 12px; }
-  
+  .footer-list {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-list li {
+    margin-bottom: 12px;
+  }
+
   .footer-list a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none; /* Removed underline */
@@ -133,50 +158,56 @@
     text-decoration: none; /* Ensure no underline on hover */
   }
 
-  .social-icons { display: flex; gap: 12px; margin-top: 20px; }
-  .social-icons a { 
-    color: var(--nav-text-white); 
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .social-icons a {
+    color: var(--nav-text-white);
     text-decoration: none; /* Removed underline from icons */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 38px;
     height: 38px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     transition: 0.3s;
   }
-  .social-icons a:hover { 
+  .social-icons a:hover {
     background-color: var(--nav-accent-green);
-    transform: translateY(-3px); 
+    transform: translateY(-3px);
   }
 
   .newsletter-form input {
-    width: 100%; 
-    padding: 12px; 
+    width: 100%;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    color: var(--nav-text-white); 
-    border-radius: 4px; 
-    margin-bottom: 10px; 
-    font-size: var(--nav-size-base); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--nav-text-white);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: var(--nav-size-base);
     outline: none;
   }
 
   .newsletter-form button {
-    width: 100%; 
-    padding: 12px; 
-    background: var(--nav-accent-green); 
+    width: 100%;
+    padding: 12px;
+    background: var(--nav-accent-green);
     color: var(--nav-text-white);
-    border: none; 
-    border-radius: 4px; 
-    font-weight: 600; 
-    cursor: pointer; 
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
     transition: 0.3s;
     font-size: var(--nav-size-base);
   }
 
-  .newsletter-form button:hover { background: var(--nav-green-hover); }
+  .newsletter-form button:hover {
+    background: var(--nav-green-hover);
+  }
 
   .footer-bottom {
     background-color: rgba(0, 0, 0, 0.2);
@@ -190,13 +221,15 @@
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
   }
-  
-  .policy-links .separator { margin: 0 10px; }
-  .policy-links a { 
-    color: inherit; 
+
+  .policy-links .separator {
+    margin: 0 10px;
+  }
+  .policy-links a {
+    color: inherit;
     text-decoration: none; /* Removed underline */
   }
-  .policy-links a:hover { 
+  .policy-links a:hover {
     color: var(--nav-text-white);
     text-decoration: none;
   }
@@ -215,17 +248,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; visibility: hidden; z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
     transition: 0.4s ease;
   }
 
-  .back-to-top.show { opacity: 1; visibility: visible; }
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
   @media (max-width: 768px) {
-    .footer-container { flex-direction: column; text-align: center; gap: 40px; }
-    .social-icons { justify-content: center; }
-    .motto-content { border-left: none; border-top: 2px solid var(--nav-accent-green); padding-left: 0; padding-top: 10px; }
-    .bottom-content { flex-direction: column; gap: 10px; text-align: center; }
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 40px;
+    }
+    .social-icons {
+      justify-content: center;
+    }
+    .motto-content {
+      border-left: none;
+      border-top: 2px solid var(--nav-accent-green);
+      padding-left: 0;
+      padding-top: 10px;
+    }
+    .bottom-content {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
   }
 </style>
 

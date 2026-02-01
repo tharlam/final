@@ -1,51 +1,31 @@
 ---
 // src/components/FAQSection.astro
-const faqItems = [
-  { 
-    question: "What is the purpose of Tharlam Academy?", 
-    answer: "Tharlam Academy provides a holistic education for monks by integrating traditional Sakya Buddhist teachings with modern academic subjects like science, mathematics, languages, social studies, health science, and more. Its mission is to preserve the Sakya tradition while equipping monks for contemporary life."
-  },
-  { 
-    question: "Who studies at Tharlam Academy?", 
-    answer: "The academy is designed primarily for ordained monks from Tharlam Monastery. While lay practitioners may attend public teachings, formal academic enrollment is exclusively reserved for monks only."
-  },
-  { 
-    question: "What grades are offered?", 
-    answer: "Tharlam Academy provides education up to grade 10, with the option to continue through class 11 and 12 for those monks who wish to pursue higher secondary education, supporting their path toward national exams."
-  },
-  { 
-    question: "Example Question 4: How can I donate?",
-    answer: "You can find donation options and details on our 'Support Us' page, which includes information on specific projects or general fund contributions."
-  },
-  { 
-    question: "Example Question 5: Where is the Academy located?",
-    answer: "Tharlam Academy is located in Kathmandu, Nepal, operating as a part of the Tharlam Monastery complex."
-  }
-];
+// The array now only needs to exist to tell Astro how many items to render
+const faqItems = [0, 1, 2, 3, 4]; 
 ---
 
 <section class="faq-section">
   <div class="container">
     <div class="header-content">
       <h2 class="faq-title" data-aos="fade-right">
-        Frequently Asked <span class="highlight">Questions</span>
+        <span data-i18n="faq_title_main"></span>
+        <span class="highlight" data-i18n="faq_title_highlight"></span>
       </h2>
-      <p class="faq-subtitle" data-aos="fade-right" data-aos-delay="50">
-        Find quick answers to common Tharlam questions.
+      <p class="faq-subtitle" data-aos="fade-right" data-aos-delay="50" data-i18n="faq_subtitle">
       </p>
     </div>
 
     <div class="faq-items-wrapper" data-aos="fade-left" data-aos-delay="100">
       <div class="faq-list">
-        {faqItems.map((item, index) => (
+        {faqItems.map((_, index) => (
           <div class={`faq-item ${index === 0 ? 'open' : ''}`}>
             <button class="faq-question-button" aria-expanded={index === 0 ? 'true' : 'false'}>
-              <span class="question-text">{item.question}</span>
+              <span class="question-text" data-i18n={`faq_q_${index}`}></span>
               <span class="toggle-icon">{index === 0 ? '−' : '+'}</span>
             </button>
             <div class="faq-answer">
-              <div class="answer-label">Answer</div>
-              <p>{item.answer}</p>
+              <div class="answer-label" data-i18n="faq_answer_label"></div>
+              <p data-i18n={`faq_a_${index}`}></p>
             </div>
           </div>
         ))}

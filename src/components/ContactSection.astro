@@ -1,30 +1,33 @@
 ---
-// src/components/ContactSection.astro
+// 1. ACCESS ENV VARIABLES (Ensure these are in your .env file or GitHub Secrets)
 const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
+const recaptchaSiteKey = "6Le2Q10sAAAAAJDIcjT1N5bPchyEPCpAyLlJTFtT"; // Replace with YOUR key
 ---
 
 <section class="contact-section">
     <div class="container">
         <div class="header-content" data-aos="fade-up">
             <h2 class="contact-title">
-                Get In <span class="highlight">Touch</span> With Us
+                <span data-i18n="contact_title_prefix"></span>
+                <span class="highlight" data-i18n="contact_title_highlight"
+                ></span>
+                <span data-i18n="contact_title_suffix"></span>
             </h2>
-            <p class="contact-subtitle">
-                We're ready to discuss your next project or answer any
-                inquiries.
-            </p>
+            <p class="contact-subtitle" data-i18n="contact_subtitle"></p>
 
             <div class="direct-contact-list">
                 <div class="contact-item">
-                    <span class="label">Location</span>
-                    <p>Boudha-6, Kathmandu, Nepal</p>
+                    <span class="label" data-i18n="label_location"
+                        >Location</span
+                    >
+                    <p data-i18n="info_location">Kathmandu, Nepal</p>
                 </div>
                 <div class="contact-item">
-                    <span class="label">Email</span>
+                    <span class="label" data-i18n="label_email">Email</span>
                     <p>tharlamfamily@gmail.com</p>
                 </div>
                 <div class="contact-item">
-                    <span class="label">Phone</span>
+                    <span class="label" data-i18n="label_phone">Phone</span>
                     <p>+977-1-xxxxxxx</p>
                 </div>
             </div>
@@ -33,52 +36,29 @@ const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
         <div class="form-wrapper" data-aos="fade-up" data-aos-delay="150">
             <div class="contact-card">
                 <form id="astorContactForm" method="POST">
-                    <div class="input-group">
-                        <label>Email Address</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="example@mail.com"
-                            required
-                        />
-                    </div>
-
                     <div class="input-row">
                         <div class="input-group">
-                            <label>Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Your Name"
-                                required
-                            />
+                            <label data-i18n="label_form_name">Name</label>
+                            <input type="text" name="name" required />
                         </div>
                         <div class="input-group">
-                            <label>Phone</label>
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="Phone Number"
-                            />
+                            <label data-i18n="label_form_email">Email</label>
+                            <input type="email" name="email" required />
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <label>Message</label>
-                        <textarea
-                            name="message"
-                            placeholder="How can we help?"
-                            required></textarea>
+                        <label data-i18n="label_form_message">Message</label>
+                        <textarea name="message" required></textarea>
                     </div>
 
-                    <div
-                        class="g-recaptcha"
-                        data-sitekey="6Lfs_Y8qAAAAAIWJ8933tS8S6XqYqXqXqXqXqXqX"
-                    >
+                    <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}>
                     </div>
 
                     <button type="submit" id="submitBtn" class="submit-button">
-                        <span id="btnText">Submit Message</span>
+                        <span id="btnText" data-i18n="btn_submit_message"
+                            >Send Message</span
+                        >
                         <div id="btnSpinner" class="spinner hidden"></div>
                     </button>
                 </form>
@@ -89,14 +69,68 @@ const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
     <div id="successModal" class="modal-overlay hidden">
         <div class="modal-content">
             <div class="success-icon">✓</div>
-            <h3>Message Sent!</h3>
-            <p>Thank you for reaching out. We will get back to you shortly.</p>
-            <button id="closeModal" class="close-btn">Close</button>
+            <h3 data-i18n="modal_success_title">Sent!</h3>
+            <p data-i18n="modal_success_text">We'll get back to you soon.</p>
+            <button id="closeModal" class="close-btn" data-i18n="btn_close"
+                >Close</button
+            >
         </div>
     </div>
 </section>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script is:inline src="https://www.google.com/recaptcha/api.js" async defer
+></script>
+
+<script is:inline define:vars={{ formId }}>
+    const form = document.getElementById("astorContactForm");
+    const modal = document.getElementById("successModal");
+    const btn = document.getElementById("submitBtn");
+    const btnText = document.getElementById("btnText");
+    const spinner = document.getElementById("btnSpinner");
+
+    form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Check reCAPTCHA
+        const captchaResponse = grecaptcha.getResponse();
+        if (!captchaResponse) {
+            alert("Please complete the reCAPTCHA.");
+            return;
+        }
+
+        // UI State: Loading
+        btn.disabled = true;
+        const originalText = btnText.textContent;
+        btnText.textContent = "Sending...";
+        spinner.classList.remove("hidden");
+
+        try {
+            const response = await fetch(`https://formspree.io/f/${formId}`, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" },
+            });
+
+            if (response.ok) {
+                modal.classList.remove("hidden");
+                form.reset();
+                grecaptcha.reset();
+            } else {
+                alert("Error: Please try again later.");
+            }
+        } catch (err) {
+            alert("Connection error. Check your internet.");
+        } finally {
+            btn.disabled = false;
+            btnText.textContent = originalText;
+            spinner.classList.add("hidden");
+        }
+    });
+
+    document.getElementById("closeModal")?.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+</script>
 
 <style>
     /* --- SECTION & CONTAINER --- */
@@ -294,53 +328,3 @@ const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
         }
     }
 </style>
-
-<script is:inline define:vars={{ formId }}>
-    const form = document.getElementById("astorContactForm");
-    const modal = document.getElementById("successModal");
-    const closeBtn = document.getElementById("closeModal");
-    const btn = document.getElementById("submitBtn");
-    const btnText = document.getElementById("btnText");
-    const spinner = document.getElementById("btnSpinner");
-
-    form?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // Ensure reCAPTCHA is completed
-        const captchaResponse = grecaptcha.getResponse();
-        if (captchaResponse.length === 0) {
-            alert("Please complete the reCAPTCHA.");
-            return;
-        }
-
-        btn.disabled = true;
-        btnText.textContent = "Sending...";
-        spinner.classList.remove("hidden");
-
-        try {
-            const response = await fetch(`https://formspree.io/f/${formId}`, {
-                method: "POST",
-                body: new FormData(form),
-                headers: { Accept: "application/json" },
-            });
-
-            if (response.ok) {
-                modal.classList.remove("hidden");
-                form.reset();
-                grecaptcha.reset(); // Reset the captcha after success
-            } else {
-                alert("Error sending message. Please check the form.");
-            }
-        } catch {
-            alert("Connection error.");
-        } finally {
-            btn.disabled = false;
-            btnText.textContent = "Submit Message";
-            spinner.classList.add("hidden");
-        }
-    });
-
-    closeBtn?.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
-</script>

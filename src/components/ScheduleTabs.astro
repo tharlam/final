@@ -4,101 +4,85 @@
       <button
         class="tab-button active"
         data-tab="daily-schedule"
-        data-i18n="tab_button_daily_schedule">Daily Schedule</button>
+        data-i18n="tab_daily"
+      ></button>
       <button
         class="tab-button"
         data-tab="saturday-activities"
-        data-i18n="tab_button_monthly_sports">Monthly Sports Day</button>
+        data-i18n="tab_sports"
+      ></button>
       <button
         class="tab-button"
         data-tab="friday-activities"
-        data-i18n="tab_button_friday_activities">Friday Activities</button>
+        data-i18n="tab_friday"
+      ></button>
     </div>
 
     <div class="tabs-content-wrapper" data-aos="fade-left">
-      <!-- Daily Schedule -->
       <div id="daily-schedule" class="tab-panel active">
-        <p class="tab-panel-title" data-i18n="schedule_daily_title">
-          Our Daily Routine at Tharlam Academy
-        </p>
-        <p class="tab-panel-intro" data-i18n="schedule_daily_intro">
-          Each day is thoughtfully structured to balance spiritual
-          practice, academic learning, and personal development.
-        </p>
+        <p class="tab-panel-title" data-i18n="daily_title"></p>
+        <p class="tab-panel-intro" data-i18n="daily_p1"></p>
         <div class="schedule-table-wrapper">
           <table class="daily-schedule-table">
             <thead>
               <tr>
-                <th data-i18n="schedule_daily_time_header">Time</th>
-                <th data-i18n="schedule_daily_activity_header">Activity</th>
+                <th data-i18n="header_time"></th>
+                <th data-i18n="header_activity"></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>5:30 AM</td><td data-i18n="schedule_daily_activity_1">Morning Puja and Prayers</td></tr>
-              <tr><td>7:00 AM</td><td data-i18n="schedule_daily_activity_2">Breakfast</td></tr>
-              <tr><td>7:40 AM</td><td data-i18n="schedule_daily_activity_3">Avalokiteshvara Prayer & Meditation</td></tr>
-              <tr><td>10:30 AM</td><td data-i18n="schedule_daily_activity_4">Academic Classes</td></tr>
-              <tr><td>3:30 PM</td><td data-i18n="schedule_daily_activity_5">Sports and Play Time</td></tr>
-              <tr><td>6:00 PM</td><td data-i18n="schedule_daily_activity_6">Dinner Break</td></tr>
-              <tr><td>8:30 PM</td><td data-i18n="schedule_daily_activity_7">Homework and Self-Study</td></tr>
-              <tr><td>9:30 PM</td><td data-i18n="schedule_daily_activity_8">Sleeping Time</td></tr>
+              <tr><td data-i18n="time_530"></td><td data-i18n="daily_act1"></td></tr>
+              <tr><td data-i18n="time_700"></td><td data-i18n="daily_act2"></td></tr>
+              <tr><td data-i18n="time_740"></td><td data-i18n="daily_act3"></td></tr>
+              <tr><td data-i18n="time_1030"></td><td data-i18n="daily_act4"></td></tr>
+              <tr><td data-i18n="time_1530"></td><td data-i18n="daily_act5"></td></tr>
+              <tr><td data-i18n="time_1800"></td><td data-i18n="daily_act6"></td></tr>
+              <tr><td data-i18n="time_2030"></td><td data-i18n="daily_act7"></td></tr>
+              <tr><td data-i18n="time_2130"></td><td data-i18n="daily_act8"></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- Monthly Sports Day -->
       <div id="saturday-activities" class="tab-panel">
-        <p class="tab-panel-title" data-i18n="schedule_sports_title">
-          Monthly Sports Day
-        </p>
-        <p class="tab-panel-intro" data-i18n="schedule_sports_intro">
-          At the end of every month, a special <strong>Sports Day</strong> is
-          organized to foster skills, teamwork, and healthy competition.
-        </p>
+        <p class="tab-panel-title" data-i18n="sportss_title"></p>
+        <p class="tab-panel-intro" data-i18n="sportsss_p1"></p>
         <div class="schedule-table-wrapper">
           <table class="daily-schedule-table">
             <thead>
               <tr>
-                <th data-i18n="schedule_sports_game_header">Game</th>
-                <th data-i18n="schedule_sports_participants_header">Participants</th>
+                <th data-i18n="header_game"></th>
+                <th data-i18n="header_participants"></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td data-i18n="schedule_sports_game_1">Football</td><td data-i18n="schedule_sports_participants_1">Inter-house competition</td></tr>
-              <tr><td data-i18n="schedule_sports_game_2">Relay Race</td><td data-i18n="schedule_sports_participants_2">Inter-house competition</td></tr>
-              <tr><td data-i18n="schedule_sports_game_3">Kabaddi</td><td data-i18n="schedule_sports_participants_3">Inter-house competition</td></tr>
-              <tr><td data-i18n="schedule_sports_game_4">Volleyball</td><td data-i18n="schedule_sports_participants_4">Inter-house competition</td></tr>
-              <tr><td data-i18n="schedule_sports_game_5">High Jump & Long Jump</td><td data-i18n="schedule_sports_participants_5">Inter-house competition</td></tr>
-              <tr><td data-i18n="schedule_sports_game_6">Various Games</td><td data-i18n="schedule_sports_participants_6">Other inter-house competitions and recreational activities</td></tr>
+              <tr><td data-i18n="sports_g1"></td><td data-i18n="sports_p1_desc"></td></tr>
+              <tr><td data-i18n="sports_g2"></td><td data-i18n="sports_p2_desc"></td></tr>
+              <tr><td data-i18n="sports_g3"></td><td data-i18n="sports_p3_desc"></td></tr>
+              <tr><td data-i18n="sports_g4"></td><td data-i18n="sports_p4_desc"></td></tr>
+              <tr><td data-i18n="sports_g5"></td><td data-i18n="sports_p5_desc"></td></tr>
+              <tr><td data-i18n="sports_g6"></td><td data-i18n="sports_p6_desc"></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- Friday Activities -->
       <div id="friday-activities" class="tab-panel">
-        <p class="tab-panel-title" data-i18n="schedule_friday_title">
-          Weekly Friday Activities
-        </p>
-        <p class="tab-panel-intro" data-i18n="schedule_friday_intro">
-          Every Friday is dedicated to diverse extracurricular
-          activities, fostering creative expression and critical
-          thinking.
-        </p>
+        <p class="tab-panel-title" data-i18n="friday_title"></p>
+        <p class="tab-panel-intro" data-i18n="friday_p1"></p>
         <div class="schedule-table-wrapper">
           <table class="daily-schedule-table">
             <thead>
               <tr>
-                <th data-i18n="schedule_friday_activity_header">Activity</th>
-                <th data-i18n="schedule_friday_description_header">Description</th>
+                <th data-i18n="header_activity"></th>
+                <th data-i18n="header_description"></th>
               </tr>
             </thead>
             <tbody>
-              <tr><td data-i18n="schedule_friday_activity_1">Speech & Presentation</td><td data-i18n="schedule_friday_description_1">Students practice public speaking and presentation skills in English, Tibetan, and Nepali.</td></tr>
-              <tr><td data-i18n="schedule_friday_activity_2">General Knowledge Quiz</td><td data-i18n="schedule_friday_description_2">Engaging quizzes on various subjects to test and expand students' knowledge.</td></tr>
-              <tr><td data-i18n="schedule_friday_activity_3">Creative Project Work</td><td data-i18n="schedule_friday_description_3">Collaborative projects focused on topics like water preservation, animal welfare, and natural phenomena.</td></tr>
-              <tr><td data-i18n="schedule_friday_activity_4">Debate & Discussion</td><td data-i18n="schedule_friday_description_4">Structured debates on diverse topics such as education impact and internet usage.</td></tr>
+              <tr><td data-i18n="fri_act1"></td><td data-i18n="fri_desc1"></td></tr>
+              <tr><td data-i18n="fri_act2"></td><td data-i18n="fri_desc2"></td></tr>
+              <tr><td data-i18n="fri_act3"></td><td data-i18n="fri_desc3"></td></tr>
+              <tr><td data-i18n="fri_act4"></td><td data-i18n="fri_desc4"></td></tr>
             </tbody>
           </table>
         </div>

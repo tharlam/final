@@ -1,6 +1,7 @@
 <section class="academy-cta-section">
   <div class="container">
-    <button id="openModalBtn" class="academy-btn">Open Curriculum</button>
+    <button id="openModalBtn" class="academy-btn" data-i18n="modal_open_btn"
+    ></button>
   </div>
 </section>
 
@@ -8,43 +9,48 @@
   <div class="modal-content">
     <span class="close-btn" aria-label="Close">&times;</span>
 
-    <img src="/final/Model.webp" alt="Buddha Background" class="buddha-bg" />
+    <img
+      src="/final/Model.webp"
+      alt="Buddha Background"
+      class="buddha-bg"
+      data-i18n-alt="modal_img_alt"
+    />
 
     <div class="content-wrapper">
       <div class="modal-header">
-        <p class="section-title">Our Approach to Education</p>
+        <p class="section-title" data-i18n="modal_title"></p>
         <p class="subtitle">
-          <i
-            >Combining traditional Buddhist historical practices with modern
-            academic subjects, our curriculum nurtures the mind, heart, and
-            spirit. We focus on wisdom, compassion, and service.</i>
+          <i data-i18n="modal_subtitle"></i>
         </p>
       </div>
 
       <div class="curriculum-body">
         <div class="curriculum-item">
-          <p class="item-title">Pre-primary level (Class 4 to 6)</p>
-          <p>• Tibetan language: Basic reading and writing.</p>
-          <p>• Basic English: Mathematics.</p>
-          <p>• Daily prayer, creative activities, physical activities.</p>
+          <p class="item-title" data-i18n="modal_item1_title"></p>
+          <p data-i18n="modal_item1_p1"></p>
+          <p data-i18n="modal_item1_p2"></p>
+          <p data-i18n="modal_item1_p3"></p>
         </div>
 
         <div class="curriculum-item">
-          <p class="item-title">Primary level (Class 1 to 5)</p>
-          <p>• Tibetan and English language, Math, Science, Social Studies.</p>
-          <p>• Introduction to Buddhist studies and ritual practices.</p>
+          <p class="item-title" data-i18n="modal_item2_title"></p>
+          <p data-i18n="modal_item2_p1"></p>
+          <p data-i18n="modal_item2_p2"></p>
         </div>
 
         <div class="curriculum-item">
-          <p class="item-title">Secondary level (Class 6 to 8)</p>
-          <p>• Advanced Tibetan grammar, English composition, Math, Science.</p>
-          <p>• Buddhist studies: Four Noble Truths, Eightfold Path.</p>
-          <p>• Ritual training: Torma, Puja, Sutra chanting.</p>
+          <p class="item-title" data-i18n="modal_item3_title"></p>
+          <p data-i18n="modal_item3_p1"></p>
+          <p data-i18n="modal_item3_p2"></p>
+          <p data-i18n="modal_item3_p3"></p>
         </div>
       </div>
 
       <div class="about-cta">
-        <button id="closeModalBtn" class="btn primary-btn">Return</button>
+        <button
+          id="closeModalBtn"
+          class="btn primary-btn"
+          data-i18n="modal_close_btn"></button>
       </div>
     </div>
   </div>

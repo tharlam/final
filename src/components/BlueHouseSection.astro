@@ -1,35 +1,20 @@
 <section class="house-section blue-house-section" data-aos="fade-up">
   <div class="container">
     <div class="house-content-grid">
-      <!-- Text Column -->
       <div class="house-text" data-aos="fade-left">
-        <p data-i18n="blue_house_paragraph_1">
-          The **Blue House (Ghaden House): Calm & Collaboration**. The
-          Blue House, also known as Ghaden House, represents calm
-          composure, strategic thinking, and unparalleled
-          collaboration. Students in Blue House excel in team sports
-          where communication and tactical play are key. Their ability
-          to work seamlessly together makes them formidable opponents
-          and supportive teammates.
-        </p>
-        <p data-i18n="blue_house_paragraph_2">
-          Blue House emphasizes mutual respect, understanding, and the
-          power of collective effort. They teach that true strength
-          lies in unity and the ability to adapt as a cohesive unit,
-          fostering a deep sense of camaraderie among its members.
-        </p>
+        <p data-i18n="blue_house_p1"></p>
+        <p data-i18n="blue_house_p2"></p>
         <div class="house-motto">
-          <strong>Motto:</strong> "Calm, Strategy, Unity."
+          <strong data-i18n="blue_house_motto_label"></strong>
+          <span data-i18n="blue_house_motto_text"></span>
         </div>
       </div>
 
-      <!-- Image Column -->
       <div class="house-image" data-aos="fade-right">
         <img
           src="/final/ho-1.webp"
-          alt="Blue House students demonstrating teamwork and Ghaden House spirit"
           class="responsive-image"
-          data-i18n-alt="blue_house_image_alt"
+          data-i18n-alt="blue_house_img_alt"
           loading="lazy"
         />
       </div>
@@ -62,8 +47,14 @@
     justify-content: center;
   }
 
-  .house-image { grid-area: image; text-align: center; }
-  .house-text { grid-area: text; text-align: left; }
+  .house-image {
+    grid-area: image;
+    text-align: center;
+  }
+  .house-text {
+    grid-area: text;
+    text-align: left;
+  }
 
   /* --- Text --- */
   .house-text p {

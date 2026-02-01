@@ -58,7 +58,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       <a
         href={BASE_PATH}
         class="header-logo-link"
-        data-i18n-alt="brand_link_aria"
+        data-i18n-aria="brand_link_aria"
         aria-label="Tharlam Academy Home"
       >
         <img
@@ -68,8 +68,8 @@ const getPath = (route) => `${BASE_PATH}${route}`;
           data-i18n-alt="brand_logo_alt"
         />
         <div class="text-group">
-          <h2 data-i18n="brand_title">Tharlam Academy</h2>
-          <p data-i18n="brand_address">Boudha-6, Kathmandu, Nepal</p>
+          <h2 data-i18n="brand_title"></h2>
+          <p data-i18n="brand_address"></p>
         </div>
       </a>
     </div>
@@ -103,22 +103,21 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
     <div class="nav-controls" id="navLinks">
       <ul class="nav-links-list">
-        <li><a href={BASE_PATH} data-i18n="nav_home">Home</a></li>
+        <li><a href={BASE_PATH} data-i18n="nav_home"></a></li>
 
-        <li><a href={getPath("about")} data-i18n="nav_about">About</a></li>
+        <li><a href={getPath("about")} data-i18n="nav_about"></a></li>
 
-        <li><a href={getPath("sport")} data-i18n="nav_sport">Sport</a></li>
+        <li><a href={getPath("sport")} data-i18n="nav_sport"></a></li>
         <li>
-          <a href={getPath("sponsor")} data-i18n="nav_sponsor">Sponsor</a>
+          <a href={getPath("sponsor")} data-i18n="nav_sponsor"></a>
         </li>
-        <li><a href={getPath("faq")} data-i18n="nav_faq">FAQ</a></li>
+        <li><a href={getPath("faq")} data-i18n="nav_faq"></a></li>
 
         <li>
           <a
             href={getPath("contact")}
             class="nav-contact-link"
-            data-i18n="nav_contact">Contact</a
-          >
+            data-i18n="nav_contact"></a>
         </li>
       </ul>
     </div>
@@ -362,7 +361,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
 
   .mobile-tools {
     display: none;
-  } 
+  }
 
   .menu-toggle {
     display: none;
@@ -488,7 +487,7 @@ const getPath = (route) => `${BASE_PATH}${route}`;
     /* SCROLLABLE CONTACT BAR ONLY */
     .top-bar {
       padding: 6px 15px;
-      overflow-x: auto; 
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none; /* Hide scrollbar Firefox */
       display: block;
@@ -500,20 +499,20 @@ const getPath = (route) => `${BASE_PATH}${route}`;
       display: flex;
       flex-wrap: nowrap; /* Force one line */
       justify-content: flex-start;
-      width: max-content; 
+      width: max-content;
       gap: 15px;
     }
     .contact-info {
       display: flex;
-      flex-wrap: nowrap; 
-      justify-content: flex-start; 
+      flex-wrap: nowrap;
+      justify-content: flex-start;
       width: 100%;
       margin-bottom: 0;
-      font-size: 0.85rem; 
+      font-size: 0.85rem;
     }
     .contact-info span {
       margin-right: 20px;
-      white-space: nowrap; 
+      white-space: nowrap;
     }
 
     /* ALL OTHER ORIGINAL MENU/LOGO LOGIC BELOW */
