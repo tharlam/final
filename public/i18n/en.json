@@ -337,26 +337,19 @@
 
   "faq_q_4": "Where is the Academy located?",
   "faq_a_4": "Tharlam Academy is located in Kathmandu, Nepal, operating as a part of the Tharlam Monastery complex.",
-
-  "contact_title_prefix": "Get In ",
-  "contact_title_highlight": "Touch",
-  "contact_title_suffix": " With Us",
-  "contact_subtitle": "We're ready to discuss your next project or answer any inquiries.",
-  "label_location": "Location",
-  "label_email": "Email",
-  "label_phone": "Phone",
-  "info_location": "Boudha-6, Kathmandu, Nepal",
-  "label_form_email": "Email Address",
-  "label_form_name": "Name",
-  "label_form_phone": "Phone",
-  "label_form_message": "Message",
-  "placeholder_email": "example@mail.com",
-  "placeholder_name": "Your Name",
-  "placeholder_phone": "Phone Number",
-  "placeholder_message": "How can we help?",
-  "btn_submit_message": "Submit Message",
-  "btn_close": "Close",
-  "modal_success_title": "Message Sent!",
-  "modal_success_text": "Thank you for reaching out. We will get back to you shortly."
-
+  
+  "// contact SECTION": "-----------------------------------------",
+  "contact_title_prefix": "Contact",
+  "contact_title_highlight": " Us",
+  "contact_label_email": "Email",
+  "contact_label_name": "Full Name",
+  "contact_label_email_addr": "Email Address",
+  "contact_label_phone": "Phone Number",
+  "contact_label_address": "Address",
+  "contact_label_message": "Your Message",
+  "contact_btn_send": "Send Message",
+  "contact_btn_sending": "Sending...",
+  "contact_success_title": "Sent Successfully!",
+  "contact_success_text": "We will get back to you shortly.",
+  "contact_btn_close": "Close"
 }
