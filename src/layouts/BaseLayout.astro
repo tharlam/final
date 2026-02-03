@@ -1,27 +1,29 @@
 ---
 // src/layouts/BaseLayout.astro
 
-// 1. Imports
+// Import components
 import Header from "../components/nav.astro";
 import Footer from "../components/Footer.astro";
-import "../styles/global.css";
-import "../styles/about-section.css";
 
-// 2. Interface for Props
+// Import global styles
+import "../styles/global.css"; 
+import "../styles/about-section.css"; 
+
 interface Props {
     title: string;
     description?: string;
 }
 
-// 3. Variables & Defaults
-const {
-    title,
-    description = "Welcome to Tharlam Academy, a monastic school dedicated to traditional Buddhist studies, modern education, and the daily practice of mindfulness for young monks.",
+// Variables for your specific GitHub Pages setup
+const { 
+    title, 
+    description = "Welcome to Tharlam Academy, a monastic school dedicated to traditional Buddhist studies, modern education, and the daily practice of mindfulness for young monks." 
 } = Astro.props;
 
-const BASE_PATH = import.meta.env.BASE_URL; // This is "/final/"
-const SITE_URL = "https://tharlam.github.io";
+const BASE_PATH = import.meta.env.BASE_URL; // This equals "/final/"
+const SITE_URL = "https://tharlam.github.io"; 
 const FULL_URL = SITE_URL + BASE_PATH;
+const OG_IMAGE = FULL_URL + "private-assets/og-share.jpg";
 ---
 
 <!doctype html>
@@ -33,19 +35,13 @@ const FULL_URL = SITE_URL + BASE_PATH;
         <title>{title} | Tharlam Academy</title>
         <meta name="title" content={`${title} | Tharlam Academy`} />
         <meta name="description" content={description} />
-        <meta
-            name="keywords"
-            content="Tharlam Academy, Monastic School, Buddhist Education, Young Monks, Mindfulness, Gumba, Nepal"
-        />
+        <meta name="keywords" content="Tharlam Academy, Monastic School, Buddhist Education, Young Monks, Mindfulness, Gumba School, Nepal" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={FULL_URL} />
         <meta property="og:title" content={`${title} | Tharlam Academy`} />
         <meta property="og:description" content={description} />
-        <meta
-            property="og:image"
-            content={`${SITE_URL}${BASE_PATH}private-assets/og-share.jpg`}
-        />
+        <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -53,47 +49,26 @@ const FULL_URL = SITE_URL + BASE_PATH;
         <meta property="twitter:url" content={FULL_URL} />
         <meta property="twitter:title" content={`${title} | Tharlam Academy`} />
         <meta property="twitter:description" content={description} />
-        <meta
-            property="twitter:image"
-            content={`${SITE_URL}${BASE_PATH}private-assets/og-share.jpg`}
-        />
+        <meta property="twitter:image" content={OG_IMAGE} />
 
         <link rel="manifest" href={`${BASE_PATH}site.webmanifest`} />
         <meta name="theme-color" content="#ffffff" />
-        <link
-            rel="icon"
-            type="image/svg+xml"
-            href={`${BASE_PATH}favicon.svg`}
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href={`${BASE_PATH}apple-touch-icon.png`}
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href={`${BASE_PATH}favicon-96x96.png`}
-        />
+        <link rel="icon" type="image/svg+xml" href={`${BASE_PATH}favicon.svg`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_PATH}apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" sizes="96x96" href={`${BASE_PATH}favicon-96x96.png`} />
         <link rel="icon" href={`${BASE_PATH}favicon.ico`} />
 
-        <link
-            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-            rel="stylesheet"
-        />
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
         <link rel="stylesheet" href={`${BASE_PATH}fa/css/all.min.css`} />
     </head>
 
     <body>
         <Header />
-
         <main>
             <div class="site-content-container">
                 <slot />
             </div>
         </main>
-
         <Footer />
 
         <script is:inline define:vars={{ BASE_PATH }}>
@@ -101,9 +76,7 @@ const FULL_URL = SITE_URL + BASE_PATH;
         </script>
 
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"
-        ></script>
-        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"
-        ></script>
+        <script src={`${BASE_PATH}scripts/i18n-switcher.js`} defer type="module"></script>
+        <script src={`${BASE_PATH}scripts/reinit.js`} defer type="module"></script>
     </body>
 </html>
