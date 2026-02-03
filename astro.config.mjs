@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
     // 🌐 DEPLOYMENT CONFIGURATION
-    site: 'https://tharlam.github.io/final/',
+    site: 'https://tharlam.github.io',
     base: '/final/', 
 
     // 1. Integrations:
