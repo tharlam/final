@@ -1,7 +1,8 @@
 <section class="full-width-map">
   <div class="map-wrapper">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.810578652399!2d85.3619541172313!3d27.72313853521327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190db5253543%3A0x431e54438e7ae535!2sTharlam%20Monastery!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.970845353592!2d85.3582496761661!3d27.71815852501064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d3b5f283b7%3A0x7481ec0479ca6f36!2sTharlam%20Academy!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+      title="Tharlam Academy Location"
       width="100%"
       height="450"
       style="border:0;"
@@ -14,12 +15,12 @@
 </section>
 
 <style>
-  /* --- Strict Root Rule (global2.css) --- */
   .full-width-map {
     width: 100%;
     line-height: 0;
-    background-color: var(--color-text-white);
-    padding-top: var(--space-section);
+    background-color: var(--color-text-white, #ffffff);
+    padding-top: var(--space-section, 50px);
+    overflow: hidden; /* Prevents scrollbars from the shadow */
   }
 
   .map-wrapper {
@@ -27,30 +28,31 @@
     margin: 0;
     padding: 0;
     border: none;
-    text-decoration: none;
   }
 
-  iframe {
+  .map-wrapper iframe {
     width: 100%;
     display: block;
+    /* Subtle grayscale for a professional look */
     filter: grayscale(0.2);
-    box-shadow: 0 -5px 15px var(--shadow-light);
-    transition: filter 0.3s ease;
+    box-shadow: 0 -5px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
   }
 
-  iframe:hover {
+  /* Brings back full color when the user interacts */
+  .map-wrapper iframe:hover {
     filter: grayscale(0);
   }
 
-  /* --- Professional Mobile Height --- */
+  /* Responsive Heights */
   @media (max-width: 768px) {
-    iframe {
+    .map-wrapper iframe {
       height: 350px;
     }
   }
 
   @media (max-width: 480px) {
-    iframe {
+    .map-wrapper iframe {
       height: 300px;
     }
   }
