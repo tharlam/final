@@ -1,0 +1,149 @@
+<section id="legacy" class="legacy-section">
+  <div class="container">
+    <p class="section-main-title" data-aos="fade-up" data-i18n="legacy_title">
+    </p>
+    <p class="subsection-title" data-aos="fade-up" data-i18n="legacy_subtitle">
+    </p>
+
+    <div class="legacy-grid">
+      <div class="legacy-text" data-aos="fade-left">
+        <p class="legacy-sub-heading" data-i18n="roots_title"></p>
+        <p data-i18n="roots_p1"></p>
+        <p data-i18n="roots_p2"></p>
+      </div>
+
+      <div class="legacy-image" data-aos="fade-right">
+        <img
+          src="/final/gallery/about-3.webp"
+          class="responsive-image"
+          data-i18n-alt="monastery_img_alt"
+        />
+        <p class="image-caption" data-i18n="monastery_caption"></p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="legacy-grid legacy-grid-reversed">
+      <div class="legacy-text" data-aos="fade-right">
+        <p class="legacy-sub-heading" data-i18n="academy_legacy_title"></p>
+        <p data-i18n="academy_legacy_p1"></p>
+        <p data-i18n="academy_legacy_p2"></p>
+      </div>
+
+      <div class="legacy-image" data-aos="fade-left">
+        <img
+          src="/final/private-assets/about-4.webp"
+          class="responsive-image"
+          data-i18n-alt="academy_img_alt"
+        />
+        <p class="image-caption" data-i18n="academy_caption"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .legacy-section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-section-bg, #f8f9fa);
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin-inline: auto;
+    padding: var(--space-container);
+  }
+
+  .section-main-title {
+    font-size: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--space-small);
+  }
+
+  .subsection-title {
+    font-size: var(--font-body);
+    color: var(--color-text-dark);
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: var(--space-gap);
+  }
+
+  .legacy-grid {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 1fr; /* mobile stack */
+    align-items: start;
+    margin-bottom: var(--space-section);
+  }
+
+  @media (min-width: 768px) {
+    .legacy-grid {
+      grid-template-columns: 2fr 1fr; /* text bigger, image smaller */
+    }
+  }
+
+  .legacy-grid-reversed {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 1fr;
+    align-items: start;
+    margin-bottom: var(--space-section);
+  }
+
+  @media (min-width: 768px) {
+    .legacy-grid-reversed {
+      grid-template-columns: 1fr 2fr;
+    }
+    .legacy-grid-reversed .legacy-text {
+      order: 2; /* text on right */
+    }
+    .legacy-grid-reversed .legacy-image {
+      order: 1; /* image on left */
+    }
+  }
+
+  .legacy-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    line-height: var(--line-height-text);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .legacy-sub-heading {
+    font-size: var(--font-body);
+    color: var(--color-heading);
+    font-weight: 700;
+    margin-bottom: var(--space-small);
+  }
+
+  .legacy-image .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    object-fit: cover;
+    display: block;
+  }
+
+  .image-caption {
+    font-style: italic;
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-top: var(--space-small);
+    text-align: center;
+  }
+
+  .section-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--color-text);
+    margin: var(--space-gap) auto;
+    width: 80%;
+  }
+</style>

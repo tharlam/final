@@ -1,0 +1,203 @@
+<section id="mission" class="glance-section">
+  <div class="glance-overlay"></div>
+  <div class="glance-content-wrapper">
+    <div class="glance-header-row">
+      <h2 class="glance-title" data-i18n="mission_vision_title"></h2>
+
+      <div class="glance-navigation">
+        <button class="glance-prev-btn" aria-label="Previous card">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="glance-next-btn" aria-label="Next card">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="glance-slider-wrapper">
+      <div class="glance-cards-container">
+        <div
+          class="glance-card"
+          data-index="0"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <i class="fas fa-bullseye glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="mission_card_title"></h3>
+          <p class="glance-card-description" data-i18n="mission_p1"></p>
+        </div>
+
+        <div
+          class="glance-card"
+          data-index="1"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <i class="fas fa-lightbulb glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="vision_card_title"></h3>
+          <p class="glance-card-description" data-i18n="vision_p1"></p>
+        </div>
+
+        <div
+          class="glance-card"
+          data-index="2"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <i class="fas fa-hands-helping glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="values_card_title"></h3>
+          <p class="glance-card-description" data-i18n="values_p1"></p>
+        </div>
+
+        <div
+          class="glance-card"
+          data-index="3"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <i class="fas fa-users glance-icon"></i>
+          <h3 class="glance-card-title" data-i18n="community_card_title"></h3>
+          <p class="glance-card-description" data-i18n="community_p1"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .glance-section {
+    position: relative;
+    padding: var(--space-section) 0;
+    color: #fff;
+    overflow: hidden;
+    background: url("/final/gallery/bg wall.webp") no-repeat center center/cover fixed;
+    text-align: center;
+  }
+
+  .glance-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 31, 63, 0.7);
+    z-index: 1;
+  }
+
+  .glance-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container);
+  }
+
+  .glance-title {
+    font-size: var(--font-heading);
+    color: #fff;
+    margin-bottom: var(--space-gap);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .glance-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-gap);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .glance-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: clamp(1rem, 2vw, 2rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    text-align: center;
+    flex: 1 1 calc(25% - var(--space-gap));
+    min-width: 220px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .glance-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-small);
+  }
+
+  .glance-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--space-small);
+    color: var(--color-primary);
+  }
+
+  .glance-card-description {
+    font-size: var(--font-body);
+    line-height: 1.8;
+    color: var(--color-text);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  .glance-navigation {
+    display: none; /* hidden by default */
+  }
+</style>
+
+<script is:inline>
+  function setupGlanceSlider() {
+    const container = document.querySelector(".glance-cards-container");
+    if (!container) return;
+
+    const prevBtn = document.querySelector(".glance-prev-btn");
+    const nextBtn = document.querySelector(".glance-next-btn");
+    const cards = document.querySelectorAll(".glance-card");
+    const cardCount = cards.length;
+    let currentIndex = 0;
+
+    function getGap() {
+      return parseInt(getComputedStyle(container).gap) || 0;
+    }
+
+    function updateSlider() {
+      const gap = getGap();
+      const cardStepSize =
+        container.querySelector(".glance-card").offsetWidth + gap;
+      const offset = -(currentIndex * cardStepSize);
+      container.style.transform = `translateX(${offset}px)`;
+
+      if (prevBtn) prevBtn.classList.toggle("hidden", currentIndex === 0);
+      if (nextBtn)
+        nextBtn.classList.toggle("hidden", currentIndex === cardCount - 1);
+    }
+
+    updateSlider();
+
+    if (nextBtn)
+      nextBtn.onclick = () => {
+        if (currentIndex < cardCount - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      };
+
+    if (prevBtn)
+      prevBtn.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      };
+
+    window.addEventListener("resize", () => {
+      currentIndex = 0;
+      updateSlider();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", setupGlanceSlider);
+  document.addEventListener("astro:page-load", setupGlanceSlider);
+</script>

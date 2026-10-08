@@ -1,0 +1,366 @@
+<section class="interactive-tabs-section">
+  <div class="container interactive-tabs-grid">
+    <div class="tabs-navigation" data-aos="fade-right">
+      <button
+        class="tab-button active"
+        data-tab="daily-schedule"
+        data-i18n="tab_daily"
+      ></button>
+      <button
+        class="tab-button"
+        data-tab="saturday-activities"
+        data-i18n="tab_sports"
+      ></button>
+      <button
+        class="tab-button"
+        data-tab="friday-activities"
+        data-i18n="tab_friday"
+      ></button>
+    </div>
+
+    <div class="tabs-content-wrapper" data-aos="fade-left">
+      <div id="daily-schedule" class="tab-panel active">
+        <p class="tab-panel-title" data-i18n="daily_title"></p>
+        <p class="tab-panel-intro" data-i18n="daily_p1"></p>
+        <div class="schedule-table-wrapper">
+          <table class="daily-schedule-table">
+            <thead>
+              <tr>
+                <th data-i18n="header_time"></th>
+                <th data-i18n="header_activity"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="time_530"></td><td data-i18n="daily_act1"></td></tr>
+              <tr><td data-i18n="time_700"></td><td data-i18n="daily_act2"></td></tr>
+              <tr><td data-i18n="time_740"></td><td data-i18n="daily_act3"></td></tr>
+              <tr><td data-i18n="time_1030"></td><td data-i18n="daily_act4"></td></tr>
+              <tr><td data-i18n="time_1530"></td><td data-i18n="daily_act5"></td></tr>
+              <tr><td data-i18n="time_1800"></td><td data-i18n="daily_act6"></td></tr>
+              <tr><td data-i18n="time_2030"></td><td data-i18n="daily_act7"></td></tr>
+              <tr><td data-i18n="time_2130"></td><td data-i18n="daily_act8"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="saturday-activities" class="tab-panel">
+        <p class="tab-panel-title" data-i18n="sportss_title"></p>
+        <p class="tab-panel-intro" data-i18n="sportsss_p1"></p>
+        <div class="schedule-table-wrapper">
+          <table class="daily-schedule-table">
+            <thead>
+              <tr>
+                <th data-i18n="header_game"></th>
+                <th data-i18n="header_participants"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="sports_g1"></td><td data-i18n="sports_p1_desc"></td></tr>
+              <tr><td data-i18n="sports_g2"></td><td data-i18n="sports_p2_desc"></td></tr>
+              <tr><td data-i18n="sports_g3"></td><td data-i18n="sports_p3_desc"></td></tr>
+              <tr><td data-i18n="sports_g4"></td><td data-i18n="sports_p4_desc"></td></tr>
+              <tr><td data-i18n="sports_g5"></td><td data-i18n="sports_p5_desc"></td></tr>
+              <tr><td data-i18n="sports_g6"></td><td data-i18n="sports_p6_desc"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="friday-activities" class="tab-panel">
+        <p class="tab-panel-title" data-i18n="friday_title"></p>
+        <p class="tab-panel-intro" data-i18n="friday_p1"></p>
+        <div class="schedule-table-wrapper">
+          <table class="daily-schedule-table">
+            <thead>
+              <tr>
+                <th data-i18n="header_activity"></th>
+                <th data-i18n="header_description"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="fri_act1"></td><td data-i18n="fri_desc1"></td></tr>
+              <tr><td data-i18n="fri_act2"></td><td data-i18n="fri_desc2"></td></tr>
+              <tr><td data-i18n="fri_act3"></td><td data-i18n="fri_desc3"></td></tr>
+              <tr><td data-i18n="fri_act4"></td><td data-i18n="fri_desc4"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    /* --- Interactive Tabs Section --- */
+.interactive-tabs-section {
+  padding: var(--space-section) 0;
+  background-color: var(--color-section-bg, var(--background-light));
+}
+
+/* Desktop Layout */
+.interactive-tabs-grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-gap);
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: var(--space-container);
+}
+
+/* Tabs Navigation */
+.tabs-navigation {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 220px;
+  background-color: var(--color-text-white);
+  border-radius: var(--space-small);
+  padding: var(--space-small) 0;
+  box-shadow: var(--shadow-light);
+  height: fit-content;
+}
+
+.tab-button {
+  flex-shrink: 0;
+  padding: var(--space-small) var(--space-gap);
+  font-size: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 9px; /* 🔹 slight rounded edge */
+}
+
+.tab-button.active {
+  color: var(--color-text-white);
+  font-weight: 700;
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-primary);
+  border-radius: 9px; /* 🔹 keep consistent when active */
+}
+
+
+.tab-button.active {
+  color: var(--color-text-white);
+  font-weight: 700;
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+/* Tab Content */
+.tabs-content-wrapper {
+  flex-grow: 1;
+  background-color: var(--color-text-white);
+  padding: var(--space-gap);
+  border-radius: var(--space-small);
+  box-shadow: var(--shadow-light);
+  min-height: 400px;
+}
+
+.tab-panel-title {
+  font-size: var(--font-heading);
+  color: var(--color-heading);
+  margin-bottom: var(--space-small);
+  border-bottom: 2px solid var(--border-light-blue, #e0e0e0);
+  padding-bottom: var(--space-small);
+}
+
+.tab-panel-intro {
+  font-size: var(--font-body);
+  color: var(--color-text);
+  line-height: var(--line-height-text);
+  margin-bottom: var(--space-gap);
+}
+
+/* Table Styling */
+.daily-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-small);
+  font-size: var(--font-body);
+}
+
+.daily-schedule-table th,
+.daily-schedule-table td {
+  padding: var(--space-small) var(--space-container);
+  text-align: left;
+}
+
+.daily-schedule-table thead th {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.daily-schedule-table tbody tr:nth-child(odd) {
+  background-color: var(--color-section-bg, #f6f6f6);
+}
+
+.daily-schedule-table td:first-child {
+  font-weight: 600;
+  color: var(--color-primary);
+  width: 120px;
+}
+
+/* Visibility */
+.tab-panel {
+  display: none;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.tab-panel.active {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .interactive-tabs-section {
+    padding: var(--space-gap) 0;
+  }
+
+  .interactive-tabs-grid {
+    flex-direction: column;
+    gap: var(--space-small);
+    padding: 0 var(--space-small);
+  }
+
+  .tabs-navigation {
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--color-text-white);
+    border-radius: var(--space-small);
+    box-shadow: var(--shadow-light);
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: var(--space-small);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tabs-navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-button {
+    flex-shrink: 0;
+    min-width: 120px;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    margin-right: var(--space-small);
+    background-color: transparent;
+    padding: var(--space-small);
+    font-size: var(--font-body);
+  }
+
+  .tab-button.active {
+    border-bottom: 3px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    font-weight: 700;
+  }
+
+  .tabs-content-wrapper {
+    padding: var(--space-small);
+  }
+
+  .tab-panel-title {
+    font-size: var(--font-heading);
+    padding-bottom: var(--space-small);
+  }
+
+  .tab-panel-intro {
+    font-size: var(--font-body);
+    margin-bottom: var(--space-small);
+  }
+
+  .daily-schedule-table {
+    font-size: var(--font-body);
+  }
+
+  .daily-schedule-table th,
+  .daily-schedule-table td {
+    padding: var(--space-small);
+  }
+}
+
+</style>
+
+<script is:inline>
+  // src/Scripts/scheduleTabs.js
+
+  (function () {
+    /**
+     * Initializes the schedule tab switching functionality.
+     * Safe to run multiple times (Astro View Transitions).
+     */
+    function initializeScheduleTabs() {
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanels = document.querySelectorAll(".tab-panel");
+
+      if (tabButtons.length === 0 || tabPanels.length === 0) return;
+
+      const handleTabClick = (button) => {
+        const targetTabId = button.dataset.tab;
+
+        // Reset buttons
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+        // Reset panels
+        tabPanels.forEach((panel) => {
+          panel.classList.remove("active", "fade-in");
+          void panel.offsetHeight; // force reflow
+        });
+
+        // Activate button
+        button.classList.add("active");
+
+        // Activate panel
+        const targetPanel = document.getElementById(targetTabId);
+        if (targetPanel) {
+          targetPanel.classList.add("active", "fade-in");
+        }
+      };
+
+      const tabListener = (event) => {
+        handleTabClick(event.currentTarget);
+      };
+
+      tabButtons.forEach((button) => {
+        button.removeEventListener("click", tabListener);
+        button.addEventListener("click", tabListener);
+      });
+
+      // Default activation
+      const activeTab = document.querySelector(".tab-button.active");
+      if (!activeTab && tabButtons.length > 0) {
+        handleTabClick(tabButtons[0]);
+      } else if (activeTab) {
+        handleTabClick(activeTab);
+      }
+    }
+
+    // Execution triggers
+    document.addEventListener("DOMContentLoaded", initializeScheduleTabs);
+    document.addEventListener("astro:page-load", initializeScheduleTabs);
+  })();
+</script>

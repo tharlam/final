@@ -1,0 +1,97 @@
+<section id="what-we-do" class="what-we-do-section">
+  <div class="container">
+    <div class="what-we-do-grid">
+      <div class="what-we-do-image" data-aos="fade-right" data-aos-delay="200">
+        <img
+          src="/final/private-assets/about-2.webp"
+          alt="Students collaborating"
+          class="responsive-image"
+          data-i18n-alt="what_we_do_img_alt"
+        />
+      </div>
+
+      <div class="what-we-do-text" data-aos="fade-left" data-aos-delay="100">
+        <p class="section-sub-title" data-i18n="what_we_do_title"></p>
+
+        <p class="section-tagline">
+          <strong data-i18n="what_we_do_tagline"></strong>
+        </p>
+
+        <p data-i18n="what_we_do_p1"></p>
+        <p data-i18n="what_we_do_p2"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Section Basics --- */
+  .what-we-do-section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-section-bg, #f8f9fa);
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin-inline: auto;
+    padding: var(--space-container);
+  }
+
+  /* --- Headings & Tagline --- */
+  .section-sub-title {
+    color: var(--color-heading);
+    font-size: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: var(--space-small);
+    letter-spacing: 0.06em;
+  }
+
+  .section-tagline {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    margin: 0 0 var(--space-small) 0;
+    line-height: 1.4;
+  }
+
+  /* --- Grid Layout --- */
+  .what-we-do-grid {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 1fr; /* mobile default */
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .what-we-do-grid {
+      grid-template-columns: 1.5fr 2fr; /* text bigger, photo smaller */
+    }
+  }
+
+  /* --- Text --- */
+  .what-we-do-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    line-height: var(--line-height-text);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .what-we-do-text p strong {
+    color: var(--color-heading);
+    font-weight: bold;
+  }
+
+  /* --- Image --- */
+  .what-we-do-image .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    object-fit: cover;
+    display: block;
+  }
+</style>

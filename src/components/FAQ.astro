@@ -1,0 +1,234 @@
+---
+// src/components/FAQSection.astro
+// The array now only needs to exist to tell Astro how many items to render
+const faqItems = [0, 1, 2, 3, 4]; 
+---
+
+<section class="faq-section">
+  <div class="container">
+    <div class="header-content">
+      <h2 class="faq-title" data-aos="fade-right">
+        <span data-i18n="faq_title_main"></span>
+        <span class="highlight" data-i18n="faq_title_highlight"></span>
+      </h2>
+      <p class="faq-subtitle" data-aos="fade-right" data-aos-delay="50" data-i18n="faq_subtitle">
+      </p>
+    </div>
+
+    <div class="faq-items-wrapper" data-aos="fade-left" data-aos-delay="100">
+      <div class="faq-list">
+        {faqItems.map((_, index) => (
+          <div class={`faq-item ${index === 0 ? 'open' : ''}`}>
+            <button class="faq-question-button" aria-expanded={index === 0 ? 'true' : 'false'}>
+              <span class="question-text" data-i18n={`faq_q_${index}`}></span>
+              <span class="toggle-icon">{index === 0 ? '−' : '+'}</span>
+            </button>
+            <div class="faq-answer">
+              <div class="answer-label" data-i18n="faq_answer_label"></div>
+              <p data-i18n={`faq_a_${index}`}></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* --- SECTION --- */
+.faq-section {
+  padding: var(--space-section) 0;
+  background-color: #f7f7f7; /* keep original background */
+}
+.container {
+  width: var(--container-width);
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: 0 var(--space-container);
+  display: flex;
+  gap: var(--space-gap);
+  align-items: flex-start;
+}
+
+/* --- HEADER --- */
+.header-content {
+  flex: 1 1 35%; 
+  min-width: 300px;
+}
+.faq-items-wrapper {
+  flex: 1 1 65%;
+  max-width: 800px;
+}
+.faq-title {
+  font-size: var(--font-heading);
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a2a47; /* keep original color */
+  margin-bottom: var(--space-small);
+}
+.faq-title .highlight {
+  color: #1e87f0;
+  display: block;
+}
+.faq-subtitle {
+  font-size: var(--font-body);
+  font-family: inherit;
+  color: #666;
+  margin-bottom: var(--space-gap);
+}
+
+/* --- FAQ LIST --- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+}
+.faq-item {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--space-small);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+.faq-item.open {
+  border-color: #1e87f0;
+  box-shadow: var(--shadow-medium);
+}
+.faq-question-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-small) var(--space-gap);
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--font-body);
+  font-family: inherit;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s, background-color 0.3s;
+}
+.faq-question-button:hover {
+  color: #1a2a47;
+  background-color: #fcfcfc;
+}
+.question-text {
+  flex-grow: 1;
+  line-height: var(--line-height-text);
+}
+.toggle-icon {
+  font-size: var(--font-body);
+  font-family: inherit;
+  color: #333;
+  transition: color 0.3s;
+}
+.faq-item.open .toggle-icon {
+  color: #1e87f0;
+}
+
+/* --- ANSWER --- */
+.faq-answer {
+  padding: 0 var(--space-gap);
+  border-top: 1px solid #eee;
+  background-color: #fcfcfc;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.faq-item.open .faq-answer {
+  max-height: 500px;
+  padding: var(--space-small) var(--space-gap) var(--space-gap);
+}
+.answer-label {
+  font-size: var(--space-small);
+  font-family: inherit;
+  font-weight: 700;
+  color: #1e87f0;
+  text-transform: uppercase;
+  margin-bottom: var(--space-small);
+}
+.faq-answer p {
+  font-size: var(--font-body);
+  font-family: inherit;
+  line-height: var(--line-height-text);
+  color: #555;
+  margin: 0;
+}
+
+/* --- SINGLE BREAKPOINT --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: var(--space-gap);
+  }
+  .header-content,
+  .faq-items-wrapper {
+    max-width: 100%;
+    flex: unset;
+  }
+}
+</style>
+
+<script is:inline>
+function initializeFAQAccordion() {
+  const faqSection = document.querySelector('.faq-section');
+  if (!faqSection) return;
+
+  const faqQuestions = faqSection.querySelectorAll('.faq-question-button');
+
+  const toggleAccordion = (question) => {
+    const faqItem = question.closest('.faq-item');
+    const icon = faqItem.querySelector('.toggle-icon');
+    const isActive = faqItem.classList.contains('open');
+
+    // Close others
+    faqSection.querySelectorAll('.faq-item.open').forEach(otherItem => {
+      if (otherItem !== faqItem) {
+        otherItem.classList.remove('open');
+        otherItem.querySelector('.faq-question-button').setAttribute('aria-expanded', 'false');
+        otherItem.querySelector('.toggle-icon').textContent = '+';
+      }
+    });
+
+    // Toggle current
+    if (isActive) {
+      faqItem.classList.remove('open');
+      question.setAttribute('aria-expanded', 'false');
+      icon.textContent = '+';
+    } else {
+      faqItem.classList.add('open');
+      question.setAttribute('aria-expanded', 'true');
+      icon.textContent = '−';
+    }
+  };
+
+  faqQuestions.forEach(question => {
+    if (question.hasAttribute('data-accordion-initialized')) return;
+    question.setAttribute('data-accordion-initialized', 'true');
+
+    if (question.closest('.faq-item').classList.contains('open')) {
+      question.setAttribute('aria-expanded', 'true');
+      question.querySelector('.toggle-icon').textContent = '−';
+    }
+
+    question.addEventListener('click', e => {
+      e.preventDefault();
+      toggleAccordion(question);
+    });
+
+    question.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggleAccordion(question);
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initializeFAQAccordion);
+document.addEventListener('astro:page-load', initializeFAQAccordion);
+</script>

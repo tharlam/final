@@ -1,0 +1,55 @@
+---
+// src/components/PageBanner.astro
+
+// 1. Define the props for the component
+interface Props {
+    title: string; // e.g., "About Us"
+    imageUrl: string; // e.g., "/images/about-banner.jpg"
+}
+
+// 2. Destructure the props
+const { title, imageUrl } = Astro.props;
+---
+
+<section class="page-banner">
+    <div class="banner-content">
+        <h1>{title}</h1>
+    </div>
+</section>
+
+<style define:vars={{ bannerImage: `url('${imageUrl}')` }}>
+    /* The style block uses CSS variables (define:vars) 
+        to pass the dynamic image URL into the CSS.
+    */
+    .page-banner {
+        /*
+            We use the CSS variable --bannerImage set in define:vars
+            to dynamically change the background image per component usage.
+        */
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.4), /* Darker overlay for better text readability */
+                rgba(0, 0, 0, 0.4)
+            ),
+            var(--bannerImage); 
+            
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+        /* Adjust height/padding as needed for your design */
+        height: 450px; /* Example height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .banner-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin: 0;
+        /* Optional: Add a shadow for better visibility over light parts of the image */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+</style>

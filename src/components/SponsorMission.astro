@@ -1,0 +1,113 @@
+<section id="support-mission" class="support-section" data-aos="fade-up">
+  <div class="container">
+    <div class="support-content-grid">
+      <div
+        class="support-text-column"
+        data-aos="fade-right"
+        data-aos-delay="100"
+      >
+        <p class="support-description" data-i18n="support_p1"></p>
+        <p class="support-description" data-i18n="support_p2"></p>
+      </div>
+
+      <div class="support-cta-column" data-aos="fade-left" data-aos-delay="200">
+        <p class="support-cta-text" data-i18n="support_cta_text"></p>
+        <a
+          href="/final/contact"
+          class="btn-support-contact"
+          data-i18n="support_cta_button"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Section Basics --- */
+  .support-section {
+    padding: var(--space-section) 0;
+    background-color: #ffffff; /* keep original */
+  }
+
+  /* --- Container --- */
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin-inline: auto;
+    padding: var(--space-container);
+  }
+
+  /* --- Grid Layout --- */
+  .support-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* text dominant */
+    gap: var(--space-gap);
+    align-items: start;
+    justify-content: center;
+  }
+
+  /* --- Text Column --- */
+  .support-text-column {
+    border-right: 1px solid #e0e0e0;
+    padding-right: var(--space-gap);
+  }
+
+  .support-description {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    margin-bottom: var(--space-small);
+    color: #333;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* --- CTA Column --- */
+  .support-cta-column {
+    padding: var(--space-gap);
+    border-radius: 9px;
+    background-color: #f7f9fb;
+    border: 1px solid #e0e0e0;
+    border-top: 3px solid #28a745;
+    box-shadow: none;
+  }
+
+  .support-cta-text {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    margin-bottom: var(--space-small);
+    color: #555;
+  }
+
+  .btn-support-contact {
+    display: inline-block;
+    background-color: #001f3f;
+    color: #ffffff;
+    padding: var(--space-small) var(--space-gap);
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-body);
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-support-contact:hover {
+    background-color: #28a745;
+  }
+
+  /* --- Single Structural Breakpoint --- */
+  @media (max-width: 768px) {
+    .support-content-grid {
+      grid-template-columns: 1fr; /* stack columns */
+      gap: var(--space-small);
+    }
+    .support-text-column {
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding-right: 0;
+      padding-bottom: var(--space-gap);
+    }
+    .btn-support-contact {
+      display: block;
+      text-align: center;
+    }
+  }
+</style>

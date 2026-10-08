@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content'; // 1. Import Astro's Content API
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro'; // 2. Import the Card Component
+
+// 3. Fetch all news entries and sort them by date
+const allNews = (await getCollection('news'))
+    .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout title="News Archive">
+    <section>
+        <h1>Latest School News</h1>
+        
+        {allNews.map((entry) => (
+            // The NewsCard component creates the link to the individual article page
+            <NewsCard entry={entry} /> 
+        ))}
+        
+    </section>
+</BaseLayout>

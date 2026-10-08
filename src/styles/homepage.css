@@ -1,0 +1,12 @@
+/* This styles the overall layout of the homepage */
+.page-modules {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two columns: 2/3 width and 1/3 width */
+    gap: 30px; /* Space between the two columns */
+    margin-top: 50px; /* Space below the hero section */
+}
+
+/* This applies spacing between sections */
+.page-section {
+    margin-bottom: 40px; 
+}

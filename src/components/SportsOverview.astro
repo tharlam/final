@@ -1,0 +1,121 @@
+<section class="sports-main-overview-section">
+  <div class="container">
+    <div class="sports-text-columns-grid">
+      <div
+        class="sports-text-column left-column"
+        data-aos="fade-right"
+        data-aos-delay="100"
+      >
+        <p class="highlight-paragraph" data-i18n="sports_overview_p1"></p>
+        <p data-i18n="sports_overview_p2"></p>
+      </div>
+
+      <div
+        class="sports-text-column right-column supplementary-info-box"
+        data-aos="fade-left"
+        data-aos-delay="200"
+      >
+        <p class="info-box-title" data-i18n="sports_info_title"></p>
+        <p data-i18n="sports_overview_p3"></p>
+        <ul class="key-benefits">
+          <li>
+            <i class="fas fa-check-circle"></i><span
+              data-i18n="sports_benefit_1"></span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i><span
+              data-i18n="sports_benefit_2"></span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i><span
+              data-i18n="sports_benefit_3"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Section Basics --- */
+  .sports-main-overview-section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-section-bg, #f8f8f8);
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container); /* ✅ same as Who We Are */
+  }
+
+  /* --- Grid --- */
+  .sports-text-columns-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* text dominant */
+    gap: var(--space-gap);
+    align-items: start;
+    justify-content: center;
+  }
+
+  /* --- Text --- */
+  .sports-text-column p {
+    font-size: var(--font-body);
+    line-height: var(--line-height-text);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .highlight-paragraph {
+    font-weight: normal; /* no bold */
+    font-style: normal; /* no italic */
+    color: var(--color-primary);
+  }
+
+  /* --- Info Box --- */
+  .supplementary-info-box {
+    background-color: var(--color-accent-light, #e9f5ed);
+    border-radius: var(--space-small);
+    padding: var(--space-gap);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-box-title {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    margin: 0 0 var(--space-small) 0;
+    border-bottom: 2px solid var(--border-light-blue);
+    padding-bottom: var(--space-xsmall);
+    font-weight: 700;
+  }
+
+  /* --- Benefits List --- */
+  .key-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-top: var(--space-small);
+  }
+
+  .key-benefits li {
+    font-size: var(--font-body);
+    margin-bottom: var(--space-xsmall);
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+  }
+
+  .key-benefits li i {
+    color: var(--color-accent-green, #28a745);
+    margin-right: var(--space-xsmall);
+  }
+
+  /* --- Responsive layout --- */
+  @media (max-width: 768px) {
+    .sports-text-columns-grid {
+      grid-template-columns: 1fr; /* stack columns */
+    }
+  }
+</style>

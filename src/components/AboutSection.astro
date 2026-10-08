@@ -1,0 +1,132 @@
+<section id="about" class="about-us-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-i18n="about_title"></h2>
+
+    <div class="about-content-grid">
+      <div class="about-text" data-aos="fade-left">
+        <p data-i18n="about_p1"></p>
+        <p data-i18n="about_p2"></p>
+        <p data-i18n="about_p3"></p>
+        <p data-i18n="about_p4"></p>
+
+        <div class="about-cta">
+          <a href="/final/about" class="btn primary-btn" data-i18n="about_btn"
+          ></a>
+        </div>
+      </div>
+
+      <div class="about-image" data-aos="fade-up">
+        <img
+          src="/final/private-assets/house.webp"
+          class="responsive-image"
+          data-i18n-alt="about_img_alt"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Strict Root Application --- */
+
+  .about-us-section {
+    /* Vertical spacing from root */
+    padding: var(--space-section) 0;
+    background-color: transparent; /* Assuming main background is handled elsewhere */
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    /* Responsive container padding */
+    padding: var(--space-container);
+  }
+
+  .section-title {
+    font-size: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--space-gap);
+  }
+
+  .about-content-grid {
+    display: grid;
+    /* Grid gap from root */
+    gap: var(--space-gap);
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .about-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    /* Space between paragraphs from root */
+    margin-bottom: var(--space-small);
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* Ensuring strong tags match the heading color variable */
+  .about-text p strong {
+    color: var(--color-heading);
+    font-weight: bold;
+  }
+
+  .about-image .responsive-image {
+    width: 100%;
+    height: auto;
+    /* Reusing a small spacing variable for the border radius to keep it consistent */
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-cta {
+    margin-top: var(--space-gap);
+    text-align: left;
+  }
+
+  /* --- Button Strictly using Root --- */
+  .btn {
+    display: inline-block;
+    /* Buttons use body font and root spacing for padding */
+    font-size: var(--font-body);
+    padding: var(--space-small) var(--space-gap);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s;
+  }
+
+  .primary-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+  }
+
+  .primary-btn:hover {
+    background-color: var(--color-btn-hover);
+    border-color: var(--color-btn-hover);
+    transform: translateY(-2px);
+  }
+
+  /* --- The Single Layout Media Query --- */
+  @media (max-width: 768px) {
+    .about-content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      order: -1; /* Image moves to top on mobile */
+    }
+
+    .about-cta {
+      text-align: left;
+    }
+  }
+</style>

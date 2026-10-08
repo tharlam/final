@@ -1,0 +1,137 @@
+---
+// src/components/WhoWeAre.astro
+---
+
+<section id="who-we-are" class="who-we-are-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up" data-i18n="welcome_title"></h2>
+
+    <div class="who-we-are-grid">
+      <div class="who-we-are-text" data-aos="fade-left">
+        <p>
+          <strong data-i18n="welcome_tagline"></strong>
+        </p>
+
+        <p data-i18n="welcome_p1"></p>
+
+        <p>
+          <strong data-i18n="curriculum_title"></strong>
+        </p>
+
+        <p data-i18n="curriculum_p1"></p>
+      </div>
+
+      <div class="who-we-are-image" data-aos="fade-up">
+        <img
+          src="/final/gallery/about-1.webp"
+          alt="School"
+          class="responsive-image"
+          data-i18n-alt="welcome_img_alt"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Section Basics --- */
+  .who-we-are-section {
+    padding: var(--space-section) 0;
+    background-color: transparent;
+  }
+
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: var(--space-container);
+  }
+
+  .section-title {
+    font-size: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--space-gap);
+  }
+
+  .who-we-are-grid {
+    display: grid;
+    gap: var(--space-gap);
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .who-we-are-text p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .who-we-are-text p strong {
+    color: var(--color-heading);
+    font-weight: bold;
+  }
+
+  .who-we-are-image .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .who-we-are-cta {
+    margin-top: var(--space-gap);
+    text-align: left;
+  }
+
+  /* --- Button copied from About section --- */
+  .btn {
+    display: inline-block;
+    font-size: var(--font-body);
+    padding: var(--space-small) var(--space-gap);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s;
+    outline: none;
+  }
+
+  .primary-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+  }
+
+  .primary-btn:hover {
+    background-color: var(--color-btn-hover);
+    border-color: var(--color-btn-hover);
+    transform: translateY(-2px);
+  }
+
+  .primary-btn:focus {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+
+  /* --- Responsive layout --- */
+  @media (max-width: 768px) {
+    .who-we-are-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .who-we-are-image {
+      order: -1; /* Image moves to top on mobile */
+    }
+
+    .who-we-are-cta {
+      text-align: left;
+    }
+  }
+</style>

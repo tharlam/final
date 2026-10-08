@@ -1,0 +1,8 @@
+User-agent: Googlebot-Image
+# Matches your subfolder structure
+Disallow: /final/private-assets/
+Allow: /final/gallery/
+
+User-agent: *
+Allow: /
+Sitemap: https://tharlam.github.io/final/sitemap-index.xml

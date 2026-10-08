@@ -1,0 +1,17 @@
+---
+// src/components/NewsCard.astro
+interface Props {
+  entry: {
+    slug: string;
+    data: {
+      title: string;
+      pubDate: Date;
+    };
+  };
+}
+const { entry } = Astro.props;
+---
+<div>
+  <h2><a href={`/news/${entry.slug}`}>{entry.data.title}</a></h2> 
+  <p>Published: {entry.data.pubDate.toDateString()}</p>
+</div>

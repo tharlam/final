@@ -1,0 +1,249 @@
+<section class="academy-cta-section">
+  <div class="container">
+    <button id="openModalBtn" class="academy-btn" data-i18n="modal_open_btn"
+    ></button>
+  </div>
+</section>
+
+<div id="curriculumModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" aria-label="Close">&times;</span>
+
+    <img
+      src="/final/private-assets/Model.webp"
+      alt="Buddha Background"
+      class="buddha-bg"
+      data-i18n-alt="modal_img_alt"
+    />
+
+    <div class="content-wrapper">
+      <div class="modal-header">
+        <p class="section-title" data-i18n="modal_title"></p>
+        <p class="subtitle">
+          <i data-i18n="modal_subtitle"></i>
+        </p>
+      </div>
+
+      <div class="curriculum-body">
+        <div class="curriculum-item">
+          <p class="item-title" data-i18n="modal_item1_title"></p>
+          <p data-i18n="modal_item1_p1"></p>
+          <p data-i18n="modal_item1_p2"></p>
+          <p data-i18n="modal_item1_p3"></p>
+        </div>
+
+        <div class="curriculum-item">
+          <p class="item-title" data-i18n="modal_item2_title"></p>
+          <p data-i18n="modal_item2_p1"></p>
+          <p data-i18n="modal_item2_p2"></p>
+        </div>
+
+        <div class="curriculum-item">
+          <p class="item-title" data-i18n="modal_item3_title"></p>
+          <p data-i18n="modal_item3_p1"></p>
+          <p data-i18n="modal_item3_p2"></p>
+          <p data-i18n="modal_item3_p3"></p>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <button
+          id="closeModalBtn"
+          class="btn primary-btn"
+          data-i18n="modal_close_btn"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* --- Layout & Typography --- */
+  .academy-cta-section {
+    padding: 10px;
+    text-align: center;
+  }
+  .container {
+    width: var(--container-width);
+    max-width: var(--max-container);
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    margin-bottom: var(--space-small);
+  }
+  .subtitle {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    margin-bottom: var(--space-gap);
+    line-height: var(--line-height-text);
+  }
+  .item-title {
+    font-size: var(--font-body);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 8px;
+  }
+  .curriculum-item p {
+    font-size: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  /* --- Modal Container --- */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-dark-overlay);
+    backdrop-filter: blur(8px);
+  }
+
+  .modal-content {
+    background-color: #fdf8ee;
+    margin: 2rem auto;
+    padding: var(--space-gap);
+    border: 3px solid var(--color-primary);
+    width: 95%;
+    max-width: 600px;
+    border-radius: var(--space-small);
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    animation: modalSlideIn 0.3s ease-out;
+
+    /* Scroll & Edge Fix */
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-height: 85vh;
+  }
+
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* --- FIXED Watermark Photo --- */
+  .buddha-bg {
+    position: fixed; /* Stays still while text moves */
+    top: 50%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Controlled size for desktop */
+    height: auto;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .modal-header {
+    text-align: center;
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: var(--space-gap);
+    padding-bottom: var(--space-small);
+  }
+
+  .curriculum-item {
+    padding-left: 15px;
+    border-left: 3px solid var(--color-primary);
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+  }
+
+  /* --- Buttons --- */
+  .academy-btn {
+    padding: var(--space-small) var(--space-gap);
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    font-size: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .primary-btn {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: var(--space-small) var(--space-gap);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* --- Small Screen Optimization --- */
+  @media (max-width: 480px) {
+    .modal {
+      padding: 0;
+    }
+    .modal-content {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+      padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+    .buddha-bg {
+      width: 80%; /* Large but contained on mobile */
+      opacity: 0.09;
+    }
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      transform: translate(0, 10px);
+      opacity: 0;
+    }
+    to {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script is:inline>
+  const modal = document.getElementById("curriculumModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.querySelector(".close-btn");
+  const closeBtnLower = document.getElementById("closeModalBtn");
+
+  if (openBtn && modal) {
+    const closeModal = () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+    openBtn.onclick = () => {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    };
+    closeBtn.onclick = closeModal;
+    closeBtnLower.onclick = closeModal;
+    window.onclick = (event) => {
+      if (event.target == modal) closeModal();
+    };
+  }
+</script>
